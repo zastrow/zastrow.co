@@ -1,0 +1,30 @@
+<h3>Articles</h3>
+<ul class="cmp-article-card">
+	{% for acticle in external_articles limit:8 %}
+	<li class="cmp-article-card__item">
+		<a href="{{ acticle.link }}" class="cmp-article-card__link" aria-label="Read {{ acticle.title }} on {{ acticle.source }}">
+			<span class="cmp-article-card__meta">
+				<time datetime="{{ acticle.date }}" class="cmp-article-card__term">
+					{{ acticle.date | date: "%e %B %Y" }}
+				</time>
+				<span class="cmp-article-card__source" >
+					{{ acticle.source }}
+				</span>
+			</span>
+			<span class="cmp-article-card__title">
+				{{ acticle.title }}
+			</span>
+			{% if acticle.additional_authors %}
+				<span class="cmp-article-card__collaborators">
+					Written in collaboration with
+					{% for collaborator in acticle.additional_authors %}
+						{{ collaborator }}
+					{% endfor %}
+				</span>
+			{% endif %}
+		</a>
+	</li>
+	{% endfor %}
+</ul>
+
+<a href="/articles" class="cmp-button">More Articles</a>

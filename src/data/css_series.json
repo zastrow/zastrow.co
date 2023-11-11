@@ -1,0 +1,102 @@
+[
+  {
+    "title": "How To Apply CSS Styles to HTML with Cascade and Specificity",
+    "link": "https://www.digitalocean.com/community/tutorials/how-to-apply-css-styles-to-html-with-cascade-and-specificity",
+    "date": "2020-09-25T00:00:00.000Z"
+  },
+  {
+    "title": "How To Select HTML Elements to Style with CSS",
+    "link": "https://www.digitalocean.com/community/tutorials/how-to-select-html-elements-to-style-with-css",
+    "date": "2020-10-19T00:00:00.000Z"
+  },
+  {
+    "title": "How To Style Text Elements with Font, Size, and Color in CSS",
+    "link": "https://www.digitalocean.com/community/tutorials/how-to-style-text-elements-with-font-size-and-color-in-css",
+    "date": "2020-11-20T00:00:00.000Z"
+  },
+  {
+    "title": "How To Work with the Box Model in CSS",
+    "link": "https://www.digitalocean.com/community/tutorials/how-to-work-with-the-box-model-in-css",
+    "date": "2021-01-14T00:00:00.000Z"
+  },
+  {
+    "title": "How To Use Common Units in CSS",
+    "link": "https://www.digitalocean.com/community/tutorials/how-to-use-common-units-in-css",
+    "date": "2021-02-09T00:00:00.000Z"
+  },
+  {
+    "title": "How To Lay Out Text with CSS",
+    "link": "https://www.digitalocean.com/community/tutorials/how-to-lay-out-text-with-css",
+    "date": "2021-02-22T00:00:00.000Z"
+  },
+  {
+    "title": "How To Use Color Values with CSS",
+    "link": "https://www.digitalocean.com/community/tutorials/how-to-use-color-values-with-css",
+    "date": "2021-03-01T00:00:00.000Z"
+  },
+  {
+    "title": "How To Use Links and Buttons with State Pseudo-Classes in CSS",
+    "link": "https://www.digitalocean.com/community/tutorials/how-to-use-links-and-buttons-with-state-pseudo-classes-in-css",
+    "date": "2021-03-29T00:00:00.000Z"
+  },
+  {
+    "title": "How To Select HTML Elements Using ID, Class, and Attribute Selectors in CSS",
+    "link": "https://www.digitalocean.com/community/tutorials/how-to-select-html-elements-using-id-class-and-attribute-selectors-in-css",
+    "date": "2021-04-21T00:00:00.000Z"
+  },
+  {
+    "title": "How To Style a Table with CSS",
+    "link": "https://www.digitalocean.com/community/tutorials/how-to-style-a-table-with-css",
+    "date": "2021-05-13T00:00:00.000Z"
+  },
+  {
+    "title": "How To Use Float and Columns to Lay Out Content with CSS",
+    "link": "https://www.digitalocean.com/community/tutorials/how-to-use-float-and-columns-to-lay-out-content-with-css",
+    "date": "2021-07-30T00:00:00.000Z"
+  },
+  {
+    "title": "How To Apply Background Styles to HTML Elements with CSS",
+    "link": "https://www.digitalocean.com/community/tutorials/how-to-apply-background-styles-to-html-elements-with-css",
+    "date": "2021-08-27T00:00:00.000Z"
+  },
+  {
+    "title": "How To Use Relationships to Select HTML Elements with CSS",
+    "link": "https://www.digitalocean.com/community/tutorials/how-to-use-relationships-to-select-html-elements-with-css",
+    "date": "2021-10-12T00:00:00.000Z"
+  },
+  {
+    "title": "How To Use the Display Property to Manipulate the Box Model in CSS",
+    "link": "https://www.digitalocean.com/community/tutorials/how-to-use-the-display-property-to-manipulate-the-box-model-in-css",
+    "date": "2021-10-27T00:00:00.000Z"
+  },
+  {
+    "title": "How To Load and Use Custom Fonts with CSS",
+    "link": "https://www.digitalocean.com/community/tutorials/how-to-load-and-use-custom-fonts-with-css",
+    "date": "2021-11-24T00:00:00.000Z"
+  },
+  {
+    "title": "How To Create Layout Features with Position and Z-Index in CSS",
+    "link": "https://www.digitalocean.com/community/tutorials/how-to-create-layout-features-with-position-and-z-index-in-css",
+    "date": "2021-12-07T00:00:00.000Z"
+  },
+  {
+    "title": "How To Style HTML Elements with Borders, Shadows, and Outlines in CSS",
+    "link": "https://www.digitalocean.com/community/tutorials/how-to-style-html-elements-with-borders-shadows-and-outlines-in-css",
+    "date": "2021-12-15T00:00:00.000Z"
+  },
+  {
+    "title": "How To Use Opacity and Transparency to Create a Modal in CSS",
+    "link": "https://www.digitalocean.com/community/tutorials/how-to-use-opacity-and-transparency-to-create-a-modal-in-css",
+    "date": "2021-12-29T00:00:00.000Z"
+  },
+  {
+    "title": "How To Style Figure and Image HTML Elements with CSS",
+    "link": "https://www.digitalocean.com/community/tutorials/how-to-style-figure-and-image-html-elements-with-css",
+    "date": "2022-01-06T00:00:00.000Z"
+  },
+  {
+    "title": "How To Style Common Form Elements with CSS",
+    "link": "https://www.digitalocean.com/community/tutorials/how-to-style-common-form-elements-with-css",
+    "date": "2022-01-11T00:00:00.000Z"
+  }
+]

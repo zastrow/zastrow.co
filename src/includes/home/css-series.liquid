@@ -1,0 +1,24 @@
+<h3>CSS Series</h3>
+<p>
+	This is a 20-part introductory series to CSS for the DigitalOcean
+	Community that was published over the course of 2020-22. My hope and goal for
+	this series was to provide practical CSS examples and demos for both veteran
+	and new developers.
+</p>
+
+<div class="obj-watcher">
+	<ul class="cmp-article-card cmp-article-card--two-col">
+		{% for post in css_series limit:10 %}
+				<li class="cmp-article-card__item">
+					<a href="{{ post.link }}" class="cmp-article-card__link" aria-label="Read {{ post.title }} on Digital Ocean">
+						<span class="cmp-article-card__meta" >
+							<time datetime="{{ post.date }}" class="cmp-article-card__term">{{ post.date | date: "%e %B %Y" }}</time>
+						</span>
+						<span class="cmp-article-card__title">{{ post.title }}</span>
+					</a>
+				</li>
+		{% endfor %}
+	</ul>
+</div>
+
+<a href="https://www.digitalocean.com/community/tutorial_series/how-to-style-html-with-css" class="cmp-button" aria-label="External Link - Full Series on DigitalOcean">Full Series on DigitalOcean</a>

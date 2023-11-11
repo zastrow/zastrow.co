@@ -1,0 +1,14 @@
+<ul class="cmp-video-list">
+	{% for video in videos %}
+		<li class="cmp-video-list__item">
+			<a href="https://www.youtube.com/watch?v={{ video.ytcode }}" class="cmp-video-list__link" aria-label="Watch {{ video.title }} on YouTube">
+				<h3 id="video-{{ video.ytcode }}" class="cmp-video-list__title">{{ video.title }}</h3>
+				<img
+					class="cmp-video-list__image"
+					src="/assets/video-thumbs/{{ video.image }}"
+					aria-labelledby="video-{{ video.ytcode }}"
+				/>
+			</a>
+		</li>
+	{% endfor %}
+</ul>

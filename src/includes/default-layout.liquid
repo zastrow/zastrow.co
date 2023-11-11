@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>
+			{% if layout != "home" %}{{ title }} | {% endif %}Philip Zastrow
+		</title>
+		<meta name="color-scheme" content="dark light">
+		<link rel="icon" type="image/png" href="/favicon.png">
+		<link rel="preload" href="/fonts/mona-sans.woff2" as="font" type="font/woff2" crossorigin>
+		<link rel="stylesheet" href="/style.css">
+	</head>
+	<body class="{{layout-name}}">
+		<div>
+			<a href="#main" class="cmp-skip-link">Skip to content</a>
+			{% block skip_links %}
+			{% endblock %}
+		</div>
+		{% block header %}
+		{% endblock %}
+		<main id="main">
+			{% block main %}
+			{% endblock %}
+		</main>
+		{% block footer %}
+			{% render "footer" %}
+		{% endblock %}
+		<!-- Rendered on {{ "now" | date: "%Y-%m-%dT%H:%M:%S", 360 }} -->
+	</body>
+</html>

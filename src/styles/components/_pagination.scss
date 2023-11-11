@@ -1,0 +1,85 @@
+.cmp-pagination {
+  display: grid;
+  grid-template-columns: 8rem 1fr 8rem;
+  justify-content: space-between;
+  border-radius: 0.5rem;
+
+  position: relative;
+  z-index: var(--z-3);
+  box-shadow:
+    0 0 0 2px hsl(0deg 0% 50% / 10%) inset,
+    0 0 0 1px hsl(0deg 100% 100%) inset,
+    0 0 2rem hsl(208deg 5% 85% / 50%) inset,
+    0 2rem 2rem -1rem hsl(0deg 0% 0% / 50%);
+
+  @media (prefers-color-scheme: dark) {
+    box-shadow:
+      0 0 0 2px hsl(0deg 0% 50% / 10%) inset,
+      0 0 0 1px hsl(208deg 5% 15%) inset,
+      0 0 2rem hsl(208deg 5% 15%) inset,
+      0 2rem 2rem -1rem hsl(0deg 0% 0% / 50%);
+  }
+
+  &__link {
+    text-align: center;
+    display: block;
+    background: var(--simple-gradient);
+    background-size: auto 200%;
+    padding: var(--space-sm) var(--space-lg);
+    font-variation-settings: var(--primary-var-semibold);
+    text-decoration: none;
+    color: var(--color-white);
+    transition: background-position-y var(--animation-duration) linear;
+    border: 1px solid transparent;
+
+    &[href] {
+      text-shadow: 0 0.125rem 0.25rem hsl(var(--color-quarternary-hsl) / 60%);
+      border-color: var(--color-primary);
+
+      @media (prefers-color-scheme: dark) {
+        border-color: var(--color-secondary);
+      }
+    }
+
+    &[href]:hover {
+      background-position-y: 100%;
+    }
+
+    &--prev {
+      border-radius: 0.5rem 0 0 0.5rem;
+      border-right: none;
+    }
+
+    &--next {
+      border-radius: 0 0.5rem 0.5rem 0;border-left: none;
+    }
+
+    &--inactive {
+      color: inherit;
+      color: var(--color-gray-3);
+      background: none var(--color-gray-1);
+      border-color: var(--color-gray-2);
+      cursor: default;
+
+      @media (prefers-color-scheme: dark) {
+        color: var(--color-gray-2);
+        background: none var(--color-gray-4);
+        border-color: var(--color-gray-3);
+      }
+    }
+  }
+
+  &__status {
+    text-align: center;
+    flex-grow: 2;
+    background-color: var(--color-white);
+    padding: var(--space-sm) var(--space-lg);
+    border-top: 1px solid var(--color-gray-2);
+    border-bottom: 1px solid var(--color-gray-2);
+
+    @media (prefers-color-scheme: dark) {
+      background-color: var(--color-gray-5);
+      border-color: var(--color-gray-4);
+    }
+  }
+}

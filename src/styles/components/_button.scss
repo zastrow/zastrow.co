@@ -1,0 +1,67 @@
+.cmp-button {
+  text-decoration: none;
+  border: none;
+  margin: 0;
+  text-align: inherit;
+  font: inherit;
+  appearance: none;
+  position: relative;
+  display: inline-block;
+  font-size: var(--font-md);
+  font-variation-settings: var(--primary-var-medium);
+  padding: var(--space-sm) var(--space-md);
+  border-radius: var(--space-sm);
+  text-shadow: 0 -1px var(--color-dark);
+  color: var(--color-gray-1);
+  background: linear-gradient(to bottom, var(--color-gray-4), var(--color-gray-5), var(--color-dark)) top left / 200% 200%;
+  box-shadow:
+    0 0 0 1px hsl(208deg 5% 15%) inset,
+    0 2px hsl(208deg 5% 95% / 30%) inset,
+    0 -2px hsl(208deg 5% 5%) inset,
+    0 0.5rem 0.75rem -0.25rem hsl(208deg 5% 5% / 50%);
+  will-change: transform;
+  transition:
+    transform var(--animation-duration) ease-in-out,
+    background-position var(--animation-duration) ease-in-out,
+    color var(--animation-duration) ease-in-out;
+
+  @media (prefers-color-scheme: dark) {
+    text-shadow: 0 1px var(--color-light);
+    color: var(--color-gray-5);
+    background: linear-gradient(to bottom, var(--color-light), var(--color-gray-2)) top 100% left / 200% 200%;
+    box-shadow:
+      0 0 0 1px hsl(208deg 5% 30%) inset,
+      0 2px hsl(208deg 5% 95% / 80%) inset,
+      0 -2px hsl(208deg 5% 95% / 40%) inset,
+      0 0.5rem 0.75rem -0.25rem hsl(208deg 5% 5% / 50%);
+  }
+
+  &:hover {
+    background-position: top 100% left;
+    transform: translateY(-4px);
+
+    @media (prefers-color-scheme: dark) {
+      color: var(--color-dark);
+      text-shadow: 0 1px var(--color-light);
+      background-position: top 0 left;
+      box-shadow:
+        0 0 0 1px hsl(208deg 5% 50%) inset,
+        0 2px hsl(208deg 5% 95% / 80%) inset,
+        0 -2px hsl(208deg 5% 95% / 40%) inset,
+        0 0.5rem 0.75rem -0.25rem hsl(208deg 5% 5% / 50%);
+    }
+  }
+
+  &--gradient {
+    transform: translateY(calc(var(--space-1xl) * -1));
+
+    &:hover {
+      transform: translateY(calc((var(--space-1xl) * -1) - 4px));
+    }
+  }
+
+  &--small {
+    padding: var(--space-1xs) var(--space-md);
+    font-size: var(--font-sm);
+  }
+}

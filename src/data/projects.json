@@ -1,0 +1,154 @@
+[
+  {
+    "name": "2022 Design Systems&nbsp;Survey",
+    "desc": "The fifth edition of the survey featured a fantastic design by [Jeremy Loyd](https://www.jloyd.net/). I was thrilled to help develop this site with highlights being the CSS-based charts, an extensive use of CSS custom properties, and versatile grid system built for the design.",
+    "stats": [
+      {
+        "type": "Project Lead",
+        "quantity": 20
+      },
+      {
+        "type": "Development",
+        "quantity": 80
+      }
+    ],
+    "links": [
+      {
+        "text": "Project Repo",
+        "link": "https://github.com/sparkbox/designsystemssurvey/"
+      },
+      {
+        "text": "View Site",
+        "link": "https://designsystemssurvey.seesparkbox.com/2022"
+      }
+    ]
+  },
+  {
+    "name": "Ozinga Brothers",
+    "desc": "I designed the Culture Guide product interface and worked on the frontend development of both the Work Style and Culture Guide products. I helped lead the effort for the CSS portion of the design system as well. Screenshots of the design work featured on the case study.",
+    "stats": [
+      {
+        "type": "Project Lead",
+        "quantity": 40
+      },
+      {
+        "type": "Development",
+        "quantity": 60
+      }
+    ],
+    "links": [
+      {
+        "text": "View Site",
+        "link": "https://ozinga.com"
+      }
+    ]
+  },
+  {
+    "name": "University of Georgia Office of Online Learning Design&nbsp;System",
+    "desc": "I worked with my team at Sparkbox to audit existing web properties, research, and plan a platform-agnostic design system for Office of Online Learning that could grow and be adopted by the whole University. I updated the design of components to match UGA’s brand guide and lead the development effort to build the system.",
+    "stats": [
+      {
+        "type": "Project Lead",
+        "quantity": 25
+      },
+      {
+        "type": "Development",
+        "quantity": 40
+      },
+      {
+        "type": "Planning",
+        "quantity": 10
+      },
+      {
+        "type": "Design",
+        "quantity": 25
+      }
+    ],
+    "links": [
+      {
+        "text": "View Site",
+        "link": "https://design.online.uga.edu/"
+      },
+      {
+        "text": "Case Study",
+        "link": "https://sparkbox.com/work/uga"
+      }
+    ]
+  },
+  {
+    "name": "2019 Design Systems&nbsp;Survey",
+    "desc": "For the second design system survey site, I lead the design effort which involved bringing in digital artist James White to create a custom work that would be the header of the website. The artwork drove the synth-wave aesthetic and provided opportunities for fitting animations.",
+    "stats": [
+      {
+        "type": "Project Lead",
+        "quantity": 30
+      },
+      {
+        "type": "Design",
+        "quantity": 30
+      },
+      {
+        "type": "Development",
+        "quantity": 40
+      }
+    ],
+    "links": [
+      {
+        "text": "Project Repo",
+        "link": "https://github.com/sparkbox/designsystemssurvey/"
+      },
+      {
+        "text": "View Site",
+        "link": "https://designsystemssurvey.seesparkbox.com/2019"
+      }
+    ]
+  },
+  {
+    "name": "Aperian Global",
+    "desc": "I designed the Culture Guide product interface and worked on the frontend development of both the Work Style and Culture Guide products. I helped lead the effort for the CSS portion of the design system as well. Screenshots of the design work featured on the case study.",
+    "stats": [
+      {
+        "type": "Development",
+        "quantity": 70
+      },
+      {
+        "type": "Design",
+        "quantity": 30
+      }
+    ],
+    "links": [
+      {
+        "text": "Case Study",
+        "link": "https://sparkbox.com/work/aperian-global"
+      }
+    ]
+  },
+  {
+    "name": "University of Notre Dame 2012&nbsp;Redesign",
+    "desc": "Though nearly a decade old, the design for the University of Notre Dame website is one of the highlights of my career as a designer. I worked at ND for just under a year when I was tasked with designing and help developing a complete reworking of the University’s then six-month old website.",
+    "stats": [
+      {
+        "type": "Planning",
+        "quantity": 20
+      },
+      {
+        "type": "Design",
+        "quantity": 50
+      },
+      {
+        "type": "Development",
+        "quantity": 30
+      }
+    ],
+    "links": [
+      {
+        "text": "Interview",
+        "link": "https://www.mstoner.com/blog/design-and-usability/reinventing_the_wheel_the_innovation_behind_notre_dames_unique_new_homepage/"
+      },
+      {
+        "text": "Cached Site",
+        "link": "https://web.archive.org/web/20120414205757/http://www.nd.edu:80/"
+      }
+    ]
+  }
+]

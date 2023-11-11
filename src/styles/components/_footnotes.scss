@@ -1,0 +1,46 @@
+.cmp-footnote {
+	&,
+	&:link,
+	&:active {
+		color: var(--color-link);
+		text-underline-offset: 0.125em;
+		text-decoration: underline;
+		text-decoration-thickness: 2px;
+		text-decoration-color: var(--link-underline);
+		transition:
+			color var(--animation-duration) var(--animation-timing),
+			text-decoration-color var(--animation-duration) var(--animation-timing),
+			text-underline-offset var(--animation-duration) var(--animation-timing);
+
+		@media (prefers-color-scheme: dark) {
+			text-decoration-color: hsl(208deg 80% 50% / 40%);
+		}
+	}
+
+	&:hover {
+		text-underline-offset: 0.25em;
+		color: var(--color-text);
+		text-decoration-color: var(--color-primary);
+	}
+}
+
+.cmp-footnotes {
+	margin-top: var(--space-1xl);
+	padding-top: var(--space-lg);
+	border-top: 1px solid var(--color-gray-4);
+
+	ol:not([class]) {
+		margin: 0;
+	}
+
+	p:not([class]),
+	li:not([class]) {
+		margin: 0;
+		font-size: var(--font-xs);
+		color: var(--color-gray-2);
+	}
+
+	&__return-link {
+		color: var(--color-gray-4);
+	}
+}

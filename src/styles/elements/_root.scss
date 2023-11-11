@@ -1,0 +1,36 @@
+@use "../settings/breakpoints" as *;
+@use "root/colors" as *;
+@use "root/fonts" as *;
+@use "root/z-index" as *;
+@use "root/spacing" as *;
+
+:root {
+  @include colors;
+  @include fonts;
+  @include z-index;
+  @include spacing;
+
+  /* Other Props */
+  --gradient-padding: 10rem;
+  --deg: 170deg;
+  --gradient: linear-gradient(var(--deg),
+    var(--color-tertiary) 0%,
+    var(--color-secondary) 10%,
+    var(--color-primary) 75%,
+    var(--color-quarternary) 100%
+  );
+
+  --simple-gradient:
+    linear-gradient(
+      180deg,
+      var(--color-secondary),
+      var(--color-primary)
+    );
+
+  --animation-duration: 250ms;
+  --animation-timing: cubic-bezier(0,1,0.5,1);
+
+  @media (min-width: $lg) {
+    --gradient-padding: 10vh;
+  }
+}

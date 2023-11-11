@@ -1,0 +1,43 @@
+<header>
+	<h2 class="cmp-title">Projects</h2>
+	<p>This is a collection of websites and open-source projects I’ve worked on and love to show off!</p>
+</header>
+<div class="cmp-projects-list">
+{% for project in projects %}
+	<div class="cmp-projects-list__item">
+		<div class="cmp-projects-list__content">
+			<div class="cmp-projects-list__middle">
+				<div class="cmp-chart-wrapper" aria-hidden="true">
+					<div class="cmp-pie-chart"
+							 style="{% for stat in project.stats %}--object-{{ stat.type | slugify }}: {{ stat.quantity }}; {% endfor %}">
+						<div class="cmp-pie-chart__piece cmp-pie-chart__piece--planning"></div>
+						<div class="cmp-pie-chart__piece cmp-pie-chart__piece--project-lead"></div>
+						<div class="cmp-pie-chart__piece cmp-pie-chart__piece--design"></div>
+						<div class="cmp-pie-chart__piece cmp-pie-chart__piece--development"></div>
+					</div>
+				</div>
+				<div class="cmp-projects-list__details">
+					<h3 class="cmp-projects-list__title">
+						{{ project.name }}
+					</h3>
+					<ul class="cmp-pie-chart__keys">
+					{% for stat in project.stats %}
+							 <li class="cmp-pie-chart__key cmp-pie-chart__key--{{ stat.type | slugify }}">
+								 <strong class="cmp-pie-chart__key-emphasis">{{ stat.quantity }}%</strong>
+								 {{ stat.type }}
+							 </li>
+					{% endfor %}
+					</ul>
+					<ul class="cmp-projects-list__links">
+					{% for link in project.links %}
+							<li class="cmp-projects-list__link">
+								<a href="{{ link.link }}" class="cmp-button cmp-button--small" aria-label="{{ link.text }} for {{ project.name }}">{{ link.text }}</a>
+							</li>
+					{% endfor %}
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endfor %}
+</div>

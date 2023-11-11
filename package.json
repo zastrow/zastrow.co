@@ -1,0 +1,20 @@
+{
+  "name": "zastrow.eleventy",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "eleventy:dev": "eleventy --watch --serve",
+    "start": "npm run eleventy:dev & npm run styles:dev",
+    "styles": "sass src/styles/style.scss:dist/style.css",
+    "styles:dev": "npm run styles -- --watch"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@11ty/eleventy": "^2.0.1",
+    "autoprefixer": "^10.4.14",
+    "postcss-cli": "^10.1.0",
+    "sass": "^1.64.2"
+  }
+}

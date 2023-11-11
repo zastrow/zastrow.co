@@ -1,0 +1,53 @@
+.cmp-logo {
+  width: var(--logo-size);
+  height: calc((200 / 184) * var(--logo-size));
+  position: relative;
+  will-change: transform;
+  filter:
+    drop-shadow(0 -1px 0 #fff4)
+    drop-shadow(0 1px 0 #0004)
+    drop-shadow(0 4px 8px #0004);
+}
+.cmp-logo--shadow {
+  filter:
+    drop-shadow(0 1em 1em #0008)
+    drop-shadow(0 2em 4em #0004);
+}
+@media (prefers-color-scheme: dark) {
+  .cmp-logo--shadow {
+    filter:
+      drop-shadow(0 0.125em 0.25em #000b)
+      drop-shadow(0 0.5em 1em #0008);
+  }
+}
+.cmp-logo__top, .cmp-logo__bottom, .cmp-logo__diagonal {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  mask-size: contain;
+  mask-repeat: no-repeat;
+}
+.cmp-logo__top {
+  mask-image: url(/assets/top.svg);
+  background:
+    linear-gradient(138.5deg, hsl(6deg 71% 25% / 0) 36%, hsl(6deg 71% 25%) 46%),
+    linear-gradient(138.5deg, hsl(6deg 70% 30% / 0) 35%, hsl(6deg 70% 30%) 50%),
+    linear-gradient(100deg, hsl(36deg 100% 71%) 10%, hsl(18deg 80% 62%) 30%, hsl(6deg 60% 42%) 60%, hsl(6deg 70% 30%) 70%);
+}
+.cmp-logo__bottom {
+  mask-image: url(/assets/bottom.svg);
+  background:
+    radial-gradient(circle at 100% 80%, var(--color-primary) 2%, hsl(314deg 60% 39% / 0) 35%),
+    linear-gradient(318.5deg, hsl(319deg 100% 3% / 0) 36%, hsl(319deg 100% 3%) 46%),
+    linear-gradient(280deg, hsl(309deg 52% 33%) 10%, hsl(305deg 100% 22%) 30%, hsl(316deg 100% 8%) 60%);
+}
+.cmp-logo__diagonal {
+  mask-image: url(/assets/diagonal.svg);
+  background:
+    radial-gradient(circle at 90% 5%, hsl(28deg 77% 67%) 2%, hsl(28deg 77% 67% / 0) 30%),
+    radial-gradient(circle at 25% 125%, hsl(316deg 79% 11%) 0%, hsl(316deg 79% 11% / 0) 50%),
+    radial-gradient(circle at 15% 100%, hsl(316deg 81% 26%) 0%, hsl(316deg 81% 26% / 0) 30%),
+    linear-gradient(41.5deg, var(--color-primary) 20%, var(--color-secondary) 70%);
+}

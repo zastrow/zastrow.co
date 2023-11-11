@@ -1,0 +1,7 @@
+p:not([class]) {
+  font-size: var(--font-md);
+}
+
+p:not([class]) strong:not([class]) {
+  font-variation-settings: var(--primary-var-bold);
+}

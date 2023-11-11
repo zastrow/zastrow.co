@@ -1,0 +1,44 @@
+.cmp-skip-link {
+  position: fixed;
+  right: 100%;
+  bottom: 100%;
+  clip-path: inset(50%);
+  opacity: 0;
+  transform-origin: 0 0;
+  box-sizing: border-box;
+
+  border-radius: 1rem;
+  padding: 2rem;
+  text-align: center;
+  text-decoration: underline 0.125em solid;
+  text-underline-offset: 0.5em;
+  font-size: var(--font-md);
+  color: var(--color-light);
+  background-color: var(--color-dark);
+
+
+  @media (prefers-reduced-motion: no-preference) {
+    scale: 0.5;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    border: 0.24rem solid currentColor;
+  }
+}
+
+.cmp-skip-link:focus,
+.cmp-skip-link:focus-visible {
+  outline: none;
+  clip-path: unset;
+  height: auto;
+  width: auto;
+
+  z-index: var(--z-10);
+  inset: 1rem auto auto 50%;
+  transform: translateX(-50%);
+
+  transition: ease-in-out 150ms;
+  transition-property: opacity, scale;
+  scale: 1;
+  opacity: 1;
+}

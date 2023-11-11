@@ -1,0 +1,19 @@
+<div class="obj-content-width">
+	<nav class="cmp-pagination">
+		{% if pagination.href.previous %}
+			<a class="cmp-pagination__link cmp-pagination__link--prev" href="{{pagination.href.previous}}">Previous</a>
+		{% else %}
+			<span aria-hidden="true" class="cmp-pagination__link cmp-pagination__link--prev cmp-pagination__link--inactive">Previous</span>
+		{% endif %}
+
+		<div class="cmp-pagination__status">Page
+			<strong>{{ pagination.pageNumber | plus: 1 }}</strong> of <strong>{{ pagination.pages.size }}</strong>
+		</div>
+
+		{% if pagination.href.next %}
+			<a class="cmp-pagination__link cmp-pagination__link--next" href="{{pagination.href.next}}">Next</a>
+		{% else %}
+			<span aria-hidden="true" class="cmp-pagination__link cmp-pagination__link--next cmp-pagination__link--inactive">Next</span>
+		{% endif %}
+	</nav>
+</div>

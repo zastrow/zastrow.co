@@ -1,0 +1,27 @@
+.obj-section {
+  min-height: 100vh;
+
+  &::before {
+    content: '';
+    display: block;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
+    background: var(--gradient);
+  }
+
+  &__content {
+    min-height: 100vh;
+    position: relative;
+    z-index: 100;
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+  }
+  
+  &__main {
+    flex-grow: 2;
+  }
+}
