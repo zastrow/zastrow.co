@@ -4,17 +4,26 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "eleventy:dev": "eleventy --watch --serve",
+    "build": "eleventy && npm run styles && npm run postcss",
     "start": "npm run eleventy:dev & npm run styles:dev",
+    "eleventy:dev": "eleventy --watch --serve",
     "styles": "sass src/styles/style.scss:dist/style.css",
-    "styles:dev": "npm run styles -- --watch"
+    "styles:dev": "npm run styles -- --watch & npm run postcss:dev",
+    "postcss": "postcss --use autoprefixer -o dist/style.css dist/style.css",
+    "postcss:dev": "npm run postcss -- --watch"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "@11ty/eleventy": "^2.0.1",
-    "autoprefixer": "^10.4.14",
+    "@11ty/eleventy-plugin-rss": "^1.2.0",
+    "autoprefixer": "^10.4.16",
+    "dotenv": "^16.3.1",
+    "eleventy-xml-plugin": "^0.1.0",
     "postcss-cli": "^10.1.0",
     "sass": "^1.64.2"
-  }
+  },
+  "browserslist": [
+    "defaults"
+  ]
 }

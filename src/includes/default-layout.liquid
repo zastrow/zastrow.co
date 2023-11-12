@@ -5,21 +5,36 @@
 		<title>
 			{% if layout != "home" %}{{ title }} | {% endif %}Philip Zastrow
 		</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<meta name="color-scheme" content="dark light">
 		<link rel="icon" type="image/png" href="/favicon.png">
+		<link rel="canonical" href="{{ site_url }}">
+		<meta name="description" content="Philip Zastrow: Designer, Developer, Web Accessibility Specialist, Writer, Speaker, et al">
+		<meta property="og:image" content="{{ site_url }}/images/og-image.png">
+		<meta property="og:url" content="{{ site_url }}">
 		<link rel="preload" href="/fonts/mona-sans.woff2" as="font" type="font/woff2" crossorigin>
+		<link rel="preload" href="/assets/bottom.svg" as="image" type="image/svg+xml">
+		<link rel="preload" href="/assets/diagonal.svg" as="image" type="image/svg+xml">
+		<link rel="preload" href="/assets/top.svg" as="image" type="image/svg+xml">
 		<link rel="stylesheet" href="/style.css">
+		<link href="mailto:webmaster@zastrow.co" rel="me">
+		<link href="https://www.linkedin.com/in/philip-zastrow" rel="me">
+		<link href="https://github.com/zastrow" rel="me">
+		<link href="https://mastodon.social/@zastrow" rel="me">
+		<link rel="alternate" hreflang="en" type="application/rss+xml" title="" href="{{ site_url }}/feed/">
+		<link rel="alternate" hreflang="en" type="application/rss+xml" title="" href="{{ site_url }}/feed/books/">
 	</head>
 	<body class="{{layout-name}}">
-		<div>
+		<nav>
 			<a href="#main" class="cmp-skip-link">Skip to content</a>
 			{% block skip_links %}
 			{% endblock %}
-		</div>
+		</nav>
 		{% block header %}
 		{% endblock %}
 		<main id="main">
 			{% block main %}
+				{{ content }}
 			{% endblock %}
 		</main>
 		{% block footer %}
