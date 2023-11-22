@@ -1,6 +1,22 @@
-$sm: 36rem;
-$md: 50rem;
-$lg: 60rem;
-$xl: 80rem;
+@use "sass:map";
+
+$breakpoints: (
+	'sm': 36,
+	'md': 50,
+	'lg': 60,
+	'xl': 80,
+	'max': 100
+);
+
+@function bp($size) {
+	$size: $size + '';
+	@return map.get($breakpoints, $size);
+}
+
+
+$sm: bp(sm) * 1rem;
+$md: bp(md) * 1rem;
+$lg: bp(lg) * 1rem;
+$xl: bp(xl) * 1rem;
 
 $cont-sm: 32.5rem;

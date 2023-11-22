@@ -82,11 +82,11 @@
  *    Specific UI components. This is where majority of our work takes place
  *    and our UI components are often composed of Objects and Components
  */
-@forward "components/site-header";
 @forward "components/skip-link";
+@forward "components/site-header";
+@forward "components/site-nav";
 @forward "components/logo";
 @forward "components/title";
-@forward "components/site-header";
 @forward "components/button";
 @forward "components/article-card";
 @forward "components/video-list";

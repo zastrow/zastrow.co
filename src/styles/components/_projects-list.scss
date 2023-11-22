@@ -17,20 +17,10 @@
     align-items: stretch;
     width: 100%;
     border-radius: var(--space-md);
-    background-color: hsl(208deg 5% 100%);
-    box-shadow:
-      inset 0 0 0 2px hsl(0deg 0% 50% / 10%),
-      inset 0 0 0 1px hsl(0deg 100% 100%),
-      inset 0 0 2rem hsl(208deg 5% 85% / 50%),
-      0 2rem 2rem -1rem hsl(0deg 0% 0% / 50%);
+    background-color: hsl(207deg 18% 100%);
 
     @media (prefers-color-scheme: dark) {
-      background-color: hsl(208, 5%, 15%);
-      box-shadow:
-        inset 0 0 0 2px hsl(0deg 0% 50% / 10%),
-        inset 0 0 0 1px hsl(208deg 5% 15%),
-        inset 0 0 2rem hsl(208deg 5% 15%),
-        0 2rem 2rem -1rem hsl(0deg 0% 0% / 50%);
+      background-color: hsl(207deg 18% 15%);
     }
   }
 
@@ -94,24 +84,25 @@
   &__title {
     margin: 0;
     font-family: var(--font-secondary);
-    font-variation-settings: var(--secondary-var-regular);
+    font-variation-settings: var(--secondary-var-heavy);
     font-size: var(--font-sm);
+    text-transform: uppercase;
     line-height: 1.2;
   }
 
   &__heading {
     margin: 0;
     font-size: var(--font-md);
-    text-shadow: 0 0.25em 0.5em hsl(0deg 100% 30% / 80%);
+    text-shadow: 0 0.25em 0.5em hsl(207deg 100% 30% / 80%);
   }
 
   &__description {
-    text-shadow: 0 0.25em 0.5em hsl(0deg 100% 30% / 80%);
+    text-shadow: 0 0.25em 0.5em hsl(207deg 100% 30% / 80%);
   }
 
   &__tasks,
   &__links {
-    text-shadow: 0 0.25em 0.5em hsl(0deg 100% 30% / 80%);
+    text-shadow: 0 0.25em 0.5em hsl(207deg 100% 30% / 80%);
     list-style: none;
     margin: 0;
     padding: 0;

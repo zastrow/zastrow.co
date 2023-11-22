@@ -5,6 +5,16 @@
 @use "root/spacing" as *;
 
 :root {
+  /* Breakpoint Values */
+  @each $key, $val in $breakpoints {
+    --bp-#{$key}: #{$val};
+  }
+
+  @each $key, $val in $breakpoints {
+    --bp-#{$key}-width: #{$val}rem;
+  }
+  --max-width: var(--bp-max-width);
+
   @include colors;
   @include fonts;
   @include z-index;

@@ -1,12 +1,14 @@
 @use "../settings/breakpoints" as *;
 
 .obj-gradient-block {
+  margin-block: var(--gradient-padding);
   padding: var(--gradient-padding) 0;
   position: relative;
   z-index: var(--z-1);
   background: var(--gradient) fixed;
+  background-position: 50% 10%;
+  background-size: 100% 160%;
   color: var(--color-light);
-  translate: 0 0; // Weird Safari Fix
 
   &::before,
   &::after {
@@ -28,8 +30,8 @@
       linear-gradient(
         -178deg,
         #000 50%,
-        #0008 calc(50% + 1px),
-        #0008 calc(50% + 9px),
+        #000 calc(50% + 1px),
+        #000 calc(50% + 9px),
         #0000 calc(50% + 10px)
       );
   }
@@ -41,8 +43,8 @@
       linear-gradient(
         -4deg,
         #000 50%,
-        #0008 calc(50% + 1px),
-        #0008 calc(50% + 9px),
+        #000 calc(50% + 1px),
+        #000 calc(50% + 9px),
         #0000 calc(50% + 10px)
       );
   }
@@ -61,12 +63,7 @@
   padding: var(--space-md);
   border-radius: var(--space-md);
   color: var(--color-text);
-  background-color: hsl(208, 5%, 100%);
-  box-shadow:
-    0 0 0 2px hsl(0deg 0% 50% / 10%) inset,
-    0 0 0 1px hsl(0deg 100% 100%) inset,
-    0 0 2rem hsl(208deg 5% 85% / 50%) inset,
-    0 2rem 2rem -1rem hsl(0deg 0% 0% / 50%);
+  background-color: var(--color-gray-1);
 
 
   @media (min-width: $md) {
@@ -74,21 +71,12 @@
     padding: var(--space-lg);
   }
 
-  @media (prefers-color-scheme: dark) {
-    background-color: hsl(208, 5%, 15%);
-    box-shadow:
-      0 0 0 2px hsl(0deg 0% 50% / 10%) inset,
-      0 0 0 1px hsl(208deg 5% 15%) inset,
-      0 0 2rem hsl(208deg 5% 15%) inset,
-      0 2rem 2rem -1rem hsl(0deg 0% 0% / 50%);
-  }
-
   @supports (backdrop-filter: blur(1px)) {
     backdrop-filter: blur(2rem);
-    background-color: hsl(208deg 5% 100% / 90%);
+    background-color: hsl(var(--color-gray-1-hsl) / 75%);
 
     @media (prefers-color-scheme: dark) {
-      background-color: hsl(208deg 5% 15% / 90%);
+      background-color: hsl(var(--color-gray-1-hsl) / 85%);
     }
   }
 }

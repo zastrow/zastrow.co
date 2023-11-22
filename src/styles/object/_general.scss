@@ -6,7 +6,7 @@
 
 .obj-width-limiter {
   margin: 0 auto;
-  width: clamp(18rem, calc(100% - 2rem), 100rem);
+  width: clamp(18rem, calc(100% - 4rem), var(--max-width));
 }
 
 .obj-width-header {

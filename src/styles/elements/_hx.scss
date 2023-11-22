@@ -1,11 +1,7 @@
-h1:not([class]),
-h2:not([class]),
-h3:not([class]),
-h4:not([class]),
-h5:not([class]),
-h6:not([class]) {
+:where(h1,h2,h3,h4,h5,h6):not([class]) {
   font-family: var(--font-secondary);
-  font-variation-settings: var(--secondary-var-light);
+  font-variation-settings: var(--secondary-var-heavy);
+  text-transform: uppercase;
   margin: 1em 0 0.5em;
 
   &:first-child {
@@ -15,30 +11,25 @@ h6:not([class]) {
 
 h1:not([class]) {
   font-size: var(--font-xl);
-  font-variation-settings: var(--secondary-var-regular);
 }
 
 h2:not([class]) {
   font-size: var(--font-xl);
-  font-variation-settings: var(--secondary-var-light);
 }
 
 h3:not([class]) {
   font-size: var(--font-lg);
-  font-variation-settings: var(--secondary-var-regular);
 }
 
 h4:not([class]) {
   font-size: var(--font-lg);
-  font-variation-settings: var(--secondary-var-light);
 }
 
 h5:not([class]) {
   font-size: var(--font-md);
-  font-variation-settings: var(--secondary-var-regular);
 }
 
 h6:not([class]) {
   font-size: var(--font-md);
-  font-variation-settings: var(--secondary-var-light);
+
 }
