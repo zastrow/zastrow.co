@@ -1,18 +1,25 @@
 <div class="cmp-site-header">
-	<div class="obj-width-header">
-		<div class="cmp-site-header__content">
-			<a href="/" rel="home" class="cmp-site-header__back-button" aria-label="Back to Homepage">
-				<svg  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" height="80" width="80" class="cmp-site-header__back-svg">
-					<path d="M10,40 70,40M30,20 10,40 30,60" class="cmp-site-header__back-arrow" />
-				</svg>
-			</a>
-			<a href="/" class="cmp-site-header__logo" aria-hidden="true">
+	<div class="obj-width-limiter">
+		<nav class="cmp-nav">
+			<a href="/" class="cmp-site-header__title">
 				<div class="cmp-logo">
 					<div class="cmp-logo__top"></div>
 					<div class="cmp-logo__bottom"></div>
 					<div class="cmp-logo__diagonal"></div>
 				</div>
+				<span class="cmp-site-header__name-mark">
+					<span class="cmp-site-header__first-name">Philip</span>
+					<span class="cmp-site-header__last-name">Zastrow</span>
+					<span class="cmp-site-header__slogan">Code<span aria-label="and">+</span><br>Design</span>
+				</span>
 			</a>
-		</div>
+			<ul class="cmp-nav__list">
+				{% for item in nav %}
+					<li class="cmp-nav__item">
+						<a href={{item.link}} class="cmp-nav__link">{{ item.name }}</a>
+					</li>
+				{% endfor %}
+			</ul>
+		</nav>
 	</div>
 </div>

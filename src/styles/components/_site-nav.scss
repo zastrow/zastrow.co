@@ -1,0 +1,20 @@
+.cmp-nav {
+	&__list {
+		padding: 0;
+		margin: 0;
+		display: flex;
+		gap: var(--space-lg);
+		list-style-type: '';
+	}
+
+	&__link {
+		font-family: var(--font-monospace);
+		font-size: var(--font-md);
+		font-variation-settings: 'wdth' 125, 'wght' 500;
+		text-transform: lowercase;
+
+		&:hover {
+			color: var(--color-primary);
+		}
+	}
+}

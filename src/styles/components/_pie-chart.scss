@@ -38,12 +38,12 @@
   mask-image:
   radial-gradient(
     #0000 var(--radius),
-    #0008 calc(var(--radius) + 1px),
-    #0008 calc(var(--radius) + 4px),
+    #0000 calc(var(--radius) + 1px),
+    #0000 calc(var(--radius) + 4px),
     #000f calc(var(--radius) + 5px),
     #000f calc(70% - 5px),
-    #0008 calc(70% - 4px),
-    #0008 70%,
+    #0000 calc(70% - 4px),
+    #0000 70%,
     #0000 calc(70% + 1px)
   );
 
@@ -74,39 +74,21 @@
       left: 0;
       position: absolute;
       border-radius: 50%;
-      box-shadow: inset 0 0 0 2px var(--color-bg-50);
       height: 1.5em;
-      width: 1.5em;
-      background-color: white;
+      aspect-ratio: 1 / 1;
     }
 
     &--planning::before {
-      background: linear-gradient(
-        to top left,
-        hsl(320deg 80% 35%),
-        hsl(320deg 90% 65%)
-      )
+      background-color: var(--color-planning);
     }
     &--project-lead::before {
-      background: linear-gradient(
-        to top left,
-        hsl(20deg 80% 55%),
-        hsl(45deg 80% 55%)
-      );
+      background-color: var(--color-project-lead);
     }
     &--design::before {
-      background: linear-gradient(
-        to top left,
-        hsl(300deg 80% 24%),
-        hsl(300deg 80% 35%)
-      );
+      background-color: var(--color-design);
     }
     &--development::before {
-      background: linear-gradient(
-        to top left,
-        hsl(208deg 80% 40%),
-        hsl(208deg 100% 60%)
-      );
+      background-color: var(--color-development);
     }
   }
 
@@ -123,11 +105,7 @@
     left: 0;
 
     &--planning {
-      background: radial-gradient(
-        hsl(320deg 80% 35%) var(--radius),
-        hsl(320deg 90% 65%) 65%,
-        hsl(320deg 80% 45%) 80%
-      );
+      background-color: var(--color-planning);
       mask-image: conic-gradient(
         #000f 0deg,
         #000f var(--turn-1),
@@ -136,11 +114,7 @@
     }
 
     &--project-lead {
-      background: radial-gradient(
-        hsl(20deg 80% 55%) var(--radius),
-        hsl(45deg 80% 55%) 65%,
-        hsl(35deg 80% 55%) 80%
-      );
+      background-color: var(--color-project-lead);
       mask-image: conic-gradient(
         #0000 0deg,
         #0000 var(--turn-1),
@@ -151,11 +125,7 @@
     }
 
     &--design {
-      background: radial-gradient(
-        hsl(300deg 80% 24%) var(--radius),
-        hsl(300deg 80% 35%) 65%,
-        hsl(300deg 80% 30%) 80%
-      );
+      background-color: var(--color-design);
       mask-image: conic-gradient(
         #0000 0deg,
         #0000 var(--turn-2),
@@ -166,11 +136,7 @@
     }
 
     &--development {
-      background: radial-gradient(
-        hsl(208deg 80% 40%) var(--radius),
-        hsl(208deg 100% 60%) 65%,
-        hsl(208deg 90% 50%) 80%
-      );
+      background-color: var(--color-development);
       mask-image: conic-gradient(
         #0000 0deg,
         #0000 var(--turn-3),

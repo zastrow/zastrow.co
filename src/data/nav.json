@@ -1,0 +1,26 @@
+[
+	{
+		"name": "Blog",
+		"link": "/posts"
+	},
+	{
+		"name": "Reading",
+		"link": "/books"
+	},
+	{
+		"name": "Articles",
+		"link": "/articles"
+	},
+	{
+		"name": "Shirts",
+		"link": "/shirts"
+	},
+	{
+		"name": "Uses",
+		"link": "/uses"
+	},
+	{
+		"name": "Feeds",
+		"link": "/feeds"
+	}
+]

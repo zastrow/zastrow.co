@@ -1,7 +1,6 @@
 .cmp-article-item {
 	display: flex;
 	flex-direction: column-reverse;
-	gap: 1rem;
 	margin: 4rem 0;
 
 	&__title,
@@ -10,10 +9,12 @@
 	}
 
 	&__title {
-		font-family: var(--font-secondary);
-		font-variation-settings: var(--secondary-var-regular);
+		font-family: var(--font-primary);
+		font-variation-settings: var(--secondary-var-heavy);
 		font-size: var(--font-lg);
 		font-weight: inherit;
+		margin-block: 0;
+		line-height: 1;
 	}
 
 	&__link {
@@ -33,27 +34,25 @@
 
 
 	&__meta {
+		font-family: var(--font-monospace);
+		font-variation-settings: 'wdth' 125, 'wght' 600;
 		font-size: var(--font-xs);
 		display: flex;
 		align-self: start;
-		gap: var(--space-sm);
-		margin-bottom: var(--space-sm);
+		gap: var(--space-md);
+		// margin-bottom: var(--space-sm);
 		padding: var(--space-1xs) var(--space-sm);
 		border-radius: var(--space-1xs);
-		background-color: hsl(0deg 0% 0% / 5%);
-
-		@media (prefers-color-scheme: dark) {
-			background-color: hsl(0deg 0% 100% / 10%);
-		}
 	}
 
 	&__date {
-		font-variation-settings: var(--primary-var-regular);
+		color: var(--color-gray-4);
+		font-variation-settings: 'wdth' 125, 'wght' 600;
 	}
 
 	&__source {
 		color: var(--color-primary);
-		font-variation-settings: var(--primary-var-semibold);
+		font-variation-settings: 'wdth' 125, 'wght' 800;
 	}
 
 	&__collaborators {
