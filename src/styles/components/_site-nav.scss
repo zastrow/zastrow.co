@@ -3,14 +3,16 @@
 		padding: 0;
 		margin: 0;
 		display: flex;
+		flex-wrap: wrap;
 		gap: var(--space-lg);
 		list-style-type: '';
 	}
 
 	&__link {
 		font-family: var(--font-monospace);
-		font-size: var(--font-md);
-		font-variation-settings: 'wdth' 125, 'wght' 500;
+		font-size: var(--font-size-4);
+		font-stretch:var(--font-stretch-10);
+		font-weight: var(--font-weight-3);
 		text-transform: lowercase;
 
 		&:hover {

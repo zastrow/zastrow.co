@@ -29,9 +29,9 @@ layout-name: articles
 								{{ article.title }}
 							</a>
 						</h2>
-						<p class="cmp-article-item__meta">
-							<time datetime="{{ article.date | date: "%Y-%m-%d" }}" class="cmp-article-item__date">{{ article.date | date: "%d %B %Y" }}</time>
-							<span class="cmp-article-item__source">
+						<p class="cmp-meta">
+							<time datetime="{{ article.date | date: "%Y-%m-%d" }}">{{ article.date | date: "%d %B %Y" }}</time>
+							<span class="cmp-meta__source">
 								{{ article.source }}
 							</span>
 						</p>

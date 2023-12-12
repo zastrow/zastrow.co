@@ -27,7 +27,7 @@
 .cmp-footnotes {
 	margin-top: var(--space-1xl);
 	padding-top: var(--space-lg);
-	border-top: 1px solid var(--color-gray-4);
+	border-top: 1px solid var(--color-mode-gray-4);
 
 	ol:not([class]) {
 		margin: 0;
@@ -37,10 +37,10 @@
 	li:not([class]) {
 		margin: 0;
 		font-size: var(--font-xs);
-		color: var(--color-gray-2);
+		color: var(--color-mode-gray-2);
 	}
 
 	&__return-link {
-		color: var(--color-gray-4);
+		color: var(--color-mode-gray-4);
 	}
 }

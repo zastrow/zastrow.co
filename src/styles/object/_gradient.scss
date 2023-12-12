@@ -1,82 +1,55 @@
 @use "../settings/breakpoints" as *;
 
 .obj-gradient-block {
-  margin-block: var(--gradient-padding);
-  padding: var(--gradient-padding) 0;
-  position: relative;
-  z-index: var(--z-1);
-  background: var(--gradient) fixed;
-  background-position: 50% 10%;
-  background-size: 100% 160%;
-  color: var(--color-light);
+	margin-block: var(--gradient-padding);
+	padding: var(--gradient-padding) 0;
+	position: relative;
+	z-index: var(--z-1);
 
-  &::before,
-  &::after {
-    content: '';
-    display: block;
-    position: absolute;
-    left: 0;
-    width: 100%;
-    z-index: var(--z-1);
-    pointer-events: none;
-    background-color: var(--color-background);
-    mask-size: cover;
-  }
-
-  &::before {
-    top: 0;
-    height: var(--gradient-padding);
-    mask-image:
-      linear-gradient(
-        -178deg,
-        #000 50%,
-        #000 calc(50% + 1px),
-        #000 calc(50% + 9px),
-        #0000 calc(50% + 10px)
-      );
-  }
-
-  &::after {
-    bottom: 0;
-    height: calc(var(--gradient-padding) * 1.5);
-    mask-image:
-      linear-gradient(
-        -4deg,
-        #000 50%,
-        #000 calc(50% + 1px),
-        #000 calc(50% + 9px),
-        #0000 calc(50% + 10px)
-      );
-  }
+	&::before {
+		$size: 4rem;
+		content: '';
+		display: block;
+		position: absolute;
+		inset: 0;
+		position: absolute;
+		z-index: calc(var(--z-1) - 1);
+		background-image: var(--gradient);
+		background-attachment: fixed;
+		clip-path: polygon(
+			0% 0%,
+			100% var(--gradient-padding),
+			100% calc(100% - var(--gradient-padding)),
+			0% 100%
+		);
+	}
 }
 
 .obj-gradient-block__interior {
-  position: relative;
-  z-index: var(--z-2);
-  margin: calc(var(--gradient-padding) * -0.5) 0 calc(var(--gradient-padding) * 0.25);
+	position: relative;
+	z-index: var(--z-2);
+	margin: calc(var(--gradient-padding) * -0.5) 0 calc(var(--gradient-padding) * 0.25);
 }
 
 .obj-gradient-block__content {
-  position: relative;
-  z-index: var(--z-3);
-  margin: calc(var(--gradient-padding) * -1) 0;
-  padding: var(--space-md);
-  border-radius: var(--space-md);
-  color: var(--color-text);
-  background-color: var(--color-gray-1);
+	position: relative;
+	z-index: var(--z-3);
+	margin: calc(var(--gradient-padding) * -1.5) 0;
+	padding: var(--space-md);
+	border-radius: var(--radius-3);
+	color: var(--color-text);
+	background-color: var(--color-mode-gray-1);
 
+	@media (min-width: $md) {
+		padding: var(--space-lg);
+	}
 
-  @media (min-width: $md) {
-    margin: calc(var(--gradient-padding) * -1.5) 0;
-    padding: var(--space-lg);
-  }
+	@supports (backdrop-filter: blur(1px)) {
+		backdrop-filter: blur(2rem);
+		background-color: hsl(var(--color-mode-gray-2-hsl) / 75%);
 
-  @supports (backdrop-filter: blur(1px)) {
-    backdrop-filter: blur(2rem);
-    background-color: hsl(var(--color-gray-1-hsl) / 75%);
-
-    @media (prefers-color-scheme: dark) {
-      background-color: hsl(var(--color-gray-1-hsl) / 85%);
-    }
-  }
+		@media (prefers-color-scheme: dark) {
+			background-color: hsl(var(--color-mode-gray-2-hsl) / 85%);
+		}
+	}
 }
