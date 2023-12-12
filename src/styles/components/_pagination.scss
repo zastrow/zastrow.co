@@ -2,7 +2,7 @@
   display: grid;
   grid-template-columns: 8rem 1fr 8rem;
   justify-content: space-between;
-  border-radius: 0.125rem;
+  border-radius: var(--radius-00);
 
   position: relative;
   z-index: var(--z-3);
@@ -31,28 +31,28 @@
     }
 
     &--prev {
-      border-radius: 0.125rem 0 0 0.125rem;
+      border-radius: var(--radius-00) 0 0 var(--radius-00);
       border-right: none;
     }
 
     &--next {
-      border-radius: 0 0.125rem 0.125rem 0;
+      border-radius: 0 var(--radius-00) var(--radius-00) 0;
       border-left: none;
     }
 
     &--inactive {
       color: inherit;
-      color: var(--color-gray-3);
-      background: none var(--color-gray-10);
+      color: var(--color-mode-gray-3);
+      background: none var(--color-mode-gray-10);
       cursor: default;
     }
   }
 
   &__status {
-    color: var(--color-gray-3);
+    color: var(--color-mode-gray-3);
     text-align: center;
     flex-grow: 2;
-    background-color: var(--color-gray-15);
+    background-color: var(--color-mode-gray-15);
     padding: var(--space-sm) var(--space-lg);
   }
 }

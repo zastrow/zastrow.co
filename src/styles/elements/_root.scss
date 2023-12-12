@@ -3,6 +3,7 @@
 @use "root/fonts" as *;
 @use "root/z-index" as *;
 @use "root/spacing" as *;
+@use "root/border-radius" as *;
 
 :root {
   /* Breakpoint Values */
@@ -19,9 +20,10 @@
   @include fonts;
   @include z-index;
   @include spacing;
+  @include border-radius;
 
   /* Other Props */
-  --gradient-padding: 10rem;
+  --gradient-padding: 3rem;
   --deg: 170deg;
   --gradient: linear-gradient(var(--deg),
     var(--color-tertiary) 0%,

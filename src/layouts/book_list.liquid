@@ -40,8 +40,8 @@ permalink: "books/{% if pagination.pageNumber > 0 %}{{ pagination.pageNumber | p
 											{{ post.data.title }}
 										</a>
 									</h2>
-									<p>
-										<time datetime="{{ post.data.date | date: "%Y-%m-%d" }}" class="cmp-article-item__date">{{ post.data.date | date: "%d %B %Y" }}</time>
+									<p class="cmp-meta">
+										<time datetime="{{ post.data.date | date: "%Y-%m-%d" }}">{{ post.data.date | date: "%d %B %Y" }}</time>
 									</p>
 								</header>
 								<div class="cmp-post__content">

@@ -43,16 +43,16 @@
   width: clamp(18rem, calc(100% - 2rem), 80ch);
 }
 
-.obj-block {
-  padding: calc(var(--gradient-padding) * 0.25) 0;
+// .obj-block {
+//   padding: calc(var(--gradient-padding) * 0.25) 0;
+//
+//   @media (min-width: $md) {
+//     padding: calc(var(--gradient-padding) * 1.5) 0;
+//   }
+// }
 
-  @media (min-width: $md) {
-    padding: calc(var(--gradient-padding) * 1.5) 0;
-  }
-}
-
-.obj-block-content {
-  @media (min-width: $md) {
-    padding: var(--space-lg);
-  }
-}
+// .obj-block-content {
+//   @media (min-width: $md) {
+//     padding: var(--space-lg);
+//   }
+// }

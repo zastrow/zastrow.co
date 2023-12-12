@@ -3,5 +3,21 @@ body {
   background-color: var(--color-background);
   color: var(--color-text);
   font: 100% / 1.5 var(--font-primary);
-  font-variation-settings: var(--primary-var-light);
+  position: relative;
 }
+
+// body::before {
+//   content: '';
+//   display: block;
+//   position: absolute;
+//   inset: 0;
+//
+//   background-image: url('/assets/noise.svg');
+//   background-attachment: fixed;
+//   background-size: 100px 100px;
+//   filter: grayscale(100%);
+//   mix-blend-mode: overlay;
+//   pointer-events: none;
+//   z-index: calc(var(--z-10) + 1);
+//   opacity: 10%;
+// }

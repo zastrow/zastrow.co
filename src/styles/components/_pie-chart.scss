@@ -32,7 +32,7 @@
 
   position: relative;
   width: 100%;
-  border-radius: 50%;
+  border-radius: var(--radius-50p);
   overflow: hidden;
 
   mask-image:
@@ -73,7 +73,7 @@
       display: block;
       left: 0;
       position: absolute;
-      border-radius: 50%;
+      border-radius: var(--radius-50p);
       height: 1.5em;
       aspect-ratio: 1 / 1;
     }

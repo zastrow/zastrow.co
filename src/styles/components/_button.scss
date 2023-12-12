@@ -7,11 +7,11 @@
   display: inline-block;
   font-size: var(--font-size-3);
   padding: var(--space-sm) var(--space-md);
-  border-radius: var(--space-sm);
-  color: var(--color-gray-1);
+  border-radius: var(--radius-1);
+  color: var(--color-mode-gray-1);
   font-weight: var(--font-weight-4);
   font-stretch: var(--font-stretch-10);
-  background-color: var(--color-gray-15);
+  background-color: var(--color-mode-gray-15);
   will-change: transform;
   transition:
     transform var(--animation-duration) ease-in-out,
@@ -19,7 +19,7 @@
     color var(--animation-duration) ease-in-out;
 
   &:hover {
-    background-color: var(--color-gray-13);
+    background-color: var(--color-mode-gray-13);
     transform: translateY(-4px);
   }
 

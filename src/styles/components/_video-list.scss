@@ -28,12 +28,9 @@
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
-    background-color: hsl(208deg 5% 100% / 80%);
-    box-shadow:
-      0 0 0 0 hsl(320deg 80% 45% / 30%) inset,
-      0 0.5rem 1rem hsl(208deg 5% 0% / 10%);
+    background-color: hsl(var(--color-mode-gray-0-hsl) / 50%);
     padding: var(--space-md);
-    border-radius: var(--space-sm);
+    border-radius: var(--radius-1);
     color: var(--color-text);
     transition: box-shadow var(--animation-duration) var(--animation-timing);
     will-change: opacity;
@@ -55,7 +52,7 @@
   &__image {
     display: block;
     border: 1px solid hsl(0deg 0% 0% / 70%);
-    border-radius: var(--space-1xs);
+    border-radius: var(--radius-0);
     max-width: unset;
     width: 100%;
   }

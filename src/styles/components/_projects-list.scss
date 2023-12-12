@@ -16,11 +16,14 @@
     justify-content: center;
     align-items: stretch;
     width: 100%;
-    border-radius: var(--space-md);
-    background-color: hsl(207deg 18% 100%);
+    border-radius: var(--radius-1);
+    background-color: var(--color-mode-gray-1);
 
-    @media (prefers-color-scheme: dark) {
-      background-color: hsl(207deg 18% 15%);
+    @supports (backdrop-filter: blur(1px)) {
+      background-color: hsl(var(--color-mode-gray-2-hsl) / 75%);
+      @media (prefers-color-scheme: dark) {
+        background-color: hsl(var(--color-mode-gray-2-hsl) / 85%);
+      }
     }
   }
 
@@ -144,7 +147,7 @@
     height: 0.375rem;
     width: 0.375rem;
     margin: 0 0.5rem;
-    border-radius: 50%;
+    border-radius: var(--radius-50p);
     vertical-align: middle;
     background-color: var(--color-light);
     mix-blend-mode: overlay;

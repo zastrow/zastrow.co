@@ -1,7 +1,6 @@
 @use "../settings/breakpoints" as *;
 
 .cmp-site-header {
-	--logo-size: clamp(4rem, 10vw, 6rem);
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -12,7 +11,10 @@
 	&__title {
 		display: flex;
 		gap: 0.5ch;
-		font-size: 3.125rem;
+		font-size: clamp(
+			2rem,
+			calc((3 / var(--bp-lg)) * 100vw),
+			calc(3.5 / var(--bp-xl)) * var(--max-width));;
 		margin-block-end: 1ch;
 		--logo-size: 2.9625ch;
 	}
@@ -27,17 +29,17 @@
 		display: block;
 		text-transform: uppercase;
 		font-family: var(--font-secondary);
-		font-stretch: 125%;
-		font-variation-settings: 'wght' 800;
+		font-stretch: var(--font-stretch-10);
+		font-weight: var(--font-weight-8);
 		line-height: 1;
 	}
 
 	&__first-name {
-		color: var(--color-gray-10);
+		color: var(--color-mode-gray-13);
 	}
 
 	&__last-name {
-		color: var(--color-gray-15);
+		color: var(--color-mode-gray-16);
 	}
 
 	&__slogan {
