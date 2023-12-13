@@ -1,58 +1,62 @@
 .cmp-pagination {
-  display: grid;
-  grid-template-columns: 8rem 1fr 8rem;
-  justify-content: space-between;
-  border-radius: var(--radius-00);
-
+  display: flex;
+  justify-content: start;
+  align-items: stretch;
   position: relative;
   z-index: var(--z-3);
 
+  font-family: var(--font-monospace);
+  font-stretch: var(--font-stretch-10);
+
   &__link {
-    text-align: center;
-    display: block;
-    background: var(--simple-gradient);
-    background-size: auto 200%;
-    padding: var(--space-sm) var(--space-lg);
-    font-variation-settings: var(--primary-var-semibold);
+    display: flex;
+    justify-content: center;
+    align-items: center;
     text-decoration: none;
-    color: var(--color-white);
-    transition: background-position-y var(--animation-duration) linear;
-
-    &[href] {
-      border-color: var(--color-primary);
-
-      @media (prefers-color-scheme: dark) {
-        border-color: var(--color-secondary);
-      }
-    }
-
-    &[href]:hover {
-      background-position-y: 100%;
-    }
+    color:  hsl(var(--color-mode-gray-000-hsl) / 80%);
+    background-color: hsl(var(--color-mode-gray-000-hsl) / 10%);
+    height: 1.25ch;
+    font-size: var(--font-size-6);
+    font-weight: var(--font-weight-2);
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
 
     &--prev {
-      border-radius: var(--radius-00) 0 0 var(--radius-00);
-      border-right: none;
+      border-radius: var(--radius-1) 0 0 var(--radius-1);
     }
 
     &--next {
-      border-radius: 0 var(--radius-00) var(--radius-00) 0;
-      border-left: none;
+      border-radius: 0 var(--radius-1) var(--radius-1) 0;
     }
 
     &--inactive {
-      color: inherit;
-      color: var(--color-mode-gray-3);
-      background: none var(--color-mode-gray-10);
-      cursor: default;
+      cursor: not-allowed;
+      color: hsl(var(--color-mode-gray-000-hsl) / 10%);
     }
   }
 
   &__status {
-    color: var(--color-mode-gray-3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: hsl(var(--color-mode-gray-100-hsl) / 75%);
+    padding-inline: var(--space-3);
+  }
+
+  &__stats-text {
+    font-weight: var(--font-weight-6);
     text-align: center;
-    flex-grow: 2;
-    background-color: var(--color-mode-gray-15);
-    padding: var(--space-sm) var(--space-lg);
+  }
+
+  &__page-count {
+    font-weight: var(--font-weight-9);
+
+    &--active {
+
+    }
+
+    &--total {
+
+    }
   }
 }
