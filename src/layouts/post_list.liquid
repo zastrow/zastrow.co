@@ -39,10 +39,8 @@ permalink: "posts/{% if pagination.pageNumber > 0 %}{{ pagination.pageNumber | p
 								{{ post.data.title }}
 							</a>
 						</h2>
-						<p class="cmp-article-item__meta">
-							<a href="{{post.url}}" class="cmp-article-item__meta-link">
-								<time datetime="{{ post.data.date | date: "%Y-%m-%d" }}">{{ post.data.date | date: "%d %B %Y" }}</time>
-							</a>
+						<p class="cmp-meta">
+								<time class="cmp-meta__date" datetime="{{ post.data.date | date: "%Y-%m-%d" }}">{{ post.data.date | date: "%d %B %Y" }}</time>
 						</p>
 					</div>
 				{% endfor %}

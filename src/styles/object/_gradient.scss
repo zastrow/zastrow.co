@@ -38,7 +38,7 @@
 	padding: var(--space-md);
 	border-radius: var(--radius-3);
 	color: var(--color-text);
-	background-color: var(--color-mode-gray-1);
+	background-color: var(--color-mode-gray-100);
 
 	@media (min-width: $md) {
 		padding: var(--space-lg);
@@ -46,10 +46,10 @@
 
 	@supports (backdrop-filter: blur(1px)) {
 		backdrop-filter: blur(2rem);
-		background-color: hsl(var(--color-mode-gray-2-hsl) / 75%);
+		background-color: hsl(var(--color-mode-gray-100-hsl) / 90%);
 
 		@media (prefers-color-scheme: dark) {
-			background-color: hsl(var(--color-mode-gray-2-hsl) / 85%);
+			background-color: hsl(var(--color-mode-gray-100-hsl) / 80%);
 		}
 	}
 }
