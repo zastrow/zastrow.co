@@ -18,12 +18,18 @@
 	}
 
 	&__title-link {
-		color: var(--color-mode-gray-18);
+		--color: hsl(var(--color-mode-gray-000-hsl) / 50%);
+		background-image: linear-gradient(var(--color), var(--color)), var(--gradient);
+		background-attachment: fixed;
+		background-blend-mode: overlay, normal;
+		background-clip: text;
 		text-decoration: none;
+		color: transparent;
 	}
 
 	&__title-link:hover {
-		color: color-mix( in srgb, var(--color-mode-gray-18) 40%, var(--color-primary));
+		--color: hsl(var(--color-mode-gray-000-hsl) / 100%);
+		// color: color-mix( in srgb, var(--color-mode-gray-18) 40%, var(--color-primary));
 	}
 
 	&__collaborators {
