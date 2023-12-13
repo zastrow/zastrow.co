@@ -96,16 +96,16 @@
   &__heading {
     margin: 0;
     font-size: var(--font-md);
-    text-shadow: 0 0.25em 0.5em hsl(207deg 100% 30% / 80%);
+    // text-shadow: 0 0.25em 0.5em hsl(207deg 100% 30% / 80%);
   }
 
   &__description {
-    text-shadow: 0 0.25em 0.5em hsl(207deg 100% 30% / 80%);
+    // text-shadow: 0 0.25em 0.5em hsl(207deg 100% 30% / 80%);
   }
 
   &__tasks,
   &__links {
-    text-shadow: 0 0.25em 0.5em hsl(207deg 100% 30% / 80%);
+    // text-shadow: 0 0.25em 0.5em hsl(207deg 100% 30% / 80%);
     list-style: none;
     margin: 0;
     padding: 0;

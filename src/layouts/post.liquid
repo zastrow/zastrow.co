@@ -22,9 +22,9 @@ permalink: "/posts/{{ date | date: '%Y' }}/{{ date | date: '%m' }}/{{ date | dat
 							</header>
 							{%- endif -%}
 							{%- if date -%}
-							<div class="cmp-post__meta">
-								<a class="cmp-post__meta-link" href="{{ url }}">
-									<time datetime="{{ date | date: "%Y-%m-%d" }}" class="cmp-article-item__date">{{ date | date: "%d %B %Y" }}</time>
+							<div class="cmp-meta">
+								<a class="cmp-meta__link" href="{{ url }}">
+									<time class="cmp-meta__date" datetime="{{ date | date: "%Y-%m-%d" }}" class="cmp-article-item__date">{{ date | date: "%d %B %Y" }}</time>
 								</a>
 							</div>
 							{%- endif -%}

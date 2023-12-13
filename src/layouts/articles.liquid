@@ -30,7 +30,7 @@ layout-name: articles
 							</a>
 						</h2>
 						<p class="cmp-meta">
-							<time datetime="{{ article.date | date: "%Y-%m-%d" }}">{{ article.date | date: "%d %B %Y" }}</time>
+							<time class="cmp-meta__date" datetime="{{ article.date | date: "%Y-%m-%d" }}">{{ article.date | date: "%d %B %Y" }}</time>
 							<span class="cmp-meta__source">
 								{{ article.source }}
 							</span>

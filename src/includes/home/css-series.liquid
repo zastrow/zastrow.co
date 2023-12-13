@@ -11,8 +11,8 @@
 		{% for post in css_series limit:10 %}
 				<li class="cmp-article-card__item">
 					<a href="{{ post.link }}" class="cmp-article-card__link" aria-label="Read {{ post.title }} on Digital Ocean">
-						<span class="cmp-article-card__meta" >
-							<time datetime="{{ post.date }}" class="cmp-article-card__term">{{ post.date | date: "%e %B %Y" }}</time>
+						<span class="cmp-meta" >
+							<time class="cmp-meta__date" datetime="{{ post.date }}">{{ post.date | date: "%e %B %Y" }}</time>
 						</span>
 						<span class="cmp-article-card__title">{{ post.title }}</span>
 					</a>

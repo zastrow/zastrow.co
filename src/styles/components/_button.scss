@@ -1,4 +1,5 @@
 .cmp-button {
+  unset: all;
   margin: 0;
   text-decoration: none;
   border: none;
@@ -6,7 +7,7 @@
   text-align: center;
   display: inline-block;
   font-size: var(--font-size-3);
-  padding: var(--space-sm) var(--space-md);
+  padding: var(--space-1) var(--space-2);
   border-radius: var(--radius-1);
   color: var(--color-mode-gray-1);
   font-weight: var(--font-weight-4);
@@ -14,26 +15,19 @@
   background-color: var(--color-mode-gray-15);
   will-change: transform;
   transition:
-    transform var(--animation-duration) ease-in-out,
+    scale var(--animation-duration) ease-in-out,
     background-color var(--animation-duration) ease-in-out,
     color var(--animation-duration) ease-in-out;
 
   &:hover {
-    background-color: var(--color-mode-gray-13);
-    transform: translateY(-4px);
-  }
-
-  &--gradient {
-    transform: translateY(calc(var(--space-1xl) * -1));
-
-    &:hover {
-      transform: translateY(calc((var(--space-1xl) * -1) - 4px));
-    }
+    scale: 1.025;
+    background-color: var(--color-mode-gray-000);
   }
 
   &--small {
-    padding: var(--space-1xs) var(--space-md);
+    border-radius: var(--radius-0);
+    padding: var(--space-0) var(--space-2);
     font-size: var(--font-size-1);
-    font-weight: 450;
+    font-weight: calc(var(--font-weight-4) + 50);
   }
 }
