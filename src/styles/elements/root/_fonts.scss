@@ -93,6 +93,13 @@
   --font-size-8: calc(var(--font-size-8-base) * 1rem);
   --font-size-9: calc(var(--font-size-9-base) * 1rem);
 
+  // Remap Old
+  --font-xs: var(--font-size-0);
+  --font-sm: var(--font-size-1);
+  --font-md: var(--font-size-2);
+  --font-lg: var(--font-size-4);
+  --font-xl: var(--font-size-5);
+
   --font-size-fluid-00: clamp(var(--font-size-00),calc((var(--font-size-00-base) / var(--bp-lg)) * 100vw), calc((var(--font-size-00-base) / var(--bp-xl)) * var(--max-width)));
   --font-size-fluid-0: clamp(var(--font-size-0),calc((var(--font-size-0-base) / var(--bp-lg)) * 100vw), calc((var(--font-size-0-base) / var(--bp-xl)) * var(--max-width)));
   --font-size-fluid-1: clamp(var(--font-size-1),calc((var(--font-size-1-base) / var(--bp-lg)) * 100vw), calc((var(--font-size-1-base) / var(--bp-xl)) * var(--max-width)));

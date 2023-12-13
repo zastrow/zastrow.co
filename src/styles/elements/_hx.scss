@@ -1,7 +1,4 @@
 :where(h1,h2,h3,h4,h5,h6):not([class]) {
-  font-family: var(--font-secondary);
-  font-variation-settings: var(--secondary-var-heavy);
-  text-transform: uppercase;
   margin: 1em 0 0.5em;
 
   &:first-child {
@@ -10,26 +7,28 @@
 }
 
 h1:not([class]) {
-  font-size: var(--font-xl);
+  font-family: var(--font-secondary);
+  font-size: var(--font-9);
 }
 
 h2:not([class]) {
-  font-size: var(--font-xl);
+  font-family: var(--font-secondary);
+  font-size: var(--font-8);
 }
 
 h3:not([class]) {
-  font-size: var(--font-lg);
+  font-size: var(--font-size-6);
 }
 
 h4:not([class]) {
-  font-size: var(--font-lg);
+  font-size: var(--font-size-4);
 }
 
 h5:not([class]) {
-  font-size: var(--font-md);
+  font-size: var(--font-size-3);
 }
 
 h6:not([class]) {
-  font-size: var(--font-md);
+  font-size: var(--font-size-2);
 
 }
