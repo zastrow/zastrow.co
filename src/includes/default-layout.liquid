@@ -22,16 +22,18 @@
 			{% block skip_links %}
 			{% endblock %}
 		</nav>
-		{% block header %}
-		{% endblock %}
-		<main id="main">
-			{% block main %}
-				{{ content }}
+		<div class="obj-wrapper">
+			{% block header %}
 			{% endblock %}
-		</main>
-		{% block footer %}
-			{% render "footer" %}
-		{% endblock %}
+			<main id="main" class="obj-main-content">
+				{% block main %}
+					{{ content }}
+				{% endblock %}
+			</main>
+			{% block footer %}
+				{% render "footer" %}
+			{% endblock %}
+		</div>
 		<!-- Rendered on {{ "now" | date: "%Y-%m-%dT%H:%M:%S", 360 }} -->
 	</body>
 </html>
