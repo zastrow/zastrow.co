@@ -45,4 +45,18 @@
   @media (min-width: $lg) {
     --gradient-padding: 10vh;
   }
+
+  @media (prefers-color-scheme: dark) {
+    --gradient:
+      linear-gradient(var(--deg),
+        hsl(var(--color-mode-gray-100-hsl) / 15%),
+        hsl(var(--color-mode-gray-100-hsl) / 15%)
+      ),
+     linear-gradient(var(--deg),
+      var(--color-tertiary) 0%,
+      var(--color-secondary) 10%,
+      var(--color-primary) 75%,
+      var(--color-quarternary) 100%
+    );
+  }
 }
