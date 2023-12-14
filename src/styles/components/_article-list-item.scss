@@ -18,18 +18,22 @@
 	}
 
 	&__title-link {
-		--color: hsl(var(--color-mode-gray-000-hsl) / 50%);
+		--color: hsl(var(--color-mode-gray-000-hsl) / 10%);
 		background-image: linear-gradient(var(--color), var(--color)), var(--gradient);
 		background-attachment: fixed;
 		background-blend-mode: overlay, normal;
 		background-clip: text;
 		text-decoration: none;
 		color: transparent;
+
+		@media (prefers-color-scheme: dark) {
+			--color: hsl(var(--color-mode-gray-000-hsl) / 50%);
+		}
 	}
 
 	&__title-link:hover {
 		--color: hsl(var(--color-mode-gray-000-hsl) / 100%);
-		// color: color-mix( in srgb, var(--color-mode-gray-18) 40%, var(--color-primary));
+		background-blend-mode: normal, normal;
 	}
 
 	&__collaborators {

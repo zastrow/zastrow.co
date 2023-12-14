@@ -1,6 +1,7 @@
-<h3>Articles</h3>
+<h3>External Articles</h3>
+<p>These are articles I have written found around the Web.</p>
 <ul class="cmp-article-card">
-	{% for acticle in external_articles limit:8 %}
+	{% for acticle in external_articles limit:4 %}
 	<li class="cmp-article-card__item">
 		<a href="{{ acticle.link }}" class="cmp-article-card__link" aria-label="Read {{ acticle.title }} on {{ acticle.source }}">
 			<span class="cmp-meta">
