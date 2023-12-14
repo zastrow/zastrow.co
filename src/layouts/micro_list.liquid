@@ -4,7 +4,6 @@ pagination:
   data: collections.micro
   size: 10
   alias: micro
-  reverse: true
 permalink: "micro/{% if pagination.pageNumber > 0 %}{{ pagination.pageNumber | plus: 1 }}/{% endif %}index.html"
 ---
 {% layout "default-layout" %}

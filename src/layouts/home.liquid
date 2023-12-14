@@ -1,5 +1,7 @@
 ---
 layout-name: home
+eleventyImport:
+	collections: ["posts"]
 ---
 {% layout "default-layout" %}
 {%- block skip_links %}
@@ -22,7 +24,7 @@ layout-name: home
 					</header>
 					<div class="obj-grid obj-grid--writing">
 						<div class="obj-grid__col obj-grid__col--half">
-							{% include"home/css-series" %}
+							{% include"home/blog-posts" %}
 						</div>
 						<div class="obj-grid__col obj-grid__col--half">
 							{% include"home/external-articles" %}

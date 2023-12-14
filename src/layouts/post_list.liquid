@@ -4,7 +4,6 @@ pagination:
   data: collections.posts
   size: 10
   alias: posts
-  reverse: true
 permalink: "posts/{% if pagination.pageNumber > 0 %}{{ pagination.pageNumber | plus: 1 }}/{% endif %}index.html"
 ---
 {% layout "default-layout" %}
