@@ -1,9 +1,9 @@
 .cmp-button {
-  unset: all;
+  all: unset;
+  cursor: pointer;
   margin: 0;
   text-decoration: none;
   border: none;
-  appearance: none;
   text-align: center;
   display: inline-block;
   font-size: var(--font-size-3);
