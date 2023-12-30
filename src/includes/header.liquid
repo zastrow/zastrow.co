@@ -1,25 +1,37 @@
+
 <div class="cmp-site-header">
 	<div class="obj-width-limiter">
-		<nav class="cmp-nav">
-			<a href="/" class="cmp-site-header__title">
-				<div class="cmp-logo">
-					<div class="cmp-logo__top"></div>
-					<div class="cmp-logo__bottom"></div>
-					<div class="cmp-logo__diagonal"></div>
+		<nav class="cmp-site-header__nav">
+			<a href="/" class="cmp-site-header__title-link">
+				<div class="cmp-site-header__title-container">
+					<div class="cmp-site-header__title">
+						<div class="cmp-logo">
+							<div class="cmp-logo__top"></div>
+							<div class="cmp-logo__bottom"></div>
+							<div class="cmp-logo__diagonal"></div>
+						</div>
+						<div class="cmp-site-header__name-mark">
+							<div class="cmp-site-header__first-name">Philip</div>
+							<div class="cmp-site-header__last-name">Zastrow</div>
+							<div class="cmp-site-header__slogan">Code<span aria-label="and">+</span><br>Design</div>
+						</div>
+					</div>
 				</div>
-				<span class="cmp-site-header__name-mark">
-					<span class="cmp-site-header__first-name">Philip</span>
-					<span class="cmp-site-header__last-name">Zastrow</span>
-					<span class="cmp-site-header__slogan">Code<span aria-label="and">+</span><br>Design</span>
-				</span>
 			</a>
-			<ul class="cmp-nav__list">
-				{% for item in nav %}
-					<li class="cmp-nav__item">
-						<a href={{item.link}} class="cmp-nav__link">{{ item.name }}</a>
-					</li>
-				{% endfor %}
-			</ul>
+			<div class="cmp-nav">
+				<button type="button" class="cmp-nav__toggle js-nav-toggle">
+					<svg viewBox="0 0 30 24" height="24" width="30">
+						<path d="M2 2h26 M2 12h26 M2 22h16" stroke="currentcolor" stroke-width="4" stroke-linecap="round" />
+					</svg>
+				</button>
+				<ul class="cmp-nav__list js-nav">
+					{% for item in nav %}
+						<li class="cmp-nav__item">
+							<a href={{item.link}} class="cmp-nav__link" data-title="{{ item.name }}">{{ item.name }}</a>
+						</li>
+					{% endfor %}
+				</ul>
+			</div>
 		</nav>
 	</div>
 </div>

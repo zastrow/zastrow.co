@@ -1,22 +1,53 @@
+@use "../settings/breakpoints" as *;
+
 .cmp-nav {
+	display: flex;
+	justify-content: end;
+	flex: 1 1 auto;
+
+	@media (min-width: $md) {
+		flex: unset;
+	}
+
 	&__list {
+		display: none;
 		padding: 0;
 		margin: 0;
-		display: flex;
-		flex-wrap: wrap;
-		gap: var(--space-lg);
 		list-style-type: '';
+
+		@media (min-width: $md) {
+			display: flex;
+			flex-wrap: wrap;
+			gap: var(--space-1);
+			line-height: var(--font-lineheight-0);
+		}
 	}
 
 	&__link {
 		font-family: var(--font-monospace);
-		font-size: var(--font-size-4);
+		font-size: var(--font-size-2);
 		font-stretch:var(--font-stretch-10);
 		font-weight: var(--font-weight-3);
 		text-transform: lowercase;
 
 		&:hover {
 			color: var(--color-primary);
+		}
+	}
+
+	&__toggle {
+		all: unset;
+		cursor: pointer;
+		display: block;
+		font-family: var(--font-monospace);
+		font-size: var(--font-size-3);
+		font-stretch: var(--font-stretch-9);
+		font-weight: var(--font-weight-3);
+		line-height: var(--font-lineheight-0);
+		text-transform: lowercase;
+
+		@media (min-width: $md) {
+			display: none;
 		}
 	}
 }

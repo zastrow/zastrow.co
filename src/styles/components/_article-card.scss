@@ -6,7 +6,7 @@
 	gap: 1rem;
 
 	&--two-col {
-		@container (min-width: 30rem) {
+		@container watcher (min-width: 30rem) {
 			grid-template-columns: 1fr 1fr;
 		}
 	}
