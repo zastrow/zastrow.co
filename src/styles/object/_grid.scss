@@ -4,7 +4,6 @@
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 1rem;
-  container-type: normal;
 
   @media (min-width: $md) {
     grid-template-columns: repeat(8, 1fr);
