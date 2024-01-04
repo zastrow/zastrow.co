@@ -1,0 +1,7 @@
+@mixin mixin {
+	all: unset;
+	position: fixed;
+	bottom: 100%;
+	right: 100%;
+	clip-path: inset(50%);
+}

@@ -1,36 +1,12 @@
-a {
-  color: inherit;
-  text-decoration: none;
+:where(a):not([class]):link {
+	color: var(--blue-8);
+	text-underline-offset: 0.375ch;
+	text-decoration-thickness: 1px;
+	transition: text-underline-offset 150ms var(--ease-in-out-3);
 }
 
-a[href]:not([class]) {
-  &,
-  &:link,
-  &:active {
-    color: var(--color-link);
-    text-underline-offset: 0.125em;
-    text-decoration: underline;
-    text-decoration-thickness: 2px;
-    text-decoration-color: var(--link-underline);
-    transition:
-      color var(--animation-duration) var(--animation-timing),
-      text-decoration-color var(--animation-duration) var(--animation-timing),
-      text-underline-offset var(--animation-duration) var(--animation-timing);
-
-    @media (prefers-color-scheme: dark) {
-      text-decoration-color: hsl(208deg 80% 50% / 40%);
-    }
-  }
-
-  &:visited {
-    color: var(--color-visited);
-    text-decoration-color: var(--visited-underline);
-  }
-
-  &:hover,
-  &:visited:hover {
-    text-underline-offset: 0.25em;
-    color: var(--color-text);
-    text-decoration-color: var(--color-primary);
-  }
+:where(a):not([class]):hover {
+	color: var(--blue-12);
+	text-underline-offset: 0.125ch;
 }
+

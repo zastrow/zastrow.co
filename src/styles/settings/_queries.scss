@@ -1,0 +1,58 @@
+@custom-media --motionOK (prefers-reduced-motion: no-preference);
+@custom-media --motionNotOK (prefers-reduced-motion: reduce);
+@custom-media --opacityOK (prefers-reduced-transparency: no-preference);
+@custom-media --opacityNotOK (prefers-reduced-transparency: reduce);
+@custom-media --useDataOK (prefers-reduced-data: no-preference);
+@custom-media --useDataNotOK (prefers-reduced-data: reduce);
+
+@custom-media --OSdark (prefers-color-scheme: dark);
+@custom-media --OSlight (prefers-color-scheme: light);
+
+@custom-media --highContrast (prefers-contrast: more);
+@custom-media --lowContrast (prefers-contrast: less);
+
+@custom-media --forcedColors (forced-colors: active);
+
+@custom-media --portrait (orientation: portrait);
+@custom-media --landscape (orientation: landscape);
+
+@custom-media --touch (hover: none) and (pointer: coarse);
+@custom-media --stylus (hover: none) and (pointer: fine);
+@custom-media --pointer (hover) and (pointer: coarse);
+@custom-media --mouse (hover) and (pointer: fine);
+
+$xxs: 15rem;
+$xs: 22.5rem;
+$sm: 30rem;
+$md: 48rem;
+$lg: 60rem;
+$xl: 90rem;
+$xxl: 120rem;
+
+@custom-media --xxs-only (0rem <= width <= #{$xxs});
+@custom-media --xxs-min (width >= #{$xxs});
+@custom-media --xxs-max (width < #{$xxs});
+
+@custom-media --xs-only (#{$xxs} <= width <= #{$xs});
+@custom-media --xs-min (width >= #{$xs});
+@custom-media --xs-max (width < #{$xs});
+
+@custom-media --sm-only (#{$xs} <= width <= #{$sm});
+@custom-media --sm-min (width >= #{$sm});
+@custom-media --sm-max (width < #{$sm});
+
+@custom-media --md-only (#{$sm} <= width <= #{$md});
+@custom-media --md-min (width >= #{$md});
+@custom-media --md-max (width < #{$md});
+
+@custom-media --lg-only (#{$md} <= width <= #{$lg});
+@custom-media --lg-min (width >= #{$lg});
+@custom-media --lg-max (width < #{$lg});
+
+@custom-media --xl-only (#{$lg} <= width <= #{$xl});
+@custom-media --xl-min (width >= #{$xl});
+@custom-media --xl-max (width < #{$xl});
+
+@custom-media --xxl-only (#{$xl} <= width <= #{$xxl});
+@custom-media --xxl-min (width >= #{$xxl});
+@custom-media --xxl-max (width < #{$xxl});

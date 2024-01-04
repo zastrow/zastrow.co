@@ -1,7 +1,5 @@
-p:not([class]) {
-  font-size: var(--font-size-3);
-}
-
-p:not([class]) strong:not([class]) {
-  font-weight: var(--font-weight-4);
+:where(p):not([class]) {
+	font-size: clamp(var(--font-size-1), 5vw, var(--font-size-3));
+	max-inline-size: var(--size-content-3);
+	line-height: var(--font-lineheight-3);
 }

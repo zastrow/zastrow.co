@@ -1,20 +1,20 @@
-<h3>Blog Posts</h3>
-<p>My personal collection of haphazard thoughts and links.</p>
-<ul class="cmp-article-card">
-	{% for post in collections.posts limit:4 %}
-	<li class="cmp-article-card__item">
-		<a href="{{ post.url }}" class="cmp-article-card__link">
-			<span class="cmp-meta">
-				<time class="cmp-meta__date" datetime="{{ post.data.date }}">
-					{{ post.data.date | date: "%e %B %Y" }}
-				</time>
-			</span>
-			<span class="cmp-article-card__title">
-				{{ post.data.title }}
-			</span>
-		</a>
-	</li>
-	{% endfor %}
-</ul>
 
-<a href="/posts" class="cmp-button">More Blog Posts</a>
+{% for post in collections.posts limit:10 %}
+<article>
+	<h2>
+		<a href="{{ post.url }}">
+			{{ post.data.title }}
+		</a>
+	</h2>
+	<time datetime="{{ post.data.date }}">
+		{{ post.data.date | date: "%e %B %Y" }}
+	</time>
+	{% if post.data.preview %}
+	<p>
+		{{ post.data.preview }}
+	</p>
+	{% endif %}
+</article>
+{% endfor %}
+
+<a href="/posts">More Blog Posts</a>

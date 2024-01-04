@@ -16,24 +16,22 @@
 		{% render 'head/feeds' %}
 		<link rel="stylesheet" href="/style.css">
 	</head>
-	<body{% if layout-name %} class="{{layout-name}}"{% endif %}>
+	<body>
 		<nav>
-			<a href="#main" class="cmp-skip-link">Skip to content</a>
+			<a href="#main" class="util-visually-hidden">Skip to content</a>
 			{% block skip_links %}
 			{% endblock %}
 		</nav>
-		<div class="obj-wrapper">
-			{% block header %}
+		{% block header %}
+		{% endblock %}
+		<main id="main">
+			{% block main %}
+				{{ content }}
 			{% endblock %}
-			<main id="main" class="obj-main-content">
-				{% block main %}
-					{{ content }}
-				{% endblock %}
-			</main>
-			{% block footer %}
-				{% render "footer" %}
-			{% endblock %}
-		</div>
+		</main>
+		{% block footer %}
+			{% render "footer" %}
+		{% endblock %}
 		<!-- Rendered on {{ "now" | date: "%Y-%m-%dT%H:%M:%S", 360 }} -->
 	</body>
 </html>

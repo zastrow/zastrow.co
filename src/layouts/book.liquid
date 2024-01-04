@@ -7,27 +7,21 @@
 		{% include "header" %}
 	{% endblock -%}
 	{% block main %}
-		<article class="cmp-post">
-			<div class="obj-width-book obj-width-writing">
-			<div class="cmp-post__container">
-				{%- if title -%}
-				<header class="cmp-post__header">
-					<h2 class="cmp-post__title">
-						{{ title }}
-					</h2>
-				</header>
-				{%- endif -%}
-				{%- if date -%}
-				<div class="cmp-post__meta">
-					<a class="cmp-post__meta-link" href="{{ url }}">
-						<time datetime="{{ date | date: "%Y-%m-%d" }}" class="cmp-article-item__date">{{ date | date: "%d %B %Y" }}</time>
-					</a>
-				</div>
-				{%- endif -%}
-				<div class="cmp-post__content">
-					{{ content }}
-				</div>
-			</div>
-		</div>
+		<article>
+			{%- if title -%}
+			<header>
+				<h2>
+					{{ title }}
+				</h2>
+			</header>
+			{%- endif -%}
+			{%- if date -%}
+				<a href="{{ url }}">
+					<time datetime="{{ date | date: "%Y-%m-%d" }}">
+						{{ date | date: "%d %B %Y" }}
+					</time>
+				</a>
+			{%- endif -%}
+			{{ content }}
 	</article>
 {% endblock %}
