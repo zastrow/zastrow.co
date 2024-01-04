@@ -1,0 +1,15 @@
+.obj-page {
+	display: flex;
+	min-height: 100vh;
+	flex-direction: column;
+
+	&__main {
+		flex-grow: 2;
+	}
+}
+
+.obj-max-width {
+	margin-inline: auto;
+	width: var(--width-max);
+	display: block;
+}

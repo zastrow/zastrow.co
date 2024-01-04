@@ -6,9 +6,8 @@
     "build": "run-s eleventy styles",
     "start": "run-p eleventy:dev styles watch",
     "eleventy:dev": "eleventy --watch --serve --quiet",
-    "styles": "run-s sass css",
-    "sass": "sass src/styles/style.scss:dist/style.css",
-    "css": "postcss dist/style.css --replace",
+    "styles": "sass src/styles/style.scss:dist/style.css",
+    "poststyles": "postcss dist/style.css --replace",
     "watch": "node task.watch.js"
   },
   "author": "",

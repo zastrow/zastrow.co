@@ -1,3 +1,7 @@
+/* Above are Open Props.
+ * Check out the full library at:
+ * https://open-props.style
+ */
 // ITCSS Architecture
 // ==================
 // 1. Settings
@@ -18,8 +22,9 @@
 // Tools are loaded modularly as needed in partials
 
 // 3. Generics
-@forward "generics/fonts";
+// @forward "generics/fonts";
 @forward "generics/normalize";
+@forward "generics/class-reset";
 
 // 4. Elements
 @forward "elements/body";
@@ -37,6 +42,7 @@
 @forward "objects/grid";
 
 // 6. Components
-
+@forward "components/site-header";
+@forward "components/nav";
 // 7. Utilities
 @forward "utilities/visually-hidden";

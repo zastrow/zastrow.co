@@ -1,0 +1,13 @@
+// When a class exists this assumes all
+// default styling should be removed
+:where([class]:not([class=""])) {
+	all: unset;
+	display: initial;
+}
+
+// Add back in the pointer cursor on links
+// and add the pointer to buttons
+:where(a[class]:link, button) {
+	cursor: pointer;
+}
+

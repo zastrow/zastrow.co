@@ -4,10 +4,7 @@ eleventyImport:
 	collections: ["posts"]
 ---
 {% layout "default-layout" %}
-{%- block header %}
-	{% include "header" %}
-{% endblock -%}
 
-{%- block main %}
-	{% include"home/blog-posts" %}
-{% endblock -%}
+{% comment %} {%- block main %} {% endcomment %}
+	{% comment %} {% include"home/blog-posts" %} {% endcomment %}
+{% comment %} {% endblock -%} {% endcomment %}

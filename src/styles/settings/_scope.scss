@@ -1,9 +1,31 @@
+@use "../tools/get-query" as mq;
+@use "../tools/colors" as color;
+
 :scope {
-	--font-body:"Mona Sans", var(--font-sans);
-	--font-title:"Hubot Sans", var(--font-sans);
-	--font-mono:"Monaspace Neon", var(--font-mono);
+	--font-body: var(--font-sans);
+	--font-title: var(--font-sans);
+	--font-mono: var(--font-mono);
+
+	@include color.base;
+	@include color.mode('light');
+
+	@media (--OSdark) {
+		@include color.mode('dark');
+	}
+
+	// Open Props Resets
+	@for $i from 1 to 10 {
+		--layer-#{$i}: #{100 * $i};
+	}
 
 	@for $i from 1 to 12 {
 		--font-stretch-#{$i}: #{75% + (($i - 1) * 5)};
 	}
+
+	@each $key, $value in mq.$queries {
+		--query-#{$key}: #{$value};
+	}
+
+	--width-min: calc(100% - (var(--size-3) * 2));
+	--width-max: min(var(--width-min), var(--query-xl));
 }

@@ -1,15 +1,21 @@
-<nav>
-	<a href="/" rel="home">Philip Zastrow</a>
-	<button type="button">
-		<svg viewBox="0 0 30 24" height="24" width="30">
-			<path d="M2 2h26 M2 12h26 M2 22h16" stroke="currentcolor" stroke-width="4" stroke-linecap="round" />
-		</svg>
-	</button>
-	<ul>
-		{% for item in nav %}
-			<li>
-				<a href={{item.link}} data-title="{{ item.name }}">{{ item.name }}</a>
-			</li>
-		{% endfor %}
-	</ul>
-</nav>
+<header class="cmp-site-header">
+		<div class="obj-max-width">
+		<{% if layout == "home" %}h1{% else %}p{% endif %} class="cmp-site-header__title">
+			<a href="/" rel="home" class="cmp-site-header__title-link">Philip Zastrow</a>
+		</{% if layout == "home" %}h1{% else %}p{% endif %}>
+		<button type="button" class="cmp-nav-toggle js-nav-toggle">
+			<svg viewBox="0 0 30 24" height="24" width="30">
+				<path d="M2 2h26 M2 12h26 M2 22h16" stroke="currentcolor" stroke-width="4" stroke-linecap="round" />
+			</svg>
+		</button>
+		<nav class="cmp-nav">
+			<ul class="cmp-nav__list">
+				{% for item in nav %}
+					<li class="cmp-nav__item">
+						<a href="{{item.link}}" class="cmp-nav__link" data-title="{{ item.name }}">{{ item.name }}</a>
+					</li>
+				{% endfor %}
+			</ul>
+		</nav>
+		</div>
+</header>
