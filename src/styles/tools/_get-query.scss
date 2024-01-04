@@ -1,0 +1,15 @@
+@use "sass:map";
+
+$queries: (
+	'xxs': 15rem,
+	'xs': 22.5rem,
+	'sm': 30rem,
+	'md': 48rem,
+	'lg': 60rem,
+	'xl': 90rem,
+	'xxl': 120rem
+);
+
+@function size($val) {
+	@return map.get($queries, $val);
+}

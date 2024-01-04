@@ -1,11 +1,3 @@
 <footer>
-	<p>
-		<span aria-label="Copyright">&copy;</span> 2012<span aria-label=" through ">&ndash;</span><span class="now">{{ "now" | date: "%Y" }}</span> Philip Zastrow. All rights reserved.
-	</p>
 	<p>Made in <a href="https://cottonbureau.com/products/ohio-4">Ohio</a></p>
-	<script>
-		const x = new Date().getFullYear();
-		const e = document.querySelector('.now');
-		e.innerText = (x >= Number(e.innerText)) ? x : e.innerText;
-	</script>
 </footer>

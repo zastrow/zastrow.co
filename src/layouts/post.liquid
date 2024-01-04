@@ -3,9 +3,6 @@ layout-name: post
 permalink: "/posts/{{ date | date: '%Y' }}/{{ date | date: '%m' }}/{{ date | date: '%d' }}/{% if title and title != '' %}{{ title | slugify }}{% else %}{{ slug }}{% endif %}/index.html"
 ---
 {% layout "default-layout" %}
-{%- block header %}
-	{% include "header" %}
-{% endblock -%}
 {% block main %}
 	<article>
 		{%- if title -%}

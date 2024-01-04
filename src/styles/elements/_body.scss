@@ -1,4 +1,6 @@
 :where(body) {
 	margin: unset;
 	font-family: var(--font-body);
+	color: var(--color-text);
+	background-color: var(--color-surface);
 }

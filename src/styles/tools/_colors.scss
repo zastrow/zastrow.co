@@ -1,0 +1,69 @@
+@use "./oklch" as *;
+// **Color System
+@mixin oklch($name, $map) {
+	/* #{$name} oklch values */
+	@each $key, $value in $map {
+		--#{$name}-#{$key}-oklch: #{$value};
+	}
+/* #{$name} oklch color */
+	@each $key, $value in $map {
+		--#{$name}-#{$key}: oklch(var(--#{$name}-#{$key}-oklch));
+	}
+}
+
+// __Base Colors
+@mixin base {
+	@include oklch('plum', $purple);
+	@include oklch('fhlox', $magenta);
+	@include oklch('taffy', $pink);
+	@include oklch('mango', $orange);
+	@include oklch('gold', $gold);
+	@include oklch('azure', $blue);
+	@include oklch('grey', $gray);
+
+	/* white oklch value */
+	--white-oklch: 100% 0 0;
+	/* white oklch color */
+	--white: oklch(var(--white-oklch));
+	/* black oklch value */
+	--black-oklch: 0% 0 0;
+	/* black oklch color */
+	--black: oklch(var(--black-oklch));
+
+	--color-text-light: var(--grey-d7);
+	--color-surface-light: var(--white);
+
+	--color-text-dark: var(--white);
+	--color-surface-dark: var(--grey-d6);
+
+	--color-inline-code-text-light: var(--mango-d5);
+	--color-inline-code-surface-light: var(--gold-l8);
+	--color-inline-code-border-light: var(--gold-l3);
+
+	--color-inline-code-text-dark: var(--gold-l6);
+	--color-inline-code-surface-dark: var(--gold-d7);
+	--color-inline-code-border-dark: var(--gold-d6);
+
+	--color-link-text-light: var(--azure-00);
+	--color-link-visited-light: var(--plum-00);
+
+	--color-link-text-dark: var(--azure-l4);
+	--color-link-visited-dark: var(--plum-l2);
+}
+
+$color-group: (
+	'text',
+	'surface',
+	'inline-code-text',
+	'inline-code-surface',
+	'inline-code-border',
+	'link-text',
+	'link-visited'
+);
+
+// __Light Mode
+@mixin mode($style: 'light') {
+	@each $name in $color-group {
+		--color-#{$name}: var(--color-#{$name}-#{$style});
+	}
+}

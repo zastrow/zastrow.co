@@ -1,12 +1,15 @@
 :where(a):not([class]):link {
-	color: var(--blue-8);
+	color: var(--color-link-text);
 	text-underline-offset: 0.375ch;
 	text-decoration-thickness: 1px;
 	transition: text-underline-offset 150ms var(--ease-in-out-3);
 }
 
 :where(a):not([class]):hover {
-	color: var(--blue-12);
 	text-underline-offset: 0.125ch;
+}
+
+:where(a):not([class]):visited {
+	color: var(--color-link-visited);
 }
 
