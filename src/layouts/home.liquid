@@ -4,64 +4,10 @@ eleventyImport:
 	collections: ["posts"]
 ---
 {% layout "default-layout" %}
-{%- block skip_links %}
-	<a href="#writing" class="cmp-skip-link">Skip to Writing Section</a>
-	<a href="#proje cts" class="cmp-skip-link">Skip to Projects Section</a>
-	<a href="#videos" class="cmp-skip-link">Skip to Videos and Presentations Section</a>
-	<a href="#about" class="cmp-skip-link">Skip to About Philip Section</a>
-{% endblock -%}
 {%- block header %}
 	{% include "header" %}
 {% endblock -%}
 
 {%- block main %}
-	<article class="obj-gradient-block" id="writing">
-		<div class="obj-gradient-block__interior">
-			<div class="obj-width-limiter">
-				<div class="obj-gradient-block__content">
-					<header>
-						<h2 class="cmp-title">Writing</h2>
-					</header>
-					<div class="obj-grid obj-grid--writing">
-						<div class="obj-grid__col obj-grid__col--half">
-							{% include"home/blog-posts" %}
-						</div>
-						<div class="obj-grid__col obj-grid__col--half">
-							{% include"home/external-articles" %}
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</article>
-
-	<article class="obj-block" id="projects">
-		<div class="obj-width-limiter">
-			<div class="obj-block-content">
-				{% include"home/projects" %}
-			</div>
-		</div>
-	</article>
-
-	<article class="obj-gradient-block" id="videos">
-		<div class="obj-gradient-block__interior">
-			<div class="obj-width-limiter">
-				<div class="obj-gradient-block__content">
-					<header>
-						<h2 class="cmp-title">Videos and Presentations</h2>
-					</header>
-						{% include"home/videos" %}
-					</div>
-				</div>
-			</div>
-		</div>
-	</article>
-
-	<article class="obj-block" id="about">
-		<div class="obj-width-limiter">
-			<div class="obj-block-content">
-				{% include"home/about" %}
-			</div>
-		</div>
-	</article>
+	{% include"home/blog-posts" %}
 {% endblock -%}

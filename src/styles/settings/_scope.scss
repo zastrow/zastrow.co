@@ -1,0 +1,9 @@
+:scope {
+	--font-body:"Mona Sans", var(--font-sans);
+	--font-title:"Hubot Sans", var(--font-sans);
+	--font-mono:"Monaspace Neon", var(--font-mono);
+
+	@for $i from 1 to 12 {
+		--font-stretch-#{$i}: #{75% + (($i - 1) * 5)};
+	}
+}

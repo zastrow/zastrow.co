@@ -1,10 +1,7 @@
-<nav class="cmp-pagination">
-	<a class="cmp-pagination__link cmp-pagination__link--prev{% if pagination.href.previous %}{% else %} cmp-pagination__link--inactive{% endif %}"{% if pagination.href.previous %} href="{{pagination.href.previous}}{% endif %}" aria-label="Previous Page{% if pagination.href.previous %} Page {{ pagination.pageNumber | minus: 1 }}{% else %} Link Disabled{% endif %}">‹</a>
+<nav>
+	<a {% if pagination.href.previous %} href="{{pagination.href.previous}}{% endif %}" aria-label="Previous Page{% if pagination.href.previous %} Page {{ pagination.pageNumber | minus: 1 }}{% else %} Link Disabled{% endif %}">Previous Page</a>
 
-	<div class="cmp-pagination__status">
-		<div class="cmp-pagination__status-text">Page <strong class="cmp-pagination__page-count cmp-pagination__page-count--active">{{ pagination.pageNumber | plus: 1 }}</strong> of <strong class="cmp-pagination__page-count cmp-pagination__page-count--total">{{ pagination.pages.size }}</strong></div>
-	</div>
+	Page <strong>{{ pagination.pageNumber | plus: 1 }}</strong> of <strong>{{ pagination.pages.size }}</strong>
 
-	<a class="cmp-pagination__link cmp-pagination__link--next{% if pagination.href.next %}{% else %} cmp-pagination__link--inactive{% endif %}"{% if pagination.href.next %} href="{{pagination.href.next}}{% endif %}" aria-label="Next Page{% if pagination.href.next %} Page {{ pagination.pageNumber | plus: 1 }}{% else %} Link Disabled{% endif %}">›</a>
-
+	<a {% if pagination.href.next %} href="{{pagination.href.next}}{% endif %}" aria-label="Next Page{% if pagination.href.next %} Page {{ pagination.pageNumber | plus: 1 }}{% else %} Link Disabled{% endif %}">Next Page</a>
 </nav>

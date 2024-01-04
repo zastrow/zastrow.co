@@ -1,16 +1,15 @@
 {
   "name": "zastrow.eleventy",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "",
-  "main": "index.js",
   "scripts": {
-    "build": "eleventy && npm run styles && npm run postcss",
-    "start": "npm run eleventy:dev & npm run styles:dev",
-    "eleventy:dev": "eleventy --watch --serve",
-    "styles": "sass src/styles/style.scss:dist/style.css",
-    "styles:dev": "npm run styles -- --watch & npm run postcss:dev",
-    "postcss": "postcss --use autoprefixer -o dist/style.css dist/style.css",
-    "postcss:dev": "npm run postcss -- --watch"
+    "build": "run-s eleventy styles",
+    "start": "run-p eleventy:dev styles watch",
+    "eleventy:dev": "eleventy --watch --serve --quiet",
+    "styles": "run-s sass css",
+    "sass": "sass src/styles/style.scss:dist/style.css",
+    "css": "postcss dist/style.css --replace",
+    "watch": "node task.watch.js"
   },
   "author": "",
   "license": "ISC",
@@ -18,11 +17,18 @@
     "@11ty/eleventy": "^2.0.1",
     "@11ty/eleventy-plugin-rss": "^1.2.0",
     "autoprefixer": "^10.4.16",
+    "chokidar": "^3.5.3",
     "dotenv": "^16.3.1",
     "eleventy-xml-plugin": "^0.1.0",
     "fast-glob": "^3.3.2",
+    "npm-run-all": "^4.1.5",
+    "open-props": "^1.6.16",
     "postcss-cli": "^10.1.0",
-    "sass": "^1.64.2"
+    "postcss-color-converter": "^1.1.0",
+    "postcss-custom-media": "^10.0.2",
+    "postcss-jit-props": "^1.0.14",
+    "sass": "^1.69.7",
+    "shelljs": "^0.8.5"
   },
   "browserslist": [
     "defaults"

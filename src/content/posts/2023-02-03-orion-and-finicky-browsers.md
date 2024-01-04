@@ -1,21 +1,10 @@
 ---
-author:
-  display_name: zastrow
-  email: philip@zastrow.co
-  first_name: Philip
-  last_name: Zastrow
-  login: zastrow
-categories:
-  - Writing
-tags:
-  - Writing
+title: Orion and Finicky Browsers
 date: "2023-02-03T13:15:00Z"
-published: true
-status: publish
-title: 'Orion and Finicky Browsers'
 type: post
 aliases:
   - /2023/03/orion-and-finicky-browsers/
+preview: I delve into my experience using various browsers, highlighting my use of the “big three” - Safari, Firefox, and Chrome, my exploration of new browsers like Orion, and my unique setup with Finicky and Alfred that allows me to efficiently distribute web URLs among different browsers.
 ---
 
 As a web developer, I have several browsers installed. My primary browser that I check my work in are Safari, Firefox, and Chrome, which I’ll refer to as the big three. These three represent the most common rendering engines (the thing that turns code into a usable website). They each have a great suite of developer tools that are mostly the same or have similar feature implemented in slightly different ways, which help me get my job done. There’s be a resurgence the last several years in new browsers, and the majority of these browsers use one of big three’s rendering engines and then they build their own experience around additional features, like plugins, viewing modes, etc.

@@ -15,41 +15,34 @@ permalink: "micro/{% if pagination.pageNumber > 0 %}{{ pagination.pageNumber | p
 {% endblock -%}
 
 {%- block main %}
-<div class="obj-width-listing">
-	<header>
-		<h1 class="cmp-title">{{title}}</h1>
-		{{if content}}
-		<div>
-			{{ content }}
-		</div>
-		{{end}}
-	</header>
+<header>
+	<h1 class="cmp-title">{{title}}</h1>
+	{{if content}}
+	<div>
+		{{ content }}
+	</div>
+	{{end}}
+</header>
 
-	<div class="util-margin-bottom-1xl">
-		{% include 'pagination' %}
-	</div></div>
+{% include 'pagination' %}
 
-	{%- for post in micro -%}
-		<article class="cmp-post cmp-post--micro cmp-post--writing">
-			<div class="obj-width-micor obj-width-writing">
-				<header>
-					<h2>
-						<a href="{{ post.url }}">
-							{{ post.data.title }}
-						</a>
-					</h2>
-					<p>
-						<time datetime="{{ post.data.date | date: "%Y-%m-%d" }}" class="cmp-article-item__date">{{ post.data.date | date: "%d %B %Y" }}</time>
-					</p>
-				</header>
-				<div class="cmp-post__content">
-					{{ post.content }}
-				</div>
-			</div>
-		</article>
-	{% endfor %}
-	<div class="util-margin-bottom-1xl">
-		{% include 'pagination' %}
-	</div></div>
-</div>
+{%- for post in micro -%}
+	<article>
+		<header>
+			<h2>
+				<a href="{{ post.url }}">
+					{{ post.data.title }}
+				</a>
+			</h2>
+			<p>
+				<time datetime="{{ post.data.date | date: "%Y-%m-%d" }}">
+					{{ post.data.date | date: "%d %B %Y" }}
+				</time>
+			</p>
+		</header>
+		{{ post.content }}
+	</article>
+{% endfor %}
+
+{% include 'pagination' %}
 {% endblock -%}

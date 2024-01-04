@@ -16,38 +16,29 @@ permalink: "posts/{% if pagination.pageNumber > 0 %}{{ pagination.pageNumber | p
 {% endblock -%}
 
 {%- block main %}
-<div class="obj-gradient-block">
-	<div class="obj-gradient-block__interior">
-		<div class="obj-width-listing">
-			<div class="obj-gradient-block__content">
-				<header>
-					<h1 class="cmp-title">{{title}}</h1>
-					{{if content}}
-					<div>
-						{{ content }}
-					</div>
-					{{end}}
-				</header>
-				<div class="util-margin-bottom-1xl">
-					{% include 'pagination' %}
-				</div>
-				{%- for post in posts -%}
-					<div class="cmp-article-item">
-						<h2 class="cmp-article-item__title">
-							<a href="{{ post.url }}" class="cmp-article-item__title-link">
-								{{ post.data.title }}
-							</a>
-						</h2>
-						<p class="cmp-meta">
-								<time class="cmp-meta__date" datetime="{{ post.data.date | date: "%Y-%m-%d" }}">{{ post.data.date | date: "%d %B %Y" }}</time>
-						</p>
-					</div>
-				{% endfor %}
-				<div class="util-margin-bottom-1xl">
-					{% include 'pagination' %}
-				</div>
-			</div>
+	<header>
+		<h1>{{title}}</h1>
+		{{if content}}
+		<div>
+			{{ content }}
 		</div>
-	</div>
-</div>
+		{{end}}
+	</header>
+
+	{% include 'pagination' %}
+
+	{%- for post in posts -%}
+		<h2>
+			<a href="{{ post.url }}">
+				{{ post.data.title }}
+			</a>
+		</h2>
+		<p>
+			<time datetime="{{ post.data.date | date: "%Y-%m-%d" }}">
+				{{ post.data.date | date: "%d %B %Y" }}
+			</time>
+		</p>
+	{% endfor %}
+
+	{% include 'pagination' %}
 {% endblock -%}
