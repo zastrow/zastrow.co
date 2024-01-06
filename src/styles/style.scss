@@ -22,7 +22,7 @@
 // Tools are loaded modularly as needed in partials
 
 // 3. Generics
-// @forward "generics/fonts";
+@forward "generics/fonts";
 @forward "generics/normalize";
 @forward "generics/class-reset";
 
@@ -44,5 +44,7 @@
 // 6. Components
 @forward "components/site-header";
 @forward "components/nav";
+@forward "components/nav-toggle";
+
 // 7. Utilities
 @forward "utilities/visually-hidden";

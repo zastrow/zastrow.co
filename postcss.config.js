@@ -1,6 +1,5 @@
 const postcssJitProps = require('postcss-jit-props');
 const postcssCustomMedia = require('postcss-custom-media');
-const postcssColorConverter = require('postcss-color-converter');
 const autoprefixer = require('autoprefixer');
 const path = require('path');
 
@@ -12,7 +11,6 @@ module.exports = {
 			]
 		}),
 		postcssCustomMedia,
-		postcssColorConverter({outputColorFormat: 'hsl'}),
 		autoprefixer
 	]
 }

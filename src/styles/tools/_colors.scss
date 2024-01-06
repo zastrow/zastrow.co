@@ -1,67 +1,185 @@
-@use "./oklch" as *;
-// **Color System
-@mixin oklch($name, $map) {
-	/* #{$name} oklch values */
-	@each $key, $value in $map {
-		--#{$name}-#{$key}-oklch: #{$value};
-	}
-/* #{$name} oklch color */
-	@each $key, $value in $map {
-		--#{$name}-#{$key}: oklch(var(--#{$name}-#{$key}-oklch));
-	}
-}
-
 // __Base Colors
 @mixin base {
-	@include oklch('plum', $purple);
-	@include oklch('fhlox', $magenta);
-	@include oklch('taffy', $pink);
-	@include oklch('mango', $orange);
-	@include oklch('gold', $gold);
-	@include oklch('azure', $blue);
-	@include oklch('grey', $gray);
+	// Base Hue Values
+	--base-daisy-hue: 94;
+	--base-mango-hue: 52;
+	--base-peach-hue: 10;
+	--base-phlox-hue: 328;
+	--base-lilac-hue: 304;
+	--base-denim-hue: 280;
+	--base-azure-hue: 256;
+	// Lighten Values
+	--base-l1: 80%;
+	--base-l2: 60%;
+	--base-l3: 40%;
+	--base-l4: 20%;
+	// Darken Values
+	--base-d1: 80%;
+	--base-d2: 60%;
+	--base-d3: 40%;
+	--base-d4: 30%;
+	// OKLCH Base
+	--base-black-oklch: 24.4% 0.015 var(--base-azure-hue);
+	--base-white-oklch: 100% 0 var(--base-azure-hue);
+	--base-daisy-oklch: 88.3% 0.181 var(--base-daisy-hue);
+	--base-phlox-oklch: 66% 0.303 var(--base-phlox-hue);
+	--base-azure-oklch: 58.3% 0.199 var(--base-azure-hue);
+	// Primary
+	--base-black: oklch(var(--base-black-oklch));
+	--base-white: oklch(var(--base-white-oklch));
+	--base-azure: oklch(var(--base-azure-oklch));
+	--base-phlox: oklch(var(--base-phlox-oklch));
+	--base-daisy: oklch(var(--base-daisy-oklch));
+	// Secondary
+	--base-denim: color-mix(in oklch, var(--base-phlox) 33.333%, var(--base-azure));
+	--base-lilac: color-mix(in oklch, var(--base-phlox) 66.666%, var(--base-azure));
+	--base-peach: color-mix(in oklch, var(--base-daisy) 33.333%, var(--base-phlox));
+	--base-mango: color-mix(in oklch, var(--base-daisy) 66.666%, var(--base-phlox));
+	// Greys
+	--grey-0: var(--base-white);
+	--grey-1: color-mix(in oklch, var(--base-black) 10%, var(--base-white));
+	--grey-2: color-mix(in oklch, var(--base-black) 20%, var(--base-white));
+	--grey-3: color-mix(in oklch, var(--base-black) 30%, var(--base-white));
+	--grey-4: color-mix(in oklch, var(--base-black) 40%, var(--base-white));
+	--grey-5: color-mix(in oklch, var(--base-black) 50%, var(--base-white));
+	--grey-6: color-mix(in oklch, var(--base-black) 60%, var(--base-white));
+	--grey-7: color-mix(in oklch, var(--base-black) 70%, var(--base-white));
+	--grey-8: color-mix(in oklch, var(--base-black) 80%, var(--base-white));
+	--grey-9: color-mix(in oklch, var(--base-black) 90%, var(--base-white));
+	--grey-10: var(--base-black);
+	// Grey Extreme Names
+	--white: var(--grey-0);
+	--black: var(--grey-10);
+	// Daisy Tints and Shades
+	--daisy-l4: color-mix(in oklch, var(--base-daisy) var(--base-l4), oklch(100% 0 var(--base-daisy-hue)));
+	--daisy-l3: color-mix(in oklch, var(--base-daisy) var(--base-l3), oklch(100% 0 var(--base-daisy-hue)));
+	--daisy-l2: color-mix(in oklch, var(--base-daisy) var(--base-l2), oklch(100% 0 var(--base-daisy-hue)));
+	--daisy-l1: color-mix(in oklch, var(--base-daisy) var(--base-l1), oklch(100% 0 var(--base-daisy-hue)));
+	--daisy-00: var(--base-daisy);
+	--daisy-d1: color-mix(in oklch, var(--base-daisy) var(--base-d1), oklch(0% 0 var(--base-daisy-hue)));
+	--daisy-d2: color-mix(in oklch, var(--base-daisy) var(--base-d2), oklch(0% 0 var(--base-daisy-hue)));
+	--daisy-d3: color-mix(in oklch, var(--base-daisy) var(--base-d3), oklch(0% 0 var(--base-daisy-hue)));
+	--daisy-d4: color-mix(in oklch, var(--base-daisy) var(--base-d4), oklch(0% 0 var(--base-daisy-hue)));
+	// Mango Tints and Shades
+	--mango-l4: color-mix(in oklch, var(--base-mango) var(--base-l4), oklch(100% 0 var(--base-mango-hue)));
+	--mango-l3: color-mix(in oklch, var(--base-mango) var(--base-l3), oklch(100% 0 var(--base-mango-hue)));
+	--mango-l2: color-mix(in oklch, var(--base-mango) var(--base-l2), oklch(100% 0 var(--base-mango-hue)));
+	--mango-l1: color-mix(in oklch, var(--base-mango) var(--base-l1), oklch(100% 0 var(--base-mango-hue)));
+	--mango-00: var(--base-mango);
+	--mango-d1: color-mix(in oklch, var(--base-mango) var(--base-d1), oklch(0% 0 var(--base-mango-hue)));
+	--mango-d2: color-mix(in oklch, var(--base-mango) var(--base-d2), oklch(0% 0 var(--base-mango-hue)));
+	--mango-d3: color-mix(in oklch, var(--base-mango) var(--base-d3), oklch(0% 0 var(--base-mango-hue)));
+	--mango-d4: color-mix(in oklch, var(--base-mango) var(--base-d4), oklch(0% 0 var(--base-mango-hue)));
+	// Peach Tints and Shades
+	--peach-l4: color-mix(in oklch, var(--base-peach) var(--base-l4), oklch(100% 0 var(--base-peach-hue)));
+	--peach-l3: color-mix(in oklch, var(--base-peach) var(--base-l3), oklch(100% 0 var(--base-peach-hue)));
+	--peach-l2: color-mix(in oklch, var(--base-peach) var(--base-l2), oklch(100% 0 var(--base-peach-hue)));
+	--peach-l1: color-mix(in oklch, var(--base-peach) var(--base-l1), oklch(100% 0 var(--base-peach-hue)));
+	--peach-00: var(--base-peach);
+	--peach-d1: color-mix(in oklch, var(--base-peach) var(--base-d1), oklch(0% 0 var(--base-peach-hue)));
+	--peach-d2: color-mix(in oklch, var(--base-peach) var(--base-d2), oklch(0% 0 var(--base-peach-hue)));
+	--peach-d3: color-mix(in oklch, var(--base-peach) var(--base-d3), oklch(0% 0 var(--base-peach-hue)));
+	--peach-d4: color-mix(in oklch, var(--base-peach) var(--base-d4), oklch(0% 0 var(--base-peach-hue)));
+	// Phlox Tints and Shades
+	--phlox-l4: color-mix(in oklch, var(--base-phlox) var(--base-l4), oklch(100% 0 var(--base-phlox-hue)));
+	--phlox-l3: color-mix(in oklch, var(--base-phlox) var(--base-l3), oklch(100% 0 var(--base-phlox-hue)));
+	--phlox-l2: color-mix(in oklch, var(--base-phlox) var(--base-l2), oklch(100% 0 var(--base-phlox-hue)));
+	--phlox-l1: color-mix(in oklch, var(--base-phlox) var(--base-l1), oklch(100% 0 var(--base-phlox-hue)));
+	--phlox-00: var(--base-phlox);
+	--phlox-d1: color-mix(in oklch, var(--base-phlox) var(--base-d1), oklch(0% 0 var(--base-phlox-hue)));
+	--phlox-d2: color-mix(in oklch, var(--base-phlox) var(--base-d2), oklch(0% 0 var(--base-phlox-hue)));
+	--phlox-d3: color-mix(in oklch, var(--base-phlox) var(--base-d3), oklch(0% 0 var(--base-phlox-hue)));
+	--phlox-d4: color-mix(in oklch, var(--base-phlox) var(--base-d4), oklch(0% 0 var(--base-phlox-hue)));
+	// Lilac Tints and Shades
+	--lilac-l4: color-mix(in oklch, var(--base-lilac) var(--base-l4), oklch(100% 0 var(--base-lilac-hue)));
+	--lilac-l3: color-mix(in oklch, var(--base-lilac) var(--base-l3), oklch(100% 0 var(--base-lilac-hue)));
+	--lilac-l2: color-mix(in oklch, var(--base-lilac) var(--base-l2), oklch(100% 0 var(--base-lilac-hue)));
+	--lilac-l1: color-mix(in oklch, var(--base-lilac) var(--base-l1), oklch(100% 0 var(--base-lilac-hue)));
+	--lilac-00: var(--base-lilac);
+	--lilac-d1: color-mix(in oklch, var(--base-lilac) var(--base-d1), oklch(0% 0 var(--base-lilac-hue)));
+	--lilac-d2: color-mix(in oklch, var(--base-lilac) var(--base-d2), oklch(0% 0 var(--base-lilac-hue)));
+	--lilac-d3: color-mix(in oklch, var(--base-lilac) var(--base-d3), oklch(0% 0 var(--base-lilac-hue)));
+	--lilac-d4: color-mix(in oklch, var(--base-lilac) var(--base-d4), oklch(0% 0 var(--base-lilac-hue)));
+	// Denim Tints and Shades
+	--denim-l4: color-mix(in oklch, var(--base-denim) var(--base-l4), oklch(100% 0 var(--base-denim-hue)));
+	--denim-l3: color-mix(in oklch, var(--base-denim) var(--base-l3), oklch(100% 0 var(--base-denim-hue)));
+	--denim-l2: color-mix(in oklch, var(--base-denim) var(--base-l2), oklch(100% 0 var(--base-denim-hue)));
+	--denim-l1: color-mix(in oklch, var(--base-denim) var(--base-l1), oklch(100% 0 var(--base-denim-hue)));
+	--denim-00: var(--base-denim);
+	--denim-d1: color-mix(in oklch, var(--base-denim) var(--base-d1), oklch(0% 0 var(--base-denim-hue)));
+	--denim-d2: color-mix(in oklch, var(--base-denim) var(--base-d2), oklch(0% 0 var(--base-denim-hue)));
+	--denim-d3: color-mix(in oklch, var(--base-denim) var(--base-d3), oklch(0% 0 var(--base-denim-hue)));
+	--denim-d4: color-mix(in oklch, var(--base-denim) var(--base-d4), oklch(0% 0 var(--base-denim-hue)));
+	// Azure Tints and Shades
+	--azure-l4: color-mix(in oklch, var(--base-azure) var(--base-l4), oklch(100% 0 var(--base-azure-hue)));
+	--azure-l3: color-mix(in oklch, var(--base-azure) var(--base-l3), oklch(100% 0 var(--base-azure-hue)));
+	--azure-l2: color-mix(in oklch, var(--base-azure) var(--base-l2), oklch(100% 0 var(--base-azure-hue)));
+	--azure-l1: color-mix(in oklch, var(--base-azure) var(--base-l1), oklch(100% 0 var(--base-azure-hue)));
+	--azure-00: var(--base-azure);
+	--azure-d1: color-mix(in oklch, var(--base-azure) var(--base-d1), oklch(0% 0 var(--base-azure-hue)));
+	--azure-d2: color-mix(in oklch, var(--base-azure) var(--base-d2), oklch(0% 0 var(--base-azure-hue)));
+	--azure-d3: color-mix(in oklch, var(--base-azure) var(--base-d3), oklch(0% 0 var(--base-azure-hue)));
+	--azure-d4: color-mix(in oklch, var(--base-azure) var(--base-d4), oklch(0% 0 var(--base-azure-hue)));
 
-	/* white oklch value */
-	--white-oklch: 100% 0 0;
-	/* white oklch color */
-	--white: oklch(var(--white-oklch));
-	/* black oklch value */
-	--black-oklch: 0% 0 0;
-	/* black oklch color */
-	--black: oklch(var(--black-oklch));
+	--color-brand-light: var(--phlox-00);
+	--color-brand-dark: var(--phlox-00);
 
-	--color-text-light: var(--grey-d7);
+	--color-text-light: var(--grey-9);
 	--color-surface-light: var(--white);
 
 	--color-text-dark: var(--white);
-	--color-surface-dark: var(--grey-d6);
+	--color-surface-dark: var(--black);
 
-	--color-inline-code-text-light: var(--mango-d5);
-	--color-inline-code-surface-light: var(--gold-l8);
-	--color-inline-code-border-light: var(--gold-l3);
+	--color-inline-code-text-light: var(--mango-d2);
+	--color-inline-code-surface-light: var(--daisy-l4);
+	--color-inline-code-border-light: var(--daisy-l3);
 
-	--color-inline-code-text-dark: var(--gold-l6);
-	--color-inline-code-surface-dark: var(--gold-d7);
-	--color-inline-code-border-dark: var(--gold-d6);
+	--color-inline-code-text-dark: var(--daisy-l4);
+	--color-inline-code-surface-dark: var(--daisy-d4);
+	--color-inline-code-border-dark: var(--daisy-d3);
 
 	--color-link-text-light: var(--azure-00);
-	--color-link-visited-light: var(--plum-00);
+	--color-link-visited-light: var(--lilac-d2);
 
-	--color-link-text-dark: var(--azure-l4);
-	--color-link-visited-dark: var(--plum-l2);
+	--color-link-text-dark: var(--azure-l1);
+	--color-link-visited-dark: var(--denim-l2);
+
+	--color-header-title-light: var(--black);
+	--color-header-title-dark: var(--white);
+
+	--color-header-slogan-light: var(--grey-8);
+	--color-header-slogan-dark: var(--grey-2);
+
+	--color-toggle-open-light: var(--white);
+	--color-toggle-close-light: var(--white);
+
+	--color-toggle-open-dark: var(--white);
+	--color-toggle-close-dark: var(--white);
+
+	--color-toggle-surface-open-light: var(--black);
+	--color-toggle-surface-close-light: var(--black) ;
+	--color-toggle-surface-open-dark: var(--black);
+	--color-toggle-surface-close-dark: var(--black);
 }
 
 $color-group: (
+	'brand',
 	'text',
 	'surface',
 	'inline-code-text',
 	'inline-code-surface',
 	'inline-code-border',
 	'link-text',
-	'link-visited'
+	'link-visited',
+	'header-title',
+	'header-slogan',
+	'toggle-open',
+	'toggle-close',
+	'toggle-surface-open',
+	'toggle-surface-close'
 );
 
-// __Light Mode
+// __Color Mode
 @mixin mode($style: 'light') {
 	@each $name in $color-group {
 		--color-#{$name}: var(--color-#{$name}-#{$style});

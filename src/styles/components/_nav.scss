@@ -1,10 +1,13 @@
 .cmp-nav {
+	display: none;
 
 	&__list {
 		list-stlye: '';
+		display: flex;
+		flex-direction: column;
 	}
 
 	&__item {
-		background-color: var(--gray-2);
+
 	}
 }

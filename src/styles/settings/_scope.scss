@@ -2,9 +2,9 @@
 @use "../tools/colors" as color;
 
 :scope {
-	--font-body: var(--font-sans);
-	--font-title: var(--font-sans);
-	--font-mono: var(--font-mono);
+	--font-body: "Mona Sans", var(--font-sans);
+	--font-title: "Hubot Sans", var(--font-sans);
+	--font-code: "Monaspace Neon", var(--font-mono);
 
 	@include color.base;
 	@include color.mode('light');
@@ -28,4 +28,12 @@
 
 	--width-min: calc(100% - (var(--size-3) * 2));
 	--width-max: min(var(--width-min), var(--query-xl));
+}
+
+.mode-light {
+	@include color.mode('light');
+}
+
+.mode-dark {
+	@include color.mode('dark');
 }
