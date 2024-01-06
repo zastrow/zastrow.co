@@ -28,9 +28,11 @@
 			</div>
 			<div class="obj-page__main">
 				<main id="main">
-					{% block main %}
-						{{ content }}
-					{% endblock %}
+					<div class="obj-max-width">
+						{% block main %}
+							{{ content }}
+						{% endblock %}
+					</div>
 				</main>
 			</div>
 			<div class="obj-page__foot">

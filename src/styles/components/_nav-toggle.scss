@@ -1,0 +1,53 @@
+.cmp-nav-toggle {
+	box-sizing: border-box;
+	width: var(--size-fluid-5);
+	aspect-ratio: 1 / 1;
+	padding: var(--size-3);
+	display: flex;
+	place-items: center;
+	border-radius: var(--radius-round);
+	border: var(--border-size-3) solid var(--white);
+	position: absolute;
+	inset-block-start: var(--size-3);
+	inset-inline-end: var(--size-3);
+
+	&::after {
+		--width: min(100vw, 40rem);
+		content: '';
+		display: block;
+		pointer-events: none;
+		background-image: url('/assets/pattern.svg');
+		background-position: center;
+		background-repeat: no-repeat;
+		width: var(--width);
+		aspect-ratio: 1 / 1;
+		position: absolute;
+		inset-block-start: calc(50% - (var(--width) / 2));
+		inset-inline-start: calc(50% - (var(--width) / 2));
+		z-index: -1;
+		@media (--motionOK) {
+			animation: rotate 360s linear infinite;
+		}
+	}
+
+	&--open {
+		color: var(--color-toggle-open);
+		background-color: var(--color-toggle-surface-open);
+	}
+
+	&--close {
+		display: none;
+		color: var(--color-toggle-close);
+		background-color: var(--color-toggle-surface-close);
+	}
+
+	&__icon {
+		width: 100%;
+	}
+}
+
+@keyframes rotate {
+	to {
+		rotate: 360deg;
+	}
+}

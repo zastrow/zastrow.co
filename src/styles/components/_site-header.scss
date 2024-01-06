@@ -1,6 +1,64 @@
 .cmp-site-header {
+	display: block;
+	padding: var(--size-4) 0;
+	overflow-x: clip;
+	margin-block-end: min(20vw, var(--size-12));
+
+	&__layout {
+		position: relative;
+		display: flex;
+	}
 
 	&__title {
-		color: var(--color-brand);
+		font-size: clamp(
+			var(--font-size-4),
+			10vw,
+			var(--font-size-8));
+		--shadow: drop-shadow(0 0 1px var(--color-surface));
+		--shadow-end: drop-shadow(0 0 0 var(--color-surface));
+		filter: var(--shadow) var(--shadow) var(--shadow) var(--shadow-end) var(--shadow-end) var(--shadow-end) var(--shadow-end);
+	}
+
+	&__title-link {
+		font-weight: var(--font-weight-5);
+		font-stretch: var(--font-stretch-12);
+		display: block;
+		color: var(--color-header-title);
+	}
+
+	&__name-mark {
+		display: block;
+		position: relative;
+	}
+
+	&__first-name,
+	&__last-name {
+		display: block;
+		font-family: var(--font-body);
+		font-weight: var(--font-weight-5);
+		font-stretch: var(--font-stretch-11);
+		line-height: 1;
+	}
+
+	&__first-name {
+
+	}
+
+	&__last-name {
+
+	}
+
+	&__slogan {
+		color: var(--color-header-slogan);
+		display: block;
+		margin-block-start: var(--size-1);
+		text-transform: lowercase;
+		font-size: 50%;
+		font-family: var(--font-code);
+		font-weight: var(--font-weight-2);
+	}
+
+	&__slogan-line {
+		display: block;
 	}
 }
