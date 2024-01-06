@@ -6,6 +6,14 @@
 	--font-title: "Hubot Sans", var(--font-sans);
 	--font-code: "Monaspace Neon", var(--font-mono);
 
+	--layer-00: -1;
+	--layer-0: 0;
+	--layer-1: 100;
+	--layer-2: 200;
+	--layer-3: 300;
+	--layer-4: 400;
+	--layer-5: 500;
+
 	@include color.base;
 	@include color.mode('light');
 

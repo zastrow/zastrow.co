@@ -1,0 +1,23 @@
+@media (--lg-min) {
+	.cmp-main {
+		position: relative;
+
+		&::before {
+			content: '';
+			display: block;
+			width: 100%;
+			height: calc(100% + 8rem);
+			position: absolute;
+			translate: -30vw -8rem;
+			width: 100vw;
+			backdrop-filter: blur(0.5rem);
+			background-color: var(--color-surface-transparent);
+			// background-image: radial-gradient(circle at 50% 100%, oklch(var(--base-black-oklch) / 0.9) 40%, oklch(var(--base-black-oklch) / 0) calc(40% + 1px));
+
+			// oklch(var(--base-black-oklch) / 0.9)
+			border-radius: 50vw 50vw 0 0;
+			// mask-image: radial-gradient(circle at 50% 100%, #000 40%, #0000 calc(40% + 1px));
+			z-index: var(--layer-00);
+		}
+	}
+}

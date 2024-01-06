@@ -25,6 +25,7 @@
 @forward "generics/fonts";
 @forward "generics/normalize";
 @forward "generics/class-reset";
+@forward "generics/animations";
 
 // 4. Elements
 @forward "elements/body";
@@ -45,6 +46,8 @@
 @forward "components/site-header";
 @forward "components/nav";
 @forward "components/nav-toggle";
+@forward "components/main";
 
 // 7. Utilities
 @forward "utilities/visually-hidden";
+@forward "utilities/surface-transparent";

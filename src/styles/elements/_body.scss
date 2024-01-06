@@ -4,3 +4,8 @@
 	color: var(--color-text);
 	background-color: var(--color-surface);
 }
+
+.nav-open {
+	max-height: 100vh;
+	overflow: clip;
+}

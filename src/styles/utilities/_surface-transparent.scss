@@ -1,0 +1,4 @@
+.util-surface-transparent {
+	/* This will seem weird, but it fixes a color bug in Chrome */
+	background-color: var(--color-surface-transparent);
+}

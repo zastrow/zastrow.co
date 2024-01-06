@@ -126,9 +126,11 @@
 
 	--color-text-light: var(--grey-9);
 	--color-surface-light: var(--white);
+	--color-surface-transparent-light: oklch(var(--base-white-oklch) / 0.9);
 
 	--color-text-dark: var(--white);
 	--color-surface-dark: var(--black);
+	--color-surface-transparent-dark: oklch(var(--base-black-oklch) / 0.9);
 
 	--color-inline-code-text-light: var(--mango-d2);
 	--color-inline-code-surface-light: var(--daisy-l4);
@@ -166,6 +168,7 @@ $color-group: (
 	'brand',
 	'text',
 	'surface',
+	'surface-transparent',
 	'inline-code-text',
 	'inline-code-surface',
 	'inline-code-border',
