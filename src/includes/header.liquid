@@ -14,18 +14,20 @@
 					</span>
 				</a>
 			</{% if layout == "home" %}h1{% else %}p{% endif %}>
-			<div>
-				<button type="button" class="cmp-nav-toggle cmp-nav-toggle--open js-nav-open">
-					<svg viewBox="0 0 30 24" height="24" width="30" class="cmp-nav-toggle__icon">
-						<path d="M2 2h26 M2 12h26 M2 22h16" stroke="currentcolor" stroke-width="4" stroke-linecap="round" />
-					</svg>
-				</button>
-				<button type="button" class="cmp-nav-toggle cmp-nav-toggle--close js-nav-close">
-					<svg viewBox="0 0 30 24" height="24" width="30" class="cmp-nav-toggle__icon">
-						<path d="M2 2L22 22M2 22L22 2" stroke="currentcolor" stroke-width="4" stroke-linecap="round" />
-					</svg>
-				</button>
-				<nav class="cmp-nav">
+			<div class="cmp-site-header__nav">
+				<div class="cmp-nav-toggle">
+					<button type="button" class="cmp-nav-toggle__button cmp-nav-toggle__button--open js-nav-open">
+						<svg viewBox="0 0 30 24" height="24" width="30" class="cmp-nav-toggle__icon">
+							<path d="M2 2h26 M2 12h26 M2 22h16" stroke="currentcolor" stroke-width="3" stroke-linecap="round" vector-effect="non-scaling-stroke" />
+						</svg>
+					</button>
+					<button type="button" class="cmp-nav-toggle__button cmp-nav-toggle__button--close js-nav-close">
+						<svg viewBox="0 0 24 24" height="24" width="24" class="cmp-nav-toggle__icon">
+							<path d="M2 2L22 22M2 22L22 2" stroke="currentcolor" stroke-width="3" stroke-linecap="round" vector-effect="non-scaling-stroke" />
+						</svg>
+					</button>
+				</div>
+				<nav class="cmp-nav js-nav">
 					<ul class="cmp-nav__list">
 						{% for item in nav %}
 							<li class="cmp-nav__item">

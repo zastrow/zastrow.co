@@ -5,6 +5,11 @@
 
 	&__main {
 		flex-grow: 2;
+
+		@media (--lg-min) {
+			position: relative;
+			z-index: var(--layer-4);
+		}
 	}
 }
 

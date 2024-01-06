@@ -3,9 +3,12 @@
   "version": "2.0.0",
   "description": "",
   "scripts": {
-    "build": "run-s eleventy styles",
-    "start": "run-p eleventy:dev styles watch",
+    "build": "run-s eleventy styles js:prod",
+    "start": "run-p eleventy:dev styles js:dev watch",
     "eleventy:dev": "eleventy --watch --serve --quiet",
+    "js": "webpack build --config ./webpack.config.js",
+    "js:prod": "npm run js -- --mode production",
+    "js:dev": "npm run js -- --mode development",
     "styles": "sass src/styles/style.scss:dist/style.css",
     "poststyles": "postcss dist/style.css --replace",
     "watch": "node task.watch.js"
@@ -27,7 +30,9 @@
     "postcss-custom-media": "^10.0.2",
     "postcss-jit-props": "^1.0.14",
     "sass": "^1.69.7",
-    "shelljs": "^0.8.5"
+    "shelljs": "^0.8.5",
+    "webpack": "^5.89.0",
+    "webpack-cli": "^5.1.4"
   },
   "browserslist": [
     "defaults"

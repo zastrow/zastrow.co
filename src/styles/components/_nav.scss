@@ -1,13 +1,47 @@
 .cmp-nav {
-	display: none;
+	position: fixed;
+	inset: 0;
+	z-index: var(--layer-2);
+	background-color: var(--black);
+	display: flex;
+	align-items: center;
+	pointer-events: none;
+	opacity: 0;
+	transition: opacity ease 250ms;
+
+	@media (--lg-min) {
+		all: unset;
+	}
+
+	&--open {
+		pointer-events: all;
+		opacity: 1;
+	}
 
 	&__list {
 		list-stlye: '';
 		display: flex;
 		flex-direction: column;
+		margin: var(--size-2);
+
+		@media (--lg-min) {
+			// flex-direction: row;
+		}
 	}
 
 	&__item {
+		text-transform: lowercase;
+	}
 
+	&__link {
+		font-size: var(--font-size-fluid-3);
+		font-stretch: var(--font-stretch-11);
+		font-weight: var(--font-weight-3);
+		color: var(--white);
+
+		@media (--lg-min) {
+			// font-size: var(--font-size-3);
+			color: var(--color-text);
+		}
 	}
 }

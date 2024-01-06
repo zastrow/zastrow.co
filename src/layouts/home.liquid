@@ -5,6 +5,6 @@ eleventyImport:
 ---
 {% layout "default-layout" %}
 
-{% comment %} {%- block main %} {% endcomment %}
-	{% comment %} {% include"home/blog-posts" %} {% endcomment %}
-{% comment %} {% endblock -%} {% endcomment %}
+{%- block main %}
+	{% include"home/blog-posts" %}
+{% endblock -%}
