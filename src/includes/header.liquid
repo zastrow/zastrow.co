@@ -31,7 +31,9 @@
 					<ul class="cmp-nav__list">
 						{% for item in nav %}
 							<li class="cmp-nav__item">
-								<a href="{{item.link}}" class="cmp-nav__link" data-title="{{ item.name }}">{{ item.name }}</a>
+								{% capture active_page %} {{ page.url | replace: '/', '' }} {% endcapture %}
+								{% capture link_page %} {{ item.link | replace: '/', '' }} {% endcapture %}
+								<a href="{{item.link}}" class="cmp-nav__link{% if active_page == link_page %} cmp-nav__link--active{% endif %}" data-title="{{ item.name }}">{{ item.name }}</a>
 							</li>
 						{% endfor %}
 					</ul>
