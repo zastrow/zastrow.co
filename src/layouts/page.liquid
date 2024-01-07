@@ -4,6 +4,8 @@ layout-name: page
 {% layout "default-layout" %}
 
 {%- block main %}
-	{% include 'list-header' %}
+	<header class="cmp-list-header">
+		<h1 class="cmp-list-header__title">{{title}}</h1>
+	</header>
 	{{ content }}
 {% endblock -%}

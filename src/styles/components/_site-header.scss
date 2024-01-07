@@ -6,7 +6,7 @@
 
 	@media (--lg-min) {
 		padding-block-start: var(--size-12);
-		margin-block-end: 30vh;
+		margin-block-end: max(35vh, 14rem);
 	}
 
 	&__layout {
@@ -36,9 +36,10 @@
 			inset-inline-start: var(--pos);
 			z-index: var(--layer-0);
 			@media (--motionOK) {
-				animation: rotate 360s linear infinite;
+				animation: rotate 120s linear infinite;
 
-				.nav-open & {
+				.nav-open &,
+				.resize & {
 					animation-play-state: paused;
 				}
 			}
@@ -100,10 +101,11 @@
 				translate: 50% 50%;
 				z-index: var(--layer-0);
 				@media (--motionOK) {
-					animation: rotate 360s linear infinite;
+					animation: rotate 120s linear infinite;
 					will-change: transform;
 
-					.nav-open & {
+					.nav-open &,
+					.resize &  {
 						animation-play-state: paused;
 					}
 				}
@@ -152,7 +154,7 @@
 		font-weight: var(--font-weight-5);
 		font-stretch: var(--font-stretch-11);
 		line-height: 1;
-		text-shadow: var(--shadow), var(--shadow), var(--shadow), var(--shadow), var(--shadow), var(--shadow);
+		// text-shadow: var(--shadow);
 		transition: color 250ms ease-in-out 250ms, text-shadow 500ms ease-in-out;
 	}
 
@@ -168,17 +170,29 @@
 		             -3px -3px 0 var(--color-text),
 		             -4px -4px 0 var(--color-text),
 		             -5px -5px 0 var(--color-text),
-		             -6px -6px 0 var(--color-text);
+		             -6px -6px 0 var(--color-text),
+		             -7px -7px 0 var(--color-text),
+		             -8px -8px 0 var(--color-text),
+		             -9px -9px 0 var(--color-text),
+		             -10px -10px 0 var(--color-text),
+		             -11px -11px 0 var(--color-text),
+		             -12px -12px 0 var(--color-text);
 	}
 
 	&__title-link:hover &__last-name {
 		color: var(--mango-00);
 		text-shadow: 1px 1px 0 var(--color-text),
-		             2px 2px 0 var(--color-text),
-		             3px 3px 0 var(--color-text),
-		             4px 4px 0 var(--color-text),
-		             5px 5px 0 var(--color-text),
-		             6px 6px 0 var(--color-text);
+								 2px 2px 0 var(--color-text),
+								 3px 3px 0 var(--color-text),
+								 4px 4px 0 var(--color-text),
+								 5px 5px 0 var(--color-text),
+								 6px 6px 0 var(--color-text),
+								 7px 7px 0 var(--color-text),
+								 8px 8px 0 var(--color-text),
+								 9px 9px 0 var(--color-text),
+								 10px 10px 0 var(--color-text),
+								 11px 11px 0 var(--color-text),
+								 12px 12px 0 var(--color-text);
 	}
 
 	&__slogan {

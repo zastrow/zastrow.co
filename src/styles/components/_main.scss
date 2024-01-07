@@ -1,18 +1,20 @@
 @media (--lg-min) {
 	.cmp-main {
 		position: relative;
+		min-height: 25vmax;
 
 		&::before {
 			content: '';
 			display: block;
-			width: 100%;
-			height: calc(100% + 8rem);
 			position: absolute;
-			translate: -30vw -8rem;
-			width: 100vw;
+			inset: 0 -15vw -8rem;
+			translate: -10vw -8rem;
 			backdrop-filter: blur(0.5rem);
+			mask-image: url('/assets/circle-mask.svg');
+			mask-repeat: no-repeat;
+			mask-position: top left;
+			mask-size: 100% auto;
 			background-color: var(--color-surface-transparent);
-			border-radius: 50vw 50vw 0 0;
 			z-index: var(--layer-00);
 		}
 	}
