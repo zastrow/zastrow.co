@@ -26,62 +26,60 @@
 	}
 
 	&__item {
+		font-size: var(--font-size-fluid-3);
 		text-transform: lowercase;
+		display: flex;
+		font-stretch: var(--font-stretch-11);
+		width: 5ch;
 	}
 
 	&__link {
-		font-size: var(--font-size-fluid-3);
-		font-stretch: var(--font-stretch-11);
 		font-weight: var(--font-weight-3);
-		color: var(--white);
+		color: var(--color-text);
+		transition: color 250ms ease-in-out 250ms,
+								font-weight 250ms ease-in-out 250ms,
+								text-shadow 500ms ease-in-out;
 
 		&:hover {
-			color: var(--phlox-00);
-			@media (--OSdark) {
-				color: var(--mango-00);
-			}
+			transition: color 250ms ease-in-out,
+									font-weight 250ms ease-in-out,
+									text-shadow 500ms ease-in-out;
+			font-weight: var(--font-weight-5);
+			text-shadow:  1px  1px 0 var(--phlox-00),
+			              2px  2px 0 var(--phlox-00),
+			              3px  3px 0 var(--phlox-00),
+			              4px  4px 0 var(--phlox-00),
+			              5px  5px 0 var(--phlox-00),
+			              6px  6px 0 var(--phlox-00),
+			              7px  7px 0 var(--phlox-00),
+			              8px  8px 0 var(--phlox-00),
+			              9px  9px 0 var(--phlox-00),
+			             10px 10px 0 var(--phlox-00),
+			             11px 11px 0 var(--phlox-00),
+			             12px 12px 0 var(--phlox-00);
+
+			// color: var(--phlox-00);
+			// @media (--OSdark) {
+			// 	color: var(--mango-00);
+			// }
 		}
 
-		&--active:hover {
-			color: var(--white);
-			cursor: default;
-		}
-
-		@media (--lg-min) {
+		&--active {
 			color: var(--color-text);
-			position: relative;
-
-			&::before {
-				content: '';
-				display: block;
-				position: absolute;
-				inset-inline-end: calc(100% + 0.5ch);
-				inset-block-start: 50%;
-				translate: 0 -25%;
-				width: 0.25ch;
-				aspect-ratio: 1 / 1;
-				background-color: var(--color-text);
-				border-radius: var(--radius-round);
-				pointer-events: none;
-				opacity: 0;
-				scale: 0.5;
-				transition: ease-in-out 150ms;
-				transition-property: opacity, scale;
-			}
-
-			&:hover::before {
-				opacity: 1;
-				scale: 1;
-			}
-
-			&--active:hover {
-				color: var(--color-text);
-			}
-
-			&--active::before {
-				opacity: 1;
-				scale: 1;
-			}
+			font-weight: var(--font-weight-5);
+			text-shadow:  1px  1px 0 var(--mango-00),
+			              2px  2px 0 var(--mango-00),
+			              3px  3px 0 var(--mango-00),
+			              4px  4px 0 var(--mango-00),
+			              5px  5px 0 var(--mango-00),
+			              6px  6px 0 var(--mango-00),
+			              7px  7px 0 var(--mango-00),
+			              8px  8px 0 var(--mango-00),
+			              9px  9px 0 var(--mango-00),
+			             10px 10px 0 var(--mango-00),
+			             11px 11px 0 var(--mango-00),
+			             12px 12px 0 var(--mango-00);
+			pointer-events: none;
 		}
 	}
 }
