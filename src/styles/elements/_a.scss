@@ -2,11 +2,16 @@
 	color: var(--color-link-text);
 	text-underline-offset: 0.375ch;
 	text-decoration-thickness: 1px;
-	transition: text-underline-offset 150ms var(--ease-in-out-3);
+	text-decoration-color: var(--color-text);
+	transition-duration: 250ms;
+	transition-timing-function: var(--ease-in-out-3);
+	transition-property: text-underline-offset, color;
 }
 
 :where(a):not([class]):hover {
+	color: var(--color-text);
 	text-underline-offset: 0.125ch;
+	transition-duration: 150ms;
 }
 
 :where(a):not([class]):visited {

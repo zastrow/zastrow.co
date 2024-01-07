@@ -1,0 +1,10 @@
+.cmp-list-header {
+
+	&__title {
+		text-transform: lowercase;
+		font-size: 8rem;
+		font-family: var(--font-title);
+		font-stretch: var(--font-stretch-11);
+		font-weight: var(--font-weight-6);
+	}
+}

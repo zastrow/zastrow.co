@@ -146,6 +146,8 @@
 	&__last-name {
 		--shadow: 0 0 0 var(--color-text);
 		display: block;
+		// The will-change is to remove artifacting from the shadow animation
+		will-change: transform;
 		font-family: var(--font-body);
 		font-weight: var(--font-weight-5);
 		font-stretch: var(--font-stretch-11);
