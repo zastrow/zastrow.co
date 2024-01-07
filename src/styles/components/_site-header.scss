@@ -6,6 +6,7 @@
 
 	@media (--lg-min) {
 		padding-block-start: var(--size-12);
+		margin-block-end: 30vh;
 	}
 
 	&__layout {
@@ -36,7 +37,6 @@
 			z-index: var(--layer-0);
 			@media (--motionOK) {
 				animation: rotate 360s linear infinite;
-				will-change: transform;
 
 				.nav-open & {
 					animation-play-state: paused;
@@ -144,19 +144,39 @@
 
 	&__first-name,
 	&__last-name {
+		--shadow: 0 0 0 var(--color-text);
 		display: block;
 		font-family: var(--font-body);
 		font-weight: var(--font-weight-5);
 		font-stretch: var(--font-stretch-11);
 		line-height: 1;
+		text-shadow: var(--shadow), var(--shadow), var(--shadow), var(--shadow), var(--shadow), var(--shadow);
+		transition: color 250ms ease-in-out 250ms, text-shadow 500ms ease-in-out;
 	}
 
-	&__first-name {
-
+	&__title-link:hover &__first-name,
+	&__title-link:hover &__last-name {
+		transition: color 250ms ease-in-out, text-shadow 500ms ease-in-out;
 	}
 
-	&__last-name {
+	&__title-link:hover &__first-name {
+		color: var(--phlox-00);
+		text-shadow: -1px -1px 0 var(--color-text),
+		             -2px -2px 0 var(--color-text),
+		             -3px -3px 0 var(--color-text),
+		             -4px -4px 0 var(--color-text),
+		             -5px -5px 0 var(--color-text),
+		             -6px -6px 0 var(--color-text);
+	}
 
+	&__title-link:hover &__last-name {
+		color: var(--mango-00);
+		text-shadow: 1px 1px 0 var(--color-text),
+		             2px 2px 0 var(--color-text),
+		             3px 3px 0 var(--color-text),
+		             4px 4px 0 var(--color-text),
+		             5px 5px 0 var(--color-text),
+		             6px 6px 0 var(--color-text);
 	}
 
 	&__slogan {

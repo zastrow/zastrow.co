@@ -17,7 +17,7 @@ layout-name: articles
 </header>
 {% for article in external_articles %}
 	<h2>
-		<a href="{{ article.link }}">
+		<a href="{{ article.link }}" rel="external">
 			{{ article.title }}
 		</a>
 	</h2>
