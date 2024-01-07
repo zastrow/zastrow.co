@@ -15,9 +15,11 @@
 	--layer-5: 500;
 
 	@include color.base;
+	@include color.invert('light');
 	@include color.mode('light');
 
 	@media (--OSdark) {
+		@include color.invert('dark');
 		@include color.mode('dark');
 	}
 
@@ -39,9 +41,11 @@
 }
 
 .mode-light {
+	@include color.invert('light');
 	@include color.mode('light');
 }
 
 .mode-dark {
+	@include color.invert('dark');
 	@include color.mode('dark');
 }

@@ -1,10 +1,16 @@
-// When a class exists this assumes all
-// default styling should be removed
+// Prepare custom-styled elements
+// 1. Remove all default styles when a class is added.
+//    This assumes that if there is a class, the styles
+//    should be completely customizable.
+// 2. Since `all: unset` is a sweeping change to all styles,
+//    the `display` property is the one that should stay as
+//    the browser default, so it is reverted.
 :where([class]:not([class=""])) {
-	all: unset;
-	display: initial;
+	all: unset; // 1
+	display: revert; // 2
 }
 
+// Pointer Cursor
 // Add back in the pointer cursor on links
 // and add the pointer to buttons
 :where(a[class]:link, button) {

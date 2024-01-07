@@ -6,20 +6,22 @@ permalink: "/posts/{{ date | date: '%Y' }}/{{ date | date: '%m' }}/{{ date | dat
 {% block main %}
 	<article>
 		{%- if title -%}
-		<header>
-			<h2>
+		<header class="cmp-post-header">
+			<h2  class="cmp-post-header__title">
 				{{ title }}
 			</h2>
+			{%- if date -%}
+			<p class="cmp-post-header__meta">
+				<a href="{{ url }}"  class="cmp-post-header__permalink">
+					<time datetime="{{ date | date: "%Y-%m-%d" }}">
+						{{ date | date: "%d %B %Y" }}
+					</time>
+				</a>
+			</p>
+			{%- endif -%}
 		</header>
 		{%- endif -%}
 
-		{%- if date -%}
-			<a href="{{ url }}">
-				<time datetime="{{ date | date: "%Y-%m-%d" }}">
-					{{ date | date: "%d %B %Y" }}
-				</time>
-			</a>
-		{%- endif -%}
 
 		{{ content }}
 	</article>

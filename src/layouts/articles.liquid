@@ -10,22 +10,28 @@ layout-name: articles
 {% include 'list-header' %}
 
 {% for article in external_articles %}
-	<h2>
-		<a href="{{ article.link }}" rel="external">
-			{{ article.title }}
-		</a>
-	</h2>
-	<p>
-		<time datetime="{{ article.date | date: "%Y-%m-%d" }}">{{ article.date | date: "%d %B %Y" }}</time>
-		{{ article.source }}
-	</p>
-	{% if article.additional_authors %}
-		<p>
-			Written in collaboration with
-			{% for author in article.additional_authors %}
-				{{ author }}
-			{% endfor %}
-		</p>
-	{% endif %}
+	<div class="cmp-list">
+		<h2 class="cmp-list__title">
+			<a href="{{ article.link }}" class="cmp-list__link" rel="external">
+				{{ article.title }}
+			</a>
+		</h2>
+		<ul class="cmp-list__meta">
+			<li class="cmp-list__meta-item cmp-list__meta-item--date">
+				<time datetime="{{ article.date | date: "%Y-%m-%d" }}">{{ article.date | date: "%d %B %Y" }}</time>
+			</li>
+			<li class="cmp-list__meta-item cmp-list__meta-item--source">
+				{{ article.source }}
+			</li>
+			{% if article.additional_authors %}
+				<li class="cmp-list__meta-item cmp-list__meta-item--collaborator">
+					Written in collaboration with
+					{% for author in article.additional_authors %}
+						{{ author }}
+					{% endfor %}
+				</li>
+			{% endif %}
+		</ul>
+	</div>
 {% endfor %}
 {% endblock -%}
