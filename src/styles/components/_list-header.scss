@@ -1,10 +1,12 @@
 .cmp-list-header {
+	margin-block-end: var(--size-10);
 
 	&__title {
 		text-transform: lowercase;
-		font-size: 8rem;
+		font-size: clamp(var(--font-size-4), 12vw, 8rem);
 		font-family: var(--font-title);
 		font-stretch: var(--font-stretch-11);
 		font-weight: var(--font-weight-6);
+		line-height: var(--font-lineheight-1);
 	}
 }

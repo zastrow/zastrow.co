@@ -1,4 +1,6 @@
 // __Base Colors
+$color-names: ( 'daisy', 'mango', 'peach', 'phlox', 'lilac', 'denim', 'azure' );
+
 @mixin base {
 	// Base Hue Values
 	--base-daisy-hue: 94;
@@ -125,10 +127,12 @@
 	--color-brand-dark: var(--phlox-00);
 
 	--color-text-light: var(--grey-9);
+	--color-text-oklch-light: var(--base-black-oklch);
 	--color-surface-light: var(--white);
 	--color-surface-transparent-light: oklch(var(--base-white-oklch) / 0.9);
 
 	--color-text-dark: var(--white);
+	--color-text-oklch-dark: var(--base-white-oklch);
 	--color-surface-dark: var(--black);
 	--color-surface-transparent-dark: oklch(var(--base-black-oklch) / 0.9);
 
@@ -141,10 +145,10 @@
 	--color-inline-code-border-dark: var(--daisy-d3);
 
 	--color-link-text-light: var(--azure-00);
-	--color-link-visited-light: var(--lilac-d2);
+	--color-link-visited-light: var(--lilac-00);
 
 	--color-link-text-dark: var(--azure-l1);
-	--color-link-visited-dark: var(--denim-l2);
+	--color-link-visited-dark: var(--lilac-l1);
 
 	--color-header-title-light: var(--black);
 	--color-header-title-dark: var(--white);
@@ -162,11 +166,42 @@
 	--color-toggle-surface-close-light: var(--black) ;
 	--color-toggle-surface-open-dark: var(--black);
 	--color-toggle-surface-close-dark: var(--black);
+
+	--color-list-heading-link-surface-light: var(--mango-l4);
+	--color-list-heading-link-surface-dark: var(--mango-d3);
+
+	--color-list-heading-link-line-light: var(--mango-l1);
+	--color-list-heading-link-line-dark: var(--mango-d1);
+
+	--color-list-heading-link-line-hover-light: var(--mango-d1);
+	--color-list-heading-link-line-hover-dark: var(--mango-l1);
+
+	--color-list-seperator-surface-light: var(--mango-00);
+	--color-list-seperator-surface-dark: var(--mango-00);
+
+	--color-nav-effect-phlox-light: var(--phlox-00);
+	--color-nav-effect-phlox-dark: var(--phlox-l4);
+
+	--color-shadow-effect-phlox-light: var(--phlox-l4);
+	--color-shadow-effect-phlox-dark:  var(--phlox-d1);
+
+	--color-nav-effect-mango-light: var(--mango-00);
+	--color-nav-effect-mango-dark: var(--mango-l4);
+
+	--color-shadow-effect-mango-light: var(--mango-l4);
+	--color-shadow-effect-mango-dark: var(--mango-d1);
+
+	--color-post-permalink-light: var(--azure-00);
+	--color-post-permalink-dark: var(--azure-l2);
+
+	--color-post-permalink-hover-light: var(--azure-d1);
+	--color-post-permalink-hover-dark: var(--azure-l3);
 }
 
 $color-group: (
 	'brand',
 	'text',
+	'text-oklch',
 	'surface',
 	'surface-transparent',
 	'inline-code-text',
@@ -174,13 +209,47 @@ $color-group: (
 	'inline-code-border',
 	'link-text',
 	'link-visited',
+	'link-shadow',
 	'header-title',
 	'header-slogan',
 	'toggle-open',
 	'toggle-close',
 	'toggle-surface-open',
-	'toggle-surface-close'
+	'toggle-surface-close',
+	'list-seperator-surface',
+	'list-heading-link-surface',
+	'list-heading-link-line',
+	'list-heading-link-line-hover',
+	'post-permalink',
+	'post-permalink-hover',
+	'nav-effect-phlox',
+	'shadow-effect-phlox',
+	'nav-effect-mango',
+	'shadow-effect-mango'
 );
+
+@mixin invert($style: 'light') {
+	$prefix1: '';
+	$prefix2: '';
+	@if $style == 'light' {
+		$prefix1: 'l';
+		$prefix2: 'd';
+	}
+	@else if $style == 'dark' {
+		$prefix1: 'd';
+		$prefix2: 'l';
+	}
+	@for $i from 1 through 4 {
+		@each $name in $color-names {
+			--#{$name}-invert-l#{$i}: var(--#{$name}-#{$prefix1}#{$i});
+		}
+	}
+	@for $i from 1 through 4 {
+		@each $name in $color-names {
+			--#{$name}-invert-d#{$i}: var(--#{$name}-#{$prefix2}#{$i});
+		}
+	}
+}
 
 // __Color Mode
 @mixin mode($style: 'light') {

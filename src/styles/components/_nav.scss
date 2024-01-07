@@ -2,7 +2,7 @@
 	position: fixed;
 	inset: 0;
 	z-index: var(--layer-2);
-	background-color: var(--black);
+	background-color: var(--color-surface);
 	display: flex;
 	align-items: center;
 	pointer-events: none;
@@ -22,15 +22,28 @@
 		list-stlye: '';
 		display: flex;
 		flex-direction: column;
-		margin: var(--size-2);
+		margin-block: var(--size-2);
+		margin-inline-start: var(--size-6);
+
+		@media (--lg-min) {
+			margin: 0;
+		}
 	}
 
 	&__item {
-		font-size: var(--font-size-fluid-3);
+		font-size: var(--font-size-8);
 		text-transform: lowercase;
 		display: flex;
 		font-stretch: var(--font-stretch-11);
 		width: 5ch;
+
+		@media (--lg-min) {
+			font-size: var(--font-size-fluid-3);
+		}
+
+		& + & {
+			margin-block-start: var(--size-4);
+		}
 	}
 
 	&__link {
@@ -41,44 +54,43 @@
 								text-shadow 500ms ease-in-out;
 
 		&:hover {
+			--shadow: var(--color-shadow-effect-phlox);
 			transition: color 250ms ease-in-out,
 									font-weight 250ms ease-in-out,
 									text-shadow 500ms ease-in-out;
 			font-weight: var(--font-weight-5);
-			text-shadow:  1px  1px 0 var(--phlox-00),
-			              2px  2px 0 var(--phlox-00),
-			              3px  3px 0 var(--phlox-00),
-			              4px  4px 0 var(--phlox-00),
-			              5px  5px 0 var(--phlox-00),
-			              6px  6px 0 var(--phlox-00),
-			              7px  7px 0 var(--phlox-00),
-			              8px  8px 0 var(--phlox-00),
-			              9px  9px 0 var(--phlox-00),
-			             10px 10px 0 var(--phlox-00),
-			             11px 11px 0 var(--phlox-00),
-			             12px 12px 0 var(--phlox-00);
+			text-shadow:  1px  1px 0 var(--shadow),
+			              2px  2px 0 var(--shadow),
+			              3px  3px 0 var(--shadow),
+			              4px  4px 0 var(--shadow),
+			              5px  5px 0 var(--shadow),
+			              6px  6px 0 var(--shadow),
+			              7px  7px 0 var(--shadow),
+			              8px  8px 0 var(--shadow),
+			              9px  9px 0 var(--shadow),
+			             10px 10px 0 var(--shadow),
+			             11px 11px 0 var(--shadow),
+			             12px 12px 0 var(--shadow);
 
-			// color: var(--phlox-00);
-			// @media (--OSdark) {
-			// 	color: var(--mango-00);
-			// }
+			color: var(--color-nav-effect-phlox);
 		}
 
 		&--active {
-			color: var(--color-text);
+			--shadow: var(--color-shadow-effect-mango);
+			color: var(--color-nav-effect-mango);
 			font-weight: var(--font-weight-5);
-			text-shadow:  1px  1px 0 var(--mango-00),
-			              2px  2px 0 var(--mango-00),
-			              3px  3px 0 var(--mango-00),
-			              4px  4px 0 var(--mango-00),
-			              5px  5px 0 var(--mango-00),
-			              6px  6px 0 var(--mango-00),
-			              7px  7px 0 var(--mango-00),
-			              8px  8px 0 var(--mango-00),
-			              9px  9px 0 var(--mango-00),
-			             10px 10px 0 var(--mango-00),
-			             11px 11px 0 var(--mango-00),
-			             12px 12px 0 var(--mango-00);
+			text-shadow:  1px  1px 0 var(--shadow),
+			              2px  2px 0 var(--shadow),
+			              3px  3px 0 var(--shadow),
+			              4px  4px 0 var(--shadow),
+			              5px  5px 0 var(--shadow),
+			              6px  6px 0 var(--shadow),
+			              7px  7px 0 var(--shadow),
+			              8px  8px 0 var(--shadow),
+			              9px  9px 0 var(--shadow),
+			             10px 10px 0 var(--shadow),
+			             11px 11px 0 var(--shadow),
+			             12px 12px 0 var(--shadow);
 			pointer-events: none;
 		}
 	}

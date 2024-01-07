@@ -1,20 +1,15 @@
-:where(a):not([class]):link {
+:where(a):not([class]) {
 	color: var(--color-link-text);
-	text-underline-offset: 0.375ch;
+	text-decoration-color: color-mix(in oklch, var(--color-text) 0%, transparent);
 	text-decoration-thickness: 1px;
-	text-decoration-color: var(--color-text);
-	transition-duration: 250ms;
-	transition-timing-function: var(--ease-in-out-3);
-	transition-property: text-underline-offset, color;
+	text-decoration-line: underline;
+	text-underline-offset: 0.09em;
 }
 
 :where(a):not([class]):hover {
-	color: var(--color-text);
-	text-underline-offset: 0.125ch;
-	transition-duration: 150ms;
+	text-decoration-color: color-mix(in oklch, currentcolor 75%, var(--color-text));
 }
 
 :where(a):not([class]):visited {
 	color: var(--color-link-visited);
 }
-

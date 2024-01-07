@@ -18,16 +18,20 @@ permalink: "posts/{% if pagination.pageNumber > 0 %}{{ pagination.pageNumber | p
 	{% include 'pagination' %}
 
 	{%- for post in posts -%}
-		<h2>
-			<a href="{{ post.url }}">
-				{{ post.data.title }}
-			</a>
-		</h2>
-		<p>
-			<time datetime="{{ post.data.date | date: "%Y-%m-%d" }}">
-				{{ post.data.date | date: "%d %B %Y" }}
-			</time>
-		</p>
+		<div class="cmp-list">
+			<h2 class="cmp-list__title">
+				<a href="{{ post.url }}"  class="cmp-list__link">
+					{{ post.data.title }}
+				</a>
+			</h2>
+			<ul class="cmp-list__meta">
+				<li class="cmp-list__meta-item">
+					<time datetime="{{ post.data.date | date: "%Y-%m-%d" }}">
+						{{ post.data.date | date: "%d %B %Y" }}
+					</time>
+				</li>
+			</ul>
+		</div>
 	{% endfor %}
 
 	{% include 'pagination' %}
