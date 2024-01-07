@@ -7,14 +7,8 @@ layout-name: articles
 {% endblock -%}
 
 {%- block main %}
-<header>
-	<h1 class="cmp-title">{{title}}</h1>
-	{{if content}}
-	<div>
-		{{ content }}
-	</div>
-	{{end}}
-</header>
+{% include 'list-header' %}
+
 {% for article in external_articles %}
 	<h2>
 		<a href="{{ article.link }}" rel="external">

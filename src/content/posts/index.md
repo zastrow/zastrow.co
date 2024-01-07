@@ -1,4 +1,4 @@
 ---
 layout: post_list
-title: Posts
+title: Blog Posts
 ---

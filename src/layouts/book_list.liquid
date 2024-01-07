@@ -11,14 +11,7 @@ permalink: "books/{% if pagination.pageNumber > 0 %}{{ pagination.pageNumber | p
 {% endblock -%}
 
 {%- block main %}
-	<header>
-		<h1>{{title}}</h1>
-		{{if content}}
-		<div>
-			{{ content }}
-		</div>
-		{{end}}
-	</header>
+	{% include 'list-header' %}
 
 	{% include 'pagination' %}
 

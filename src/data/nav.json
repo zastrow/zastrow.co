@@ -12,6 +12,10 @@
 		"link": "/articles"
 	},
 	{
+		"name": "Projects",
+		"link": "/projects"
+	},
+	{
 		"name": "Shirts",
 		"link": "/shirts"
 	},

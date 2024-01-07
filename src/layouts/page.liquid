@@ -1,0 +1,9 @@
+---
+layout-name: page
+---
+{% layout "default-layout" %}
+
+{%- block main %}
+	{% include 'list-header' %}
+	{{ content }}
+{% endblock -%}
