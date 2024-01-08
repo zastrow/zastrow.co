@@ -167,6 +167,9 @@ $color-names: ( 'daisy', 'mango', 'peach', 'phlox', 'lilac', 'denim', 'azure' );
 	--color-toggle-surface-open-dark: var(--black);
 	--color-toggle-surface-close-dark: var(--black);
 
+	--color-list-heading-link-hover-light: var(--mango-d3);
+	--color-list-heading-link-hover-dark: var(--mango-l3);
+
 	--color-list-heading-link-surface-light: var(--mango-l4);
 	--color-list-heading-link-surface-dark: var(--mango-d3);
 
@@ -218,6 +221,7 @@ $color-group: (
 	'toggle-surface-close',
 	'list-seperator-surface',
 	'list-heading-link-surface',
+	'list-heading-link-hover',
 	'list-heading-link-line',
 	'list-heading-link-line-hover',
 	'post-permalink',

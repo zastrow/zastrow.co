@@ -30,8 +30,12 @@
 		text-decoration-thickness: 1px;
 		text-decoration-line: underline;
 		text-underline-offset: 0.09em;
+		transition-duration: 150ms;
+		transition-timing-function: ease-in-out;
+		transition-property: color, text-decoration-color;
 
 		&:hover {
+			color: var(--color-list-heading-link-hover);
 			text-decoration-color: var(--color-list-heading-link-line-hover);
 		}
 	}
