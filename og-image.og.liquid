@@ -1,0 +1,52 @@
+<!--
+{% comment %}
+	{% block og %}
+		{%- capture props -%}
+			{
+				"title": "{{ date | date: "%Y-%m-%d"  }}"
+			}
+		{%- endcapture -%}
+		{%- assign props = props | fromJson -%}
+		{% ogImage "./og-image.og.liquid" props %}
+	{% endblock %}
+{% endcomment %}
+-->
+
+<style>
+	.root {
+		box-sizing: border-box;
+		height: 630px;
+		width: 1200px;
+		padding: 60px;
+		display: flex;
+		align-items: flex-end;
+		justify-content: flex-start;
+		position: relative;
+		overflow: hidden;
+		background-color: white;
+	}
+
+	.content {
+		border-radius: 40px;
+		padding: 60px;
+		box-sizing: border-box;
+		position: relative;
+		align-self: stretch;
+		background-color: white;
+		width: 100%;
+	}
+
+	.svg {
+		position: absolute;
+		bottom: -25%;
+		left: -25%;
+		height: 2400px;
+		width: 2400px;
+	}
+</style>
+
+<div class="root">
+	<div class="content">
+		Title
+	</div>
+</div>
