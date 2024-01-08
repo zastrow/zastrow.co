@@ -7,8 +7,8 @@
 			content: '';
 			display: block;
 			position: absolute;
-			inset: 0 -15vw -8rem;
-			translate: -10vw -8rem;
+			inset: 0 max(-25rem, -15vw) -8rem;
+			translate: max(-15rem, -10vw) -8rem;
 			backdrop-filter: blur(0.5rem);
 			mask-image: url('/assets/circle-mask.svg');
 			mask-repeat: no-repeat;
@@ -16,6 +16,7 @@
 			mask-size: 100% auto;
 			background-color: var(--color-surface-transparent);
 			z-index: var(--layer-00);
+			pointer-events: none;
 		}
 	}
 }

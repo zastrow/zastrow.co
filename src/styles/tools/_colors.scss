@@ -199,6 +199,15 @@ $color-names: ( 'daisy', 'mango', 'peach', 'phlox', 'lilac', 'denim', 'azure' );
 
 	--color-post-permalink-hover-light: var(--azure-d1);
 	--color-post-permalink-hover-dark: var(--azure-l3);
+
+	--color-blockquote-surface-light: var(--mango-l4);
+	--color-blockquote-surface-dark: var(--daisy-d4);
+
+	--color-blockquote-text-light: var(--mango-d3);
+	--color-blockquote-text-dark: var(--daisy-l4);
+
+	--color-blockquote-border-light: var(--mango-00);
+	--color-blockquote-border-dark: var(--mango-00);
 }
 
 $color-group: (
@@ -226,6 +235,9 @@ $color-group: (
 	'list-heading-link-line-hover',
 	'post-permalink',
 	'post-permalink-hover',
+	'blockquote-surface',
+	'blockquote-text',
+	'blockquote-border',
 	'nav-effect-phlox',
 	'shadow-effect-phlox',
 	'nav-effect-mango',

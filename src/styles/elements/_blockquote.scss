@@ -5,12 +5,12 @@
 	max-inline-size: var(--size-content-3);
 	line-height: var(--font-lineheight-3);
 	padding: var(--size-6);
-	border-inline-start: var(--border-size-2) solid var(--mango-00);
-	background-color: var(--mango-l4);
+	border-inline-start: var(--border-size-2) solid var(--color-blockquote-border);
+	background-color: var(--color-blockquote-surface);
 }
 
 :where(blockquote):not([class]) > :where(p):not([class]) {
-	color: var(--mango-d3);
+	color: var(--color-blockquote-text);
 	margin-block: 0;
 }
 

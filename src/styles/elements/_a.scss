@@ -1,15 +1,23 @@
 :where(a):not([class]) {
 	color: var(--color-link-text);
-	text-decoration-color: color-mix(in oklch, var(--color-text) 0%, transparent);
+	text-decoration-color: color-mix(in oklch, currentcolor 75%, var(--color-text));
 	text-decoration-thickness: 1px;
 	text-decoration-line: underline;
 	text-underline-offset: 0.09em;
+	--bg: oklch(var(--color-text-oklch) / 0.05);
+	background-image: linear-gradient(0deg, transparent 0, transparent 0.125em, var(--bg) 0.125em, var(--bg) 0.5em, transparent 0.5em);
 }
 
 :where(a):not([class]):hover {
-	text-decoration-color: color-mix(in oklch, currentcolor 75%, var(--color-text));
+	color: color-mix(in oklch, var(--color-link-text) 75%, var(--color-text));
+	text-decoration-color: color-mix(in oklch, var(--color-link-text) 15%, var(--color-text));
 }
 
 :where(a):not([class]):visited {
 	color: var(--color-link-visited);
+}
+
+:where(a):not([class]):visited:hover {
+	color: color-mix(in oklch, var(--color-link-visited) 75%, var(--color-text));
+	text-decoration-color: color-mix(in oklch, var(--color-link-visited) 15%, var(--color-text));
 }
