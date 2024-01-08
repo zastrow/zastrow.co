@@ -1,0 +1,24 @@
+:where(dl,dt,dd):not([class]) {
+	all: unset;
+	display: revert;
+}
+
+:where(dl):not([class]) {
+}
+
+:where(dt):not([class]) {
+	font-size: var(--font-size-4);
+	font-stretch: var(--font-stretch-11);
+	font-weight: var(--font-weight-5);
+	margin-block-end: var(--size-2);
+}
+
+:where(dd):not([class]) {
+	font-size: clamp(var(--font-size-1), 5vw, var(--font-size-3));
+	max-inline-size: var(--size-content-3);
+	line-height: var(--font-lineheight-3);
+}
+
+:where(dd):not([class]) + :where(dt):not([class]) {
+	margin-block-start: var(--size-6);
+}

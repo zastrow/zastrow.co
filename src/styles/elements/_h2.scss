@@ -1,3 +1,5 @@
-:where(h1):not([class]) {
+:where(h2):not([class]) {
 	font-size: var(--font-size-fluid-3);
+	font-weight: var(--font-weight-6);
+	font-stretch: var(--font-stretch-11);
 }

@@ -31,6 +31,11 @@ permalink: "posts/{% if pagination.pageNumber > 0 %}{{ pagination.pageNumber | p
 					</time>
 				</li>
 			</ul>
+			{% if post.data.preview %}
+			<p  class="cmp-list__preview">
+				{{ post.data.preview }}
+			</p>
+			{% endif %}
 		</div>
 	{% endfor %}
 

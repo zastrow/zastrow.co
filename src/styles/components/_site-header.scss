@@ -196,8 +196,8 @@
 	}
 
 	&__slogan {
-		color: var(--color-header-slogan);
 		display: block;
+		color: var(--color-header-slogan);
 		margin-block-start: var(--size-1);
 		text-transform: lowercase;
 		font-size: 50%;
@@ -207,5 +207,17 @@
 
 	&__slogan-line {
 		display: block;
+	}
+
+	&__title-link:hover &__slogan-line:nth-child(1) {
+		color: var(--azure-l1);
+	}
+
+	&__title-link:hover &__slogan-line:nth-child(2) {
+		color: var(--azure-00);
+	}
+
+	&__title-link:hover &__slogan-line:nth-child(3) {
+		color: var(--azure-d1);
 	}
 }
