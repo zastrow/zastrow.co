@@ -1,0 +1,19 @@
+:where(blockquote):not([class]) {
+	all: unset;
+	display: revert;
+	font-size: clamp(var(--font-size-1), 5vw, var(--font-size-3));
+	max-inline-size: var(--size-content-3);
+	line-height: var(--font-lineheight-3);
+	padding: var(--size-6);
+	border-inline-start: var(--border-size-2) solid var(--mango-00);
+	background-color: var(--mango-l4);
+}
+
+:where(blockquote):not([class]) > :where(p):not([class]) {
+	color: var(--mango-d3);
+	margin-block: 0;
+}
+
+:where(blockquote):not([class]) > :where(p):not([class]) + :where(p):not([class]) {
+	margin-block-start: 1em;
+}
