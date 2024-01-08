@@ -1,5 +1,7 @@
 ---
 permalink: /feed/books/index.xml
+eleventyImport:
+  collections: ["books"]
 metadata:
   title: Philip Zastrow’s Reading List
   subtitle: These are the books I’ve read recently
@@ -8,7 +10,6 @@ metadata:
     name: Philip Zastrow
     email: "books@zastrow.co"
 ---
-
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom" xml:base="{{ metadata.url }}">
 	<title>{{ metadata.title }}</title>

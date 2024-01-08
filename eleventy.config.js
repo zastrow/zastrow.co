@@ -47,6 +47,10 @@ module.exports = (eleventyConfig) => {
 			includes: '../includes',
 			layouts: '../layouts',
 			data: '../data'
-		}
+		},
+		templateFormats: [ "md", "liquid", "html", ],
+		markdownTemplateEngine: "liquid",
+		htmlTemplateEngine: "liquid",
+		dataTemplateEngine: "njk",
 	}
 };

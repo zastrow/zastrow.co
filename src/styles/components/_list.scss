@@ -69,4 +69,11 @@
 			flex-basis: 100%;
 		}
 	}
+
+	&__preview {
+		font-size: clamp(var(--font-size-1), 5vw, var(--font-size-4));
+		max-inline-size: var(--size-content-3);
+		line-height: var(--font-lineheight-3);
+		margin-block-start: var(--size-3);
+	}
 }

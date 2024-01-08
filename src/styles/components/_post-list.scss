@@ -48,4 +48,10 @@
 	&__meta-item {
 		flex: 1 1 auto;
 	}
+
+	&__preview {
+		font-size: clamp(var(--font-size-1), 5vw, var(--font-size-3));
+		max-inline-size: var(--size-content-3);
+		line-height: var(--font-lineheight-3);
+	}
 }

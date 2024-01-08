@@ -1,12 +1,14 @@
 ---
 permalink: /feed/posts/index.xml
+eleventyImport:
+  collections: ["posts"]
 metadata:
-	title: Philip Zastrow’s Blog
-	subtitle: My latest post on web development, accessibility, and miscellany
-	language: en
-	author:
-		name: Philip Zastrow
-		email: "blog@zastrow.com"
+  title: Philip Zastrow’s Blog
+  subtitle: My latest post on web development, accessibility, and miscellany
+  language: en
+  author:
+    name: Philip Zastrow
+    email: "blog@zastrow.com"
 ---
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom" xml:base="{{ metadata.url }}">
