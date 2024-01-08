@@ -1,0 +1,53 @@
+.cmp-pagination {
+	margin-block: var(--size-9);
+	display: flex;
+	align-items: center;
+	gap: var(--size-6);
+
+	&__link {
+		aspect-ratio: 1 / 1;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		width: var(--size-8);
+		color: var(--color-surface);
+		background-color: var(--color-text);
+		border-radius: var(--radius-round);
+		transition: ease-in-out 300ms;
+		transition-property: box-shadow, color, background-color;
+		--size: -0.5rem;
+		--offset: 0.5rem;
+
+		&:not([href]) {
+			background-color: var(--grey-5);
+		}
+
+		&[href]:hover {
+			--size: 0.25rem;
+			--offset: 0.5rem;
+			color: var(--color-text);
+			background-color: var(--color-surface);
+		}
+
+		&--next {
+			box-shadow: 0 var(--offset) 0 var(--size) var(--phlox-00), 0 calc(-1 * var(--offset)) 0 var(--size)  var(--mango-00);
+
+			&[href]:hover {
+				box-shadow: var(--offset) 0 0 var(--size) var(--phlox-00), calc(-1 * var(--offset)) 0 0 var(--size)  var(--mango-00);
+			}
+		}
+
+		&--previous {
+			box-shadow: 0 var(--offset) 0 var(--size) var(--mango-00), 0 calc(-1 * var(--offset)) 0 var(--size)  var(--phlox-00);
+			&[href]:hover {
+				box-shadow: var(--offset) 0 0 var(--size) var(--mango-00), calc(-1 * var(--offset)) 0 0 var(--size)  var(--phlox-00);
+			}
+		}
+	}
+
+	&__status {
+		font-family: var(--font-code);
+		font-stretch: var(--font-stretch-9);
+		font-size: var(--font-size-3);
+	}
+}
