@@ -3,6 +3,12 @@ const pluginRss = require("@11ty/eleventy-plugin-rss");
 const fg = require('fast-glob').sync;
 
 module.exports = (eleventyConfig) => {
+
+	// COLLECTIONS
+	// =====================================================================
+
+	// Create Posts Collection
+	// ---------------------------------------------------------------
 	eleventyConfig.addCollection('posts', (api) => {
 		const files = fg(["src/content/posts/**/*.md"], {
 			ignore: ["src/content/posts/index.md"]
@@ -10,6 +16,8 @@ module.exports = (eleventyConfig) => {
 		return api.getFilteredByGlob(files).sort((a,b) => b.date - a.date);
 	});
 
+	// Create Books Collection
+	// ---------------------------------------------------------------
 	eleventyConfig.addCollection('books', (api) => {
 		const files = fg(["src/content/books/**/*.md"], {
 			ignore: ["src/content/books/index.md"]
@@ -17,6 +25,8 @@ module.exports = (eleventyConfig) => {
 		return api.getFilteredByGlob(files).sort((a,b) => b.date - a.date);
 	});
 
+	// Create Micro Collection (Not currently in use)
+	// ---------------------------------------------------------------
 	eleventyConfig.addCollection('micro', (api) => {
 		const files = fg(["src/content/micro/**/*.md"], {
 			ignore: ["src/content/micro/index.md"]
@@ -24,19 +34,25 @@ module.exports = (eleventyConfig) => {
 		return api.getFilteredByGlob(files).sort((a,b) => b.date - a.date);
 	});
 
+	// Create All Collection for combined feed
+	// ---------------------------------------------------------------
 	eleventyConfig.addCollection('all', (api) => {
-
 		const files = fg(["src/content/posts/**/*.md", "src/content/books/**/*.md"], {
 			ignore: ["src/content/posts/index.md", "src/content/books/index.md"]
 		});
 		return api.getFilteredByGlob(files).sort((a,b) => b.date - a.date);
 	});
 
+// =====================================================================
+
 	eleventyConfig.addGlobalData('site_url', process.env.SITE_URL);
+
+	eleventyConfig.addShortcode();
 
 	eleventyConfig.addPlugin(pluginRss);
 
 	eleventyConfig.addPassthroughCopy({"./src/public/" : "/"});
+
 	eleventyConfig.addWatchTarget("./src/public/");
 
 	// Return your Object options:
