@@ -164,35 +164,37 @@
 	}
 
 	&__title-link:hover &__first-name {
-		color: var(--phlox-00);
-		text-shadow: -1px -1px 0 var(--color-text),
-		             -2px -2px 0 var(--color-text),
-		             -3px -3px 0 var(--color-text),
-		             -4px -4px 0 var(--color-text),
-		             -5px -5px 0 var(--color-text),
-		             -6px -6px 0 var(--color-text),
-		             -7px -7px 0 var(--color-text),
-		             -8px -8px 0 var(--color-text),
-		             -9px -9px 0 var(--color-text),
-		             -10px -10px 0 var(--color-text),
-		             -11px -11px 0 var(--color-text),
-		             -12px -12px 0 var(--color-text);
+		--shadow: var(--color-shadow-effect-phlox);
+		color: var(--color-nav-effect-phlox);
+		text-shadow: 1px 1px 0 var(--shadow),
+		             2px 2px 0 var(--shadow),
+		             3px 3px 0 var(--shadow),
+		             4px 4px 0 var(--shadow),
+		             5px 5px 0 var(--shadow),
+		             6px 6px 0 var(--shadow),
+		             7px 7px 0 var(--shadow),
+		             8px 8px 0 var(--shadow),
+		             9px 9px 0 var(--shadow),
+		             10px 10px 0 var(--shadow),
+		             11px 11px 0 var(--shadow),
+		             12px 12px 0 var(--shadow);
 	}
 
 	&__title-link:hover &__last-name {
-		color: var(--mango-00);
-		text-shadow: 1px 1px 0 var(--color-text),
-								 2px 2px 0 var(--color-text),
-								 3px 3px 0 var(--color-text),
-								 4px 4px 0 var(--color-text),
-								 5px 5px 0 var(--color-text),
-								 6px 6px 0 var(--color-text),
-								 7px 7px 0 var(--color-text),
-								 8px 8px 0 var(--color-text),
-								 9px 9px 0 var(--color-text),
-								 10px 10px 0 var(--color-text),
-								 11px 11px 0 var(--color-text),
-								 12px 12px 0 var(--color-text);
+		--shadow: var(--color-shadow-effect-mango);
+		color: var(--color-nav-effect-mango);
+		text-shadow: 1px 1px 0 var(--shadow),
+								 2px 2px 0 var(--shadow),
+								 3px 3px 0 var(--shadow),
+								 4px 4px 0 var(--shadow),
+								 5px 5px 0 var(--shadow),
+								 6px 6px 0 var(--shadow),
+								 7px 7px 0 var(--shadow),
+								 8px 8px 0 var(--shadow),
+								 9px 9px 0 var(--shadow),
+								 10px 10px 0 var(--shadow),
+								 11px 11px 0 var(--shadow),
+								 12px 12px 0 var(--shadow);
 	}
 
 	&__slogan {
