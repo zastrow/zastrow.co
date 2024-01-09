@@ -3,7 +3,6 @@ const pluginRss = require("@11ty/eleventy-plugin-rss");
 const fg = require('fast-glob').sync;
 
 module.exports = (eleventyConfig) => {
-
 	// COLLECTIONS
 	// =====================================================================
 
