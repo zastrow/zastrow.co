@@ -1,0 +1,16 @@
+---
+permalink: /json/articles.json
+---
+[
+{%- assign last_count = external_articles.size -%}
+{%- assign iteration = 0 -%}
+{% for article in external_articles -%}
+	{% assign iteration = iteration | plus: 1%}
+	{
+		"title": "{{ article.title }}",
+		"source": "{{ article.source }}",
+		"link": "{{ article.link }}",
+		"date": "{{ article.date }}"
+	}{%- if iteration != last_count -%},{%- endif -%}
+{%- endfor %}
+]

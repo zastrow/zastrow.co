@@ -1,0 +1,29 @@
+.cmp-site-footer {
+	margin-block-start: var(--size-12);
+	margin-block-end: var(--size-9);
+	padding-block: var(--size-9);
+	padding-inline: var(--size-5);
+	color: var(--white);
+	background-color: var(--color-footer-surface);
+	border-radius: var(--radius-4);
+
+	&__content {
+		font-size: var(--font-size-fluid-2);
+		font-weight: var(--font-weight-3);
+		font-stretch: var(--font-stretch-11);
+		text-align: center;
+	}
+
+	&__link {
+		color: var(--peach-00);
+		text-decoration-color: var(--peach-d1);
+		text-decoration-thickness: 1px;
+		text-decoration-line: underline;
+		text-underline-offset: 0.09em;
+
+		&:hover {
+			color: var(--daisy-00);
+			text-decoration-color: var(--mango-00);
+		}
+	}
+}

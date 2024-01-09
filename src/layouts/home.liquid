@@ -1,10 +1,58 @@
 ---
 layout-name: home
 eleventyImport:
-	collections: ["posts"]
+	collections: ["posts","books"]
 ---
 {% layout "default-layout" %}
 
 {%- block main %}
-	{% include"home/blog-posts" %}
+<h2>Latest on the blog</h2>
+{% include "home/blog-posts" %}
+
+
+<section aria-labeledby="section-articles">
+	{% for item in external_articles limit:1 %}
+	<header>
+		<h2 id="section-articles">External Articles</h2>
+		<p>An article I wrote on {{ item.source }}.</p>
+	</header>
+	<h3>
+		<a href="{{ item.link }}" rel="external">
+			{{ item.title }}
+		</a>
+	</h3>
+	{% endfor %}
+	<footer>
+		<a href="/articles">See all external articles</a>
+	</footer>
+</section>
+
+<section aria-labeledby="section-book">
+	<header>
+		<h2 id="section-book">Just Read</h2>
+		<p>My most recently finished book.</p>
+	</header>
+	{% for post in collections.books limit:1 %}
+
+	{% endfor %}
+	<footer>
+		<a href="/books">See my reading list</a>
+	</footer>
+</section>
+
+<section aria-labeledby="section-instapaper">
+	<header>
+		<h2 id="section-instapaper">Instapaper</h2>
+		<p>A recently read article I found interesting.</p>
+	</header>
+	{% for item in instapaper.entries limit: 1  %}
+	<h3>
+		<a href="{{ item.link }}" rel="external">{{ item.title }}</a>
+	</h3>
+	{% endfor %}
+	<footer>
+		<a href="https://instapaper.com/p/zastrow" rel="external">See my Instapaper</a>
+	</footer>
+</section>
+
 {% endblock -%}

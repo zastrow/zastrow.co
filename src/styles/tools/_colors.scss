@@ -208,6 +208,9 @@ $color-names: ( 'daisy', 'mango', 'peach', 'phlox', 'lilac', 'denim', 'azure' );
 
 	--color-blockquote-border-light: var(--mango-00);
 	--color-blockquote-border-dark: var(--mango-00);
+
+	--color-footer-surface-light: var(--black);
+	--color-footer-surface-dark: var(--grey-9);
 }
 
 $color-group: (
@@ -216,6 +219,7 @@ $color-group: (
 	'text-oklch',
 	'surface',
 	'surface-transparent',
+	'footer-surface',
 	'inline-code-text',
 	'inline-code-surface',
 	'inline-code-border',

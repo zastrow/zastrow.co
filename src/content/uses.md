@@ -4,7 +4,7 @@ title: Uses
 updated: 2024-01-07
 ---
 
-Here are the stuff I use everyday to get my work done and manage my digital life.
+There are the things I use for work, hobbies, and managing my digital life.
 
 ## Hardware
 <dl>
