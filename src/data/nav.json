@@ -12,6 +12,10 @@
 		"link": "/projects"
 	},
 	{
+		"name": "Books",
+		"link": "/books"
+	},
+	{
 		"name": "About",
 		"link": "/about"
 	},

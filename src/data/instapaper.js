@@ -1,17 +1,26 @@
-const EleventyFetch = require('@11ty/eleventy-fetch');
+const { AssetCache } = require('@11ty/eleventy-fetch');
 const {extractFromXml} = require('@extractus/feed-extractor');
 
 module.exports = async function() {
+	// Get and transform the feed.
 	let url = "https://www.instapaper.com/starred/rss/3029481/RyHhH3adWE7QM3ITrUa1l9BqQA";
-	/* This returns a promise */
-	const instaData = EleventyFetch(url, {
-		duration: "1d",
-		type: "xml"
-	}).then((results) => {
-		const parser = extractFromXml(results);
-		return parser;
-	});
+	const res = await fetch(url)
+	const xml = await res.text()
+	const feed = extractFromXml(xml)
 
-	return instaData;
+	// Define fetch cache asset
+	let asset = new AssetCache("instapaper_likes_feed");
+
+	// Check the cache refresh validity
+	if(asset.isCacheValid("1d")) {
+		// return cached data.
+		return asset.getCachedValue(); // a promise
+	}
+
+	// Save the new cache as json
+	await asset.save(feed, "json");
+
+	// Return the data
+	return feed;
 };
 
