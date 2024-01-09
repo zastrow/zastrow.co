@@ -17,29 +17,30 @@ module.exports = (eleventyConfig) => {
 
 	// Create Books Collection
 	// ---------------------------------------------------------------
-	eleventyConfig.addCollection('books', (api) => {
-		const files = fg(["src/content/books/**/*.md"], {
-			ignore: ["src/content/books/index.md"]
-		});
-		return api.getFilteredByGlob(files).sort((a,b) => b.date - a.date);
-	});
+	// eleventyConfig.addCollection('books', (api) => {
+	// 	const files = fg(["src/content/books/**/*.md"], {
+	// 		ignore: ["src/content/books/index.md"]
+	// 	});
+	// 	return api.getFilteredByGlob(files).sort((a,b) => b.date - a.date);
+	// });
 
 	// Create Micro Collection (Not currently in use)
 	// ---------------------------------------------------------------
-	eleventyConfig.addCollection('micro', (api) => {
-		const files = fg(["src/content/micro/**/*.md"], {
-			ignore: ["src/content/micro/index.md"]
-		});
-		return api.getFilteredByGlob(files).sort((a,b) => b.date - a.date);
-	});
+	// eleventyConfig.addCollection('micro', (api) => {
+	// 	const files = fg(["src/content/micro/**/*.md"], {
+	// 		ignore: ["src/content/micro/index.md"]
+	// 	});
+	// 	return api.getFilteredByGlob(files).sort((a,b) => b.date - a.date);
+	// });
 
 	// Create All Collection for combined feed
 	// ---------------------------------------------------------------
 	eleventyConfig.addCollection('all', (api) => {
-		const files = fg(["src/content/posts/**/*.md", "src/content/books/**/*.md"], {
-			ignore: ["src/content/posts/index.md", "src/content/books/index.md"]
-		});
-		return api.getFilteredByGlob(files).sort((a,b) => b.date - a.date);
+		// const files = fg(["src/content/posts/**/*.md", "src/content/books/**/*.md"], {
+		// 	ignore: ["src/content/posts/index.md", "src/content/books/index.md"]
+		// });
+		// return api.getFilteredByGlob(files).sort((a,b) => b.date - a.date);
+		return '';
 	});
 
 // =====================================================================

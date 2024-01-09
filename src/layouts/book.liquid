@@ -1,24 +1,14 @@
-	---
-	layout-name: book
-	permalink: "/books/{{ date | date: '%Y' }}/{{ date | date: '%m' }}/{{ date | date: '%d' }}/{% if title and title != '' %}{{ title | slugify }}{% else %}{{ slug }}{% endif %}/index.html"
-	---
-	{% layout "default-layout" %}
-	{% block main %}
-		<article>
-			{%- if title -%}
-			<header>
-				<h2>
-					{{ title }}
-				</h2>
-			</header>
-			{%- endif -%}
-			{%- if date -%}
-				<a href="{{ url }}">
-					<time datetime="{{ date | date: "%Y-%m-%d" }}">
-						{{ date | date: "%d %B %Y" }}
-					</time>
-				</a>
-			{%- endif -%}
-			{{ content }}
+---
+layout-name: book
+---
+{% layout "default-layout" %}
+{% block main %}
+	<article>
+		<header>
+			<h2>
+				{{ book.title }}
+			</h2>
+		</header>
+		<img src="https://images-us.bookshop.org/ingram/{{ book.isbn }}.jpg">
 	</article>
 {% endblock %}

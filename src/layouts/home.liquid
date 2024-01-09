@@ -32,8 +32,14 @@ eleventyImport:
 		<h2 id="section-book">Just Read</h2>
 		<p>My most recently finished book.</p>
 	</header>
-	{% for post in collections.books limit:1 %}
-
+	{% for book in read limit:1 %}
+		<h3>
+			<a href="https://bookshop.org/book/{{ book.isbn }}" rel="external">{{ book.title }}</a>
+		</h3>
+		<p>By {{ book.author }}</p>
+		<a href="https://bookshop.org/book/{{ book.isbn }}" rel="external">
+			<img src="https://images-us.bookshop.org/ingram/{{ book.isbn }}.jpg?height=800" alt=""/>
+		</a>
 	{% endfor %}
 	<footer>
 		<a href="/books">See my reading list</a>

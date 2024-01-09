@@ -1,7 +1,7 @@
 ---
 layout-name: book_list
 pagination:
-  data: collections.books
+  data: read
   size: 10
   alias: books
 permalink: "books/{% if pagination.pageNumber > 0 %}{{ pagination.pageNumber | plus: 1 }}/{% endif %}index.html"
@@ -15,21 +15,13 @@ permalink: "books/{% if pagination.pageNumber > 0 %}{{ pagination.pageNumber | p
 
 	{% include 'pagination' %}
 
-	{%- for post in books -%}
+	{%- for book in books -%}
 		<article>
-			<header>
-				<h2>
-					<a href="{{ post.url }}">
-						{{ post.data.title }}
-					</a>
-				</h2>
-				<p>
-					<time datetime="{{ post.data.date | date: "%Y-%m-%d" }}">
-						{{ post.data.date | date: "%d %B %Y" }}
-					</time>
-				</p>
-			</header>
-			{{ post.content }}
+			<h2>
+				<a href="/books/{{ book.date | date: '%Y-%m-%d' }}-{{ book.title | slugify }}">
+					{{ book.title }}
+				</a>
+			</h2>
 		</article>
 	{% endfor %}
 
