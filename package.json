@@ -5,6 +5,7 @@
   "scripts": {
     "build": "run-s eleventy styles js:prod",
     "start": "run-p eleventy:dev styles js:dev watch",
+    "eleventy": "eleventy",
     "eleventy:dev": "eleventy --watch --serve --quiet",
     "js": "webpack build --config ./webpack.config.js",
     "js:prod": "npm run js -- --mode production",
