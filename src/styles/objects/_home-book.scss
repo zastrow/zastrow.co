@@ -1,0 +1,34 @@
+.obj-home-book {
+	display: grid;
+	gap: var(--size-2);
+
+	@media (--sm-min) {
+		grid-template-areas: "cover info" "cover footer";
+		grid-template-columns: minmax(33.333%, 8rem) auto;
+		grid-template-rows: max-content min-content;
+		gap: var(--size-4);
+	}
+
+	@media (--lg-min) {
+		gap: var(--size-7);
+	}
+
+	&__info {
+		@media (--sm-min) {
+			grid-area: info;
+			padding-block-start: var(--size-6);
+		}
+	}
+
+	&__cover {
+		@media (--sm-min) {
+			grid-area: cover;
+		}
+	}
+
+	&__footer {
+		@media (--sm-min) {
+			grid-area: footer;
+		}
+	}
+}

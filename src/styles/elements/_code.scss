@@ -1,7 +1,7 @@
 :not(pre) > :where(code):not([class]) {
 	color: var(--color-inline-code-text);
 	background-color: var(--color-inline-code-surface);
-	padding: 0.25ch;
+	padding: 0.05ch 0.25ch;
 	border: var(--border-size-1) var(--color-inline-code-border) solid;
 	border-radius: var(--radius-2);
 }

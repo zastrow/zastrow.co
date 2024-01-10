@@ -193,12 +193,19 @@ $color-names: ( 'daisy', 'mango', 'peach', 'phlox', 'lilac', 'denim', 'azure' );
 
 	--color-shadow-effect-mango-light: var(--mango-l4);
 	--color-shadow-effect-mango-dark: var(--mango-d1);
+	--color-shadow-effect-phlox-dark:  var(--phlox-d1);
 
-	--color-post-permalink-light: var(--azure-00);
-	--color-post-permalink-dark: var(--azure-l2);
+	--color-nav-effect-azure-light: var(--azure-00);
+	--color-nav-effect-azure-dark: var(--azure-l4);
 
-	--color-post-permalink-hover-light: var(--azure-d1);
-	--color-post-permalink-hover-dark: var(--azure-l3);
+	--color-shadow-effect-azure-light: var(--azure-l4);
+	--color-shadow-effect-azure-dark: var(--azure-d1);
+
+	--color-post-permalink-light: var(--mango-d2);
+	--color-post-permalink-dark: var(--mango-l2);
+
+	--color-post-permalink-hover-light: var(--mango-d1);
+	--color-post-permalink-hover-dark: var(--mango-l3);
 
 	--color-blockquote-surface-light: var(--mango-l4);
 	--color-blockquote-surface-dark: var(--daisy-d4);
@@ -211,6 +218,27 @@ $color-names: ( 'daisy', 'mango', 'peach', 'phlox', 'lilac', 'denim', 'azure' );
 
 	--color-footer-surface-light: var(--black);
 	--color-footer-surface-dark: var(--grey-9);
+
+	--color-kbd-text-light: var(--grey-9);
+	--color-kbd-text-dark: var(--grey-2);
+
+	--color-kbd-surface-light: var(--grey-0);
+	--color-kbd-surface-dark: var(--grey-9);
+
+	--color-kbd-surface-grade-light: var(--grey-1), var(--grey-0);
+	--color-kbd-surface-grade-dark: var(--grey-9), var(--grey-10);
+
+	--color-kbd-border-light: var(--grey-2);
+	--color-kbd-border-dark: var(--grey-9);
+
+	--color-kbd-inner-shadow-light: var(--grey-3);
+	--color-kbd-inner-shadow-dark: var(--grey-8);
+
+	--color-kbd-upper-shadow-light: var(--grey-2);
+	--color-kbd-upper-shadow-dark: var(--grey-8);
+
+	--color-kbd-lower-shadow-light: var(--grey-4);
+	--color-kbd-lower-shadow-dark: var(--grey-9);
 }
 
 $color-group: (
@@ -244,8 +272,17 @@ $color-group: (
 	'blockquote-border',
 	'nav-effect-phlox',
 	'shadow-effect-phlox',
+	'nav-effect-azure',
+	'shadow-effect-azure',
 	'nav-effect-mango',
-	'shadow-effect-mango'
+	'shadow-effect-mango',
+	'kbd-text',
+	'kbd-surface',
+	'kbd-surface-grade',
+	'kbd-border',
+	'kbd-inner-shadow',
+	'kbd-upper-shadow',
+	'kbd-lower-shadow'
 );
 
 @mixin invert($style: 'light') {
@@ -254,10 +291,34 @@ $color-group: (
 	@if $style == 'light' {
 		$prefix1: 'l';
 		$prefix2: 'd';
+
+		--grey-invert-0: var(--grey-0);
+		--grey-invert-1: var(--grey-1);
+		--grey-invert-2: var(--grey-2);
+		--grey-invert-3: var(--grey-3);
+		--grey-invert-4: var(--grey-4);
+		--grey-invert-5: var(--grey-5);
+		--grey-invert-6: var(--grey-6);
+		--grey-invert-7: var(--grey-7);
+		--grey-invert-8: var(--grey-8);
+		--grey-invert-9: var(--grey-9);
+		--grey-invert-10: var(--grey-10);
 	}
 	@else if $style == 'dark' {
 		$prefix1: 'd';
 		$prefix2: 'l';
+
+		--grey-invert-0: var(--grey-10);
+		--grey-invert-1: var(--grey-9);
+		--grey-invert-2: var(--grey-8);
+		--grey-invert-3: var(--grey-7);
+		--grey-invert-4: var(--grey-6);
+		--grey-invert-5: var(--grey-5);
+		--grey-invert-6: var(--grey-4);
+		--grey-invert-7: var(--grey-3);
+		--grey-invert-8: var(--grey-2);
+		--grey-invert-9: var(--grey-1);
+		--grey-invert-10: var(--grey-0);
 	}
 	@for $i from 1 through 4 {
 		@each $name in $color-names {

@@ -1,64 +1,24 @@
 ---
 layout-name: home
 eleventyImport:
-	collections: ["posts","books"]
+	collections: ["posts"]
 ---
 {% layout "default-layout" %}
 
 {%- block main %}
-<h2>Latest on the blog</h2>
+
 {% include "home/blog-posts" %}
 
-
-<section aria-labeledby="section-articles">
-	{% for item in external_articles limit:1 %}
-	<header>
-		<h2 id="section-articles">External Articles</h2>
-		<p>An article I wrote on {{ item.source }}.</p>
-	</header>
-	<h3>
-		<a href="{{ item.link }}" rel="external">
-			{{ item.title }}
-		</a>
-	</h3>
-	{% endfor %}
-	<footer>
-		<a href="/articles">See all external articles</a>
-	</footer>
-</section>
-
-<section aria-labeledby="section-book">
-	<header>
-		<h2 id="section-book">Just Read</h2>
-		<p>My most recently finished book.</p>
-	</header>
-	{% for book in read limit:1 %}
-		<h3>
-			<a href="https://bookshop.org/book/{{ book.isbn }}" rel="external">{{ book.title }}</a>
-		</h3>
-		<p>By {{ book.author }}</p>
-		<a href="https://bookshop.org/book/{{ book.isbn }}" rel="external">
-			<img src="https://images-us.bookshop.org/ingram/{{ book.isbn }}.jpg?height=800" alt=""/>
-		</a>
-	{% endfor %}
-	<footer>
-		<a href="/books">See my reading list</a>
-	</footer>
-</section>
-
-<section aria-labeledby="section-instapaper">
-	<header>
-		<h2 id="section-instapaper">Instapaper</h2>
-		<p>A recently read article I found interesting.</p>
-	</header>
-	{% for item in instapaper.entries limit: 1  %}
-	<h3>
-		<a href="{{ item.link }}" rel="external">{{ item.title }}</a>
-	</h3>
-	{% endfor %}
-	<footer>
-		<a href="https://instapaper.com/p/zastrow" rel="external">See my Instapaper</a>
-	</footer>
-</section>
+<div class="obj-home-grid">
+	<div class="obj-home-grid__column obj-home-grid__column--articles">
+		{% include "home/external-articles" %}
+	</div>
+	<div class="obj-home-grid__column obj-home-grid__column--books">
+		{% include "home/books" %}
+	</div>
+	<div class="obj-home-grid__column obj-home-grid__column--instapaper">
+		{% include "home/instapaper" %}
+	</div>
+</div>
 
 {% endblock -%}

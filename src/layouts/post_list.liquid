@@ -20,7 +20,7 @@ permalink: "posts/{% if pagination.pageNumber > 0 %}{{ pagination.pageNumber | p
 	{%- for post in posts -%}
 		<div class="cmp-list">
 			<h2 class="cmp-list__title">
-				<a href="{{ post.url }}"  class="cmp-list__link">
+				<a href="{{ post.url }}" class="cmp-list__link">
 					{{ post.data.title }}
 				</a>
 			</h2>

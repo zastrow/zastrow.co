@@ -1,31 +1,16 @@
-<h3>External Articles</h3>
-<p>These are articles I have written found around the Web.</p>
-<ul class="cmp-article-card">
-	{% for acticle in external_articles limit:4 %}
-	<li class="cmp-article-card__item">
-		<a href="{{ acticle.link }}" class="cmp-article-card__link" aria-label="Read {{ acticle.title }} on {{ acticle.source }}">
-			<span class="cmp-meta">
-				<time class="cmp-meta__date" datetime="{{ acticle.date }}">
-					{{ acticle.date | date: "%e %B %Y" }}
-				</time>
-				<span class="cmp-meta__source">
-					{{ acticle.source }}
-				</span>
-			</span>
-			<span class="cmp-article-card__title">
-				{{ acticle.title }}
-			</span>
-			{% if acticle.additional_authors %}
-				<span class="cmp-article-card__collaborators">
-					Written in collaboration with
-					{% for collaborator in acticle.additional_authors %}
-						{{ collaborator }}
-					{% endfor %}
-				</span>
-			{% endif %}
+<section class="cmp-home-section" aria-labeledby="section-articles">
+	{% for item in external_articles limit:1 %}
+	<header class="cmp-home-section__header">
+		<h2 class="cmp-home-section__title" id="section-articles">External Articles</h2>
+		<p class="cmp-home-section__subtitle">An article I wrote on {{ item.source }}.</p>
+	</header>
+	<h3 class="cmp-home-section__post-title">
+		<a href="{{ item.link }}" rel="external" class="cmp-home-section__post-link">
+			{{ item.title }}
 		</a>
-	</li>
+	</h3>
 	{% endfor %}
-</ul>
-
-<a href="/articles" class="cmp-button">More Articles</a>
+	<footer class="cmp-home-section__footer">
+		<a href="/articles" class="cmp-home-section__footer-link">Read more external articles</a>
+	</footer>
+</section>

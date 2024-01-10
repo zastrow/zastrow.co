@@ -1,20 +1,21 @@
+<article class="cmp-home-post">
+	<h2 class="cmp-home-post__heading">Latest on the blog</h2>
 
-{% for post in collections.posts limit:1 %}
-<article>
-	<h2>
-		<a href="{{ post.url }}">
-			{{ post.data.title }}
-		</a>
-	</h2>
-	<time datetime="{{ post.data.date }}">
-		{{ post.data.date | date: "%e %B %Y" }}
-	</time>
-	{% if post.data.preview %}
-	<p>
-		{{ post.data.preview }}
-	</p>
-	{% endif %}
+	{% for post in collections.posts limit:1 %}
+		<h3 class="cmp-home-post__title">
+			<a href="{{ post.url }}" class="cmp-home-post__link">
+				{{ post.data.title }}
+			</a>
+		</h3>
+		<time class="cmp-home-post__date" datetime="{{ post.data.date | date: "%Y-%m-%d"  }}">
+			{{ post.data.date | date: "%d %B %Y" }}
+		</time>
+		{% if post.data.preview %}
+		<p class="cmp-home-post__preview">
+			{{ post.data.preview }}
+		</p>
+		{% endif %}
+	{% endfor %}
+
+	<a href="/posts" class="cmp-home-post__more-link">More Blog Posts</a>
 </article>
-{% endfor %}
-
-<a href="/posts">More Blog Posts</a>
