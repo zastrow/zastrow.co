@@ -11,6 +11,10 @@
 
 	@media (--lg-min) {
 		all: unset;
+		font-size: var(--font-size-8);
+		font-stretch: var(--font-stretch-11);
+		width: 5ch;
+		margin-inline-end: var(--size-3);
 	}
 
 	&--open {
@@ -31,9 +35,9 @@
 	}
 
 	&__item {
-		font-size: var(--font-size-8);
 		text-transform: lowercase;
 		display: flex;
+		font-size: var(--font-size-8);
 		font-stretch: var(--font-stretch-11);
 		width: 5ch;
 

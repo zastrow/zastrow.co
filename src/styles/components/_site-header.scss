@@ -5,8 +5,10 @@
 	margin-block-end: min(20vw, var(--size-12));
 
 	@media (--lg-min) {
+		// padding-block-start: var(--size-12);
+		margin-block-end: 0;
 		padding-block-start: var(--size-12);
-		margin-block-end: max(15vh, 10rem);
+		margin-block-end: var(--size-11);
 	}
 
 	&__layout {
@@ -15,8 +17,8 @@
 		grid-template-columns: auto var(--size-9);
 
 		@media (--lg-min) {
-			display: flex;
-
+			grid-template-columns: 1fr 1fr;
+			grid-template-rows: 1fr calc(1fr - var(--size-11));
 		}
 
 		&::after {
@@ -52,14 +54,25 @@
 
 	@media (--lg-min) {
 		&__nav {
-			inset-inline-end: 0;
-			position: absolute;
+			position: relative;
 			z-index: var(--layer-3);
+			grid-row: span 2;
+			display: flex;
+			justify-content: flex-end;
+			margin-block-start: calc(-1 * var(--size-11));
+		}
+
+		&__title-container {
+			display: flex;
+			align-items: center;
 		}
 	}
 
 	&__title {
-		display: inline-block;
+		aspect-ratio: 1 / 1;
+		display: inline-flex;
+		justify-content: center;
+		align-items: center;
 		font-size: clamp(
 			var(--font-size-4),
 			10vw,
