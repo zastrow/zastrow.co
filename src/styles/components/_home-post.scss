@@ -53,6 +53,29 @@
 	}
 
 	&__more-link {
+		--time: 150ms;
+		margin-block-start: var(--size-6);
+		display: inline-block;
+		font-stretch: var(--font-stretch-11);
+		font-size: var(--font-size-4);
+		font-weight: var(--font-weight-5);
+		color: var(--grey-5);
+		text-transform: lowercase;
+		transition: color var(--time) ease-in-out var(--time),
+								font-weight var(--time) ease-in-out var(--time),
+								text-shadow calc(var(--time) * 2) ease-in-out;
 
+		&:hover {
+			--shadow: var(--color-shadow-effect-azure);
+			transition: color var(--time) ease-in-out,
+									font-weight var(--time) ease-in-out,
+									text-shadow calc(var(--time) * 2) ease-in-out;
+			text-shadow:  1px  1px 0 var(--shadow),
+										2px  2px 0 var(--shadow),
+										3px  3px 0 var(--shadow),
+										4px  4px 0 var(--shadow);
+
+			color: var(--color-nav-effect-azure);
+		}
 	}
 }
