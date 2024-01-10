@@ -1,0 +1,24 @@
+<section class="cmp-home-section" aria-labeledby="section-book">
+	<header class="cmp-home-section__header">
+		<h2 class="cmp-home-section__title" id="section-book">Just Read</h2>
+		<p class="cmp-home-section__subtitle">My most recently finished book.</p>
+	</header>
+	<div class="obj-home-book">
+		{% for book in read limit:1 %}
+		<div class="obj-home-book__info">
+			<h3 class="cmp-home-section__post-title cmp-home-section__post-title--book">
+				<a href="/books/{{ book.date | date: '%Y-%m-%d' }}-{{ book.title | slugify }}" class="cmp-home-section__post-link">{{ book.title }}</a>
+			</h3>
+			<p class="cmp-home-section__post-meta">By {{ book.author }}</p>
+		</div>
+		<div class="obj-home-book__cover">
+			<img src="https://images-us.bookshop.org/ingram/{{ book.isbn }}.jpg?height=800" class="cmp-home-section__post-image" alt=""/>
+		</div>
+		{% endfor %}
+		<div class="obj-home-book__footer">
+			<footer class="cmp-home-section__footer">
+				<a href="/books" class="cmp-home-section__footer-link">See my reading list</a>
+			</footer>
+		</div>
+	</div>
+</section>

@@ -1,0 +1,27 @@
+.obj-home-grid {
+	display: grid;
+	gap: var(--size-10);
+	grid-template-areas: "article" "instapaper" "book";
+
+	@media (--lg-min) {
+		grid-template-columns: 4fr 3fr;
+		grid-template-rows: auto auto auto;
+		grid-template-areas: "book article" "book instapaper" "book .";
+		column-gap: var(--size-6);
+		row-gap: var(--size-8);
+	}
+
+	&__column {
+		&--articles {
+			grid-area: article;
+		}
+
+		&--books {
+			grid-area: book;
+		}
+
+		&--instapaper {
+			grid-area: instapaper;
+		}
+	}
+}

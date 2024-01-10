@@ -16,13 +16,21 @@ permalink: "books/{% if pagination.pageNumber > 0 %}{{ pagination.pageNumber | p
 	{% include 'pagination' %}
 
 	{%- for book in books -%}
-		<article>
-			<h2>
-				<a href="/books/{{ book.date | date: '%Y-%m-%d' }}-{{ book.title | slugify }}">
+		<div class="cmp-list">
+			<h2 class="cmp-list__title">
+				<a href="/books/{{ book.date | date: '%Y-%m-%d' }}-{{ book.title | slugify }}" class="cmp-list__link">
 					{{ book.title }}
 				</a>
 			</h2>
-		</article>
+			<ul class="cmp-list__meta">
+				<li class="cmp-list__meta-item">
+					By {{ book.author }}
+				</li>
+				<li class="cmp-list__meta-item cmp-list__meta-item--collaborator">
+					Finished on <time datetime="{{ book.date | date: "%Y-%m-%d" }}">{{ book.date | date: "%d %B %Y" }}</time>
+				</li>
+			</ul>
+		</div>
 	{% endfor %}
 
 	{% include 'pagination' %}

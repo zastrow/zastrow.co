@@ -44,6 +44,8 @@
 // 5. Objects
 @forward "objects/layout";
 @forward "objects/grid";
+@forward "objects/home-grid";
+@forward "objects/home-book";
 
 // 6. Components
 @forward "components/site-header";
@@ -55,6 +57,8 @@
 @forward "components/list";
 @forward "components/post-header";
 @forward "components/pagination";
+@forward "components/home-post";
+@forward "components/home-section";
 
 // 7. Utilities
 @forward "utilities/visually-hidden";
