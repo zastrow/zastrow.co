@@ -5,7 +5,7 @@
 // 2. Since `all: unset` is a sweeping change to all styles,
 //    the `display` property is the one that should stay as
 //    the browser default, so it is reverted.
-:where([class]:not([class=""])) {
+:where([class]:not([class=""],:is(path,rect,circle,g,polygon,use,polyline,ellipse))){
 	all: unset; // 1
 	display: revert; // 2
 }
