@@ -1,6 +1,7 @@
 require('dotenv').config();
 const pluginRss = require("@11ty/eleventy-plugin-rss");
 const fg = require('fast-glob').sync;
+const MarkdownIt = require("markdown-it");
 
 module.exports = (eleventyConfig) => {
 	// COLLECTIONS
@@ -16,6 +17,11 @@ module.exports = (eleventyConfig) => {
 	});
 
 // =====================================================================
+
+	eleventyConfig.addPairedShortcode('markdown', async (content) => {
+		const md = MarkdownIt();
+		return md.render(content.toString());
+	})
 
 	eleventyConfig.addGlobalData('site_url', process.env.SITE_URL);
 

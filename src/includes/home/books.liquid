@@ -12,12 +12,19 @@
 			<p class="cmp-home-section__post-meta">By {{ book.author }}</p>
 		</div>
 		<div class="obj-home-book__cover">
-			<img src="https://images-us.bookshop.org/ingram/{{ book.isbn }}.jpg?height=800" class="cmp-home-section__post-image" alt=""/>
+			{%- capture image -%}
+			{%- if book.image -%}
+				{{- book.image -}}
+			{%- else -%}
+				https://images-us.bookshop.org/ingram/{{ book.isbn }}.jpg?height=800
+			{%- endif -%}
+			{%- endcapture -%}
+			<img src="{{ image }}" class="cmp-home-section__post-image" alt=""/>
 		</div>
 		{% endfor %}
 		<div class="obj-home-book__footer">
 			<footer class="cmp-home-section__footer">
-				<a href="/books" class="cmp-home-section__footer-link">See my reading list</a>
+				<a href="/books" class="cmp-home-section__footer-link">Check out my read books list</a>
 			</footer>
 		</div>
 	</div>

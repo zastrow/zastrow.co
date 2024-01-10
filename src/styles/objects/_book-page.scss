@@ -1,0 +1,23 @@
+.obj-book-page {
+	display: grid;
+	grid-template-areas: "image" "content";
+	gap: var(--size-3);
+
+	@media (--md-min) {
+		grid-template-areas: "image content";
+		gap: var(--size-4);
+	}
+
+	@media (--lg-min) {
+		grid-template-columns: minmax(33.33%, 20rem) auto;
+		gap: var(--size-8);
+	}
+
+	&__content {
+		grid-area: content;
+	}
+
+	&__image {
+		grid-area: image;
+	}
+}
