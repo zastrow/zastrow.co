@@ -4,10 +4,12 @@
 	z-index: var(--layer-2);
 	background-color: var(--color-surface);
 	display: flex;
-	align-items: center;
 	pointer-events: none;
 	opacity: 0;
 	transition: opacity ease 250ms;
+	height: 100vh;
+	overflow-y: auto;
+	-webkit-overflow-scrolling: touch;
 
 	@media (--lg-min) {
 		all: unset;
@@ -26,7 +28,7 @@
 		list-stlye: '';
 		display: flex;
 		flex-direction: column;
-		margin-block: var(--size-2);
+		margin-block: auto;
 		margin-inline-start: var(--size-6);
 
 		@media (--lg-min) {
