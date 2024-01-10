@@ -15,10 +15,11 @@
 		padding: 0;
 		display: flex;
 		flex-direction: column;
-		background-color: var(--color-text);
+		background-color: var(--black);
 		box-sizing: border-box;
 		border-radius: calc(var(--border-size-3) + var(--radius));
-		border: var(--border-size-3) solid var(--color-text);
+		border: var(--border-size-3) solid var(--black);
+		box-shadow: 0 0 0 var(--border-size-2) var(--white);
 		gap: var(--size-1);
 		@media (--md-min) {
 			flex-direction: row;
