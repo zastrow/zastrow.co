@@ -28,6 +28,7 @@
 
 	&__item {
 		flex: 1 1 auto;
+		display: inline-block;
 	}
 
 	&__item:first-child &__link {
@@ -67,7 +68,8 @@
 			fill: var(--mango-l1);
 		}
 
-		&:hover {
+		&:hover,
+		&:focus-visible {
 			background-color: var(--daisy-l1);
 
 			.cup {
@@ -90,7 +92,8 @@
 		background-color: var(--mango-00);
 		color: var(--mango-l4);
 
-		&:hover {
+		&:hover,
+		&:focus-visible {
 			color: var(--mango-d4);
 			background-color: var(--mango-l1);
 		}
@@ -99,7 +102,8 @@
 		background-color: var(--peach-00);
 		color: var(--peach-l4);
 
-		&:hover {
+		&:hover,
+		&:focus-visible {
 			color: var(--peach-d4);
 			background-color: var(--peach-l1);
 		}
@@ -108,7 +112,8 @@
 		background-color: var(--phlox-00);
 		color: var(--phlox-l4);
 
-		&:hover {
+		&:hover,
+		&:focus-visible {
 			color: var(--phlox-d3);
 			background-color: var(--phlox-l1);
 		}
@@ -117,7 +122,8 @@
 		background-color: var(--lilac-00);
 		color: var(--lilac-l4);
 
-		&:hover {
+		&:hover,
+		&:focus-visible {
 			color: var(--lilac-d3);
 			background-color: var(--lilac-l1);
 		}
@@ -126,7 +132,8 @@
 		background-color: var(--denim-00);
 		color: var(--denim-l4);
 
-		&:hover {
+		&:hover,
+		&:focus-visible {
 			color: var(--denim-d4);
 			background-color: var(--denim-l1);
 		}
@@ -135,7 +142,8 @@
 		background-color: var(--azure-00);
 		color: var(--azure-l4);
 
-		&:hover {
+		&:hover,
+		&:focus-visible {
 			color: var(--azure-d3);
 			background-color: var(--azure-l1);
 		}
@@ -168,7 +176,8 @@
 			transition: scale 150ms ease-in-out;
 		}
 
-		&:hover > .icon {
+		&:hover > .icon,
+		&:focus-visible > .icon {
 			scale: 1.1;
 		}
 	}
@@ -192,7 +201,8 @@
 		}
 	}
 
-	&__link:hover &__link-text {
+	&__link:hover &__link-text,
+	&__link:focus-visible &__link-text {
 		@media (--md-min) {
 			translate: 0 calc(-1 * var(--size-3));
 			opacity: 1;
