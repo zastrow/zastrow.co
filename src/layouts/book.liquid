@@ -3,15 +3,44 @@ layout-name: book
 ---
 {% layout "default-layout" %}
 {% block main %}
-	<article>
-		<header>
-			<h2>
+	<article class="cmp-book-page">
+		<header class="cmp-book-page__header">
+			<h2 class="cmp-book-page__title">
 				{{ book.title }}
 			</h2>
+			<p class="cmp-book-page__author">
+				By {{ book.author }}
+			</p>
 		</header>
-		<img src="https://images-us.bookshop.org/ingram/{{ book.isbn }}.jpg">
-		<a href="https://bookshop.org/book/{{ book.isbn }}" class="cmp-home-section__post-image" rel="external">
-			Buy from Bookshop.org
-		</a>
+		<div class="obj-book-page">
+			<div class="obj-book-page__image">
+				{%- capture image %}
+				{%- if book.image -%}
+					{{- book.image -}}
+				{%- else -%}
+					https://images-us.bookshop.org/ingram/{{ book.isbn }}.jpg
+				{%- endif -%}
+				{%- endcapture -%}
+				<img src="{{ image }}" alt="" class="cmp-book-page__image">
+			</div>
+			<div class="obj-book-page__content">
+				<p class="cmp-book-page__finish-date">
+					Finished on <time datetime="{{ book.date | date: "%Y-%m-%d" }}">{{ book.date | date: "%d %B %Y" }}</time>
+				</p>
+				<div class="cmp-book-page__review">
+					{% if book.review %}
+					<h3 class="cmp-book-page__review-heading">Review</h3>
+					{% endif %}
+					<p class="cmp-book-page__rating">
+						<span>My Rating</span> {% include "book-rating" %}
+					</p>
+					{% if book.review %}
+						{% markdown %}{{ book.review }}{% endmarkdown %}
+					{% endif %}
+				</div>
+				<a href="https://bookshop.org/book/{{ book.isbn }}" rel="external" class="cmp-book-page__buy cmp-book-page__buy--bookshop">
+					Buy from Bookshop.org
+				</a>
+			</div>
 	</article>
 {% endblock %}
