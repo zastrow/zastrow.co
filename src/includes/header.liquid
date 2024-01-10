@@ -1,19 +1,21 @@
 <header class="cmp-site-header">
 	<div class="obj-max-width">
 		<div class="cmp-site-header__layout">
-			<{% if layout == "home" %}h1{% else %}p{% endif %} class="cmp-site-header__title">
-				<a href="/" rel="home" class="cmp-site-header__title-link">
-					<span class="cmp-site-header__name-mark">
-						<span class="cmp-site-header__first-name">Philip</span>
-						<span class="cmp-site-header__last-name">Zastrow</span>
-						<span class="cmp-site-header__slogan">
-							<span class="cmp-site-header__slogan-line">Accessibility</span>
-							<span class="cmp-site-header__slogan-line">Engineering</span>
-							<span class="cmp-site-header__slogan-line" aria-label="User Interface Design">UI Design</span>
+			<div class="cmp-site-header__title-container">
+				<{% if layout == "home" %}h1{% else %}p{% endif %} class="cmp-site-header__title">
+					<a href="/" rel="home" class="cmp-site-header__title-link">
+						<span class="cmp-site-header__name-mark">
+							<span class="cmp-site-header__first-name">Philip</span>
+							<span class="cmp-site-header__last-name">Zastrow</span>
+							<span class="cmp-site-header__slogan">
+								<span class="cmp-site-header__slogan-line">Accessibility</span>
+								<span class="cmp-site-header__slogan-line">Engineering</span>
+								<span class="cmp-site-header__slogan-line" aria-label="User Interface Design">UI Design</span>
+							</span>
 						</span>
-					</span>
-				</a>
-			</{% if layout == "home" %}h1{% else %}p{% endif %}>
+					</a>
+				</{% if layout == "home" %}h1{% else %}p{% endif %}>
+			</div>
 			<div class="cmp-site-header__nav">
 				<div class="cmp-nav-toggle">
 					<button type="button" class="cmp-nav-toggle__button cmp-nav-toggle__button--open js-nav-open">
