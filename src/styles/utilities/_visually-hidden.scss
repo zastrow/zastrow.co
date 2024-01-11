@@ -2,4 +2,8 @@
 
 .util-visually-hidden {
 	@include visually-hidden.mixin;
+
+	&:focus-visible {
+		@include visually-hidden.mixin(revert);
+	}
 }

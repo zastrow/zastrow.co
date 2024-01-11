@@ -1,10 +1,14 @@
+import navSetup from './nav';
 const bodyElement = document.body;
 
-window.addEventListener('resize',  () => {
-	// Prevents Safari misalignment of animated
-	// position absolute elements
-	bodyElement.classList.add('resize');
-	setTimeout( () => {
-		bodyElement.classList.remove('resize');
-	}, 500)
-});
+export default function resizeWatcher() {
+	window.addEventListener('resize',  () => {
+		// Prevents Safari misalignment of animated
+		// position absolute elements
+		bodyElement.classList.add('resize');
+		setTimeout( () => {
+			navSetup();
+			bodyElement.classList.remove('resize');
+		}, 500)
+	});
+}

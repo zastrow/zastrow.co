@@ -146,10 +146,8 @@
 		font-stretch: var(--font-stretch-12);
 		display: inline-block;
 		color: var(--color-header-title);
-		@media (--lg-min) {
-			position: relative;
-			z-index: var(--layer-1);
-		}
+		position: relative;
+		z-index: var(--layer-3);
 	}
 
 	&__name-mark {

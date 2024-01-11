@@ -1,9 +1,9 @@
 <header class="cmp-site-header">
 	<div class="obj-max-width">
 		<div class="cmp-site-header__layout">
-			<div class="cmp-site-header__title-container">
+			<div class="cmp-site-header__title-container js-header-title">
 				<{% if layout == "home" %}h1{% else %}p{% endif %} class="cmp-site-header__title">
-					<a href="/" rel="home" class="cmp-site-header__title-link">
+					<a href="/" rel="home" class="cmp-site-header__title-link ">
 						<span class="cmp-site-header__name-mark">
 							<span class="cmp-site-header__first-name">Philip</span>
 							<span class="cmp-site-header__last-name">Zastrow</span>
@@ -20,11 +20,13 @@
 				<div class="cmp-nav-toggle">
 					<button type="button" class="cmp-nav-toggle__button cmp-nav-toggle__button--open js-nav-open">
 						<svg viewBox="0 0 30 24" height="24" width="30" class="cmp-nav-toggle__icon">
+							<title>Open Navigation</title>
 							<path d="M2 2h26 M2 12h26 M2 22h16" stroke="currentcolor" stroke-width="3" stroke-linecap="round" vector-effect="non-scaling-stroke" />
 						</svg>
 					</button>
 					<button type="button" class="cmp-nav-toggle__button cmp-nav-toggle__button--close js-nav-close">
 						<svg viewBox="0 0 24 24" height="24" width="24" class="cmp-nav-toggle__icon">
+							<title>Close Navigation</title>
 							<path d="M2 2L22 22M2 22L22 2" stroke="currentcolor" stroke-width="3" stroke-linecap="round" vector-effect="non-scaling-stroke" />
 						</svg>
 					</button>

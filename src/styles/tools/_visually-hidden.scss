@@ -1,7 +1,14 @@
-@mixin mixin {
-	all: unset;
-	position: fixed;
-	bottom: 100%;
-	right: 100%;
-	clip-path: inset(50%);
+@mixin mixin($revert:null) {
+	@if $revert == revert {
+		position: unset;
+		bottom: unset;
+		right: unset;
+		clip-path: unset;
+	}
+	@else {
+		position: fixed;
+		bottom: 100%;
+		right: 100%;
+		clip-path: inset(50%);
+	}
 }

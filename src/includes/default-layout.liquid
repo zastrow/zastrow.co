@@ -18,7 +18,7 @@
 	</head>
 	<body>
 		<nav>
-			<a href="#main" class="util-visually-hidden">Skip to content</a>
+			<a href="#main" class="cmp-skip-link">Skip to content</a>
 			{% block skip_links %}
 			{% endblock %}
 		</nav>
@@ -26,7 +26,7 @@
 			<div class="obj-page__head">
 				{% include "header" %}
 			</div>
-			<div class="obj-page__main">
+			<div class="obj-page__main js-main">
 				<main id="main">
 					<div class="obj-max-width cmp-main">
 						{% block main %}
