@@ -218,6 +218,9 @@
 		font-stretch: var(--font-stretch-11);
 		font-weight: var(--font-weight-4);
 		text-align: left;
+		color: var(--white);
+		padding: 0.125em 0.75em;
+		border-radius: 2em;
 
 		&--coffee {
 			color: var(--mango-d3);
@@ -227,32 +230,30 @@
 			}
 		}
 		&--mastodon {
-			color: var(--mango-d3);
+			background-color: var(--mango-d4);
 		}
 		&--github {
-			color: var(--peach-d3);
+			background-color: var(--peach-d4);
 		}
 		&--dribbble {
-			color: var(--phlox-d3);
+			background-color: var(--phlox-d4);
 		}
 		&--codepen {
-			color: var(--lilac-d3);
+			background-color: var(--lilac-d4);
 		}
 		&--linkedin {
-			color: var(--denim-d3);
+			background-color: var(--denim-d4);
 		}
 		&--ohio {
-			color: var(--azure-d3);
+			background-color: var(--azure-d4);
 		}
 
 		@media (--md-min) {
+			background-color: var(--color-text);
+			color: var(--color-surface);
 			opacity: 0;
 			pointer-events: none;
-			color: var(--color-surface);
-			background-color: var(--color-text);
-			padding: 0.125em 0.75em;
 			font-size: var(--font-size-1);
-			border-radius: 2em;
 			position: absolute;
 			inset-block-end: 100%;
 			transition: 150ms ease-in-out;

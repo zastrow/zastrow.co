@@ -1,3 +1,6 @@
 import './html-init';
-import './resize';
+import resizeWatcher from './resize';
+import navSetup from './nav';
 
+navSetup();
+resizeWatcher();

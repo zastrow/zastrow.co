@@ -21,6 +21,10 @@
 		border: calc(var(--border-size-1) + var(--border-size-2)) solid var(--white);
 		position: absolute;
 
+		&:focus-visible {
+			background-color: var(--phlox-00);
+		}
+
 		&--open {
 			color: var(--color-toggle-open);
 			background-color: var(--color-toggle-surface-open);
