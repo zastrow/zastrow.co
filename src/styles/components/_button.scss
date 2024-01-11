@@ -1,0 +1,37 @@
+.cmp-button {
+	--time: 150ms;
+	display: inline-block;
+	font-stretch: var(--font-stretch-11);
+	font-size: var(--font-size-3);
+	font-weight: var(--font-weight-4);
+	color: var(--color-button-text);
+	background-color: var(--color-button-surface);
+	padding: var(--size-1) var(--size-3);
+	border-radius: 2em;
+	transition: var(--time) ease-in-out;
+	transition-property: color, background-color;
+
+	&:hover {
+		background-color: var(--color-text);
+		color: var(--color-surface);
+	}
+
+	&--large {
+		font-size: var(--font-size-4);
+	}
+
+	&--alt {
+		color: var(--color-button-azure-text);
+		background-color: var(--color-button-azure-surface);
+	}
+
+	&--reverse {
+		color: var(--color-button-reverse-text);
+		background-color: var(--color-button-reverse-surface);
+	}
+
+	&--reverse#{&}--alt {
+		color: var(--color-button-azure-reverse-text);
+		background-color: var(--color-button-azure-reverse-surface);
+	}
+}

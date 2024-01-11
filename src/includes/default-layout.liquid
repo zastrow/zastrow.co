@@ -3,13 +3,13 @@
 	<head>
 		<meta charset="utf-8">
 		<title>
-			{% if layout != "home" %}{{ title }} | {% endif %}Philip Zastrow
+			{% if layout != "home" %}{{ title }} {% if pagination.pageNumber %}| Page {{ pagination.pageNumber | plus: 1 }} of {{ pagination.pages.size }} {% endif %}| {% endif %}Philip Zastrow
 		</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<meta name="color-scheme" content="light">
 		<link rel="icon" type="image/png" href="/favicon.png">
 		<link rel="canonical" href="{{ site_url }}{{ page.url }}">
-		<meta name="description" content="Philip Zastrow: Designer, Developer, Web Accessibility Specialist, Writer, Speaker, et al">
+		<meta name="description" content="{{ meta_description }}">
 		{% render 'head/open-graph' %}
 		{% render 'head/preload' %}
 		{% render 'head/me' %}
@@ -17,7 +17,7 @@
 		<link rel="stylesheet" href="/style.css">
 	</head>
 	<body>
-		<nav>
+		<nav aria-label="Skip Link">
 			<a href="#main" class="cmp-skip-link">Skip to content</a>
 			{% block skip_links %}
 			{% endblock %}
@@ -27,7 +27,7 @@
 				{% include "header" %}
 			</div>
 			<div class="obj-page__main js-main">
-				<main id="main">
+				<main id="main" aria-label="Page Content">
 					<div class="obj-max-width cmp-main">
 						{% block main %}
 							{{ content }}

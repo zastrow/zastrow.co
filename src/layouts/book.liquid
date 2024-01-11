@@ -40,7 +40,7 @@ layout-name: book
 				</div>
 				{%- capture book_slug -%}{{ book.title | slugify }}{%- endcapture -%}
 				{%- capture book_search -%}{{ book_slug | replace: '-', '+' }}{%- endcapture -%}
-				{% bookshop_link book.isbn, book_search %}
+				{% bookshop_link book.isbn, book_search, book.title %}
 			</div>
 	</article>
 {% endblock %}

@@ -43,9 +43,9 @@
 	&__meta {
 		list-style: '';
 		margin-block-start: var(--size-3);
-		display: inline-flex;
-		flex-wrap: wrap;
-		row-gap: var(--size-3);
+		display: flex;
+		flex-direction: column;
+		row-gap: var(--size-2);
 		font-family: var(--font-code);
 		font-stretch: var(--font-stretch-8);
 	}
@@ -54,19 +54,20 @@
 		flex: 0 0 auto;
 		font-size: var(--font-size-3);
 
-		&--date + &--source {
-			&::before {
-				content: '';
-				border-inline-start: var(--border-size-2) solid var(--color-text);
-				margin-inline-start: var(--size-3);
-				padding-inline-start: var(--size-3);
-			}
+		&--author {
+			font-size: var(--font-size-4);
 		}
 
-		&--collaborator {
+		&--collaborator,
+		&--author {
 			order: -1;
-			color: var(--grey-6);
-			flex-basis: 100%;
+			color: var(--grey-invert-9);
+		}
+		&--date {
+			color: var(--grey-invert-8);
+		}
+		&--source {
+			color: var(--grey-invert-7);
 		}
 	}
 

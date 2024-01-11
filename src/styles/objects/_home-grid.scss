@@ -5,10 +5,11 @@
 
 	@media (--lg-min) {
 		grid-template-columns: 4fr 3fr;
-		grid-template-rows: auto auto auto;
-		grid-template-areas: "book article" "book instapaper" "book .";
+		grid-template-rows: auto auto;
+		grid-template-areas: "book article" "book instapaper";
 		column-gap: var(--size-6);
-		row-gap: var(--size-8);
+		row-gap: var(--size-10);
+		margin-block-start: var(--size-11);
 	}
 
 	&__column {

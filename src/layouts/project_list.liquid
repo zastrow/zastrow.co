@@ -1,0 +1,64 @@
+---
+layout-name: project_list
+---
+{% layout "default-layout" %}
+
+{%- block skip_links %}
+{% endblock -%}
+
+{%- block main %}
+{% include 'list-header' %}
+
+{% for project in projects %}
+<div class="cmp-project">
+	<h2 class="cmp-project__title">
+		{{project.name}}
+	</h2>
+	<p class="cmp-project__summary">{{ project.summary }}</p>
+	<div class="cmp-project__meta-group">
+		<div class="cmp-project__meta">
+			{%- capture role_title -%}
+			{%- if project.roles.size > 1 -%}
+			Roles
+			{%- else -%}
+			Role
+			{%- endif -%}
+			{%- endcapture -%}
+			<p class="cmp-project__meta-title">
+				{{ role_title }}
+			</p>
+			<ul class="cmp-project__meta-list">
+				{% for role in project.roles %}
+					<li class="cmp-project__meta-item">
+						{{ role }}
+					</li>
+				{% endfor %}
+			</ul>
+		</div>
+		<div class="cmp-project__meta">
+			<p class="cmp-project__meta-title">
+				Technology
+			</p>
+			<ul class="cmp-project__meta-list">
+				{% for tech in project.technology %}
+					<li class="cmp-project__meta-item">
+						{{ tech }}
+					</li>
+				{% endfor %}
+			</ul>
+		</div>
+	</div>
+	{% markdown %}{{ project.desc }}{% endmarkdown %}
+	<ul class="cmp-project__link-list">
+		{% for link in project.links %}
+			<li class="cmp-project__link-item">
+				<a href="{{ link.link }}" class="cmp-button cmp-button--alt" rel="external">
+					{{ link.text }}
+				</a>
+			</li>
+		{% endfor %}
+	</ul>
+</div>
+{% endfor %}
+
+{% endblock -%}
