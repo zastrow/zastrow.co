@@ -1,5 +1,5 @@
 <nav role="navigation" aria-label="Pagination Navigation" class="cmp-pagination">
-	<a {% if pagination.href.previous %} href="{{pagination.href.previous}}{% endif %}" aria-label="Previous Page{% if pagination.href.previous %} Page {{ pagination.pageNumber | minus: 1 }}{% else %} Link Disabled{% endif %}" class="cmp-pagination__link cmp-pagination__link--previous">
+	<a {% if pagination.href.previous %} href="{{pagination.href.previous}}" aria-label="Go to previous set on page {{ pagination.pageNumber | minus: 1 }}"{% endif %} class="cmp-pagination__link cmp-pagination__link--previous">
 		<svg viewBox="0 0 20 24" height="24" width="20" class="cmp-pagination__icon">
 			<path d="M14 2L2 12L14 22" fill="none" stroke="currentcolor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" vector-effect="non-scaling-stroke" />
 		</svg>
@@ -7,7 +7,7 @@
 
 	<p class="cmp-pagination__status">Page <strong>{{ pagination.pageNumber | plus: 1 }}</strong> of <strong>{{ pagination.pages.size }}</strong></p>
 
-	<a {% if pagination.href.next %} href="{{pagination.href.next}}{% endif %}" aria-label="Next Page{% if pagination.href.next %} Page {{ pagination.pageNumber | plus: 1 }}{% else %} Link Disabled{% endif %}" class="cmp-pagination__link cmp-pagination__link--next">
+	<a {% if pagination.href.next %} href="{{pagination.href.next}}" aria-label="Go to next set on page {{ pagination.pageNumber | plus: 1 }}"{% endif %} class="cmp-pagination__link cmp-pagination__link--next">
 		<svg viewBox="0 0 20 24" height="24" width="20" class="cmp-pagination__icon">
 			<path d="M6 2L18 12L6 22" fill="none" stroke="currentcolor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" vector-effect="non-scaling-stroke" />
 		</svg>

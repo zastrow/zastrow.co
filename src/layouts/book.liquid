@@ -38,9 +38,9 @@ layout-name: book
 						{% markdown %}{{ book.review }}{% endmarkdown %}
 					{% endif %}
 				</div>
-				<a href="https://bookshop.org/book/{{ book.isbn }}" rel="external" class="cmp-book-page__buy cmp-book-page__buy--bookshop">
-					Buy from Bookshop.org
-				</a>
+				{%- capture book_slug -%}{{ book.title | slugify }}{%- endcapture -%}
+				{%- capture book_search -%}{{ book_slug | replace: '-', '+' }}{%- endcapture -%}
+				{% bookshop_link book.isbn, book_search %}
 			</div>
 	</article>
 {% endblock %}

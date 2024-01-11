@@ -23,6 +23,16 @@ module.exports = (eleventyConfig) => {
 		return md.render(content.toString());
 	})
 
+	eleventyConfig.addShortcode('bookshop_link', async (isbn, title) => {
+		// Ideally we want to send readers directly to the page, however
+		// the ISBN from ItalicType isn’t always book available on Bookshop.
+		// There may be an API to search for a book and get an active ISBN.
+		// Affiliate link structure:
+		// const url = `https://bookshop.org/a/84246/${ isbn }`;
+		const searchURL = `https://bookshop.org/search?keywords=${title}`;
+		return `<a class="cmp-book-page__buy" href="${searchURL}" rel="external">Search for this book on Bookshop.org</a>`;
+	});
+
 	eleventyConfig.addGlobalData('site_url', process.env.SITE_URL);
 
 	eleventyConfig.addShortcode();
