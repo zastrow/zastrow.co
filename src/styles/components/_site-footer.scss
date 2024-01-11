@@ -1,8 +1,7 @@
 .cmp-site-footer {
 	--radius: var(--radius-3);
 	--short-radius: var(--radius-2);
-	margin-block-start: var(--size-12);
-	margin-block-end: var(--size-9);
+	margin-block: var(--size-11) var(--size-8);
 
 	@media (--md-min) {
 		--radius: var(--radius-4);
@@ -66,7 +65,7 @@
 			align-items: center;
 		}
 
-		> .icon {
+		> .cmp-icon {
 			aspect-ratio: 1 / 1;
 			width: min(5rem, 100%);
 			stroke-linecap: round;
@@ -75,8 +74,8 @@
 			transition: scale 150ms ease-in-out;
 		}
 
-		&:hover > .icon,
-		&:focus-visible > .icon {
+		&:hover > .cmp-icon,
+		&:focus-visible > .cmp-icon {
 			scale: 1.1;
 		}
 	}
@@ -112,7 +111,7 @@
 
 		&:hover,
 		&:focus-visible {
-			background-color: var(--daisy-l1);
+			background-color: var(--daisy-l4);
 
 			.cup {
 				stroke: var(--phlox-d1);
@@ -137,8 +136,8 @@
 
 		&:hover,
 		&:focus-visible {
-			color: var(--mango-d4);
-			background-color: var(--mango-l1);
+			color: var(--mango-00);
+			background-color: var(--mango-l4);
 		}
 	}
 
@@ -148,8 +147,8 @@
 
 		&:hover,
 		&:focus-visible {
-			color: var(--peach-d4);
-			background-color: var(--peach-l1);
+			color: var(--peach-00);
+			background-color: var(--peach-l4);
 		}
 	}
 
@@ -159,8 +158,8 @@
 
 		&:hover,
 		&:focus-visible {
-			color: var(--phlox-d3);
-			background-color: var(--phlox-l1);
+			color: var(--phlox-00);
+			background-color: var(--phlox-l4);
 		}
 	}
 
@@ -170,8 +169,8 @@
 
 		&:hover,
 		&:focus-visible {
-			color: var(--lilac-d3);
-			background-color: var(--lilac-l1);
+			color: var(--lilac-00);
+			background-color: var(--lilac-l4);
 		}
 	}
 	&__item--linkedin &__link {
@@ -188,13 +187,15 @@
 
 		&:hover,
 		&:focus-visible {
-			color: var(--denim-d4);
-			background-color: var(--denim-l1);
+			color: var(--denim-00);
+			background-color: var(--denim-l4);
 		}
 	}
 
 	&__link--ohio {
 		border-radius: var(--short-radius) var(--short-radius) var(--radius) var(--radius);
+		background-color: var(--azure-00);
+		color: var(--azure-l4);
 
 		@media (--sm-min) {
 			border-radius: var(--short-radius) var(--short-radius) var(--radius) var(--short-radius);
@@ -203,13 +204,11 @@
 		@media (--md-min) {
 			border-radius: var(--short-radius) var(--radius) var(--radius) var(--short-radius);
 		}
-		background-color: var(--azure-00);
-		color: var(--azure-l4);
 
 		&:hover,
 		&:focus-visible {
-			color: var(--azure-d3);
-			background-color: var(--azure-l1);
+			color: var(--azure-00);
+			background-color: var(--azure-l4);
 		}
 	}
 
@@ -223,9 +222,11 @@
 		border-radius: 2em;
 
 		&--coffee {
-			color: var(--mango-d3);
+			background-color: var(--mango-d4);
 
 			@media (--md-only) {
+				background-color: unset;
+				color: var(--mango-d3);
 				font-size: var(--font-size-5);
 			}
 		}
@@ -277,6 +278,7 @@
 		font-size: var(--size-4);
 		font-stretch: var(--font-stretch-11);
 		color: var(--grey-invert-6);
+		text-transform: lowercase;
 		text-align: center;
 		margin-block: var(--size-10);
 	}

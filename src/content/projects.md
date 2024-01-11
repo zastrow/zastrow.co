@@ -1,16 +1,9 @@
 ---
-layout: page
+layout: project_list
 title: Projects
 ---
 
-These are projects I have been able to be a part of during my career.
-
-### University of Georgia Design System
-
-### Sparkbox Design Systems Survey
-
-### Ozinga Brothers
-
-### Shoes for Crews
-
-### University of Notre Dame
+I’ve had a privileged career working with some incredible companies
+and their projects. While these are my highlighted favorite projects with work I can show,
+I have also worked on projects for Gap, Lenovo, CodePen, Blacks in Technology,
+National Council of State Boards of Nursing, Described and Captioned Media Program, and many, many more.

@@ -1,4 +1,4 @@
-<header class="cmp-list-header">
+<header aria-label="{{title}} Listing {% if pagination.pageNumber %}, Page {{ pagination.pageNumber | plus: 1 }} of {{ pagination.pages.size }}{% endif %}" class="cmp-list-header">
 	<h1 class="cmp-list-header__title">{{title}}</h1>
 	{{if content}}
 	<div>

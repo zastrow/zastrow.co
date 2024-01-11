@@ -1,0 +1,114 @@
+.cmp-project {
+	& + & {
+		--size: var(--size-10);
+		margin-block-start: calc(var(--size) + var(--border-size-3));
+		padding-block-start: var(--size);
+		position: relative;
+
+		&::before {
+			content: '';
+			display: block;
+			position: absolute;
+			inset-block-end: 100%;
+			height: var(--border-size-3);
+			width: 30ch;
+			background-color: var(--color-project-seperator-surface);
+		}
+	}
+
+	&__title {
+		font-size: var(--font-size-fluid-3);
+		line-height: var(--font-lineheight-0);
+		font-stretch: var(--font-stretch-11);
+		max-inline-size: var(--size-header-1);
+		font-weight: var(--font-weight-7);
+	}
+
+	&__summary {
+		margin-block: var(--size-3);
+		font-size: var(--font-size-3);
+		font-family: var(--font-code);
+		font-stretch: var(--font-stretch-8);
+	}
+
+	&__meta-group {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: var(--size-1) var(--size-3);
+
+		@media (--lg-min) {
+			display: flex;
+			flex-direction: column;
+			flex-wrap: wrap;
+		}
+	}
+
+	&__meta {
+		font-size: var(--font-size-1);
+		font-family: var(--font-code);
+		font-stretch: var(--font-stretch-8);
+
+		@media (--lg-min) {
+			display: flex;
+			line-height: var(--font-lineheight-2);
+		}
+	}
+
+	&__meta-title {
+		margin-block-end: var(--size-1);
+		padding-block-end: var(--size-1);
+		border-block-end: var(--border-size-1) solid var(--grey-invert-4);
+		min-width: 10ch;
+		display: inline-block;
+
+		@media (--lg-min) {
+			min-width: unset;
+			margin-block-end: unset;
+			border-block-end: unset;
+			display: flex;
+			align-items: center;
+			// color: var(--color-surface);
+			background-color: color-mix(in oklch, var(--grey-invert-2) 50%, var(--color-surface));
+			padding-block: var(--size-1);
+			padding-inline-start: var(--size-3);
+			padding-inline-end: var(--size-2);
+			border-radius: 1em 0 0 1em;
+		}
+	}
+
+	&__meta-list {
+		padding-inline-start: var(--size-3);
+
+		@media (--lg-min) {
+			list-style: '';
+			display: flex;
+			gap: var(--size-2);
+			background-color: color-mix(in oklch, var(--grey-invert-2) 20%, var(--color-surface));
+			padding-block: var(--size-1);
+			padding-inline-start: var(--size-2);
+			padding-inline-end: var(--size-3);
+			border-radius: 0 1em 1em 0;
+		}
+	}
+
+	&__meta-item {
+		color: var(--grey-invert-7);
+
+		@media (--lg-min) {
+			display: flex;
+			align-items: center;
+
+			& + & {
+				padding-inline-start: var(--size-2);
+				border-inline-start: var(--border-size-1) solid var(--grey-invert-3);
+			}
+		}
+	}
+
+	&__link-list {
+		list-style: '';
+		display: flex;
+		flex-wrap: wrap;
+		gap: var(--size-3) var(--size-2);
+	}
+}

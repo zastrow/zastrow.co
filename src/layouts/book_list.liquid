@@ -23,10 +23,10 @@ permalink: "books/{% if pagination.pageNumber > 0 %}{{ pagination.pageNumber | p
 				</a>
 			</h2>
 			<ul class="cmp-list__meta">
-				<li class="cmp-list__meta-item">
+				<li class="cmp-list__meta-item cmp-list__meta-item--author">
 					By {{ book.author }}
 				</li>
-				<li class="cmp-list__meta-item cmp-list__meta-item--collaborator">
+				<li class="cmp-list__meta-item cmp-list__meta-item--date">
 					Finished on <time datetime="{{ book.date | date: "%Y-%m-%d" }}">{{ book.date | date: "%d %B %Y" }}</time>
 				</li>
 			</ul>

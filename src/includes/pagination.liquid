@@ -1,4 +1,4 @@
-<nav role="navigation" aria-label="Pagination Navigation" class="cmp-pagination">
+<nav aria-label="Page {{ pagination.pageNumber | plus: 1 }} of {{ pagination.pages.size }} Pagination" class="cmp-pagination">
 	<a {% if pagination.href.previous %} href="{{pagination.href.previous}}" aria-label="Go to previous set on page {{ pagination.pageNumber | minus: 1 }}"{% endif %} class="cmp-pagination__link cmp-pagination__link--previous">
 		<svg viewBox="0 0 20 24" height="24" width="20" class="cmp-pagination__icon">
 			<path d="M14 2L2 12L14 22" fill="none" stroke="currentcolor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" vector-effect="non-scaling-stroke" />

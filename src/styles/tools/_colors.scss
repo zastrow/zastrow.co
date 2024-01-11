@@ -239,6 +239,33 @@ $color-names: ( 'daisy', 'mango', 'peach', 'phlox', 'lilac', 'denim', 'azure' );
 
 	--color-kbd-lower-shadow-light: var(--grey-4);
 	--color-kbd-lower-shadow-dark: var(--grey-9);
+
+	--color-button-text-light: var(--mango-d2);
+	--color-button-text-dark: var(--white);
+
+	--color-button-surface-light: var(--mango-l4);
+	--color-button-surface-dark: var(--mango-d1);
+
+	--color-button-reverse-text-light: var(--mango-l4);
+	--color-button-reverse-text-dark: var(--white);
+
+	--color-button-reverse-surface-light: var(--mango-d2);
+	--color-button-reverse-surface-dark: var(--mango-d1);
+
+	--color-button-azure-text-light: var(--azure-d2);
+	--color-button-azure-text-dark: var(--white);
+
+	--color-button-azure-surface-light: var(--azure-l4);
+	--color-button-azure-surface-dark: var(--azure-00);
+
+	--color-button-azure-reverse-text-light: var(--azure-l4);
+	--color-button-azure-reverse-text-dark: var(--white);
+
+	--color-button-azure-reverse-surface-light: var(--azure-d2);
+	--color-button-azure-reverse-surface-dark: var(--azure-00);
+
+	--color-project-seperator-surface-light: var(--azure-00);
+	--color-project-seperator-surface-dark: var(--azure-00);
 }
 
 $color-group: (
@@ -260,11 +287,20 @@ $color-group: (
 	'toggle-close',
 	'toggle-surface-open',
 	'toggle-surface-close',
+	'project-seperator-surface',
 	'list-seperator-surface',
 	'list-heading-link-surface',
 	'list-heading-link-hover',
 	'list-heading-link-line',
 	'list-heading-link-line-hover',
+	'button-text',
+	'button-surface',
+	'button-reverse-text',
+	'button-reverse-surface',
+	'button-azure-text',
+	'button-azure-surface',
+	'button-azure-reverse-text',
+	'button-azure-reverse-surface',
 	'post-permalink',
 	'post-permalink-hover',
 	'blockquote-surface',
