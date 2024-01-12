@@ -1,22 +1,11 @@
 ---
-author:
-  display_name: zastrow
-  email: philip@zastrow.co
-  first_name: Philip
-  last_name: Zastrow
-  login: zastrow
 categories:
   - Link
   - Writing
 date: "2017-05-30T16:05:00Z"
 meta:
-  _edit_last: "1"
-  _link: field_5a48ca0fca770
   _wp_old_slug: sparkbox-foundry-the-hammer-and-the-chisel
-  _wpcom_is_markdown: "1"
   link: https://seesparkbox.com/foundry/the_hammer_and_the_chisel
-parent_id: "0"
-password: ""
 published: true
 status: publish
 title: 'Sparkbox Foundry: The Hammer and The Chisel'

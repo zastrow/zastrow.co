@@ -1,16 +1,8 @@
 ---
-author:
-  display_name: zastrow
-  email: philip@zastrow.co
-  first_name: Philip
-  last_name: Zastrow
-  login: zastrow
 categories:
   - Writing
 date: "2012-05-07T15:49:57Z"
 meta: {}
-parent_id: "0"
-password: ""
 published: true
 status: publish
 title: 'JR Forasteros: “Good News: The Avengers Ruined Super Hero Movies”'

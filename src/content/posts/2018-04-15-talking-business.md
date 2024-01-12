@@ -1,17 +1,8 @@
 ---
-author:
-  display_name: zastrow
-  email: philip@zastrow.co
-  first_name: Philip
-  last_name: Zastrow
-  login: zastrow
 categories:
   - Article
 date: "2018-04-15T09:52:12Z"
 meta:
-  _wpcom_is_markdown: "1"
-parent_id: "0"
-password: ""
 published: true
 status: publish
 title: Talking Business

@@ -1,16 +1,8 @@
 ---
-author:
-  display_name: zastrow
-  email: philip@zastrow.co
-  first_name: Philip
-  last_name: Zastrow
-  login: zastrow
 categories:
   - Writing
 date: "2012-01-16T16:34:14Z"
 meta: {}
-parent_id: "0"
-password: ""
 published: true
 status: publish
 title: Martin Luther King in the Era of Occupy

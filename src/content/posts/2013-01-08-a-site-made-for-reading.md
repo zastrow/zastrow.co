@@ -1,16 +1,8 @@
 ---
-author:
-  display_name: zastrow
-  email: philip@zastrow.co
-  first_name: Philip
-  last_name: Zastrow
-  login: zastrow
 categories:
   - Writing
 date: "2013-01-08T16:28:55Z"
 meta: {}
-parent_id: "0"
-password: ""
 published: true
 status: publish
 title: A site made for reading

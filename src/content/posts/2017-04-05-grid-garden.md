@@ -1,19 +1,10 @@
 ---
-author:
-  display_name: zastrow
-  email: philip@zastrow.co
-  first_name: Philip
-  last_name: Zastrow
-  login: zastrow
 categories:
   - Link
   - Writing
 date: "2017-04-05T09:58:00Z"
 meta:
-  _edit_last: "1"
   link: http://cssgridgarden.com/
-parent_id: "0"
-password: ""
 published: true
 status: publish
 title: Grid Garden
