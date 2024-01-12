@@ -19,7 +19,7 @@ This site is my web garden. It’s been through many phases since the early augh
 
 <dl>
 <dt><a href="https://11ty.dev" rel="external">Eleventy</a></dt>
-<dd>This is an incredible static site generator that I fell in love with in 2023 and am so excited to be using on my person site. I highly recommend it.</dd>
+<dd>This is an incredible static site generator that I fell in love with in 2023 and am so excited to be using on my personal site. I highly recommend it.</dd>
 
 <dt>Fonts</dt>
 <dd>I’m using Mona Sans, Hubot Sans, and Monaspace Neon, all variable fonts produced by GitHub.</dd>
