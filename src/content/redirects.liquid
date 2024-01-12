@@ -1,0 +1,50 @@
+---
+permalink: /_redirects
+eleventyExcludeFromCollections: true
+---
+# Feed Redirects
+/feed/           /feed.xml
+/feed/index.xml  /feed.xml
+/rss.xml         /feed.xml
+/rss/            /feed.xml
+/rss/index.xml   /feed.xml
+
+# Old Speaking Section
+/speaking    /about
+/speaking/*  /about
+
+# Old Teaching Section
+/teaching    /about
+/teaching/*  /about
+
+# Micro Posts
+/micro    /posts
+/micro/*  /posts
+
+# Post Collections
+{% for post in collections.posts -%}
+	{%- assign y = post.data.date | date: '%Y' -%}
+	{%- assign m = post.data.date | date: '%m' -%}
+	{%- assign d = post.data.date | date: '%d' -%}
+	{%- capture slug -%}
+		{%- if post.data.title and  post.data.title != '' -%}
+			{{- post.data.title | slugify -}}
+		{%- else -%}
+			{{- post.data.slug -}}
+		{%- endif -%}
+	{%- endcapture -%}
+	{%- capture old_slug -%}
+		{%- if post.data.old_slug -%}
+			{{- post.data.old_slug -}}
+		{%- else -%}
+			{{- slug -}}
+		{%- endif -%}
+	{%- endcapture -%}
+# Redirect for {{ post.data.title }}
+/posts/{{y}}/{{m}}/{{old_slug}}  /posts/{{y}}/{{m}}/{{d}}/{{slug}}
+{%- if post.data.aliases-%}{%- for alias in post.data.aliases %}
+# Alias from {{ post.data.title }}
+{{alias}}  /posts/{{y}}/{{m}}/{{d}}/{{slug}}
+{% endfor -%}
+{%- endif %}
+{% endfor %}
