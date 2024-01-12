@@ -1,16 +1,8 @@
 ---
-author:
-  display_name: zastrow
-  email: philip@zastrow.co
-  first_name: Philip
-  last_name: Zastrow
-  login: zastrow
 categories:
   - Writing
 date: "2012-03-22T09:06:24Z"
 meta: {}
-parent_id: "0"
-password: ""
 published: true
 status: publish
 title: '&lsquo;If 50 is the New 30, then is 30 the new 21?&rsquo;'

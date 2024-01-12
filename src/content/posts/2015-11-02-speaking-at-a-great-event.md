@@ -1,16 +1,8 @@
 ---
-author:
-  display_name: zastrow
-  email: philip@zastrow.co
-  first_name: Philip
-  last_name: Zastrow
-  login: zastrow
 categories:
   - Writing
 date: "2015-11-02T22:30:00Z"
 meta: {}
-parent_id: "0"
-password: ""
 published: true
 status: publish
 title: Speaking at a Great Event

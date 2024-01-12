@@ -1,16 +1,8 @@
 ---
-author:
-  display_name: zastrow
-  email: philip@zastrow.co
-  first_name: Philip
-  last_name: Zastrow
-  login: zastrow
 categories:
   - Writing
 date: "2012-02-01T13:29:38Z"
 meta: {}
-parent_id: "0"
-password: ""
 published: true
 status: publish
 title: '&lsquo;The Ad Man stole our imaginations and and replaced them with Barbie

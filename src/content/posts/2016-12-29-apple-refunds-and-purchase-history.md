@@ -1,16 +1,8 @@
 ---
-author:
-  display_name: zastrow
-  email: philip@zastrow.co
-  first_name: Philip
-  last_name: Zastrow
-  login: zastrow
 categories:
   - Writing
 date: "2016-12-29T07:20:00Z"
 meta: {}
-parent_id: "0"
-password: ""
 published: true
 status: publish
 title: Apple Refunds and Purchase History

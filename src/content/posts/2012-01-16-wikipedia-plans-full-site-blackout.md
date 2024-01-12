@@ -1,16 +1,8 @@
 ---
-author:
-  display_name: zastrow
-  email: philip@zastrow.co
-  first_name: Philip
-  last_name: Zastrow
-  login: zastrow
 categories:
   - Writing
 date: "2012-01-16T23:47:45Z"
 meta: {}
-parent_id: "0"
-password: ""
 published: true
 status: publish
 title: Wikipedia plans full site blackout

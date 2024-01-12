@@ -1,16 +1,8 @@
 ---
-author:
-  display_name: zastrow
-  email: philip@zastrow.co
-  first_name: Philip
-  last_name: Zastrow
-  login: zastrow
 categories:
   - Writing
 date: "2012-07-05T07:08:53Z"
 meta: {}
-parent_id: "0"
-password: ""
 published: true
 status: publish
 title: A Wristwatch I&rsquo;d Wear

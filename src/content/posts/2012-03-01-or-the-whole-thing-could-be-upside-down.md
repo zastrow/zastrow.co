@@ -1,16 +1,8 @@
 ---
-author:
-  display_name: zastrow
-  email: philip@zastrow.co
-  first_name: Philip
-  last_name: Zastrow
-  login: zastrow
 categories:
   - Writing
 date: "2012-03-01T11:13:30Z"
 meta: {}
-parent_id: "0"
-password: ""
 published: true
 status: publish
 title: '&lsquo;Or the whole thing could be upside down&rsquo;'

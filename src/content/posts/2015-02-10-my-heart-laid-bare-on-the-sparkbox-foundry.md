@@ -1,17 +1,9 @@
 ---
-author:
-  display_name: zastrow
-  email: philip@zastrow.co
-  first_name: Philip
-  last_name: Zastrow
-  login: zastrow
 categories:
   - Link
   - Writing
 date: "2015-02-10T12:00:00Z"
 meta: {}
-parent_id: "0"
-password: ""
 published: true
 status: publish
 title: My heart laid bare on the Sparkbox Foundry

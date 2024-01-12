@@ -1,18 +1,10 @@
 ---
-author:
-  display_name: zastrow
-  email: philip@zastrow.co
-  first_name: Philip
-  last_name: Zastrow
-  login: zastrow
 categories:
   - Link
   - Writing
 date: "2017-01-18T13:18:00Z"
 meta:
   link: http://exponent.fm/episode-100-the-anniversary-episode-the-iphone-and-exponent/
-parent_id: "0"
-password: ""
 published: true
 status: publish
 title: Exponent Anniversary Episode

@@ -1,16 +1,8 @@
 ---
-author:
-  display_name: zastrow
-  email: philip@zastrow.co
-  first_name: Philip
-  last_name: Zastrow
-  login: zastrow
 categories:
   - Writing
 date: "2012-08-10T18:08:04Z"
 meta: {}
-parent_id: "0"
-password: ""
 published: true
 status: publish
 title: Implementing Responsive Design

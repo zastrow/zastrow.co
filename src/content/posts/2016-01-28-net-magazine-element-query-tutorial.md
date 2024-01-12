@@ -1,17 +1,9 @@
 ---
-author:
-  display_name: zastrow
-  email: philip@zastrow.co
-  first_name: Philip
-  last_name: Zastrow
-  login: zastrow
 categories:
   - Link
   - Writing
 date: "2016-01-28T11:10:00Z"
 meta: {}
-parent_id: "0"
-password: ""
 published: true
 status: publish
 title: 'Net Magazine: Element Query Tutorial'
