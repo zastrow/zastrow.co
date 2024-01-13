@@ -10,7 +10,10 @@
 		<link rel="icon" type="image/png" href="/favicon.png">
 		<link rel="canonical" href="{{ site_url }}{{ page.url }}">
 		<meta name="description" content="{{ meta_description }}">
-		{% render 'head/open-graph' %}
+		{% block og %}
+		<meta property="og:image" content="{{ site_url }}/images/og-image.png">
+		{% endblock %}
+		<meta property="og:url" content="{{ site_url }}">
 		{% render 'head/preload' %}
 		{% render 'head/me' %}
 		{% render 'head/feeds' %}

@@ -3,6 +3,18 @@ layout-name: post
 permalink: "/posts/{{ date | date: '%Y' }}/{{ date | date: '%m' }}/{{ date | date: '%d' }}/{% if title and title != '' %}{{ title | slugify }}{% else %}{{ slug }}{% endif %}/index.html"
 ---
 {% layout "default-layout" %}
+
+{%- capture props -%}
+	{
+		"title": "{{ title | unescape }}"
+	}
+{%- endcapture -%}
+{%- assign props = props | fromJson -%}
+
+{%- block og -%}
+	{% ogImage "./og-image.og.liquid" props %}
+{%- endblock -%}
+
 {% block main %}
 	<article>
 		{%- if title -%}
