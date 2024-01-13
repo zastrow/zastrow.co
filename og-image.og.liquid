@@ -1,17 +1,3 @@
-<!--
-{% comment %}
-	{% block og %}
-		{%- capture props -%}
-			{
-				"title": "{{ date | date: "%Y-%m-%d"  }}"
-			}
-		{%- endcapture -%}
-		{%- assign props = props | fromJson -%}
-		{% ogImage "./og-image.og.liquid" props %}
-	{% endblock %}
-{% endcomment %}
--->
-
 <style>
 div {
 	display: flex;
@@ -60,5 +46,5 @@ div {
 			{{title}}
 		</div>
 	</div>
-	<div class="site">{{size}} | zastrow.co</div>
+	<div class="site">zastrow.co</div>
 </div>

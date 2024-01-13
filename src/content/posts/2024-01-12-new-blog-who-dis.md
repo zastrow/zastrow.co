@@ -1,7 +1,7 @@
 ---
-title: New Blog, Who Dis?
+title: New Blog, Who&nbsp;Dis?
 date: "2024-01-12T17:30:33-05:00"
-preview: Ok, not really new. But, it didn't call the branch introducing this new design <code>overhaul</code> for nothing. I have hopes, plans, and dreams for this site, and want to share.
+preview: Ok, not really new. But, I didn't call the branch introducing this new design <code>overhaul</code> for nothing. I have hopes, plans, and dreams for this site, and want to share.
 ---
 
 The last time I redesigned this site, was 2 years ago—almost to the day! It was the result of a realization that I had not given this site much attention, and was intended to be a low maintenance site. It had been, at the time, four years since my last blog post or really any update to the site, and I didn’t see that changing in the near future. With the push, I have seen in my Mastodon circle toward personal websites, I wanted to get back to it.

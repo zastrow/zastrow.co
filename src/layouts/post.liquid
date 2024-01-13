@@ -23,8 +23,8 @@ permalink: "/posts/{{ date | date: '%Y' }}/{{ date | date: '%m' }}/{{ date | dat
 
 {%- block og -%}
 	{% ogImage "./og-image.og.liquid" props %}
-	{% if page.data.preview -%}
-	<meta property="og:description" content="{{preview}}">
+	{% if preview -%}
+	<meta property="og:description" content="{{preview | strip_html }}">
 	{%- endif %}
 {%- endblock -%}
 
