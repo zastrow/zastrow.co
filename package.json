@@ -36,8 +36,6 @@
     "postcss-jit-props": "^1.0.14",
     "sass": "^1.69.7",
     "shelljs": "^0.8.5",
-    "status-is-ok": "^1.2.4",
-    "unescape": "^1.0.1",
     "webpack": "^5.89.0",
     "webpack-cli": "^5.1.4"
   },
