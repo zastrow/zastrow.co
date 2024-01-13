@@ -6,13 +6,26 @@ permalink: "/posts/{{ date | date: '%Y' }}/{{ date | date: '%m' }}/{{ date | dat
 
 {%- capture props -%}
 	{
-		"title": "{{ title | unescape }}"
+		"title": "{{ title | unescape }}",
+		"fontsize": "
+{%- if title.size >= 90 -%}
+60px
+{%- elsif title.size >= 50 -%}
+75px
+{%- else -%}
+90px
+{%- endif -%}",
+		"size": "{{ title.size }}"
 	}
 {%- endcapture -%}
+
 {%- assign props = props | fromJson -%}
 
 {%- block og -%}
 	{% ogImage "./og-image.og.liquid" props %}
+	{% if page.data.preview -%}
+	<meta property="og:description" content="{{preview}}">
+	{%- endif %}
 {%- endblock -%}
 
 {% block main %}
