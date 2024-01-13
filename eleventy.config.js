@@ -1,7 +1,10 @@
 require('dotenv').config();
+const fs = require('fs');
 const pluginRss = require("@11ty/eleventy-plugin-rss");
 const fg = require('fast-glob').sync;
 const MarkdownIt = require("markdown-it");
+const EleventyPluginOgImage = require('eleventy-plugin-og-image');
+const {encode,decode} = require('html-entities');
 
 module.exports = (eleventyConfig) => {
 	// COLLECTIONS
@@ -26,6 +29,26 @@ module.exports = (eleventyConfig) => {
 	});
 
 // =====================================================================
+
+	eleventyConfig.addFilter('fromJson', JSON.parse);
+	eleventyConfig.addFilter('toJson', JSON.stringify);
+
+	eleventyConfig.addFilter('unescape', function(content) {
+		return decode(content, {level: 'html5'});
+	});
+
+	eleventyConfig.addPlugin(EleventyPluginOgImage, {
+		satoriOptions: {
+			fonts: [
+				{
+					name: 'Mona Sans',
+					data: fs.readFileSync('./Mona-Sans-SemiBoldWide.woff'),
+					weight: 500,
+					style: 'normal'
+				}
+			]
+		}
+	});
 
 	eleventyConfig.addGlobalData("eleventyComputed.permalink", function() {
 		return (data) => {
