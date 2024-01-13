@@ -4,7 +4,7 @@ const pluginRss = require("@11ty/eleventy-plugin-rss");
 const fg = require('fast-glob').sync;
 const MarkdownIt = require("markdown-it");
 const EleventyPluginOgImage = require('eleventy-plugin-og-image');
-const {encode,decode} = require('html-entities');
+const {decode} = require('html-entities');
 
 module.exports = (eleventyConfig) => {
 	// COLLECTIONS
@@ -37,19 +37,6 @@ module.exports = (eleventyConfig) => {
 		return decode(content, {level: 'html5'});
 	});
 
-	eleventyConfig.addPlugin(EleventyPluginOgImage, {
-		satoriOptions: {
-			fonts: [
-				{
-					name: 'Mona Sans',
-					data: fs.readFileSync('./Mona-Sans-SemiBoldWide.woff'),
-					weight: 500,
-					style: 'normal'
-				}
-			]
-		}
-	});
-
 	eleventyConfig.addGlobalData("eleventyComputed.permalink", function() {
 		return (data) => {
 			// Always skip during non-watch/serve builds
@@ -74,6 +61,20 @@ module.exports = (eleventyConfig) => {
 		// const url = `https://bookshop.org/a/84246/${ isbn }`;
 		const searchURL = `https://bookshop.org/search?keywords=${slug}`;
 		return `<a class="cmp-button" href="${searchURL}" rel="external" aria-label="Search for ${title} on Bookshop.org">Search for this book on Bookshop.org</a>`;
+	});
+
+	// OG IMAGE PLUGIN
+	eleventyConfig.addPlugin(EleventyPluginOgImage, {
+		satoriOptions: {
+			fonts: [
+				{
+					name: 'Mona Sans',
+					data: fs.readFileSync('./Mona-Sans-SemiBoldWide.woff'),
+					weight: 500,
+					style: 'normal'
+				}
+			]
+		}
 	});
 
 	eleventyConfig.addGlobalData('site_url', process.env.SITE_URL);
