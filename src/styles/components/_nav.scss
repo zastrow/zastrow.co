@@ -4,12 +4,14 @@
 	z-index: var(--layer-2);
 	background-color: var(--color-surface);
 	display: flex;
+	flex-direction: column;
 	pointer-events: none;
 	opacity: 0;
 	transition: opacity ease 250ms;
 	height: 100vh;
 	overflow-y: auto;
 	-webkit-overflow-scrolling: touch;
+	padding-block: var(--size-4);
 
 	@media (--lg-min) {
 		all: unset;

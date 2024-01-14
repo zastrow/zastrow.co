@@ -31,16 +31,43 @@
 						</svg>
 					</button>
 				</div>
-				<nav class="cmp-nav js-nav" aria-label="Primary Site Links">
-					<ul class="cmp-nav__list">
-						{% for item in nav %}
-							<li class="cmp-nav__item">
+				<div class="cmp-nav js-nav">
+					<nav aria-label="Primary Site Links">
+						<ul class="cmp-nav__list">
+							{% for item in nav %}
+								<li class="cmp-nav__item">
 
-								<a href="{{item.link}}" class="cmp-nav__link{% if page.url contains item.link %} cmp-nav__link--active{% endif %}" data-title="{{ item.name }}">{{ item.name }}</a>
-							</li>
-						{% endfor %}
-					</ul>
-				</nav>
+									<a href="{{item.link}}" class="cmp-nav__link{% if page.url contains item.link %} cmp-nav__link--active{% endif %}" data-title="{{ item.name }}">{{ item.name }}</a>
+								</li>
+							{% endfor %}
+						</ul>
+					</nav>
+					<div class="cmp-settings js-mode-list">
+						<h3 id="color_settings" class="util-visually-hidden">Color Setting</h3>
+						<nav aria-labelledby="color_settings">
+							<ul class="cmp-settings__list">
+								<li class="cmp-settings__item">
+									<button class="cmp-settings__mode-button cmp-settings__mode-button--auto js-mode-auto">
+										<span class="util-visually-hidden">System</span>
+										{% include "icons/switch.svg" %}
+									</button>
+								</li>
+								<li class="cmp-settings__item">
+									<button class="cmp-settings__mode-button cmp-settings__mode-button--light js-mode-light">
+										<span class="util-visually-hidden">Light</span>
+										{% include "icons/sun.svg" %}
+									</button>
+								</li>
+								<li class="cmp-settings__item">
+									<button class="cmp-settings__mode-button cmp-settings__mode-button--dark js-mode-dark">
+										<span class="util-visually-hidden">Dark</span>
+										{% include "icons/moon.svg" %}
+									</button>
+								</li>
+							</ul>
+						</nav>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>

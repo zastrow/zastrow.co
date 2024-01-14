@@ -2,7 +2,7 @@ const bodyElement = document.body;
 const navOpenButton = document.querySelector('.js-nav-open');
 const navCloseButton = document.querySelector('.js-nav-close');
 const navElement = document.querySelector('.js-nav');
-const navLinks = navElement.querySelectorAll('a');
+const navLinks = navElement.querySelectorAll(':where(a, button)');
 const smallNav = window.matchMedia("(width < 56rem)");
 const focusableElements = document.querySelectorAll(':where(a[href],button,input,video,audio,textarea,label,select,details,[contenteditable]):not([disabled])');
 

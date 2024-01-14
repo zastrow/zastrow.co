@@ -22,8 +22,10 @@ permalink: "/posts/{{ date | date: '%Y' }}/{{ date | date: '%m' }}/{{ date | dat
 {%- assign props = props | fromJson -%}
 
 {%- block og -%}
+	{%- if environment == 'production' %}
 	{% ogImage "./og-image.og.liquid" props %}
-	{% if preview -%}
+	{%- endif -%}
+	{%- if preview %}
 	<meta property="og:description" content="{{preview | strip_html }}">
 	{%- endif %}
 {%- endblock -%}
