@@ -11,6 +11,18 @@
 	transition: var(--time) ease-in-out;
 	transition-property: color, background-color;
 
+	@media print {
+		padding: 0;
+		background-color: unset;
+		border-radius: unset;
+		color: black;
+		font-size: 10pt;
+
+		&[href]::after {
+			content: ' [' attr(href) ']';
+		}
+	}
+
 	&:hover {
 		background-color: var(--color-text);
 		color: var(--color-surface);

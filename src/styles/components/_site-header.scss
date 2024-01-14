@@ -11,6 +11,11 @@
 		margin-block-end: var(--size-11);
 	}
 
+	@media print {
+		margin: unset;
+		padding: unset;
+	}
+
 	&__layout {
 		position: relative;
 		display: grid;
@@ -19,6 +24,10 @@
 		@media (--lg-min) {
 			grid-template-columns: 1fr 1fr;
 			grid-template-rows: 1fr calc(1fr - var(--size-11));
+		}
+
+		@media print {
+			display: block;
 		}
 
 		&::after {
@@ -37,6 +46,7 @@
 			inset-block-end: var(--pos);
 			inset-inline-start: var(--pos);
 			z-index: var(--layer-0);
+
 			@media (--motionOK) {
 				animation: rotate 120s linear infinite;
 
@@ -49,11 +59,15 @@
 			@media (--lg-min) {
 				all: unset;
 			}
+
+			@media print {
+				all: unset;
+			}
 		}
 	}
 
-	@media (--lg-min) {
-		&__nav {
+	&__nav {
+		@media (--lg-min) {
 			position: relative;
 			z-index: var(--layer-3);
 			grid-row: span 2;
@@ -62,9 +76,19 @@
 			margin-block-start: calc(-1 * var(--size-11));
 		}
 
-		&__title-container {
+		@media print {
+			display: none;
+		}
+	}
+
+	&__title-container {
+		@media (--lg-min) {
 			display: flex;
 			align-items: center;
+		}
+
+		@media print {
+			display: block;
 		}
 	}
 
@@ -90,7 +114,6 @@
 			background-color: var(--color-surface-transparent);
 			backdrop-filter: blur(0.25rem);
 			border-radius: 0 0 100% 0;
-
 
 			@media (--sm-min) {
 				all: unset;
@@ -123,10 +146,14 @@
 					}
 				}
 			}
+
+			@media print {
+				all: unset;
+			}
 		}
 
-		@media (--lg-min) {
-			&::after {
+		&::after {
+			@media (--lg-min) {
 				content: '';
 				border-radius: var(--radius-round);
 				position: absolute;
@@ -138,6 +165,15 @@
 				inset-inline-end: 50%;
 				translate: 50% 50%;
 			}
+
+			@media print {
+				all: unset;
+			}
+		}
+
+		@media print {
+			all: unset;
+			font-size: 24pt;
 		}
 	}
 
@@ -167,6 +203,10 @@
 		line-height: 1;
 		// text-shadow: var(--shadow);
 		transition: color 250ms ease-in-out 250ms, text-shadow 500ms ease-in-out;
+
+		@media print {
+			display: inline;
+		}
 	}
 
 	&__title-link:hover &__first-name,
@@ -220,6 +260,11 @@
 
 	&__slogan-line {
 		display: block;
+
+		@media print {
+			display: inline;
+			font-size: 18pt;
+		}
 	}
 
 	&__title-link:hover &__slogan-line:nth-child(1) {

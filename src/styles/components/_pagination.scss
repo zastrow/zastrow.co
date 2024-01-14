@@ -4,6 +4,10 @@
 	align-items: center;
 	gap: var(--size-6);
 
+	@media print {
+		display: none;
+	}
+
 	&__link {
 		aspect-ratio: 1 / 1;
 		display: flex;

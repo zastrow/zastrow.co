@@ -13,6 +13,12 @@
 		gap: var(--size-8);
 	}
 
+	@media print {
+		grid-template-columns: 1.5in auto;
+		grid-template-areas: "image content";
+		gap: 16pt;
+	}
+
 	&__content {
 		grid-area: content;
 	}

@@ -8,6 +8,10 @@
 		--short-radius: var(--radius-3);
 	}
 
+	@media print {
+		display: none;
+	}
+
 	&__list {
 		list-style: '';
 		margin: 0;

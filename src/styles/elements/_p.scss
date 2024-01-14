@@ -2,4 +2,8 @@
 	font-size: clamp(var(--font-size-1), 5vw, var(--font-size-3));
 	max-inline-size: var(--size-content-3);
 	line-height: var(--font-lineheight-3);
+
+	@media print {
+		font-size: 12pt;
+	}
 }
