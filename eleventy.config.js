@@ -77,6 +77,7 @@ module.exports = (eleventyConfig) => {
 		}
 	});
 
+	eleventyConfig.addGlobalData('environment', process.env.NODE_ENV);
 	eleventyConfig.addGlobalData('site_url', process.env.SITE_URL);
 	eleventyConfig.addGlobalData('meta_description', 'Philip Zastrow. Designer, Engineer, and Web Accessibility Specialist. Website, Blog, and Dreams.');
 	eleventyConfig.addShortcode();

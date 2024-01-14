@@ -1,0 +1,58 @@
+.cmp-settings {
+	.no-js & {
+		display: none;
+	}
+	display: grid;
+	margin-top: var(--size-6);
+	margin-inline-start: var(--size-6);
+
+	@media (--lg-min) {
+		margin-inline-start: 0;
+	}
+
+	&__list {
+		font-size: var(--font-size-1);
+		padding: var(--size-1);
+		border: 1px solid var(--grey-invert-2);
+		border-radius: 2em;
+		display: inline-grid;
+		list-style: '';
+		grid-template-areas: "auto dark light";
+		grid-template-columns: 1fr 1fr 1fr;
+		gap: var(--size-1);
+	}
+
+	&__item {
+		display: inline-block;
+	}
+
+	&__mode-button {
+		height: 2em;
+		width: 2em;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		border-radius: var(--radius-round);
+
+		&:not(#{&}--active):hover {
+			background-color: var(--grey-invert-1);
+		}
+
+		&--light {
+
+		}
+
+		&--dark {
+
+		}
+
+		&--auto {
+
+		}
+
+		&--active {
+			color: var(--color-surface);
+			background-color: var(--color-text);
+		}
+	}
+}
