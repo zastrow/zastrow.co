@@ -1,49 +1,55 @@
 <div class="obj-max-width">
 	<footer class="cmp-site-footer js-footer">
-		<ul class="cmp-site-footer__list">
-			<li class="cmp-site-footer__item cmp-site-footer__item--coffee">
-				<a href="https://www.buymeacoffee.com/zastrow" class="cmp-site-footer__link cmp-site-footer__link--coffee">
-					{% include "icons/coffee.svg" %}
-					<span class="cmp-site-footer__link-text cmp-site-footer__link-text--coffee">Buy me a coffee</span>
-				</a>
-			</li>
-			<li class="cmp-site-footer__item cmp-site-footer__item--mastodon">
-				<a href="https://mastodon.social/@zastrow" class="cmp-site-footer__link cmp-site-footer__link--mastodon">
-					{% include "icons/mastodon.svg" %}
-					<span class="cmp-site-footer__link-text cmp-site-footer__link-text--mastodon">Mastodon</span>
-				</a>
-			</li>
-			<li class="cmp-site-footer__item cmp-site-footer__item--github">
-				<a href="https://github.com/zastrow" class="cmp-site-footer__link cmp-site-footer__link--github">
-					{% include "icons/github.svg" %}
-					<span class="cmp-site-footer__link-text cmp-site-footer__link-text--github">GitHub</span>
-				</a>
-			</li>
-			<li class="cmp-site-footer__item cmp-site-footer__item--dribbble">
-				<a href="https://dribbble.com/zastrow" class="cmp-site-footer__link cmp-site-footer__link--dribbble">
-					{% include "icons/dribbble.svg" %}
-					<span class="cmp-site-footer__link-text cmp-site-footer__link-text--dribbble">Dribbble</span>
-				</a>
-			</li>
-			<li class="cmp-site-footer__item cmp-site-footer__item--codepen">
-				<a href="https://codepen.io/zastrow" class="cmp-site-footer__link cmp-site-footer__link--codepen">
-					{% include "icons/codepen.svg" %}
-					<span class="cmp-site-footer__link-text cmp-site-footer__link-text--codepen">CodePen</span>
-				</a>
-			</li>
-			<li class="cmp-site-footer__item cmp-site-footer__item--linkedin">
-				<a href="https://www.linkedin.com/in/philip-zastrow/" class="cmp-site-footer__link cmp-site-footer__link--linkedin">
-					{% include "icons/linkedin.svg" %}
-					<span class="cmp-site-footer__link-text cmp-site-footer__link-text--linkedin">LinkedIn</span>
-				</a>
-			</li>
-			<li class="cmp-site-footer__item cmp-site-footer__item--ohio">
-				<a href="https://cottonbureau.com/products/ohio-4" class="cmp-site-footer__link cmp-site-footer__link--ohio">
-					{% include "icons/ohio.svg" %}
-					<span class="cmp-site-footer__link-text cmp-site-footer__link-text--ohio">Made in Ohio</span>
-				</a>
-			</li>
-		</ul>
+		<p class="cmp-site-footer__bottom-text">
+			<a href="/accessibility" class="cmp-site-footer__bottom-link">Accessibility Statement</a>
+		</p>
+		<h2 class="util-visually-hidden" id="social_links">Social Media and Personal LInks</h2>
+		<nav aria-labelledby="social_links">
+			<ul class="cmp-site-footer__list">
+				<li class="cmp-site-footer__item cmp-site-footer__item--coffee">
+					<a href="https://www.buymeacoffee.com/zastrow" class="cmp-site-footer__link cmp-site-footer__link--coffee" rel="me">
+						{% include "icons/coffee.svg" %}
+						<span class="cmp-site-footer__link-text cmp-site-footer__link-text--coffee">Buy me a coffee</span>
+					</a>
+				</li>
+				<li class="cmp-site-footer__item cmp-site-footer__item--mastodon">
+					<a href="https://mastodon.social/@zastrow" class="cmp-site-footer__link cmp-site-footer__link--mastodon" rel="me">
+						{% include "icons/mastodon.svg" %}
+						<span class="cmp-site-footer__link-text cmp-site-footer__link-text--mastodon">Mastodon</span>
+					</a>
+				</li>
+				<li class="cmp-site-footer__item cmp-site-footer__item--github">
+					<a href="https://github.com/zastrow" class="cmp-site-footer__link cmp-site-footer__link--github" rel="me">
+						{% include "icons/github.svg" %}
+						<span class="cmp-site-footer__link-text cmp-site-footer__link-text--github">GitHub</span>
+					</a>
+				</li>
+				<li class="cmp-site-footer__item cmp-site-footer__item--dribbble">
+					<a href="https://dribbble.com/zastrow" class="cmp-site-footer__link cmp-site-footer__link--dribbble" rel="me">
+						{% include "icons/dribbble.svg" %}
+						<span class="cmp-site-footer__link-text cmp-site-footer__link-text--dribbble">Dribbble</span>
+					</a>
+				</li>
+				<li class="cmp-site-footer__item cmp-site-footer__item--codepen">
+					<a href="https://codepen.io/zastrow" class="cmp-site-footer__link cmp-site-footer__link--codepen" rel="me">
+						{% include "icons/codepen.svg" %}
+						<span class="cmp-site-footer__link-text cmp-site-footer__link-text--codepen">CodePen</span>
+					</a>
+				</li>
+				<li class="cmp-site-footer__item cmp-site-footer__item--linkedin">
+					<a href="https://www.linkedin.com/in/philip-zastrow/" class="cmp-site-footer__link cmp-site-footer__link--linkedin" rel="me">
+						{% include "icons/linkedin.svg" %}
+						<span class="cmp-site-footer__link-text cmp-site-footer__link-text--linkedin">LinkedIn</span>
+					</a>
+				</li>
+				<li class="cmp-site-footer__item cmp-site-footer__item--ohio">
+					<a href="https://cottonbureau.com/products/ohio-4" class="cmp-site-footer__link cmp-site-footer__link--ohio" rel="external">
+						{% include "icons/ohio.svg" %}
+						<span class="cmp-site-footer__link-text cmp-site-footer__link-text--ohio">Made in Ohio</span>
+					</a>
+				</li>
+			</ul>
+		</nav>
 		<p class="cmp-site-footer__bottom-text"><span>Designed in the&nbsp;browser</span></p>
 	</footer>
 </div>

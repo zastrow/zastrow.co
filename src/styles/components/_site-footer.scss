@@ -282,4 +282,16 @@
 		text-align: center;
 		margin-block: var(--size-10);
 	}
+
+	&__bottom-link {
+		color: var(--color-text);
+		text-decoration-thickness: 1px;
+		text-decoration-line: underline;
+		text-underline-offset: 0.09em;
+
+		&:hover {
+			color: var(--color-link-text);
+			text-decoration-color: color-mix(in oklch, var(--color-link-text) 15%, var(--color-text));
+		}
+	}
 }
