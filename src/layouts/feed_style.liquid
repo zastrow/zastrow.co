@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xsl:stylesheet version="3.0"
+	xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+	xmlns:atom="http://www.w3.org/2005/Atom">
+	<xsl:output method="html" version="1.0" encoding="UTF-8" indent="yes"/>
+	<xsl:template match="/">
+<html lang="en" class="no-js">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="referrer" content="unsafe-url" />
+		<title><xsl:value-of select="/atom:feed/atom:title"/></title>
+		<link rel="stylesheet" href="/style.css" />
+	</head>
+
+	<body>
+		<nav aria-label="Skip Link">
+			<a href="#main" class="cmp-skip-link">Skip to content</a>
+			{% block skip_links %}
+			{% endblock %}
+		</nav>
+		<div class="obj-max-width">
+			<header class="cmp-feed__header">
+				<h1 class="cmp-feed__title"><xsl:value-of select="/atom:feed/atom:title"/></h1>
+				<p class="cmp-feed__subtitle"><xsl:value-of select="/atom:feed/atom:subtitle"/></p>
+			</header>
+		</div>
+
+		<main class="obj-max-width" id="main" aria-label="Page Content">
+			<p>
+				This is the Atom news feed for <a><xsl:attribute name="href"><xsl:value-of select="/atom:feed/atom:link[@rel='alternate']/@href | /atom:feed/atom:link[not(@rel)]/@href"/></xsl:attribute><xsl:value-of select="/atom:feed/atom:title"/></a>.
+			</p>
+
+			<p>It is meant for news readers, not humans.  Please copy-and-paste the URL into your feed reader!</p>
+
+			<p>If you need a feed reader app, I personally use <a href="https://netnewswire.com/">NetNewsWire</a>. But, there are a lot of readers out there, <a href="https://zapier.com/blog/best-rss-feed-reader-apps/">Zapier put together a top 3</a>, which are all web based and often with Android or iOS app.</p>
+
+			<p>
+				<pre>
+					<code class="js-feedurl"><xsl:value-of select="/atom:feed/atom:link[@rel='self']/@href"/></code>
+				</pre>
+				<button
+					type="button"
+					class="js-clipboard cmp-button"
+					data-clipboard-target="#feedurl">
+					Copy to clipboard
+				</button>
+			</p>
+
+			<div class="cmp-feed__item-count">
+				<p>There are <strong><xsl:value-of select="count(/atom:feed/atom:entry)"/> total posts</strong> in this feed.</p>
+			</div>
+
+			<ol class="cmp-feed__list">
+			<xsl:for-each select="/atom:feed/atom:entry">
+				<li class="cmp-feed__item">
+					<a class="cmp-feed__link"><xsl:attribute name="href">
+						<xsl:value-of select="atom:id"/>
+					</xsl:attribute>
+					<xsl:value-of select="atom:title" />
+					</a>
+					<div class="cmp-feed__meta">(<xsl:value-of select="atom:updated" />)</div>
+				</li>
+			</xsl:for-each>
+			</ol>
+		</main>
+		<footer class="cmp-feed__footer">
+			<div class="obj-max-width">
+				<p>That’s all the posts so far. Newest posts will show up at the top of this list.</p>
+			</div>
+		</footer>
+		<script>
+			const clipboard = document.querySelector('.js-clipboard');
+			const feedURL = document.querySelector('.js-feedurl');
+			clipboard.addEventListener('click', () => {
+				if (navigator.clipboard) {
+					(async () => {
+						try {
+							await navigator.clipboard.writeText(feedURL.innerText);
+						} catch (error) {
+							console.log(error);
+						}
+					})();
+				}
+			});
+		</script>
+	</body>
+</html>
+	</xsl:template>
+</xsl:stylesheet>
