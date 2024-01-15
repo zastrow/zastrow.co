@@ -35,23 +35,23 @@
 
 			<p>If you need a feed reader app, I personally use <a href="https://netnewswire.com/">NetNewsWire</a>. But, there are a lot of readers out there, <a href="https://zapier.com/blog/best-rss-feed-reader-apps/">Zapier put together a top 3</a>, which are all web based and often with Android or iOS app.</p>
 
-			<p>
+			<div class="cmp-feed__feed-copy">
 				<pre>
-					<code class="js-feedurl"><xsl:value-of select="/atom:feed/atom:link[@rel='self']/@href"/></code>
+					<code class="cmp-feed__url js-feedurl"><xsl:value-of select="/atom:feed/atom:link[@rel='self']/@href"/></code>
 				</pre>
 				<button
 					type="button"
 					class="js-clipboard cmp-button"
 					data-clipboard-target="#feedurl">
-					Copy to clipboard
+					Copy feed address to clipboard
 				</button>
-			</p>
-
-			<div class="cmp-feed__item-count">
-				<p>There are <strong><xsl:value-of select="count(/atom:feed/atom:entry)"/> total posts</strong> in this feed.</p>
 			</div>
 
-			<ol class="cmp-feed__list">
+			<div class="cmp-feed__item-count">
+				<p>There are <strong><span class="js-count"><xsl:value-of select="count(/atom:feed/atom:entry)"/></span> total posts</strong> in this feed. The newest post is listed first.</p>
+			</div>
+
+			<ol class="cmp-feed__list js-feed-list">
 			<xsl:for-each select="/atom:feed/atom:entry">
 				<li class="cmp-feed__item">
 					<a class="cmp-feed__link"><xsl:attribute name="href">
@@ -70,8 +70,12 @@
 			</div>
 		</footer>
 		<script>
+			const count = document.querySelector('.js-count');
+			const feedList = document.querySelector('.js-feed-list');
 			const clipboard = document.querySelector('.js-clipboard');
 			const feedURL = document.querySelector('.js-feedurl');
+			feedList.style.setProperty('--count', count.innerText.toString());
+
 			clipboard.addEventListener('click', () => {
 				if (navigator.clipboard) {
 					(async () => {

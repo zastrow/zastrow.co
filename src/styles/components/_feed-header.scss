@@ -25,12 +25,24 @@
 		color: var(--grey-invert-7);
 	}
 
+	&__feed-copy {
+		margin-block: var(--size-8);
+	}
+
+	&__url {
+		font-size: var(--font-size-2);
+		font-family: var(--font-code);
+		font-stretch: var(--font-stretch-11);
+		color: var(--grey-invert-7);
+	}
+
 	&__item-count {
 		margin-block: var(--size-8);
 	}
 
 	&__list {
-		list-style-type: decimal;
+		list-style: none;
+		counter-reset: n calc(var(--count)  + 1);
 		margin-block: var(--size-4);
 		padding-inline-start: 3ch;
 		font-size: var(--font-size-fluid-1);
@@ -41,8 +53,10 @@
 		font-size: var(--font-size-fluid-1);
 		font-stretch: var(--font-stretch-11);
 		max-inline-size: var(--size-content-3);
+		counter-increment: n -1;
 
 		&::marker {
+			content: counter(n)'. ';
 			color: var(--grey-invert-8);
 		}
 
