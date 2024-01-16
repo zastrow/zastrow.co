@@ -1,0 +1,27 @@
+@use 'sass:math';
+@use "../tools/get-query" as mq;
+
+@mixin grid-count-loop ($i) {
+	@each $key, $value in mq.$queries {
+		@media (width >= #{$value}) {
+			&--#{$i}-col\@#{$key} {
+				--grid-count: repeat(#{$i}, 1fr);
+			}
+		}
+	}
+}
+
+@mixin mixin ($i, $evens: false) {
+	$ceil: 1;
+	$floor: 1;
+	@if $evens == true {
+		$ceil: ceil(math.div($i, 2));
+		$floor: floor(math.div($i, 2));
+	}
+	@if $ceil == $floor {
+		&--#{$i}-col {
+			--grid-count: repeat(#{$i}, 1fr);
+		}
+		@include grid-count-loop($i);
+	}
+}
