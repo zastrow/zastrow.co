@@ -36,4 +36,4 @@ This site is my [digital garden](https://maggieappleton.com/garden-history), a t
 
 ## Design Inspirations
 
-Lastly, I must share about the inspiration of this current design. It is based on a print I have by [Lil Tuffy](https://www.lil-tuffy.com/) that I received from [Ari Stiles](https://about.me/arianne) when she was clearing out some old decor. It says “CSS” in the middle and has the pink and orange color palette I’ve been using with this site for many years. I am so grateful to Ari and the dearly missed, Christopher Schmidt for giving me so many opportunities to speak at their events.
+Lastly, I must share about the inspiration of this current design. It is based on a print I have by [Lil Tuffy](https://www.lil-tuffy.com/) that I received from [Ari Stiles](https://about.me/arianne) when she was clearing out some old decor. It says “CSS” in the middle and has the pink and orange color palette I’ve been using with this site for many years. I am so grateful to Ari and the dearly missed, [Christopher Schmidt](https://thankyouchristopherschmitt.netlify.app) for giving me so many opportunities to speak at their events.
