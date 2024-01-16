@@ -1,0 +1,43 @@
+@use "../tools/get-query" as mq;
+
+$sizes: ('000', '00', 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15);
+
+$position: (
+	'all',
+	'block',
+	'inline',
+	'block-start',
+	'block-end',
+	'inline',
+	'inline-start',
+	'inline-end'
+);
+
+@mixin sizing ($property) {
+	@each $pos in $position {
+		$prop: '';
+		@if $pos == all {
+			$prop: $property;
+		}
+		@else {
+			$prop: $property + '-' + $pos;
+		}
+
+		@each $i in $sizes {
+			.util-#{$prop}-#{$i} {
+				#{$prop}: var(--size-#{$i});
+			}
+
+			@each $key, $value in mq.$queries {
+				@media (width >= #{$value}) {
+					.util-#{$prop}-#{$i}\@#{$key} {
+						#{$prop}: var(--size-#{$i});
+					}
+				}
+			}
+		}
+	}
+}
+
+@include sizing('margin');
+@include sizing('padding')
