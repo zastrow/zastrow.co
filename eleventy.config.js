@@ -79,8 +79,11 @@ module.exports = (eleventyConfig) => {
 
 	eleventyConfig.addGlobalData('environment', process.env.NODE_ENV);
 	eleventyConfig.addGlobalData('site_url', process.env.SITE_URL);
+	eleventyConfig.addGlobalData('old_post_date', () => {
+		const year = new Date().getFullYear();
+		return year - 6;
+	});
 	eleventyConfig.addGlobalData('meta_description', 'Philip Zastrow. Designer, Engineer, and Web Accessibility Specialist. Website, Blog, and Dreams.');
-	eleventyConfig.addShortcode();
 	eleventyConfig.addPlugin(pluginRss);
 	eleventyConfig.addPassthroughCopy({"./src/public/" : "/"});
 	eleventyConfig.addWatchTarget("./src/public/");

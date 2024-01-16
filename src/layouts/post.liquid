@@ -49,6 +49,10 @@ permalink: "/posts/{{ date | date: '%Y' }}/{{ date | date: '%m' }}/{{ date | dat
 		</header>
 		{%- endif -%}
 
+		{% assign post_date = date | date: '%Y' %}
+		{% if post_date < old_post_date %}
+		<p class="cmp-notice"><strong class="cmp-notice__strong">Notice:</strong> This is an older post and may contain broken links, missing images, or outdated information.</p>
+		{% endif %}
 
 		{{ content }}
 	</article>
