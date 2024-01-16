@@ -9,9 +9,8 @@
 }
 
 :where(a):not([class]):hover {
-	color: color-mix(in oklch, var(--color-link-text) 75%, var(--color-text));
-	text-decoration-color: color-mix(in oklch, var(--color-link-text) 15%, var(--color-text));
-}
+	color: var(--color-text);
+	text-decoration-color: var(--color-link-text);}
 
 :where(a):not([class]):visited {
 	color: var(--color-link-visited);

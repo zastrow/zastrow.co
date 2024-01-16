@@ -1,4 +1,51 @@
+@use 'sass:math';
+@use "../tools/get-query" as mq;
+@use "../tools/grid" as grid;
+
+$totalcol: 12;
+
+
+// Sections
+// ==========================================================================
 .obj-grid {
+	--grid-count: 1fr; // 1
+	--row-gap: var(--size-4); // 2
+	--col-gap: var(--size-4);  // 3
+
 	display: grid;
-	grid-template-columns: repeat(12, 1fr);
+	grid-template-columns: var(--grid-count);
+	gap: var(--row-gap) var(--col-gap);
+	@for $i from 1 through $totalcol {
+		@include grid.mixin($i, false)
+	}
+
+	@for $i from 1 through 10 {
+		&--gap-#{$i} {
+			--row-gap: var(--size-#{$i});
+			--col-gap: var(--size-#{$i});
+		}
+
+		&--row-gap-#{$i} {
+			--row-gap: var(--size-#{$i});
+		}
+
+		&--col-gap-#{$i} {
+			--col-gap: var(--size-#{$i});
+		}
+
+		@each $key, $value in mq.$queries {
+			@media (width >= #{$value}) {
+				&--gap-#{$i}\@#{$key} {
+					--row-gap: var(--size-#{$i});
+					--col-gap: var(--size-#{$i});
+				}
+				&--row-gap-#{$i}\@#{$key} {
+					--row-gap: var(--size-#{$i});
+				}
+				&--col-gap-#{$i}\@#{$key} {
+					--col-gap: var(--size-#{$i});
+				}
+			}
+		}
+	}
 }

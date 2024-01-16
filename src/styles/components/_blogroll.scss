@@ -1,0 +1,52 @@
+.cmp-blogroll {
+	position: relative;
+	padding-block-start: var(--size-5);
+	display: flex;
+	flex-wrap: wrap;
+	gap: var(--size-3);
+
+	&::before {
+		content: '';
+		position: absolute;
+		inset-block-start: calc(var(--border-size-2) / -2);
+		height: var(--border-size-2);
+		background-color: var(--color-list-seperator-surface);
+		width: 10ch;
+	}
+
+	&__name {
+		flex: 0 2 100%;
+		font-stretch: var(--font-stretch-11);
+		font-size: var(--font-size-5);
+		font-weight: var(--font-weight-6);
+	}
+
+	&__button {
+		font-size: var(--font-size-2);
+		font-weight: var(--font-weight-4);
+		font-stretch: var(--font-stretch-11);
+		display: flex;
+		gap: var(--size-1);
+		align-items: center;
+	}
+
+	&__button-text {
+		color: var(--color-link-text);
+		text-decoration-color: color-mix(in oklch, currentcolor 75%, var(--color-text));
+		text-decoration-thickness: 1px;
+		text-decoration-line: underline;
+		text-underline-offset: 0.09em;
+		--bg: oklch(var(--color-text-oklch) / 0.05);
+		background-image: linear-gradient(0deg, transparent 0, transparent 0.125em, var(--bg) 0.125em, var(--bg) 0.5em, transparent 0.5em);
+	}
+
+	&__button:hover &__button-text,
+	&__button:visited:hover &__button-text {
+		color: var(--color-text);
+		text-decoration-color: var(--color-link-text);
+	}
+
+	&__button:visited &__button-text {
+		color: var(--color-link-visited);
+	}
+}

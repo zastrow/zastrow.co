@@ -5,6 +5,7 @@ const fg = require('fast-glob').sync;
 const MarkdownIt = require("markdown-it");
 const EleventyPluginOgImage = require('eleventy-plugin-og-image');
 const {decode} = require('html-entities');
+const yaml = require("js-yaml");
 
 module.exports = (eleventyConfig) => {
 	// COLLECTIONS
@@ -47,6 +48,9 @@ module.exports = (eleventyConfig) => {
 			return data.permalink;
 		}
 	});
+
+
+	eleventyConfig.addDataExtension("yaml", contents => yaml.load(contents));
 
 	eleventyConfig.addPairedShortcode('markdown', async (content) => {
 		const md = MarkdownIt();

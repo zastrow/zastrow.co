@@ -1,0 +1,15 @@
+---
+permalink: /blogroll/index.opml
+---
+<?xml version="1.0" encoding="UTF-8"?>
+<opml version="1.1">
+	<head>
+		<title>Philip Zastrow’s Blog Roll</title>
+	</head>
+	<body>
+		{% assign blogroll_by_name = blogroll | sort: "name" -%}
+		{%- for item in blogroll_by_name -%}
+		<outline text="{{item.name}}" title="{{item.name}}" description="" type="rss" version="RSS" htmlUrl="{{item.link}}" xmlUrl="{{item.feed}}"/>
+		{% endfor -%}
+	</body>
+</opml>
