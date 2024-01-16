@@ -5,7 +5,7 @@ date: "2012-07-03T12:03:00Z"
 meta: {}
 published: true
 status: publish
-title: “They weren't competing with a phone“
+title: “They weren’t competing with a phone”
 type: post
 slug: they-werent-competing-with-a-phone
 aliases:

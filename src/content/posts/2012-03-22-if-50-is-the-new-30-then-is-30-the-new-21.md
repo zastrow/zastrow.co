@@ -1,14 +1,15 @@
 ---
+title: '“If 50 is the New 30, then is 30 the new 21?”'
 categories:
   - Writing
 date: "2012-03-22T09:06:24Z"
 meta: {}
 published: true
 status: publish
-title: '&lsquo;If 50 is the New 30, then is 30 the new 21?&rsquo;'
 type: post
 aliases:
   - /2012/03/if-50-is-the-new-30-then-is-30-the-new-21/
+  - /posts/2012/03/22/and-lsquo-if-50-is-the-new-30-then-is-30-the-new-21-and-rsquo/
 ---
 <p><a href="http://jrforasteros.com">JR Forasteros</a> expands quite thoroughly on <a href="http://www.sethgodin.com/">Seth Godin</a>’s recent post, “<a href="http://sethgodin.typepad.com/seths_blog/2012/03/fifty-is-the-new-thirty.html">Fifty is the new Thirty</a>”. Essentially Godin states that as the Baby Boomer generation ages they are redefining the culture. To the extent that those that are in their fifties have a lifestyle and appearance that was once socially expected of thirty year olds.</p>
 <p>Godin goes on to explain that this shift in our cultural behavior is a challenge to those marketing products and services.</p>

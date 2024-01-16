@@ -1,12 +1,12 @@
 ---
 layout-name: post
-permalink: "/posts/{{ date | date: '%Y' }}/{{ date | date: '%m' }}/{{ date | date: '%d' }}/{% if title and title != '' %}{{ title | slugify }}{% else %}{{ slug }}{% endif %}/index.html"
+permalink: "/posts/{{ date | date: '%Y' }}/{{ date | date: '%m' }}/{{ date | date: '%d' }}/{% if title and title != '' %}{{ title | decode | slugify }}{% else %}{{ slug }}{% endif %}/index.html"
 ---
 {% layout "default-layout" %}
 
 {%- capture props -%}
 	{
-		"title": "{{ title | unescape }}",
+		"title": "{% if ogimage.title %}{{ ogimage.title | decode }}{% else %}{{ title | decode }}{% endif %}",
 		"fontsize": "
 {%- if title.size >= 90 -%}
 60px

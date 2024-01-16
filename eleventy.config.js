@@ -33,7 +33,7 @@ module.exports = (eleventyConfig) => {
 	eleventyConfig.addFilter('fromJson', JSON.parse);
 	eleventyConfig.addFilter('toJson', JSON.stringify);
 
-	eleventyConfig.addFilter('unescape', function(content) {
+	eleventyConfig.addFilter('decode', function(content) {
 		return decode(content, {level: 'html5'});
 	});
 
