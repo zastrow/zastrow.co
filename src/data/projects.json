@@ -65,7 +65,7 @@
   {
     "name": "Ozinga Brothers",
     "summary": "WordPress Website Development",
-    "desc": "I lead this project as part of consildation to bring Ozinga’s various web properties under a single site. This also included a custom-built, React-based materials calculator. There was a lot of customiztion that occurred in this build of WordPress, that inspired my team member, [Ricardo Fearing](http://ricardofearing.com), to create SparkPress, a starter build for WordPress.",
+    "desc": "I led this project as part of consildation to bring Ozinga’s various web properties under a single site. This also included a custom-built, React-based materials calculator. There was a lot of customiztion that occurred in this build of WordPress, that inspired my team member, [Ricardo Fearing](http://ricardofearing.com), to create SparkPress, a starter build for WordPress.",
     "roles": ["Technical Lead", "Developer"],
     "technology": ["WordPress", "React", "Docker", "Node.js", "Sass", "ES6"],
     "links": [
@@ -99,7 +99,7 @@
   {
     "name": "Aperian Global",
     "summary": "Pattern Library and Product Design",
-    "desc": "I designed the Culture Guide product interface and worked on the frontend development of both the Work Style (React) and Culture Guide (Drupal) products. I lead the effort for the CSS portion of the pattern library which was used by both projects as an installable dependency. Screenshots of my design work are featured in the [Sparkbox case study](https://sparkbox.com/work/aperian-global).",
+    "desc": "I designed the Culture Guide product interface and worked on the frontend development of both the Work Style (React) and Culture Guide (Drupal) products. I led the effort for the CSS portion of the pattern library which was used by both projects as an installable dependency. Screenshots of my design work are featured in the [Sparkbox case study](https://sparkbox.com/work/aperian-global).",
     "roles": ["Developer", "Designer"],
     "technology": ["React", "Drupal", "Node.js", "Handlebars", "Sass", "Sketch"],
     "links": [
