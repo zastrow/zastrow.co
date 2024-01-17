@@ -6,7 +6,7 @@
 		font-weight: var(--font-weight-6);
 		font-stretch: var(--font-stretch-11);
 
-		p + & {
+		:where(p, ul, div) + & {
 			margin-block-start: var(--size-10);
 		}
 	}
@@ -44,6 +44,26 @@
 		color: var(--grey-invert-7);
 		font-family: var(--font-code);
 		font-size: var(--font-size-fluid-1);
+		font-stretch: var(--font-stretch-11);
+		line-height: var(--font-lineheight-3);
+	}
+
+	&__past-company {
+		font-size: var(--font-size-4);
+		font-weight: var(--font-weight-4);
+		font-stretch: var(--font-stretch-11);
+	}
+
+	&__past-job-position {
+		font-size: var(--font-size-3);
+		font-weight: var(--font-weight-4);
+		font-stretch: var(--font-stretch-11);
+	}
+
+	&__past-job-dates {
+		color: var(--grey-invert-7);
+		font-family: var(--font-code);
+		font-size: var(--font-size-2);
 		font-stretch: var(--font-stretch-11);
 		line-height: var(--font-lineheight-3);
 	}
