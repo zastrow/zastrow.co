@@ -21,7 +21,7 @@
     "summary": "Design System for Office of Online Learning",
     "desc": "I worked with my team at Sparkbox to audit existing web properties, research, and plan a platform-agnostic design system for Office of Online Learning that could grow and be adopted by the whole University. I updated the design of components to match UGA’s brand guide and lead the development effort to build the system.",
     "roles": ["Technical Lead", "Developer", "Designer", "Site Auditor"],
-    "technology": ["Handlebar", "Sass", "Webpack", "ES6"],
+    "technology": [ "Node.js", "Handlebar", "Sass", "Webpack", "ES6"],
     "links": [
       {
         "text": "View Design System",
@@ -67,7 +67,7 @@
     "summary": "WordPress Website Development",
     "desc": "I lead this project as part of consildation to bring Ozinga’s various web properties under a single site. This also included a custom-built, React-based materials calculator. There was a lot of customiztion that occurred in this build of WordPress, that inspired my team member, [Ricardo Fearing](http://ricardofearing.com), to create SparkPress, a starter build for WordPress.",
     "roles": ["Technical Lead", "Developer"],
-    "technology": ["WordPress", "React", "Docker", "Sass", "ES6"],
+    "technology": ["WordPress", "React", "Docker", "Node.js", "Sass", "ES6"],
     "links": [
       {
         "text": "View Site",
@@ -84,7 +84,7 @@
     "summary": "Design System",
     "desc": "As a part of this design system and website rebrand effort, I was tasked with solving the problem of creating styles for multiple brand from a similar base. The result was a tool called Splinter, which allowed for a global CSS file along with individual, brand-specific styles sheets to handle colors and theming. While the overall concept was my idea, I owe so much to [Adam Simpson](https://adamsimpson.net) for his heavy lifting to create Splinter.",
     "roles": ["Developer"],
-    "technology": ["Handlebars", "Sass", "PostCSS"],
+    "technology": [ "Node.js", "Handlebars", "Sass", "PostCSS"],
     "links": [
       {
         "text": "Case Study",
@@ -101,7 +101,7 @@
     "summary": "Pattern Library and Product Design",
     "desc": "I designed the Culture Guide product interface and worked on the frontend development of both the Work Style (React) and Culture Guide (Drupal) products. I lead the effort for the CSS portion of the pattern library which was used by both projects as an installable dependency. Screenshots of my design work are featured in the [Sparkbox case study](https://sparkbox.com/work/aperian-global).",
     "roles": ["Developer", "Designer"],
-    "technology": ["React", "Drupal", "Handlebars", "Sass", "Sketch"],
+    "technology": ["React", "Drupal", "Node.js", "Handlebars", "Sass", "Sketch"],
     "links": [
       {
         "text": "Case Study",
