@@ -1,0 +1,7 @@
+:where(hr):not([class]) {
+	all: unset;
+	display: block;
+	width: 10ch;
+	margin-block: var(--size-8);
+	border-block-end: var(--border-size-2) solid var(--phlox-00);
+}

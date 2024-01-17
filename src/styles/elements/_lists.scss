@@ -13,6 +13,10 @@
 	font-size: clamp(var(--font-size-1), 5vw, var(--font-size-3));
 	max-inline-size: var(--size-content-3);
 	line-height: var(--font-lineheight-3);
+
+	&::marker {
+		color: var(--mango-00)
+	}
 }
 
 :where(li):not([class]) + :where(li):not([class]) {
