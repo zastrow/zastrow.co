@@ -1,0 +1,50 @@
+.cmp-resume {
+	margin-block-end: var(--size-10);
+
+	&__heading {
+		font-size: var(--font-size-fluid-1);
+		font-weight: var(--font-weight-6);
+		font-stretch: var(--font-stretch-11);
+
+		p + & {
+			margin-block-start: var(--size-10);
+		}
+	}
+
+	&__job-header {
+		display: flex;
+		flex-direction: column;
+		gap: var(--size-1);
+		margin-block: var(--size-3) var(--size-6);
+
+		ul + & {
+			margin-block-start: var(--size-10);
+		}
+	}
+
+	&__company {
+		font-size: var(--font-size-fluid-3);
+		font-weight: var(--font-weight-4);
+		font-stretch: var(--font-stretch-11);
+	}
+
+	&__job-position {
+		font-size: var(--font-size-fluid-2);
+		font-weight: var(--font-weight-4);
+		font-stretch: var(--font-stretch-11);
+	}
+
+	&__job-position-retitled {
+		font-size: 70%;
+		color: var(--grey-invert-7);
+		font-weight: var(--font-weight-3);
+	}
+
+	&__job-dates {
+		color: var(--grey-invert-7);
+		font-family: var(--font-code);
+		font-size: var(--font-size-fluid-1);
+		font-stretch: var(--font-stretch-11);
+		line-height: var(--font-lineheight-3);
+	}
+}
