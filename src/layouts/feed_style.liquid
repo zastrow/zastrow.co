@@ -36,9 +36,7 @@
 			<p>If you need a feed reader app, I personally use <a href="https://netnewswire.com/">NetNewsWire</a>. But, there are a lot of readers out there, <a href="https://zapier.com/blog/best-rss-feed-reader-apps/">Zapier put together a top 3</a>, which are all web based and often with Android or iOS app.</p>
 
 			<div class="cmp-feed__feed-copy">
-				<pre>
-					<code class="cmp-feed__url js-feedurl"><xsl:value-of select="/atom:feed/atom:link[@rel='self']/@href"/></code>
-				</pre>
+				<code class="cmp-feed__url js-feedurl"><xsl:value-of select="/atom:feed/atom:link[@rel='self']/@href"/></code>
 				<button
 					type="button"
 					class="js-clipboard cmp-button"
