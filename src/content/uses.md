@@ -2,6 +2,8 @@
 layout: page
 title: Uses
 updated: 2024-01-07
+eleventyExcludeFromCollections: true
+permalink: false
 ---
 
 There are the things I use for work, hobbies, and managing my digital life.
