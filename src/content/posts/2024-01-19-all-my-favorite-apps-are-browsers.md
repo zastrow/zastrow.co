@@ -2,7 +2,7 @@
 title: All My Favorite Apps Are Browsers
 date: "2024-01-19T22:30:00-05:00"
 preview: Electron apps are just the tip of a very large iceberg when it comes to Web-based native apps. Utility apps like Fluid, Coherence X, and Unite allow any website to easily become an app, which has been a critical part of my daily workflow for over a decade.
-permalink: /posts/2024/01/19/all-my-favorite-apps-are-browsers
+permalink: /posts/2024/01/19/all-my-favorite-apps-are-browsers/index.html
 ---
 
 Long before there was Electron and the popularity of web-based native apps, like Slack, VS Code, and Spotify, there was [Fluid](https://fluidapp.com) and [Mozilla Prism](https://en.wikipedia.org/wiki/Mozilla_Prism). These apps allowed the creation of what are called [single-site browsers](https://en.wikipedia.org/wiki/Site-specific_browser), also known as site-specific browsers, or simply SSBs. While, Mozilla Prism was sunsetted, Fluid still exists and is joined by [Unite](https://www.bzgapps.com/unite), [Coherence X](https://www.bzgapps.com/coherence), a CLI utility called [Nativefier](https://github.com/nativefier/nativefier), and even [Safari](https://support.apple.com/en-us/104996). I have been creating and using SSBs for over a decade, and I want to share how I use them.
