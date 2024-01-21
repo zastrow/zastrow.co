@@ -9,7 +9,7 @@ layout-name: project_list
 {%- block main %}
 {% include 'list-header' %}
 
-{% for project in projects %}
+{% for project in projects.projects %}
 <div class="cmp-project" id="{{project.name | slugify}}">
 	<h2 class="cmp-project__title">
 		{{project.name}}

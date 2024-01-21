@@ -1,129 +1,192 @@
-[
-  {
-    "name": "Adobe Design",
-    "summary": "Website development for Adobe’s design blog",
-    "desc": "I helped lead a small team of developers as we picked up on work that was started for the Adobe.Design website. This site was my first time using Adobe’s Project Franklin, now a part of Adobe Experience Manager.",
-    "roles": [ "Technical Lead", "Developer" ],
-    "technology": [ "Vanilla JavaScript", "Vanilla CSS", "Adobe Experience Manager"],
-    "links": [
-      {
-        "text": "View Site",
-        "link": "https://adobe.design/"
-      },
-      {
-        "text": "Project Repo",
-        "link": "https://github.com/adobe/design-website"
-      }
-    ]
-  },
-  {
-    "name": "University of Georgia",
-    "summary": "Design System for Office of Online Learning",
-    "desc": "I worked with my team at Sparkbox to audit existing web properties, research, and plan a platform-agnostic design system for Office of Online Learning that could grow and be adopted by the whole University. I updated the design of components to match UGA’s brand guide and lead the development effort to build the system.",
-    "roles": ["Technical Lead", "Developer", "Designer", "Site Auditor"],
-    "technology": [ "Node.js", "Handlebar", "Sass", "Webpack", "ES6"],
-    "links": [
-      {
-        "text": "View Design System",
-        "link": "https://design.online.uga.edu/"
-      },
-      {
-        "text": "Case Study",
-        "link": "https://sparkbox.com/work/uga"
-      }
-    ]
-  },
-  {
-    "name": "Design Systems Survey",
-    "summary": "Yearly microsite to present data from Sparkbox’s survey",
-    "desc": "From 2018 through 2022, Sparkbox performed an industry-wide survey around design systems. For four of those years I headed up developement of this special edition microsite. In 2019, I was tasked with designing the site as well as migrating into a Gatsby build system. Honorable mention to [Jeremy Loyd](https://www.jloyd.net), [Andrew Spencer](https://andrew-spencer.com), and John Buedell, who designed the 2022, 2021, and 2020 editions, respectively.",
-    "roles": ["Technical Lead", "Developer", "Designer"],
-    "technology": ["React", "Gatsby", "Sass"],
-    "links": [
-      {
-        "text": "Project Repo",
-        "link": "https://github.com/sparkbox/designsystemssurvey/"
-      },
-      {
-        "text": "2022 Site",
-        "link": "https://designsystemssurvey.seesparkbox.com/2022"
-      },
-      {
-        "text": "2021 Site",
-        "link": "https://designsystemssurvey.seesparkbox.com/2021"
-      },
-      {
-        "text": "2020 Site",
-        "link": "https://designsystemssurvey.seesparkbox.com/2020"
-      },
-      {
-        "text": "2019 Site",
-        "link": "https://designsystemssurvey.seesparkbox.com/2019"
-      }
-    ]
-  },
-  {
-    "name": "Ozinga Brothers",
-    "summary": "WordPress Website Development",
-    "desc": "I led this project as part of consildation to bring Ozinga’s various web properties under a single site. This also included a custom-built, React-based materials calculator. There was a lot of customiztion that occurred in this build of WordPress, that inspired my team member, [Ricardo Fearing](http://ricardofearing.com), to create SparkPress, a starter build for WordPress.",
-    "roles": ["Technical Lead", "Developer"],
-    "technology": ["WordPress", "React", "Docker", "Node.js", "Sass", "ES6"],
-    "links": [
-      {
-        "text": "View Site",
-        "link": "https://ozinga.com"
-      },
-      {
-        "text": "SparkPress Repo",
-        "link": "https://github.com/sparkbox/sparkpress"
-      }
-    ]
-  },
-  {
-    "name": "Shoes for Crews",
-    "summary": "Design System",
-    "desc": "As a part of this design system and website rebrand effort, I was tasked with solving the problem of creating styles for multiple brand from a similar base. The result was a tool called Splinter, which allowed for a global CSS file along with individual, brand-specific styles sheets to handle colors and theming. While the overall concept was my idea, I owe so much to [Adam Simpson](https://adamsimpson.net) for his heavy lifting to create Splinter.",
-    "roles": ["Developer"],
-    "technology": [ "Node.js", "Handlebars", "Sass", "PostCSS"],
-    "links": [
-      {
-        "text": "Case Study",
-        "link": "https://sparkbox.com/work/shoes-for-crews"
-      },
-      {
-        "text": "Splinter Repo",
-        "link": "https://github.com/sparkbox/splinter"
-      }
-    ]
-  },
-  {
-    "name": "Aperian Global",
-    "summary": "Pattern Library and Product Design",
-    "desc": "I designed the Culture Guide product interface and worked on the frontend development of both the Work Style (React) and Culture Guide (Drupal) products. I led the effort for the CSS portion of the pattern library which was used by both projects as an installable dependency. Screenshots of my design work are featured in the [Sparkbox case study](https://sparkbox.com/work/aperian-global).",
-    "roles": ["Developer", "Designer"],
-    "technology": ["React", "Drupal", "Node.js", "Handlebars", "Sass", "Sketch"],
-    "links": [
-      {
-        "text": "Case Study",
-        "link": "https://sparkbox.com/work/aperian-global"
-      }
-    ]
-  },
-  {
-    "name": "University of Notre Dame",
-    "summary": "2012 Website Redesign",
-    "desc": "Though more than a decade has passed, the University of Notre Dame redesign was one of the most impactful on my career. Together with my coworker, [Erik Runyun](https://erikrunyon.com), we churned out a major redesign and development in 3 months that was the talk of both the higher education and web development communities.\n> “This could well be the Holy Grail of higher ed website design: a web design based on the mobile first approach that serves content on any devices using a combo of responsive web design techniques and server side detection to reduce the load for mobile”\n\n– Karine Joly, [collegewebeditor.com](https://collegewebeditor.com/blog/index.php/archives/2012/04/02/university-of-notre-dame-redefines-highered-websites-with-its-redesigned-mobile-first-responsive-homepage/)",
-    "roles": ["Designer", "Developer"],
-    "technology": ["Vanilla CSS", "jQuery", "PHP", "Adobe Photoshop"],
-    "links": [
-      {
-        "text": "Interview with mStoner",
-        "link": "https://www.mstoner.com/blog/design-and-usability/reinventing_the_wheel_the_innovation_behind_notre_dames_unique_new_homepage/"
-      },
-      {
-        "text": "Cached Site",
-        "link": "https://web.archive.org/web/20120414205757/http://www.nd.edu:80/"
-      }
-    ]
-  }
-]
+{
+  "projects": [
+    {
+      "name": "Adobe Design",
+      "summary": "Website development for Adobe’s design blog",
+      "desc": "I helped lead a small team of developers as we picked up on work that was started for the Adobe.Design website. This site was my first time using Adobe’s Project Franklin, now a part of Adobe Experience Manager.",
+      "roles": [
+        "Technical Lead",
+        "Developer"
+      ],
+      "technology": [
+        "Vanilla JavaScript",
+        "Vanilla CSS",
+        "Adobe Experience Manager"
+      ],
+      "links": [
+        {
+          "text": "View Site",
+          "link": "https://adobe.design/"
+        },
+        {
+          "text": "Project Repo",
+          "link": "https://github.com/adobe/design-website"
+        }
+      ]
+    },
+    {
+      "name": "University of Georgia",
+      "summary": "Design System for Office of Online Learning",
+      "desc": "I worked with my team at Sparkbox to audit existing web properties, research, and plan a platform-agnostic design system for Office of Online Learning that could grow and be adopted by the whole University. I updated the design of components to match UGA’s brand guide and lead the development effort to build the system.",
+      "roles": [
+        "Technical Lead",
+        "Developer",
+        "Designer",
+        "Site Auditor"
+      ],
+      "technology": [
+        "Node.js",
+        "Handlebar",
+        "Sass",
+        "Webpack",
+        "ES6"
+      ],
+      "links": [
+        {
+          "text": "View Design System",
+          "link": "https://design.online.uga.edu/"
+        },
+        {
+          "text": "Case Study",
+          "link": "https://sparkbox.com/work/uga"
+        }
+      ]
+    },
+    {
+      "name": "Design Systems Survey",
+      "summary": "Yearly microsite to present data from Sparkbox’s survey",
+      "desc": "From 2018 through 2022, Sparkbox performed an industry-wide survey around design systems. For four of those years I headed up developement of this special edition microsite. In 2019, I was tasked with designing the site as well as migrating into a Gatsby build system. Honorable mention to [Jeremy Loyd](https://www.jloyd.net), [Andrew Spencer](https://andrew-spencer.com), and John Buedell, who designed the 2022, 2021, and 2020 editions, respectively.",
+      "roles": [
+        "Technical Lead",
+        "Developer",
+        "Designer"
+      ],
+      "technology": [
+        "React",
+        "Gatsby",
+        "Sass"
+      ],
+      "links": [
+        {
+          "text": "Project Repo",
+          "link": "https://github.com/sparkbox/designsystemssurvey/"
+        },
+        {
+          "text": "2022 Site",
+          "link": "https://designsystemssurvey.seesparkbox.com/2022"
+        },
+        {
+          "text": "2021 Site",
+          "link": "https://designsystemssurvey.seesparkbox.com/2021"
+        },
+        {
+          "text": "2020 Site",
+          "link": "https://designsystemssurvey.seesparkbox.com/2020"
+        },
+        {
+          "text": "2019 Site",
+          "link": "https://designsystemssurvey.seesparkbox.com/2019"
+        }
+      ]
+    },
+    {
+      "name": "Ozinga Brothers",
+      "summary": "WordPress Website Development",
+      "desc": "I led this project as part of consildation to bring Ozinga’s various web properties under a single site. This also included a custom-built, React-based materials calculator. There was a lot of customiztion that occurred in this build of WordPress, that inspired my team member, [Ricardo Fearing](http://ricardofearing.com), to create SparkPress, a starter build for WordPress.",
+      "roles": [
+        "Technical Lead",
+        "Developer"
+      ],
+      "technology": [
+        "WordPress",
+        "React",
+        "Docker",
+        "Node.js",
+        "Sass",
+        "ES6"
+      ],
+      "links": [
+        {
+          "text": "View Site",
+          "link": "https://ozinga.com"
+        },
+        {
+          "text": "SparkPress Repo",
+          "link": "https://github.com/sparkbox/sparkpress"
+        }
+      ]
+    },
+    {
+      "name": "Shoes for Crews",
+      "summary": "Design System",
+      "desc": "As a part of this design system and website rebrand effort, I was tasked with solving the problem of creating styles for multiple brand from a similar base. The result was a tool called Splinter, which allowed for a global CSS file along with individual, brand-specific styles sheets to handle colors and theming. While the overall concept was my idea, I owe so much to [Adam Simpson](https://adamsimpson.net) for his heavy lifting to create Splinter.",
+      "roles": [
+        "Developer"
+      ],
+      "technology": [
+        "Node.js",
+        "Handlebars",
+        "Sass",
+        "PostCSS"
+      ],
+      "links": [
+        {
+          "text": "Case Study",
+          "link": "https://sparkbox.com/work/shoes-for-crews"
+        },
+        {
+          "text": "Splinter Repo",
+          "link": "https://github.com/sparkbox/splinter"
+        }
+      ]
+    },
+    {
+      "name": "Aperian Global",
+      "summary": "Pattern Library and Product Design",
+      "desc": "I designed the Culture Guide product interface and worked on the frontend development of both the Work Style (React) and Culture Guide (Drupal) products. I led the effort for the CSS portion of the pattern library which was used by both projects as an installable dependency. Screenshots of my design work are featured in the [Sparkbox case study](https://sparkbox.com/work/aperian-global).",
+      "roles": [
+        "Developer",
+        "Designer"
+      ],
+      "technology": [
+        "React",
+        "Drupal",
+        "Node.js",
+        "Handlebars",
+        "Sass",
+        "Sketch"
+      ],
+      "links": [
+        {
+          "text": "Case Study",
+          "link": "https://sparkbox.com/work/aperian-global"
+        }
+      ]
+    },
+    {
+      "name": "University of Notre Dame",
+      "summary": "2012 Website Redesign",
+      "desc": "Though more than a decade has passed, the University of Notre Dame redesign was one of the most impactful on my career. Together with my coworker, [Erik Runyun](https://erikrunyon.com), we churned out a major redesign and development in 3 months that was the talk of both the higher education and web development communities.\n> “This could well be the Holy Grail of higher ed website design: a web design based on the mobile first approach that serves content on any devices using a combo of responsive web design techniques and server side detection to reduce the load for mobile”\n\n– Karine Joly, [collegewebeditor.com](https://collegewebeditor.com/blog/index.php/archives/2012/04/02/university-of-notre-dame-redefines-highered-websites-with-its-redesigned-mobile-first-responsive-homepage/)",
+      "roles": [
+        "Designer",
+        "Developer"
+      ],
+      "technology": [
+        "Vanilla CSS",
+        "jQuery",
+        "PHP",
+        "Adobe Photoshop"
+      ],
+      "links": [
+        {
+          "text": "Interview with mStoner",
+          "link": "https://www.mstoner.com/blog/design-and-usability/reinventing_the_wheel_the_innovation_behind_notre_dames_unique_new_homepage/"
+        },
+        {
+          "text": "Cached Site",
+          "link": "https://web.archive.org/web/20120414205757/http://www.nd.edu:80/"
+        }
+      ]
+    }
+  ]
+}

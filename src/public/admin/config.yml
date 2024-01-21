@@ -1,3 +1,6 @@
+local_backend: true
+display_url: https://zastrow.co
+publish_mode: editorial_workflow
 backend:
   name: github
   branch: main
@@ -20,19 +23,35 @@ collections:
       - {label: "Publish Date", name: "date", widget: "datetime"}
       - {label: "Updated Date", name: "updated", widget: "datetime", required: false}
       - {label: "Preview", name: "preview", widget: "text", required: false}
+      - {label: "Body", name: "body", widget: "markdown"}
       - {label: "Permalink", name: "permalink", widget: "string", required: false}
       - {label: "Aliases", name: "aliases", widget: "list", required: false}
-      - {label: "Body", name: "body", widget: "markdown"}
   - name: pages
     label: "Pages"
+    folder: "src/content/pages"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Permalink", name: "permalink", widget: "string", default: "/_ADD_SLUGIFIED_NAME_/index.html"}
+      - {label: "Body", name: "body", widget: "markdown"}
+      - {label: "Publish Date", name: "date", widget: "datetime", required: false}
+      - {label: "Updated Date", name: "updated", widget: "datetime", required: false}
+      - {label: "Layout", name: "layout", widget: "string", default: page}
+      - {label: "Aliases", name: "aliases", widget: "list", required: false}
+  - name: now
+    label: "Now"
     files:
-      - name: "name"
+      - name: now
         label: "Now"
         file: "src/content/now.md"
         fields:
           - {label: "Title", name: "title", widget: "string"}
           - {label: "Updated Date", name: "updated", widget: "datetime"}
           - {label: "Body", name: "body", widget: "markdown"}
+  - name: blogroll
+    label: "Blogroll"
+    files:
       - name: "blogroll"
         label: "Blogroll"
         file: "src/data/blogroll.yaml"
@@ -44,3 +63,25 @@ collections:
               - {label: Name, name: name, widget: string}
               - {label: Site Link, name: link, widget: string}
               - {label: Feed Link, name: feed, widget: string}
+  - name: projects
+    label: "Projects"
+    files:
+      - name: "projects"
+        label: "Projects"
+        file: "src/data/projects.json"
+        fields:
+          - label: Projects
+            name: projects
+            widget: list
+            fields:
+              - {label: Name, name: name, widget: string}
+              - {label: Summary, name: summary, widget: string}
+              - {label: Description, name: desc, widget: string}
+              - {label: Roles, name: roles, widget: list}
+              - {label: Technology, name: technology, widget: list}
+              - label: Links
+                name: links
+                widget: list
+                fields:
+                  - {label: Button, name: text, widget: string}
+                  - {label: Link, name: link, widget: string}

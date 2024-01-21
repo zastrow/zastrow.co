@@ -7,7 +7,7 @@ title: Blogroll
 <p>Check back regularly as I will add new blogs as I discover them and have the impulse to share!</p>
 
 <div class="obj-grid obj-grid--2-col@sm obj-grid--row-gap-7@md obj-grid--3-col@lg obj-grid--row-gap-8@lg util-margin-block-6 util-margin-block-10@lg">
-	{%- assign blogroll_by_name = blogroll | sort: "name" -%}
+	{%- assign blogroll_by_name = blogroll.blogroll | sort: "name" -%}
 	{%- for item in blogroll_by_name -%}
 	<div class="cmp-blogroll">
 		<h2 class="cmp-blogroll__name">{{item.name}}</h2>

@@ -1,72 +1,55 @@
--
-  name: Bryan Braun
-  link: https://www.bryanbraun.com/
-  feed: https://www.bryanbraun.com/rss.xml
--
-  name: Erik Runyon
-  link: https://erikrunyon.com/
-  feed: https://erikrunyon.com/feed.xml
--
-  name: John Nunemaker
-  link: https://www.johnnunemaker.com/
-  feed: https://www.johnnunemaker.com/rss/
--
-  name: Dan Mall
-  link: https://danmall.com/
-  feed: https://danmall.com/feed.xml
--
-  name: Sara Joy
-  link: https://sarajoy.dev
-  feed: https://sarajoy.dev/rss.xml
--
-  name: Rach Smith
-  link: https://rachsmith.com
-  feed: https://rachsmith.com/rss/
--
-  name: Sophie Koonin
-  link: https://localghost.dev
-  feed: https://localghost.dev/feed.xml
--
-  name: Chris Coyier
-  link: https://chriscoyier.net
-  feed: https://chriscoyier.net/feed/
--
-  name: Sara Soueidan
-  link: https://sarasoueidan.com
-  feed: https://www.sarasoueidan.com/blog/index.xml/
--
-  name: Julia Evans
-  link: https://jvns.ca
-  feed: https://jvns.ca/atom.xml
--
-  name: Ben Myers
-  link: https://benmyers.dev
-  feed: https://benmyers.dev/feed.xml
--
-  name: Cassey Lottman
-  link: https://cassey.dev/
-  feed: https://cassey.dev/feed/feed.xml
--
-  name: Nick Heer
-  link: https://pxlnv.com/
-  feed: https://pxlnv.com/feed/
--
-  name: Cabel Sasser
-  link: https://cabel.com/
-  feed: https://cabel.com/feed/
--
-  name: Uses This
-  link: https://usesthis.com/
-  feed: https://usesthis.com/feed.atom
--
-  name: Adam Simpson
-  link: https://adamsimpson.net
-  feed: https://adamsimpson.net/rss.xml
--
-  name: Matthias Ott
-  link: https://matthiasott.com
-  feed: https://matthiasott.com/rss
--
-  name:  Manuel Matuzović
-  link: https://matthiasott.com
-  feed: https://matthiasott.com/rss
+blogroll:
+  - name: Bryan Braun
+    link: https://www.bryanbraun.com/
+    feed: https://www.bryanbraun.com/rss.xml
+  - name: Erik Runyon
+    link: https://erikrunyon.com/
+    feed: https://erikrunyon.com/feed.xml
+  - name: John Nunemaker
+    link: https://www.johnnunemaker.com/
+    feed: https://www.johnnunemaker.com/rss/
+  - name: Dan Mall
+    link: https://danmall.com/
+    feed: https://danmall.com/feed.xml
+  - name: Sara Joy
+    link: https://sarajoy.dev
+    feed: https://sarajoy.dev/rss.xml
+  - name: Rach Smith
+    link: https://rachsmith.com
+    feed: https://rachsmith.com/rss/
+  - name: Sophie Koonin
+    link: https://localghost.dev
+    feed: https://localghost.dev/feed.xml
+  - name: Chris Coyier
+    link: https://chriscoyier.net
+    feed: https://chriscoyier.net/feed/
+  - name: Sara Soueidan
+    link: https://sarasoueidan.com
+    feed: https://www.sarasoueidan.com/blog/index.xml/
+  - name: Julia Evans
+    link: https://jvns.ca
+    feed: https://jvns.ca/atom.xml
+  - name: Ben Myers
+    link: https://benmyers.dev
+    feed: https://benmyers.dev/feed.xml
+  - name: Cassey Lottman
+    link: https://cassey.dev/
+    feed: https://cassey.dev/feed/feed.xml
+  - name: Nick Heer
+    link: https://pxlnv.com/
+    feed: https://pxlnv.com/feed/
+  - name: Cabel Sasser
+    link: https://cabel.com/
+    feed: https://cabel.com/feed/
+  - name: Uses This
+    link: https://usesthis.com/
+    feed: https://usesthis.com/feed.atom
+  - name: Adam Simpson
+    link: https://adamsimpson.net
+    feed: https://adamsimpson.net/rss.xml
+  - name: Matthias Ott
+    link: https://matthiasott.com
+    feed: https://matthiasott.com/rss
+  - name:  Manuel Matuzović
+    link: https://matthiasott.com
+    feed: https://matthiasott.com/rss
