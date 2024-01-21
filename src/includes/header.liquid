@@ -34,9 +34,8 @@
 				<div class="cmp-nav js-nav">
 					<nav aria-label="Primary Site Links">
 						<ul class="cmp-nav__list">
-							{% for item in nav %}
+							{% for item in primary_nav %}
 								<li class="cmp-nav__item">
-
 									<a href="{{item.link}}" class="cmp-nav__link{% if page.url contains item.link %} cmp-nav__link--active{% endif %}" data-title="{{ item.name }}">{{ item.name }}</a>
 								</li>
 							{% endfor %}

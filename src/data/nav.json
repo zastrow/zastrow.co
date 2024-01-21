@@ -1,22 +1,38 @@
-[
-	{
-		"name": "Blog",
-		"link": "/posts"
-	},
-	{
-		"name": "Articles",
-		"link": "/articles"
-	},
-	{
-		"name": "Projects",
-		"link": "/projects"
-	},
-	{
-		"name": "Reading",
-		"link": "/books"
-	},
-	{
-		"name": "About",
-		"link": "/about"
-	}
-]
+{
+  "prefooter": [
+    {
+      "name": "Résumé",
+      "link": "/resume"
+    },
+    {
+      "name": "Blogroll",
+      "link": "/blogroll"
+    },
+    {
+      "name": "Accessibility Statement",
+      "link": "/accessibility"
+    }
+  ],
+  "primary_nav": [
+    {
+      "name": "Blog",
+      "link": "/posts"
+    },
+    {
+      "name": "Articles",
+      "link": "/articles"
+    },
+    {
+      "name": "Projects",
+      "link": "/projects"
+    },
+    {
+      "name": "Reading",
+      "link": "/books"
+    },
+    {
+      "name": "About",
+      "link": "/about"
+    }
+  ]
+}

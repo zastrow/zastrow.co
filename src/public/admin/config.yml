@@ -84,3 +84,22 @@ collections:
                 fields:
                   - {label: Button, name: text, widget: string}
                   - {label: Link, name: link, widget: string}
+  - name: nav
+    label: "Navigation"
+    files:
+      - name: nav
+        label: Navigation
+        file: "src/data/nav.json"
+        fields:
+          - label: Primary Nav
+            name: primary_nav
+            widget: list
+            fields:
+              - {label: Name, name: name, widget: string}
+              - {label: Link, name: link, widget: string}
+          - label: Prefooter Nav
+            name: prefooter
+            widget: list
+            fields:
+              - {label: Name, name: name, widget: string}
+              - {label: Link, name: link, widget: string}
