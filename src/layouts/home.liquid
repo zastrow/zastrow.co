@@ -5,6 +5,10 @@ eleventyImport:
 ---
 {% layout "default-layout" %}
 
+{%- block meta -%}
+<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+{%- endblock -%}
+
 {%- block main %}
 
 {% include "home/blog-posts" %}
@@ -22,3 +26,17 @@ eleventyImport:
 </div>
 
 {% endblock -%}
+
+{%- block postscript -%}
+<script>
+	if (window.netlifyIdentity) {
+		window.netlifyIdentity.on("init", user => {
+			if (!user) {
+				window.netlifyIdentity.on("login", () => {
+					document.location.href = "/admin/";
+				});
+			}
+		});
+	}
+</script>
+{%- endblock -%}
