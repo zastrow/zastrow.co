@@ -1,10 +1,9 @@
 ---
 layout: page
 title: Now
-updated: 2024-01-11
+updated: 2024-01-21T21:25:43.599Z
 date: 2024-01-21T17:43:39.407Z
 ---
-**Updated:** 2024-01-21
 
 ## Currently Reading:
 
