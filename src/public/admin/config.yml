@@ -1,9 +1,14 @@
 backend:
   name: github
   branch: main
-  repo: zastrow/zastrow.co
+  repo: "zastrow/zastrow.co"
 media_folder: "src/public/assets"
 public_folder: "/assets"
+search: false
+slug:
+  encoding: "ascii"
+  clean_accents: true
+  sanitize_replacement: "-"
 collections:
   - name: "posts"
     label: "Blog Posts"
@@ -13,20 +18,29 @@ collections:
     fields:
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Publish Date", name: "date", widget: "datetime"}
+      - {label: "Updated Date", name: "updated", widget: "datetime", required: false}
       - {label: "Preview", name: "preview", widget: "text", required: false}
       - {label: "Permalink", name: "permalink", widget: "string", required: false}
       - {label: "Aliases", name: "aliases", widget: "list", required: false}
       - {label: "Body", name: "body", widget: "markdown"}
-  - name: "pages"
+  - name: pages
     label: "Pages"
-    folder: "src/content"
-    create: true
-    slug: "{{slug}}"
-    fields:
-      - {label: "Title", name: "title", widget: "string"}
-      - {label: "Publish Date", name: "date", widget: "datetime"}
-      - {label: "Preview", name: "preview", widget: "text", required: false}
-      - {label: "Permalink", name: "permalink", widget: "string", required: false}
-      - {label: "Aliases", name: "aliases", widget: "list", required: false}
-      - {label: "Body", name: "body", widget: "markdown"}
-
+    files:
+      - name: "name"
+        label: "Now"
+        file: "src/content/now.md"
+        fields:
+          - {label: "Title", name: "title", widget: "string"}
+          - {label: "Updated Date", name: "updated", widget: "datetime"}
+          - {label: "Body", name: "body", widget: "markdown"}
+      - name: "blogroll"
+        label: "Blogroll"
+        file: "src/data/blogroll.yaml"
+        fields:
+          - label: Blogroll
+            name: blogroll
+            widget: list
+            fields:
+              - {label: Name, name: name, widget: string}
+              - {label: Site Link, name: link, widget: string}
+              - {label: Feed Link, name: feed, widget: string}
