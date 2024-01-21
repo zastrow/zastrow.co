@@ -1,21 +1,24 @@
 <article class="cmp-home-post">
 	<h2 class="cmp-home-post__heading">Latest on the blog</h2>
-
-	{% for post in collections.posts limit:1 %}
-		<h3 class="cmp-home-post__title">
-			<a href="{{ post.url }}" class="cmp-home-post__link">
-				{{ post.data.title }}
-			</a>
-		</h3>
-		<time class="cmp-home-post__date" datetime="{{ post.data.date | date: "%Y-%m-%d"  }}">
-			{{ post.data.date | date: "%d %B %Y" }}
-		</time>
-		{% if post.data.preview %}
-		<p class="cmp-home-post__preview">
-			{{ post.data.preview }}
-		</p>
-		{% endif %}
-	{% endfor %}
+	<div class="cmp-home-post__group">
+		{% for post in collections.posts limit:3 %}
+			<div class="cmp-home-post__item cmp-home-post__item--article-{{forloop.index}}">
+				<h3 class="cmp-home-post__title cmp-home-post__title--article-{{forloop.index}}">
+					<a href="{{ post.url }}" class="cmp-home-post__link">
+						{{ post.data.title }}
+					</a>
+				</h3>
+				<time class="cmp-home-post__date cmp-home-post__preview--article-{{forloop.index}}" datetime="{{ post.data.date | date: "%Y-%m-%d"  }}">
+					{{ post.data.date | date: "%d %B %Y" }}
+				</time>
+				{% if post.data.preview %}
+				<p class="cmp-home-post__preview cmp-home-post__preview--article-{{forloop.index}}">
+					{{ post.data.preview }}
+				</p>
+				{% endif %}
+			</div>
+		{% endfor %}
+	</div>
 
 	<a href="/posts" class="cmp-button cmp-button--reverse cmp-button--large">More Blog Posts</a>
 </article>
