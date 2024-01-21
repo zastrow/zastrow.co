@@ -50,6 +50,15 @@ blogroll:
   - name: Matthias Ott
     link: https://matthiasott.com
     feed: https://matthiasott.com/rss
-  - name:  Manuel Matuzović
+  - name: Manuel Matuzović
     link: https://matthiasott.com
     feed: https://matthiasott.com/rss
+  - name: Adrian Roselli
+    link: https://adrianroselli.com/
+    feed: https://adrianroselli.com/feed
+  - name: Amy Hupe
+    feed: https://amyhupe.co.uk/atom.xml
+    link: https://amyhupe.co.uk
+  - name: Caterina Fake
+    link: http://caterina.net/
+    feed: https://caterina.net/feed/
