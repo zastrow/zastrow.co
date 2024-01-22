@@ -2,7 +2,7 @@
 title: Uses
 permalink: /uses/index.html
 date: 2024-01-22T03:34:42.174Z
-updated: ""
+updated: 2024-01-22T03:36:20.177Z
 layout: page
 ---
 ## Hardware
