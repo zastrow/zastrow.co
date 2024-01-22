@@ -4,7 +4,7 @@
 		<nav aria-labelledby="prefooter">
 			<ul class="cmp-site-footer__pre-list">
 				{% for item in prefooter %}
-				<li class="cmp-site-footer__pre-item">
+				<li class="cmp-site-footer__pre-item cmp-site-footer__pre-item--{{ item.name | slugify }}">
 					<a href="{{ item.link }}" class="cmp-site-footer__pre-link">{{ item.name }}</a>
 				</li>
 				{% endfor %}

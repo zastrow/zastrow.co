@@ -302,11 +302,16 @@
 		text-align: center;
 
 		@media (--md-min) {
-			& + &::before {
+			& + &:not(#{&}--accessibility-statement)::before {
 				color: var(--grey-invert-3);
 				display: inline-block;
 				content: '•';
 				margin-inline-end: var(--gap);
+			}
+
+			&--accessibility-statement {
+				order: 1;
+				flex-basis: 100%;
 			}
 		}
 	}
