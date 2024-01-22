@@ -53,7 +53,7 @@ collections:
     files:
       - name: "blogroll"
         label: "Blogroll"
-        file: "src/data/blogroll.yaml"
+        file: "src/data/blogroll.json"
         fields:
           - label: Blogroll
             name: blogroll
