@@ -27,18 +27,13 @@ const setAutoMode = () => {
 	buttonAutoMode.classList.add('cmp-settings__mode-button--active');
 }
 
-const expandedCookieValue = document.cookie
-	.split('; ')
-	.find((row) => row.startsWith('zastrowcoColorMode='))
-	?.split('=')[1];
-
-if (expandedCookieValue === 'dark') {
+if (localStorage.getItem('color_mode') === 'dark') {
 	setDarkMode();
 }
-else if (expandedCookieValue === 'light') {
+else if (localStorage.getItem('color_mode') === 'light') {
 	setLightMode();
 }
-else if (expandedCookieValue === 'auto') {
+else if (localStorage.getItem('color_mode') === 'auto') {
 	setAutoMode();
 }
 else {
@@ -47,15 +42,15 @@ else {
 
 buttonDarkMode.addEventListener('click', () => {
 	setDarkMode();
-	document.cookie = `zastrowcoColorMode=dark;`;
+	localStorage.setItem('color_mode', 'dark');
 });
 
 buttonLightMode.addEventListener('click', () => {
 	setLightMode();
-	document.cookie = `zastrowcoColorMode=light;`;
+	localStorage.setItem('color_mode', 'light');
 });
 
 buttonAutoMode.addEventListener('click', () => {
 	setAutoMode();
-	document.cookie = `zastrowcoColorMode=auto;`;
+	localStorage.setItem('color_mode', 'auto');
 });
