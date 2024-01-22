@@ -8,7 +8,8 @@ layout-name: page
 		<h1 class="cmp-list-header__title">{{title}}</h1>
 	</header>
 	{%- if updated -%}
-	<p><strong>Updated:</strong> {{ updated | date: "%d %B %Y" }}</p>
+	{{ "now" | date: "%d %B %Y @ %H:%m", "America/New_York" }}
+	<p class="cmp-update-notice"><strong>Updated:</strong> {{ updated | date: "%d %B %Y", "America/New_York" }} at {{ updated | date: "%H:%m %z", "America/New_York" }}</p>
 	{%- endif -%}
 	{{ content }}
 {% endblock -%}
