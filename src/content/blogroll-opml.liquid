@@ -8,7 +8,7 @@ permalink: /blogroll/index.opml
 		<title>Philip Zastrow’s Blog Roll</title>
 	</head>
 	<body>
-		{% assign blogroll_by_name = blogroll | sort: "name" -%}
+		{% assign blogroll_by_name = blogroll.blogroll | sort: "name" -%}
 		{%- for item in blogroll_by_name -%}
 		<outline text="{{item.name}}" title="{{item.name}}" description="" type="rss" version="RSS" htmlUrl="{{item.link}}" xmlUrl="{{item.feed}}"/>
 		{% endfor -%}
