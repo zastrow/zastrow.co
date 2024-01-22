@@ -9,7 +9,7 @@
 					</a>
 				</h3>
 				<time class="cmp-home-post__date cmp-home-post__preview--article-{{forloop.index}}" datetime="{{ post.data.date | date: "%Y-%m-%d"  }}">
-					{{ post.data.date | date: "%d %B %Y" }}
+					{{ post.data.date | date: "%d %B %Y", time_zone }}
 				</time>
 				{% if post.data.preview %}
 				<p class="cmp-home-post__preview cmp-home-post__preview--article-{{forloop.index}}">

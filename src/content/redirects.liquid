@@ -26,9 +26,9 @@ eleventyExcludeFromCollections: true
 
 # Post Collections
 {% for post in collections.posts -%}
-	{%- assign y = post.data.date | date: '%Y' -%}
-	{%- assign m = post.data.date | date: '%m' -%}
-	{%- assign d = post.data.date | date: '%d' -%}
+	{%- assign y = post.data.date | date: '%Y', time_zone -%}
+	{%- assign m = post.data.date | date: '%m', time_zone -%}
+	{%- assign d = post.data.date | date: '%d', time_zone -%}
 	{%- capture slug -%}
 		{%- if post.data.title and  post.data.title != '' -%}
 			{{- post.data.title | slugify -}}

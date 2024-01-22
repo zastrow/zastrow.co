@@ -18,7 +18,7 @@ layout-name: articles
 		</h2>
 		<ul class="cmp-list__meta">
 			<li class="cmp-list__meta-item cmp-list__meta-item--date">
-				<time datetime="{{ article.date | date: "%Y-%m-%d" }}">{{ article.date | date: "%d %B %Y" }}</time>
+				<time datetime="{{ article.date | date: "%Y-%m-%d", time_zone }}">{{ article.date | date: "%d %B %Y", time_zone }}</time>
 			</li>
 			<li class="cmp-list__meta-item cmp-list__meta-item--source">
 				{{ article.source }}

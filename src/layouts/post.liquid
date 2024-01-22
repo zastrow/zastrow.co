@@ -1,6 +1,6 @@
 ---
 layout-name: post
-permalink: "/posts/{{ date | date: '%Y' }}/{{ date | date: '%m' }}/{{ date | date: '%d' }}/{% if title and title != '' %}{{ title | decode | slugify }}{% else %}{{ slug }}{% endif %}/index.html"
+permalink: "/posts/{{ date | date: '%Y', time_zone }}/{{ date | date: '%m', time_zone }}/{{ date | date: '%d', time_zone }}/{% if title and title != '' %}{{ title | decode | slugify }}{% else %}{{ slug }}{% endif %}/index.html"
 ---
 {% layout "default-layout" %}
 
@@ -40,8 +40,8 @@ permalink: "/posts/{{ date | date: '%Y' }}/{{ date | date: '%m' }}/{{ date | dat
 			{%- if date -%}
 			<p class="cmp-post-header__meta">
 				<a href="{{ url }}"  class="cmp-post-header__permalink">
-					<time datetime="{{ date | date: "%Y-%m-%d" }}">
-						{{ date | date: "%d %B %Y" }}
+					<time datetime="{{ date | date: "%Y-%m-%d", time_zone }}">
+						{{ date | date: "%d %B %Y", time_zone }}
 					</time>
 				</a>
 			</p>
@@ -49,7 +49,7 @@ permalink: "/posts/{{ date | date: '%Y' }}/{{ date | date: '%m' }}/{{ date | dat
 		</header>
 		{%- endif -%}
 
-		{% assign post_date = date | date: '%Y' %}
+		{% assign post_date = date | date: '%Y', time_zone %}
 		{% if post_date < old_post_date %}
 		<p class="cmp-notice"><strong class="cmp-notice__strong">Notice:</strong> This is an older post and may contain broken links, missing images, or outdated information.</p>
 		{% endif %}
