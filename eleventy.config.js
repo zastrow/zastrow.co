@@ -83,6 +83,7 @@ module.exports = (eleventyConfig) => {
 
 	eleventyConfig.addGlobalData('environment', process.env.NODE_ENV);
 	eleventyConfig.addGlobalData('site_url', process.env.SITE_URL);
+	eleventyConfig.addGlobalData('time_zone', "America/New_York");
 	eleventyConfig.addGlobalData('old_post_date', () => {
 		const year = new Date().getFullYear();
 		return year - 6;

@@ -12,7 +12,7 @@
 				<li class="cmp-article-card__item">
 					<a href="{{ post.link }}" class="cmp-article-card__link" aria-label="Read {{ post.title }} on Digital Ocean">
 						<span class="cmp-meta" >
-							<time class="cmp-meta__date" datetime="{{ post.date }}">{{ post.date | date: "%e %B %Y" }}</time>
+							<time class="cmp-meta__date" datetime="{{ post.date }}">{{ post.date | date: "%e %B %Y", time_zone }}</time>
 						</span>
 						<span class="cmp-article-card__title">{{ post.title }}</span>
 					</a>

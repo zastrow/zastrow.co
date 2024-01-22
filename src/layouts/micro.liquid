@@ -15,8 +15,8 @@ permalink: "/micro/{{ date | date: '%Y' }}/{{ date | date: '%m' }}/{{ date | dat
 		{%- endif -%}
 		{%- if date -%}
 			<a href="{{ url }}">
-				<time datetime="{{ date | date: "%Y-%m-%d" }}">
-					{{ date | date: "%d %B %Y" }}
+				<time datetime="{{ date | date: "%Y-%m-%d", time_zone }}">
+					{{ date | date: "%d %B %Y", time_zone }}
 				</time>
 			</a>
 		{%- endif -%}

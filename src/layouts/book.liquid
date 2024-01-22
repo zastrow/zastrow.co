@@ -26,7 +26,7 @@ layout-name: book
 			</div>
 			<div class="obj-book-page__content">
 				<p class="cmp-book-page__finish-date">
-					Finished on <time datetime="{{ book.date | date: "%Y-%m-%d" }}">{{ book.date | date: "%d %B %Y" }}</time>
+					Finished on <time datetime="{{ book.date | date: "%Y-%m-%d", time_zone }}">{{ book.date | date: "%d %B %Y", time_zone }}</time>
 				</p>
 				<div class="cmp-book-page__review">
 					{% if book.review %}

@@ -31,8 +31,8 @@ permalink: "micro/{% if pagination.pageNumber > 0 %}{{ pagination.pageNumber | p
 				</a>
 			</h2>
 			<p>
-				<time datetime="{{ post.data.date | date: "%Y-%m-%d" }}">
-					{{ post.data.date | date: "%d %B %Y" }}
+				<time datetime="{{ post.data.date | date: "%Y-%m-%d", time_zone }}">
+					{{ post.data.date | date: "%d %B %Y", time_zone }}
 				</time>
 			</p>
 		</header>
