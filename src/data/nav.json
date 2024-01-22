@@ -1,12 +1,16 @@
 {
   "prefooter": [
     {
+      "name": "Résumé",
+      "link": "/resume"
+    },
+    {
       "name": "Now",
       "link": "/now"
     },
     {
-      "name": "Résumé",
-      "link": "/resume"
+      "name": "Uses",
+      "link": "/uses"
     },
     {
       "name": "Blogroll",
