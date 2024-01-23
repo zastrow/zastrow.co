@@ -1,9 +1,10 @@
 ---
-layout: page
 title: About
 permalink: /about/index.html
+date: 2024-01-23T03:11:05.353Z
+updated: ""
+layout: page
 ---
-
 ## Philip
 
 Hi! I’m Philip. I’m a Developer at [Sparkbox](https://sparkbox.com) with a passion for bridging design and development with a focus on HTML, CSS, and Accessibility. I’m even a certified [Web Accessibility&nbsp;Specialist](https://www.accessibilityassociation.org/s/wascertificants#Certificants4)!</p>
@@ -23,7 +24,7 @@ This site is my [digital garden](https://maggieappleton.com/garden-history), a t
 <dd>This is an incredible static site generator that I fell in love with in 2023 and am so excited to be using on my personal site. I highly recommend it.</dd>
 
 <dt>Fonts</dt>
-<dd>I’m using <a href="https://github.com/mona-sans">Mona Sans</a>, <a href="https://github.com/mona-sans">Hubot SansM</a>, and <a href="https://monaspace.githubnext.com">Monaspace Neon</a>, all variable fonts produced by GitHub.</dd>
+<dd>I’m using <a href="https://github.com/mona-sans">Mona Sans</a>, <a href="https://github.com/mona-sans">Hubot Sans</a>, and <a href="https://monaspace.githubnext.com">Monaspace Neon</a>, all variable fonts produced by GitHub.</dd>
 
 <dt><a href="https://www.netlify.com">Netlify</a></dt>
 <dd>Hosting for the site. It’s nice and easy to setup and run, and the free tier is quite generous.</dd>
