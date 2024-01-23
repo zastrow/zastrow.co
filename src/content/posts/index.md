@@ -1,7 +1,29 @@
 ---
 layout: post_list
-title: Blog Posts
+title: Designed In The Browser
 eleventyExcludeFromCollections: true
 eleventyImport:
-  collections: ["posts"]
+  collections:
+    - posts
+date: 2024-01-23T00:41:26.280Z
+updated: ""
+preview: My favorite design tool is by far working directly in a browser with
+  code. While I will use graphics tools for certain problems to solve, I find
+  that the browser is where the magic truly happens—it's where I can quickly
+  iterate, adapt, and bring my ideas to life.
 ---
+I’m very proud of the footer of my website, and I mean the very bottom, the last bit: “design in the browser.” For real, I designed this site in the browser. That does not mean that no graphics tools were involved, but the browser is where the ideation, typography, and layout were done. In fact, I continue to iterate on my site with new ideas by creating a new branch in my repo rather than ideation in a graphics tool. This isn’t a new idea for me, but this version of my site made me think about my process more than ever, and it’s not the first time I’ve thought about this.
+
+In 2012, I wrote a post called “[The Broken Design Process](https://zastrow.co/posts/2012/07/31/the-broken-design-process/)” that discussed the difficulties of the design process as Responsive Web Design gained traction. In the decade since I wrote that, I have been introduced to John Allsopp’s [A Dao of Web Design](https://alistapart.com/article/dao/), which greatly influenced my perception of adaptive and accessible design. Additionally, I met [Dan Mall](https://danmall.com), who taught me the phrase “decide in the browser” and to get design ideas in the browser quickly. I hold to these ideals still, and I know what design tool is fastest for me: it’s HTML and CSS.
+
+In the design for this site, I used two graphics tools to get started. But I had to have the idea first, and a lot happened in my mind to start. The first was realizing what I wanted to be the source of inspiration for my site. A pink and orange palette have been a mainstay to this site for probably 8 years or so. Then, over the summer, I received a piece of artwork with a beautiful design in those same colors. Using that as my inspiration, I opened Adobe Illustrator and created an interpretation of that artwork. The decoration that currently adorns the top of this site.
+
+I exported the illustration to an SVG and pulled it in to the browser and began coding, I knew how I wanted to start using it. But, I realized a problem as I wanted to start working with small screen styles first: I knew in my head how this artwork would appear on large screen. In this case, I turned to Figma and set up a small screen art board and dropped in the SVG. I moved the artwork around to see how it would look positioned in different areas, and put in a quick text lock up of my name to see how it would fill the space on the small screen. That was it to get the idea. I drew a quick hamburger nav icon, but I didn’t even use that, as I hand-coded the SVG icon instead. With that ideation in Figma done, I was done with graphics tools for the rest of this project.
+
+There are tools that are necessary to have in the browser to help speed along the design process. This is why I think CSS frameworks are seemingly so popular, as it allows developers to quickly build and have effective design. However, CSS is my jam, I want to control as much of it as possible, especially the selectors and naming. However, I did use a library of CSS custom properties, called Open Props. I didn’t use every part of it, but I used those properties that were similar to the kind I would normally build. Open Props has the values ready to go, such as spacing values, font size, and rounded corner values. I use the Just In Time PostCSS plugin so that only the properties that are called are added to the stylesheet, which, I feel, has worked very well.
+
+I designed pages at all screen sizes at al once. Roughing ideas out and refining them as they became clearer. What is great about design in browser is once you have a style, it can be reapplied and modified as needed. This means the more I designed, the faster it was to design the next thing, and the next. Once, I hit a point where I felt like I had the main pieces in place, I would go back through and start adding features and interactions with JavaScript. This in turn would kick off another round of iteration and I would find that a solution solved with an interaction provided a solution for something else I had roughed out, but didn’t feel satisfied about.
+
+Design is a process. It is the methods and tools used to achieve a final product. My preferred tools for designing are and remain to be Web technologies—HTML, CSS, and JavaScript. I think it is easy to leave it at HTML and CSS, but I do believe JavaScript plays an important role in the design process on the web. This entire site is built in a Node-based static site generator, Eleventy, and I have written a fair bit of JavaScript that is run on the build process and that is meant for client-side interaction. The JavaScript is a crucial part to the experience of using this site. On small screen, it is what helps hide and show the navigation. The light/dark mode selection is completely dependent on JavaScript, and the interaction and expectations require design thinking just as much as the layout and typography.
+
+Design is development is design is development. The more that can be done to limit any break between that flow, the more resilient and thoughtful the end product. CSS continues to be able to do more than a graphics tool can mimic CSS doing. I will continue to turn to Sketch, or Figma, or Illustrator to work through a visual problem as needed. But it’s only when those tools are more efficient, faster, and shareable for me than putting together the same idea in a browser.
