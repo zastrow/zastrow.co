@@ -48,4 +48,19 @@ $totalcol: 12;
 			}
 		}
 	}
+
+	&__col-span {
+		@for $i from 1 through $totalcol {
+			&--#{$i} {
+				grid-column: span $i;
+			}
+			@each $key, $value in mq.$queries {
+				@media (width >= #{$value}) {
+					&--#{$i}\@#{$key} {
+						grid-column: span $i;
+					}
+				}
+			}
+		}
+	}
 }

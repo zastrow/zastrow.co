@@ -1,0 +1,40 @@
+---
+layout: page
+title: Videos
+notitle: true
+video: https://www.youtube.com/watch?v=
+---
+
+<header class="cmp-list-header">
+	<h1 class="cmp-list-header__title">{{title}}</h1>
+	{{if content}}
+	<div>
+		<p>These are all me talking about some of my favorite topics: development, design, and accessibility!</p>
+	</div>
+	{{end}}
+</header>
+
+{%- for item in videos -%}
+<div class="cmp-video-item">
+	<div class="obj-grid obj-grid--gap-6 obj-grid--gap-8@xl obj-grid--12-col@lg">
+		<div class="obj-grid__span obj-grid__col-span--7@lg">
+			<h2 class="cmp-video-item__title" id="video-{{item.title | slugify}}">
+				<a class="cmp-video-item__title-link" href="{{video}}{{item.ytcode}}" aria-label="Watch the video, {{item.title}} on You Tube">
+					{{item.title}}
+				</a>
+			</h2>
+			<p>
+				<time datetime="{{ item.date | date: "%Y-%m-%d", time_zone }}" class="cmp-video-item__meta">
+					{{ item.date | date: "%d %B %Y", time_zone }}
+				</time>
+			</p>
+		</div>
+		<div class="obj-grid__span obj-grid__col-span--5@lg" aria-hidden="true">
+			<a class="cmp-video-item__link" href="{{video}}{{item.ytcode}}"  aria-hidden="true">
+				<span class="cmp-video-item__link-text">Watch on YouTube</span>
+				<img class="cmp-video-item__thumbnail" alt="" src="/assets/video-thumbs/{{item.image}}">
+			</a>
+		</div>
+	</div>
+</div>
+{%- endfor -%}

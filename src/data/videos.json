@@ -1,32 +1,38 @@
 [
   {
-    "title": "Copacetic Collaboration",
-    "ytcode": "kHJ-BTPnhFI",
-    "image": "copacetic-collaboration.png"
+    "title": "Container-based RWD with Element Queries",
+    "ytcode": "aYPX76NWM1o",
+    "date": "Oct 26, 2015",
+    "image": "css-dev-conf.jpg"
   },
   {
-    "title": "Four Tips for Accessible Color&nbsp;Contrast",
+    "title": "Four Tips for Accessible Color Contrast",
     "ytcode": "YaVK6wcWEpw",
+    "date": "Sep 24, 2020",
     "image": "four-tips.png"
   },
   {
-    "title": "Working with Accessibility Assistance&nbsp;Tools",
+    "title": "Working with Accessibility Assistance Tools",
     "ytcode": "hXzIZmVtSMc",
+    "date": "Sep 24, 2020",
     "image": "working-with-a11y-tools.png"
   },
   {
-    "title": "Web Design and Accessible Color&nbsp;Contrast",
+    "title": "Web Design and Accessible Color Contrast",
     "ytcode": "36c6DwEXiNQ",
+    "date": "Sep 24, 2020",
     "image": "accessible-color-contrast.png"
   },
   {
-    "title": "Introduction to&nbsp;CSS",
+    "title": "Introduction to CSS",
     "ytcode": "tjw-UWNQjmo",
+    "date": "Feb 9, 2021",
     "image": "intro-to-css.png"
   },
   {
-    "title": "Container-based RWD with Element&nbsp;Queries",
-    "ytcode": "aYPX76NWM1o",
-    "image": "css-dev-conf.jpg"
+    "title": "Copacetic Collaboration",
+    "ytcode": "kHJ-BTPnhFI",
+    "date": "Apr 15, 2021",
+    "image": "copacetic-collaboration.png"
   }
 ]

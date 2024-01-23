@@ -266,6 +266,9 @@ $color-names: ( 'daisy', 'mango', 'peach', 'phlox', 'lilac', 'denim', 'azure' );
 
 	--color-project-seperator-surface-light: var(--azure-00);
 	--color-project-seperator-surface-dark: var(--azure-00);
+
+	--color-video-link-hover-light: var(--color-text);
+	--color-video-link-hover-dark: var(--color-surface);
 }
 
 $color-group: (
@@ -318,7 +321,8 @@ $color-group: (
 	'kbd-border',
 	'kbd-inner-shadow',
 	'kbd-upper-shadow',
-	'kbd-lower-shadow'
+	'kbd-lower-shadow',
+	'video-link-hover'
 );
 
 @mixin invert($style: 'light') {
