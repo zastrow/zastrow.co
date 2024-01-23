@@ -5,10 +5,10 @@ export default function resizeWatcher() {
 	window.addEventListener('resize',  () => {
 		// Prevents Safari misalignment of animated
 		// position absolute elements
-		bodyElement.classList.add('resize');
+		bodyElement.classList.add('pause-animation');
 		setTimeout( () => {
 			navSetup();
-			bodyElement.classList.remove('resize');
+			bodyElement.classList.remove('pause-animation');
 		}, 500)
 	});
 }

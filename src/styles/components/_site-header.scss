@@ -41,7 +41,7 @@
 				animation: rotate 120s linear infinite;
 
 				.nav-open &,
-				.resize & {
+				.pause-animation & {
 					animation-play-state: paused;
 				}
 			}
@@ -113,12 +113,13 @@
 				inset-inline-end: 50%;
 				translate: 50% 50%;
 				z-index: var(--layer-0);
+				rotate: var(--rotation-start);
 				@media (--motionOK) {
 					animation: rotate 120s linear infinite;
 					will-change: transform;
 
 					.nav-open &,
-					.resize &  {
+					.pause-animation &  {
 						animation-play-state: paused;
 					}
 				}

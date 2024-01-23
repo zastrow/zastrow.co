@@ -25,6 +25,11 @@
 		<link rel="stylesheet" href="/style.css">
 	</head>
 	<body>
+		<script>
+			if (localStorage.getItem('rotation').length) {
+				document.body.style.setProperty('--rotation-start', localStorage.getItem('rotation'));
+			}
+		</script>
 		<nav aria-label="Skip Link">
 			<a href="#main" class="cmp-skip-link">Skip to content</a>
 			{% block skip_links %}

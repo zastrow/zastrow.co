@@ -1,5 +1,5 @@
 @keyframes rotate {
 	to {
-		rotate: 40deg;
+		rotate: calc(var(--rotation-start) + 40deg);
 	}
 }

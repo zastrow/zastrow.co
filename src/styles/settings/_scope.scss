@@ -38,6 +38,8 @@
 
 	--width-min: calc(100% - (var(--size-3) * 2));
 	--width-max: min(var(--width-min), var(--query-xl));
+
+	--rotation-start: 0deg;
 }
 
 .mode-light {
