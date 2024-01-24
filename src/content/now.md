@@ -1,6 +1,7 @@
 ---
 layout: page
 title: Now
+display_update: true
 updated: 2024-01-21T21:25:43.599Z
 date: 2024-01-21T17:43:39.407Z
 ---
