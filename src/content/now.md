@@ -2,7 +2,7 @@
 layout: page
 title: Now
 display_update: true
-updated: 2024-01-24T01:29:55.182Z
+updated: 2024-02-03T02:01:21.211Z
 date: 2024-01-21T17:43:39.407Z
 ---
 ## Currently Reading:
@@ -13,11 +13,13 @@ date: 2024-01-21T17:43:39.407Z
 
 ## Podcasts I’m Listening To:
 
-* [Clear and Vivid with Alan Alda](https://clear-vivid-with-alan-alda.simplecast.com), [Sy Montgomery: For the love of hawks… and turtles](https://clear-vivid-with-alan-alda.simplecast.com/episodes/sy-montgomery-for-the-love-of-hawks-and-turtles)
+* [Focused](https://www.relay.fm/focused), [Focus & The Reading Life, with Maryanne Wolf](https://www.relay.fm/focused/196)
 
 ## What else am I doing?
 
-**Looking for a job.** If you have any leads for a front of the front end type developer/designer hybrid unicorn whatnot, please message me on [Mastodon](https://mastodon.social/@zastrow) or [LinkedIn](https://www.linkedin.com/in/philip-zastrow/). I have over 20 years experience building web(sites|apps). I’m particularly keen on design systems and leading teams.
+**Still looking for a job.** If you have any leads for a front of the front end type developer/designer hybrid unicorn whatnot, please message me on [Mastodon](https://mastodon.social/@zastrow) or [LinkedIn](https://www.linkedin.com/in/philip-zastrow/). I have over 20 years experience building web(sites|apps). I’m particularly keen on design systems and leading teams.
+
+Thankfully, my initial callout on Mastodon led to reconnecting with some friends who gave me an opportunity to do some short-term contract work with their company, [Box Out](http://boxoutsports.com). 
 
 ## What is a now page?
 
