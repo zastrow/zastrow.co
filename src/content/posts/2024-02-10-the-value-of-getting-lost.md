@@ -1,6 +1,6 @@
 ---
 title: The Value of Getting Lost
-date: 2024-02-10T02:51:43.162Z
+date: 2024-02-10T02:52:04.841Z
 updated: 2024-02-10T02:48:39.869Z
 preview: I used to use a method of intentionally getting lost to learn my way
   around a physical area. Today, I use a similar practice of getting lost to get
