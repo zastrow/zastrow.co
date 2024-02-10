@@ -4,9 +4,9 @@ date: 2024-02-10T02:52:04.841Z
 updated: 2024-02-10T02:48:39.869Z
 preview: I used to use a method of intentionally getting lost to learn my way
   around a physical area. Today, I use a similar practice of getting lost to get
-  familiar with a larger codebase, when I first start out with it. I’ll share a
-  couple of approaches I take to get a deeper understanding of the architecture
-  and actions of the code.
+  familiar with a larger codebase when I first start out with it. I’ll share a
+  couple of approaches I take to get a more in-depth understanding of the
+  architecture and actions of the code.
 ---
 In the early days of my career, I worked at different local web and tech agencies that often required client meetings on-site at their location. I would pad my departure time, intending to get lost en route. I found that by getting lost within the knowable area of my client’s location, that I was able to get a more in-depth understanding of the area as a whole. Eventually, I no longer needed to leave early because I knew my way around town well enough. I apply this same strategy to familiarizing myself with a new codebase.
 
