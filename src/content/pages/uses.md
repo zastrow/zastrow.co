@@ -22,7 +22,7 @@ There is so much software I want to list, because I use a lot of it. I should st
 
 **Writing Apps:** [iA Writer](https://ia.net/writer), [Ulysses](https://ulysses.app/), [Drafts](https://getdrafts.com/), Notes.app, [Obsidian](https://obsidian.md/).
 
-**Dev Tools:** [Nova](https://nova.app), Terminal.app, [DevUtils](https://devutils.com/), [SnippetsLab](https://www.renfei.org/snippets-lab/), [Gitfox](https://www.gitfox.app/), [TablePlus](https://tableplus.com/), [Expressions](https://www.apptorium.com/expressions).
+**Dev Tools:** [Nova](https://nova.app) (Photosensitivity Warning), Terminal.app, [DevUtils](https://devutils.com/), [SnippetsLab](https://www.renfei.org/snippets-lab/), [Gitfox](https://www.gitfox.app/), [TablePlus](https://tableplus.com/), [Expressions](https://www.apptorium.com/expressions). *Edit:* Reluctantly I’ve started to use [VS Code](https://code.visualstudio.com) as my primary text editor because [GitHub Copilot](https://github.com/features/copilot) is really, really useful. I still don’t like the aesthetics compared to Nova, but I’m making it work.
 
 **Browsers:** [Orion](https://kagi.com/orion/), [Safari](https://www.apple.com/safari/), [Google Chrome](https://www.google.com/chrome/index.html), [Firefox](https://www.mozilla.org/en-US/firefox/new/), [Microsoft Edge](https://microsoft.com/edge), [Arc](https://arc.net/), [Safari Technology Preview](https://developer.apple.com/safari/technology-preview/), [Google Chrome Canary](https://www.google.com/chrome/canary/), [Firefox Developer Edition](https://www.mozilla.org/en-US/firefox/developer/), [Firefox Nightly](https://www.mozilla.org/en-US/firefox/channel/desktop/#nightly), [Chromium](https://www.chromium.org/getting-involved/download-chromium/)
 
