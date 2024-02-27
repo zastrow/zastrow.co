@@ -7,7 +7,7 @@
 		{% for book in read limit:1 %}
 		<div class="obj-home-book__info">
 			<h3 class="cmp-home-section__post-title cmp-home-section__post-title--book">
-				<a href="/books/{{ book.date | date: '%Y-%m-%d' }}-{{ book.title | slugify }}" class="cmp-home-section__post-link">{{ book.title }}</a>
+				<a href="/books/{{ book.date | date: '%Y-%m-%d', time_zone }}-{{ book.title | slugify }}" class="cmp-home-section__post-link">{{ book.title }}</a>
 			</h3>
 			<p class="cmp-home-section__post-meta">By {{ book.author }}</p>
 		</div>
