@@ -2,15 +2,15 @@
 title: Uses
 permalink: /uses/index.html
 date: 2024-01-22T03:34:42.174Z
-updated: 2024-01-22T18:15:26.298Z
+updated: 2024-02-28T19:49:11.090Z
 display_update: true
 layout: page
 ---
 ## Hardware
 
-My primary computer is a 16-inch M1 MacBook Pro. I work at a Fully Jarvis adjustable height desk with a Steelcase Leap for when I am sitting. I use a [Twelve South BookArc](https://www.twelvesouth.com/products/bookarc-for-macbook) to hold my Mac in clamshell mode and connected to two displays: a [27-inch LG Ultrafine 5K ](https://www.lg.com/us/monitors/lg-27MD5KA-B-5k-uhd-led-monitor)in landscape and a 24" Dell 4K in portrait. I use both an [Apple Trackpad](https://www.apple.com/shop/product/MMMP3AM/A/magic-trackpad-black-multi-touch-surface?fnode=3e15868f383af569056d85cc5368ede626c647436e7a1307dda6c39b08eafd38de466773d9299bf4c8e5d0f82bb1b964dd748dc28362079e3138a52627ae799c110beff950da4401e4530de03ba03f785d25964a1cfbe73bc79796c3f37caf39) and an [Apple Mouse](https://www.apple.com/shop/product/MMMQ3AM/A/magic-mouse-black-multi-touch-surface) positioned on the left and right sides of my keyboard, respectively. My keyboard is a [Keychron Q2 with a knob](https://www.keychron.com/products/keychron-q2-qmk-custom-mechanical-keyboard?variant=39986978652249) and I use Gatreon Brown switches. Additionally, I have an [Elgato Stream Deck](https://www.elgato.com/us/en/p/stream-deck-mk2-white), powered by [BetterTouchTool](https://docs.folivora.ai/docs/1300_stream_deck.html), an [Elgato Keylight Air](https://www.elgato.com/us/en/p/key-light-air), and an [AudioTechnica ATR2100x-USB](https://www.audio-technica.com/en-us/atr2100x-usb) microphone attached to an [Elgato Mic Arm LP](https://www.elgato.com/us/en/p/wave-mic-arm-lp).
+My primary computer is a 16-inch M3 Max MacBook Pro. I work at a Fully Jarvis adjustable height desk with a Steelcase Leap for when I am sitting. I use a [Twelve South BookArc](https://www.twelvesouth.com/products/bookarc-for-macbook) to hold my Mac in clamshell mode and connected to an [Apple Studio Display](https://www.apple.com/studio-display/). I use both an [Apple Trackpad](https://www.apple.com/shop/product/MMMP3AM/A/magic-trackpad-black-multi-touch-surface?fnode=3e15868f383af569056d85cc5368ede626c647436e7a1307dda6c39b08eafd38de466773d9299bf4c8e5d0f82bb1b964dd748dc28362079e3138a52627ae799c110beff950da4401e4530de03ba03f785d25964a1cfbe73bc79796c3f37caf39) and an [Apple Mouse](https://www.apple.com/shop/product/MMMQ3AM/A/magic-mouse-black-multi-touch-surface) positioned on the left and right sides of my keyboard, respectively. My keyboard is a [Keychron Q2 with a knob](https://www.keychron.com/products/keychron-q2-qmk-custom-mechanical-keyboard?variant=39986978652249) and I use Gatreon Brown switches. Additionally, I have an [Elgato Stream Deck](https://www.elgato.com/us/en/p/stream-deck-mk2-white), powered by [BetterTouchTool](https://docs.folivora.ai/docs/1300_stream_deck.html), an [Elgato Keylight Air](https://www.elgato.com/us/en/p/key-light-air), and an [AudioTechnica ATR2100x-USB](https://www.audio-technica.com/en-us/atr2100x-usb) microphone attached to an [Elgato Mic Arm LP](https://www.elgato.com/us/en/p/wave-mic-arm-lp).
 
-My phone is an iPhone 13 Mini, which acts as my webcam using [Continuity Camera](https://support.apple.com/en-us/102546).
+My phone is an iPhone 13 Mini, which acts as my webcam using [Continuity Camera](https://support.apple.com/en-us/102546). It is connected to a [gooseneck stand](https://www.bhphotovideo.com/c/search?q=gooseneck) via a [MagSafe adapter mount](https://www.amazon.com/dp/B0BYDDTRQ4).
 
 ## Software
 
