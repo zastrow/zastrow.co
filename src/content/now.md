@@ -7,13 +7,9 @@ date: 2024-01-21T17:43:39.407Z
 ---
 ## Currently Reading:
 
+* [Sea of Tranquility](https://bookshop.org/p/books/sea-of-tranquility-emily-st-john-mandel/17768221?ean=9780593466735) by Emily St. John Mandel
 * [Thinking in Systems](https://bookshop.org/a/84246/9781603580557) by Donella Meadows
-* [Expressive Design Systems](https://bookshop.org/a/84246/9781952616082) by Yesenia Perez-Cruz
-* [The Poppy War](https://bookshop.org/a/84246/9780062662583) by R. F. Kuang
-
-## Podcasts I’m Listening To:
-
-* [Under the Radar](https://www.relay.fm/radar), [#286: First Hire](https://www.relay.fm/radar/286)
+* [Expressive Design Systems](https://bookshop.org/a/84246/9781952616082) by Yesenia Perez-Cruz[](https://bookshop.org/a/84246/9780062662583)
 
 ## What else am I doing?
 
