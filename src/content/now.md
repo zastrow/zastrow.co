@@ -7,13 +7,13 @@ date: 2024-01-21T17:43:39.407Z
 ---
 ## Currently Reading:
 
-* [Sea of Tranquility](https://bookshop.org/p/books/sea-of-tranquility-emily-st-john-mandel/17768221?ean=9780593466735) by Emily St. John Mandel
+* [Extremely Hardcore: Inside Elon Musk's Twitter](https://bookshop.org/p/books/untitled_6601-anonymous/20812076?ean=9780593716601) by Zoë Schiffer
+* [How Infrastructure Works: Inside the Systems That Shape Our World](https://bookshop.org/p/books/how-infrastructure-works-inside-the-systems-that-shape-our-world-deb-chachra/20146889?ean=9780593086599) by Deb Chachra
 * [Thinking in Systems](https://bookshop.org/a/84246/9781603580557) by Donella Meadows
-* [Expressive Design Systems](https://bookshop.org/a/84246/9781952616082) by Yesenia Perez-Cruz[](https://bookshop.org/a/84246/9780062662583)
 
 ## What else am I doing?
 
-I have a new job! I’ve joined my friends at [Box Out](https://boxoutsports.com), to help out with frontend design and development. I’m very excited by this development and I look forward to sharing the cool new stuff we’re working on.
+I’ve been buying new bags and gear for a trip next week to [Front-End Design Conference](http://frontenddesignconference.com) in St. Petersburg, Florida. There are a lot of people going that I haven’t seen in years, like old friends and coworkers. I am so excited!
 
 ## What is a now page?
 
