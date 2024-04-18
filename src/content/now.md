@@ -2,7 +2,7 @@
 layout: page
 title: Now
 display_update: true
-updated: 2024-02-28T19:32:26.137Z
+updated: 2024-04-18T08:24:00.000Z
 date: 2024-01-21T17:43:39.407Z
 ---
 ## Currently Reading:
