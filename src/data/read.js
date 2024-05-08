@@ -28,7 +28,7 @@ module.exports = async function() {
 
 	try {
 		await base(process.env.AIRTABLE_BOOKS_TABLE_ID).select({
-			view: "Grid view"
+			view: "Read"
 		}).eachPage(function page(records, fetchNextPage) {
 			try {
 				records?.forEach((record) => {
