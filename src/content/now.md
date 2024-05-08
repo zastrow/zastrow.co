@@ -2,18 +2,20 @@
 layout: page
 title: Now
 display_update: true
-updated: 2024-04-18T08:24:00.000Z
+updated: 2024-05-08T08:52:00.000Z
 date: 2024-01-21T17:43:39.407Z
 ---
 ## Currently Reading:
 
-* [Extremely Hardcore: Inside Elon Musk's Twitter](https://bookshop.org/p/books/untitled_6601-anonymous/20812076?ean=9780593716601) by Zoë Schiffer
+* [The Empress of Salt and Fortune](https://bookshop.org/p/books/the-empress-of-salt-and-fortune-nghi-vo/16390013?ean=9781250750303) by Nghi Vo
 * [How Infrastructure Works: Inside the Systems That Shape Our World](https://bookshop.org/p/books/how-infrastructure-works-inside-the-systems-that-shape-our-world-deb-chachra/20146889?ean=9780593086599) by Deb Chachra
 * [Thinking in Systems](https://bookshop.org/a/84246/9781603580557) by Donella Meadows
 
 ## What else am I doing?
 
-I’ve been buying new bags and gear for a trip next week to [Front-End Design Conference](http://frontenddesignconference.com) in St. Petersburg, Florida. There are a lot of people going that I haven’t seen in years, like old friends and coworkers. I am so excited!
+Sanding and painting my outdoor furniture. Unfortunately, one of the seats had some intense wood rot in one board. Thankfully, the primary frame is in tact, but I’ll need to rebuild the seat.
+
+Also, I turn 40 next week, and I want to write a blog post before then.
 
 ## What is a now page?
 
