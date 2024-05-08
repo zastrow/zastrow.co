@@ -12,8 +12,14 @@ const createBookFromRecord = (record) => ({
 	review: record.get('Review')
 });
 
+
 module.exports = async function() {
-	const base = new Airtable({apiKey: process.env.AIRTABLE_API_KEY}).base(process.env.AIRTABLE_BOOKS_BASE_ID);
+	const bookApiKey = process.env.AIRTABLE_API_KEY
+	const bookBaseId = process.env.AIRTABLE_BOOKS_BASE_ID
+	const bookTableId = process.env.AIRTABLE_BOOKS_TABLE_ID
+	const bookView = process.env.AIRTABLE_BOOKS_VIEW
+
+	const base = new Airtable({apiKey: bookApiKey}).base(bookBaseId);
 
  // set up an object we'll populate with data.
 	const books = [];
@@ -27,8 +33,8 @@ module.exports = async function() {
 	}
 
 	try {
-		await base(process.env.AIRTABLE_BOOKS_TABLE_ID).select({
-			view: "Read"
+		await base(bookTableId).select({
+			view: encodeURI(bookView)
 		}).eachPage(function page(records, fetchNextPage) {
 			try {
 				records?.forEach((record) => {
