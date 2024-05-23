@@ -2,7 +2,7 @@
 layout: page
 title: Now
 display_update: true
-updated: 2024-05-08T08:52:00.000Z
+updated: 2024-05-23T14:35:00.000Z
 date: 2024-01-21T17:43:39.407Z
 ---
 ## Currently Reading:
@@ -13,9 +13,7 @@ date: 2024-01-21T17:43:39.407Z
 
 ## What else am I doing?
 
-Sanding and painting my outdoor furniture. Unfortunately, one of the seats had some intense wood rot in one board. Thankfully, the primary frame is in tact, but I’ll need to rebuild the seat.
-
-Also, I turn 40 next week, and I want to write a blog post before then.
+Clearly I’m get old, because for my birthday I bought a lawn mower. It’s my second ever brand new lawn mower. My very first lawn mower was a manual push reel mower, that was perfect for our first house, which had a small yard. A couple moves and several hand-me-down lawn mowers later, I got tired of all the work and smell that came with the gas-powered mowers. So, for my birthday I got a battery-powered self-propelled lawn mower and I really, really like it.
 
 ## What is a now page?
 
