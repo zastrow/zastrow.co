@@ -2,17 +2,15 @@
 layout: page
 title: Now
 display_update: true
-updated: 2024-07-15T16:11:00.000Z
+updated: 2024-07-30T16:36:00.000Z
 date: 2024-01-21T17:43:39.407Z
 ---
 ## Currently Reading:
 
-I’m on a nonfiction binge at the moment.
-
-* [How Infrastructure Works: Inside the Systems That Shape Our World](https://bookshop.org/p/books/how-infrastructure-works-inside-the-systems-that-shape-our-world-deb-chachra/20146889?ean=9780593086599) by Deb Chachra
-* [Bad With Money](https://bookshop.org/book/9781501176333) by Gaby Dunn
+* [Against Technoablism](https://bookshop.org/p/books/against-technoableism-rethinking-who-needs-improvement-ashley-shew/19670010?ean=9781324036661) by Ashley Shew
+* [The Buddha in the Attic](https://bookshop.org/p/books/the-buddha-in-the-attic-julie-otsuka/9789053?ean=9780307744425) by Julie Otsuka
+* [Under a White Sky: The Nature of the Future](https://bookshop.org/p/books/under-a-white-sky-the-nature-of-the-future-elizabeth-kolbert/15518975?ean=9780593136287) by Elizabeth Kolbert
 * [Birdology](https://bookshop.org/book/9781416569855) by Sy Montgomery
-* [God, Human, Animal, Machine](https://bookshop.org/book/9780525562719) by Meghan O’Gieblyn
 * [Legendborn](https://bookshop.org/p/books/legendborn-tracy-deonn/14391994?ean=9781534441606) by Tracy Deonn
 
 ## What else am I doing?
