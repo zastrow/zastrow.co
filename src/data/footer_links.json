@@ -1,0 +1,73 @@
+[
+  {
+    "name": "coffee",
+    "url": "https://www.buymeacoffee.com/zastrow",
+    "text": "Buy me a coffee",
+    "bgcolor": "var(--daisy-00)",
+    "color": "var(--mango-d3)",
+    "alt": "--altbg:var(--mango-d1);--altcolor:var(--daisy-l4);"
+  },
+  {
+    "name": "bluesky",
+    "url": "https://bsky.app/profile/zastrow.co",
+    "text": "Bluesky",
+    "bgcolor": "color-mix(in oklch, var(--daisy-00), var(--mango-00))",
+    "color": "color-mix(in oklch, var(--daisy-l4), var(--mango-l4))"
+  },
+  {
+    "name": "mastodon",
+    "url": "https://mastodon.social/@zastrow",
+    "text": "Mastodon",
+    "bgcolor": "var(--mango-00)",
+    "color": "var(--mango-l4)"
+  },
+  {
+    "name": "threads",
+    "url": "https://www.threads.net/@zastrow",
+    "text": "Threads",
+    "bgcolor": "color-mix(in oklch, var(--peach-00), var(--mango-00))",
+    "color": "color-mix(in oklch, var(--peach-l4), var(--mango-l4))"
+  },
+  {
+    "name": "github",
+    "url": "https://github.com/zastrow",
+    "text": "GitHub",
+    "bgcolor": "var(--peach-00)",
+    "color": "var(--peach-l4)"
+  },
+  {
+    "name": "dribbble",
+    "url": "https://dribbble.com/zastrow",
+    "text": "Dribbble",
+    "bgcolor": "var(--phlox-00)",
+    "color": "var(--phlox-l4)"
+  },
+  {
+    "name": "codepen",
+    "url": "https://codepen.io/zastrow",
+    "text": "CodePen",
+    "bgcolor": "var(--lilac-00)",
+    "color": "var(--lilac-l4)"
+  },
+  {
+    "name": "twitter",
+    "url": "https://twitter.com/zastrow",
+    "text": "Twitter",
+    "bgcolor": "color-mix(in oklch, var(--lilac-00), var(--denim-00))",
+    "color": "color-mix(in oklch, var(--lilac-l4), var(--denim-l4))"
+  },
+  {
+    "name": "linkedin",
+    "url": "https://www.linkedin.com/in/philip-zastrow/",
+    "text": "LinkedIn",
+    "bgcolor": "var(--denim-00)",
+    "color": "var(--denim-l4)"
+  },
+  {
+    "name": "ohio",
+    "url": "https://cottonbureau.com/products/ohio-4",
+    "text": "Made in Ohio",
+    "bgcolor": "var(--azure-00)",
+    "color": "var(--azure-l4)"
+  }
+]
