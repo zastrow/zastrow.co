@@ -2,18 +2,20 @@
 layout: page
 title: Now
 display_update: true
-updated: 2024-08-17T19:13:00.000Z
+updated: 2024-11-25T16:01:00.000Z
 date: 2024-01-21T17:43:39.407Z
 ---
-## Currently Reading:
+## Getting Ready For Thanksgiving Day
 
-* [My Life in Full](https://www.penguinrandomhouse.com/books/646640/my-life-in-full-by-indra-nooyi/) by Indra Nooyi
-* [Birdology](https://bookshop.org/book/9781416569855) by Sy Montgomery
-* [Legendborn](https://bookshop.org/p/books/legendborn-tracy-deonn/14391994?ean=9781534441606) by Tracy Deonn
+It’s national holiday of Thanksgiving in the United State this week. Despite all the pushes of consumerism, it can be a rather lovely holiday. We usually keep the day low key with just my spouse and our kids, however this year we’ve invited a friend over to join us.
 
-## What else am I doing?
+## Still pumped by RubyConf
 
-I got into cycling recently after having some knee issues running and I love it. I’ve also been listening to the [My First Million](https://www.mfmpod.com) podcast on recommendation from a friend, and the episode [Become A Better Writer In 60 Minutes](https://www.mfmpod.com/become-a-better-writer-in-60-minutes-masterclass/) gave me a lot of challenging ideas to improve my writing, I recommend it.
+I attended my first RubyConf a couple weeks ago. I’m still pumped and motivated by everyone I met. It’s lead to more conversations and I’m excited by the community and the ideas I have of things to build.
+
+## Video Games
+
+I just wrapped up The Legend of Zelda: Echos of Wisdom. I love that Nintendo made a new top down Zelda adventure and the mechanics and story were as joyful as ever. Playing as Zelda is a wonderful turn of events. I also really like that they retained the same aesthetic at the Link’s Awakening rerelease. I would love to see A Link to the Past or Minish Cap get this sort of treatment.
 
 ## What is a now page?
 
