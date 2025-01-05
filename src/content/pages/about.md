@@ -14,7 +14,7 @@ I have taught and trained designers and developers through the [Sparkbox apprent
 
 My writing on various web topics can be found on the [Sparkbox Foundry](http://seesparkbox.com/foundry/author/philip_zastrow) or here [on this site](/posts). I also wrote a [tutorial series about CSS](https://www.digitalocean.com/community/tutorial_series/how-to-style-html-with-css).
 
-I’m always looking for a [good book](/books) to read. Lately, you can find me hanging out around the&nbsp;<a rel="me" href="https://mastodon.social/@zastrow">Fediverse</a>.
+I’m always looking for a [good book](/books) to read. Lately, you can find me hanging out around the&nbsp;<a rel="me" href="https://bsky.app/profile/zastrow.co">Bluesky</a>.
 
 ## Site
 
