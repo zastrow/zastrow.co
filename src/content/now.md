@@ -5,14 +5,12 @@ display_update: true
 updated: 2025-01-05T10:52:00.000Z
 date: 2024-01-21T17:43:39.407Z
 ---
-## Video Games
+Currently drinking a [Poet’s Dream](https://www.ginprof.com/post/the-poets-dream) my wife came across this from an author she follows on Instagram.
 
-I wrapped up [Chants of Sennaar](https://www.rundisc.io/chants-of-sennaar/) last week and throughly enjoyed that game. Now, I’m on to [Cult of the Lamb](https://www.cultofthelamb.com/)
+- 2 oz London Dry gin
+- ¾ oz dry vermouth
+- ¼ oz Bénédictine
+- 2 dashes orange bitters
 
-I recently got a Steam Deck and I love this device so much. As much as I want to be a computer gamer and buy computer video games, I prefer the convenience of playing on consoles and handhelds. I’m finally making progress on Baldur’s Gate 3 after switching from playing on my computer to the Steam Deck.
-
-## Back to Work
-
-After the holiday break, I’m prepping to start back at work this week. I’m excited to get back to it, and the break has been great.
-
+Quite good. It’s my first time trying Bénédictine, which seems like a milder version of Campari when mixed with Gin, not too bitter but just as earthy.
 
