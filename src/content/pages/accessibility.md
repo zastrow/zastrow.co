@@ -9,5 +9,5 @@ Accessibility has as much art as it does science. While there are firm criteria,
 
 I run tests with [axeDevTools](https://www.deque.com/axe/devtools/), manual screen reader tests, manual keyboard testing, and as many browser tests as I have available to me.
 
-While I do have a certification as a Web Accessibility Specialist, I found accessibility happens best through community. If you encounter any issues, please message me on [Mastodon](https://mastodon.social/@zastrow) or add an issue to [the code repository](https://github.com/zastrow/zastrow.co/issues).
+I find accessibility happens best through community. If you encounter any issues, please add an issue to [the site repo](https://github.com/zastrow/zastrow.co/issues).
 

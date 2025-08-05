@@ -88,7 +88,7 @@ module.exports = (eleventyConfig) => {
 		const year = new Date().getFullYear();
 		return year - 6;
 	});
-	eleventyConfig.addGlobalData('meta_description', 'Philip Zastrow. Designer, Engineer, and Web Accessibility Specialist. Website, Blog, and Dreams.');
+	eleventyConfig.addGlobalData('meta_description', 'Philip Zastrow is a product-minded developer and designer building polished, practical tools for real-world problems. Sharing my insights, discoveries, and dreams.');
 	eleventyConfig.addPlugin(pluginRss);
 	eleventyConfig.addPassthroughCopy({"./src/public/" : "/"});
 	eleventyConfig.addWatchTarget("./src/public/");
