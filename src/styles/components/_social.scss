@@ -87,7 +87,9 @@
     @media (--md-min) {
       display: flex;
       align-items: center;
+      justify-content: center;
       aspect-ratio: 1 / 1;
+      container-type: size;
     }
 
     &:hover,
@@ -100,6 +102,9 @@
   &__link-icon {
     width: 100%;
     aspect-ratio: 1 / 1;
+    @media (--md-min) {
+      width: 70cqb;
+    }
   }
 
   &__link-text {
