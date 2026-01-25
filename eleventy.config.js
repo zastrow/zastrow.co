@@ -1,20 +1,20 @@
-require('dotenv').config();
-const fs = require('fs');
-const pluginRss = require("@11ty/eleventy-plugin-rss");
-const fg = require('fast-glob').sync;
-const MarkdownIt = require("markdown-it");
-const EleventyPluginOgImage = require('eleventy-plugin-og-image');
-const {decode} = require('html-entities');
-const yaml = require("js-yaml");
+import 'dotenv/config';
+import fs from 'fs';
+import pluginRss from "@11ty/eleventy-plugin-rss";
+import fg from 'fast-glob';
+import MarkdownIt from "markdown-it";
+import EleventyPluginOgImage from 'eleventy-plugin-og-image';
+import { decode } from 'html-entities';
+import yaml from "js-yaml";
 
-module.exports = (eleventyConfig) => {
+export default (eleventyConfig) => {
 	// COLLECTIONS
 	// =====================================================================
 
 	// Create Posts Collection
 	// ---------------------------------------------------------------
 	eleventyConfig.addCollection('posts', (api) => {
-		const files = fg(["src/content/posts/**/*.md"], {
+		const files = fg.sync(["src/content/posts/**/*.md"], {
 			ignore: ["src/content/posts/index.md"]
 		});
 		return api.getFilteredByGlob(files).sort((a,b) => b.date - a.date);
@@ -23,10 +23,17 @@ module.exports = (eleventyConfig) => {
 	// Create Projects Collection
 	// ---------------------------------------------------------------
 	eleventyConfig.addCollection('projects', (api) => {
-		const files = fg(["src/content/projects/**/*.md"], {
+		const files = fg.sync(["src/content/projects/**/*.md"], {
 			ignore: ["src/content/projects/index.md"]
 		});
 		return api.getFilteredByGlob(files);
+	});
+
+	// Create Books Collection
+	// ---------------------------------------------------------------
+	eleventyConfig.addCollection('books', (api) => {
+		return api.getFilteredByGlob("src/content/books/*.md")
+			.sort((a, b) => b.data.date - a.data.date);
 	});
 
 // =====================================================================
@@ -59,7 +66,7 @@ module.exports = (eleventyConfig) => {
 
 	eleventyConfig.addShortcode('bookshop_link', async (isbn, slug, title) => {
 		// Ideally we want to send readers directly to the page, however
-		// the ISBN from ItalicType isn’t always book available on Bookshop.
+		// the ISBN from ItalicType isn't always book available on Bookshop.
 		// There may be an API to search for a book and get an active ISBN.
 		// Affiliate link structure:
 		// const url = `https://bookshop.org/a/84246/${ isbn }`;

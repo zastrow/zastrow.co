@@ -1,7 +1,7 @@
 ---
 layout-name: book_list
 pagination:
-  data: read
+  data: collections.books
   size: 10
   alias: books
 permalink: "books/{% if pagination.pageNumber > 0 %}{{ pagination.pageNumber | plus: 1 }}/{% endif %}index.html"
@@ -18,16 +18,16 @@ permalink: "books/{% if pagination.pageNumber > 0 %}{{ pagination.pageNumber | p
 	{%- for book in books -%}
 		<div class="cmp-list">
 			<h2 class="cmp-list__title">
-				<a href="/books/{{ book.date | date: '%Y-%m-%d' }}-{{ book.title | slugify }}" class="cmp-list__link">
-					{{ book.title }}
+				<a href="{{ book.url }}" class="cmp-list__link">
+					{{ book.data.title }}
 				</a>
 			</h2>
 			<ul class="cmp-list__meta">
 				<li class="cmp-list__meta-item cmp-list__meta-item--author">
-					By {{ book.author }}
+					By {{ book.data.author }}
 				</li>
 				<li class="cmp-list__meta-item cmp-list__meta-item--date">
-					Finished on <time datetime="{{ book.date | date: "%Y-%m-%d" }}">{{ book.date | date: "%d %B %Y" }}</time>
+					Finished on <time datetime="{{ book.data.date | date: "%Y-%m-%d" }}">{{ book.data.date | date: "%d %B %Y" }}</time>
 				</li>
 			</ul>
 		</div>

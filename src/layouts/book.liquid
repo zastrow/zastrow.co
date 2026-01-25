@@ -7,41 +7,41 @@ layout-name: book
 	<article class="cmp-book-page">
 		<header class="cmp-book-page__header">
 			<h2 class="cmp-book-page__title">
-				{{ book.title }}
+				{{ title }}
 			</h2>
 			<p class="cmp-book-page__author">
-				By {{ book.author }}
+				By {{ author }}
 			</p>
 		</header>
 		<div class="obj-book-page">
 			<div class="obj-book-page__image">
-				{%- capture image %}
-				{%- if book.image -%}
-					{{- book.image -}}
+				{%- capture book_image %}
+				{%- if image -%}
+					{{- image -}}
 				{%- else -%}
-					https://images-us.bookshop.org/ingram/{{ book.isbn }}.jpg
+					https://images-us.bookshop.org/ingram/{{ isbn }}.jpg
 				{%- endif -%}
 				{%- endcapture -%}
-				<img src="{{ image }}" alt="" class="cmp-book-page__image">
+				<img src="{{ book_image }}" alt="" class="cmp-book-page__image">
 			</div>
 			<div class="obj-book-page__content">
 				<p class="cmp-book-page__finish-date">
-					Finished on <time datetime="{{ book.date | date: "%Y-%m-%d", time_zone }}">{{ book.date | date: "%d %B %Y", time_zone }}</time>
+					Finished on <time datetime="{{ date | date: "%Y-%m-%d", time_zone }}">{{ date | date: "%d %B %Y", time_zone }}</time>
 				</p>
 				<div class="cmp-book-page__review">
-					{% if book.review %}
+					{% if content != blank %}
 					<h3 class="cmp-book-page__review-heading">Review</h3>
 					{% endif %}
 					<p class="cmp-book-page__rating">
 						<span>My Rating</span> {% include "book-rating" %}
 					</p>
-					{% if book.review %}
-						{% markdown %}{{ book.review }}{% endmarkdown %}
+					{% if content != blank %}
+						{{ content }}
 					{% endif %}
 				</div>
-				{%- capture book_slug -%}{{ book.title | slugify }}{%- endcapture -%}
+				{%- capture book_slug -%}{{ title | slugify }}{%- endcapture -%}
 				{%- capture book_search -%}{{ book_slug | replace: '-', '+' }}{%- endcapture -%}
-				{% bookshop_link book.isbn, book_search, book.title %}
+				{% bookshop_link isbn, book_search, title %}
 			</div>
 	</article>
 {% endblock %}
