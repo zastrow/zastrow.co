@@ -25,6 +25,28 @@ collections:
       - {label: "Body", name: "body", widget: "markdown"}
       - {label: "Permalink", name: "permalink", widget: "string", required: false}
       - {label: "Aliases", name: "aliases", widget: "list", required: false}
+  - name: "books"
+    label: "Books"
+    folder: "src/content/books"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    sortable_fields: ["date", "title", "rating"]
+    fields:
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Author", name: "author", widget: "string"}
+      - {label: "ISBN", name: "isbn", widget: "string"}
+      - {label: "Date Finished", name: "date", widget: "datetime", date_format: "YYYY-MM-DD", time_format: false}
+      - label: "Rating"
+        name: "rating"
+        widget: "select"
+        options:
+          - {label: "1 Star", value: 1}
+          - {label: "2 Stars", value: 2}
+          - {label: "3 Stars", value: 3}
+          - {label: "4 Stars", value: 4}
+          - {label: "5 Stars", value: 5}
+      - {label: "Review", name: "body", widget: "markdown", required: false}
+      - {label: "Layout", name: "layout", widget: "hidden", default: "book"}
   - name: pages
     label: "Pages"
     folder: "src/content/pages"

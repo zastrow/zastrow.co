@@ -1,7 +1,7 @@
-const { AssetCache } = require('@11ty/eleventy-fetch');
-const {extractFromXml} = require('@extractus/feed-extractor');
+import { AssetCache } from '@11ty/eleventy-fetch';
+import { extractFromXml } from '@extractus/feed-extractor';
 
-module.exports = async function() {
+export default async function() {
 	// Get and transform the feed.
 	let url = "https://www.instapaper.com/starred/rss/3029481/RyHhH3adWE7QM3ITrUa1l9BqQA";
 	const res = await fetch(url)
@@ -23,4 +23,3 @@ module.exports = async function() {
 	// Return the data
 	return feed;
 };
-

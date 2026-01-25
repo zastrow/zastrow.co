@@ -1,9 +1,12 @@
-const postcssJitProps = require('postcss-jit-props');
-const postcssCustomMedia = require('postcss-custom-media');
-const autoprefixer = require('autoprefixer');
-const path = require('path');
+import postcssJitProps from 'postcss-jit-props';
+import postcssCustomMedia from 'postcss-custom-media';
+import autoprefixer from 'autoprefixer';
+import path from 'path';
+import { fileURLToPath } from 'url';
 
-module.exports = {
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+
+export default {
 	plugins: [
 		postcssJitProps({
 			files: [
