@@ -10,3 +10,8 @@
   from = "/xmlrpc"
   to = "/.netlify/functions/xmlrpc"
   status = 200
+
+[[redirects]]
+  from = "/xmlrpc.php"
+  to = "/.netlify/functions/xmlrpc"
+  status = 200

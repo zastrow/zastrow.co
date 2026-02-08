@@ -254,14 +254,14 @@ async function newPost(blogId, struct, publish) {
   const slug = struct.wp_slug || slugify(struct.title || `post-${Date.now()}`);
   const postId = `${yyyy}-${mm}-${dd}-${slug}`;
   const fileContent = buildMarkdownFile(struct, publish);
-  await ghPut(`${POSTS_DIR}/${postId}.md`, `New post: ${struct.title || postId} (via MarsEdit)`, Buffer.from(fileContent).toString("base64"));
+  await ghPut(`${POSTS_DIR}/${postId}.md`, `New post: ${struct.title || postId} (via XML-RPC)`, Buffer.from(fileContent).toString("base64"));
   return postId;
 }
 
 async function editPost(postId, struct, publish) {
   const existing = await ghGet(`${POSTS_DIR}/${postId}.md`);
   const fileContent = buildMarkdownFile(struct, publish);
-  await ghPut(`${POSTS_DIR}/${postId}.md`, `Update post: ${struct.title || postId} (via MarsEdit)`, Buffer.from(fileContent).toString("base64"), existing.sha);
+  await ghPut(`${POSTS_DIR}/${postId}.md`, `Update post: ${struct.title || postId} (via XML-RPC)`, Buffer.from(fileContent).toString("base64"), existing.sha);
   return true;
 }
 
@@ -278,7 +278,7 @@ async function newMediaObject(blogId, struct) {
   const mm = String(now.getMonth() + 1).padStart(2, "0");
   const safeName = (struct.name || `upload-${Date.now()}`).replace(/[^\w.-]/g, "-");
   const content = Buffer.isBuffer(struct.bits) ? struct.bits.toString("base64") : Buffer.from(struct.bits).toString("base64");
-  await ghPut(`${UPLOADS_DIR}/${yyyy}/${mm}/${safeName}`, `Upload media: ${safeName} (via MarsEdit)`, content);
+  await ghPut(`${UPLOADS_DIR}/${yyyy}/${mm}/${safeName}`, `Upload media: ${safeName} (via XML-RPC)`, content);
   return { url: `${SITE_URL}/uploads/${yyyy}/${mm}/${safeName}` };
 }
 
@@ -325,6 +325,36 @@ async function dispatch(method, params) {
       const [bid, u, p, s] = params;
       if (!authenticate(u, p)) throw { faultCode: 403, faultString: "Authentication failed" };
       return newMediaObject(bid, s);
+    }
+    case "wp.getUsersBlogs": {
+      const [u, p] = params;
+      if (!authenticate(u, p)) throw { faultCode: 403, faultString: "Authentication failed" };
+      return [{ isAdmin: true, isPrimary: true, url: SITE_URL, blogid: "1", blogName: "Philip Zastrow", xmlrpc: `${SITE_URL}/xmlrpc` }];
+    }
+    case "wp.getOptions": {
+      const [, u, p] = params;
+      if (!authenticate(u, p)) throw { faultCode: 403, faultString: "Authentication failed" };
+      return {
+        software_name: { desc: "Software Name", readonly: true, value: "Eleventy" },
+        software_version: { desc: "Software Version", readonly: true, value: "3.0" },
+        blog_url: { desc: "Blog URL", readonly: true, value: SITE_URL },
+        blog_title: { desc: "Blog Title", readonly: true, value: "Philip Zastrow" },
+      };
+    }
+    case "system.listMethods": {
+      return [
+        "system.listMethods",
+        "blogger.getUsersBlogs",
+        "blogger.deletePost",
+        "metaWeblog.newPost",
+        "metaWeblog.editPost",
+        "metaWeblog.getPost",
+        "metaWeblog.getRecentPosts",
+        "metaWeblog.getCategories",
+        "metaWeblog.newMediaObject",
+        "wp.getUsersBlogs",
+        "wp.getOptions",
+      ];
     }
     default:
       throw { faultCode: -32601, faultString: `Method not found: ${method}` };
