@@ -5,12 +5,12 @@
 import { createHmac, createHash } from "node:crypto";
 
 const SITE_URL = process.env.SITE_URL || "https://zastrow.co";
-const MICROPUB_SECRET = process.env.MICROPUB_SECRET;
+const XMLRPC_PASSWORD = process.env.XMLRPC_PASSWORD;
 
 function sign(payload) {
   const json = JSON.stringify(payload);
   const data = Buffer.from(json).toString("base64url");
-  const sig = createHmac("sha256", MICROPUB_SECRET).update(data).digest("base64url");
+  const sig = createHmac("sha256", XMLRPC_PASSWORD).update(data).digest("base64url");
   return `${data}.${sig}`;
 }
 
@@ -18,7 +18,7 @@ function verify(token) {
   const parts = token.split(".");
   if (parts.length !== 2) return null;
   const [data, sig] = parts;
-  const expected = createHmac("sha256", MICROPUB_SECRET).update(data).digest("base64url");
+  const expected = createHmac("sha256", XMLRPC_PASSWORD).update(data).digest("base64url");
   if (sig !== expected) return null;
   try {
     const payload = JSON.parse(Buffer.from(data, "base64url").toString("utf8"));
@@ -38,8 +38,8 @@ function jsonResponse(statusCode, body) {
 }
 
 export const handler = async (event) => {
-  if (!MICROPUB_SECRET) {
-    return jsonResponse(500, { error: "server_error", error_description: "MICROPUB_SECRET not configured" });
+  if (!XMLRPC_PASSWORD) {
+    return jsonResponse(500, { error: "server_error", error_description: "Server not configured" });
   }
 
   // CORS preflight

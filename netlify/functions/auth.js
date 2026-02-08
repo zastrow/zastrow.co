@@ -5,12 +5,13 @@
 import { createHmac } from "node:crypto";
 
 const SITE_URL = process.env.SITE_URL || "https://zastrow.co";
-const MICROPUB_SECRET = process.env.MICROPUB_SECRET;
+const XMLRPC_PASSWORD = process.env.XMLRPC_PASSWORD;
+
 
 function sign(payload) {
   const json = JSON.stringify(payload);
   const data = Buffer.from(json).toString("base64url");
-  const sig = createHmac("sha256", MICROPUB_SECRET).update(data).digest("base64url");
+  const sig = createHmac("sha256", XMLRPC_PASSWORD).update(data).digest("base64url");
   return `${data}.${sig}`;
 }
 
@@ -59,8 +60,8 @@ function loginPage(params, error) {
 }
 
 export const handler = async (event) => {
-  if (!MICROPUB_SECRET) {
-    return { statusCode: 500, body: "MICROPUB_SECRET not configured" };
+  if (!XMLRPC_PASSWORD) {
+    return { statusCode: 500, body: "Server not configured" };
   }
 
   // GET — show login form
@@ -90,7 +91,7 @@ export const handler = async (event) => {
     const code_challenge = body.get("code_challenge");
     const code_challenge_method = body.get("code_challenge_method");
 
-    if (password !== MICROPUB_SECRET) {
+    if (password !== XMLRPC_PASSWORD) {
       return {
         statusCode: 200,
         headers: { "Content-Type": "text/html; charset=utf-8" },
