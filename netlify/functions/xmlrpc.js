@@ -1,11 +1,5 @@
-import { Readable } from "node:stream";
-import { createRequire } from "node:module";
 import { Octokit } from "@octokit/rest";
 import yaml from "js-yaml";
-
-const require = createRequire(import.meta.url);
-const Deserializer = require("xmlrpc/lib/deserializer");
-const serializer = require("xmlrpc/lib/serializer");
 
 const SITE_URL = process.env.SITE_URL || "https://zastrow.co";
 const GITHUB_TOKEN = process.env.GITHUB_TOKEN;
@@ -15,6 +9,135 @@ const XMLRPC_PASSWORD = process.env.XMLRPC_PASSWORD;
 const POSTS_DIR = "src/content/posts";
 const UPLOADS_DIR = "src/public/uploads";
 
+// --- Minimal XML-RPC parser/serializer (no external deps) ---
+
+function xmlEscape(str) {
+  return String(str)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;");
+}
+
+function xmlUnescape(str) {
+  return String(str)
+    .replace(/&lt;/g, "<")
+    .replace(/&gt;/g, ">")
+    .replace(/&amp;/g, "&");
+}
+
+function parseValue(xml) {
+  let m;
+
+  m = xml.match(/<string>([\s\S]*?)<\/string>/);
+  if (m) return xmlUnescape(m[1]);
+
+  m = xml.match(/<int>([\s\S]*?)<\/int>/) || xml.match(/<i4>([\s\S]*?)<\/i4>/);
+  if (m) return parseInt(m[1], 10);
+
+  m = xml.match(/<boolean>([\s\S]*?)<\/boolean>/);
+  if (m) return m[1] === "1";
+
+  m = xml.match(/<double>([\s\S]*?)<\/double>/);
+  if (m) return parseFloat(m[1]);
+
+  m = xml.match(/<dateTime\.iso8601>([\s\S]*?)<\/dateTime\.iso8601>/);
+  if (m) return new Date(m[1]);
+
+  m = xml.match(/<base64>([\s\S]*?)<\/base64>/);
+  if (m) return Buffer.from(m[1], "base64");
+
+  if (xml.match(/<nil\s*\/>/)) return null;
+
+  if (xml.match(/<struct>/)) return parseStruct(xml);
+  if (xml.match(/<array>/)) return parseArray(xml);
+
+  // Implicit string (bare text inside <value>)
+  m = xml.match(/<value>([\s\S]*?)<\/value>/);
+  if (m && !m[1].match(/^\s*</)) return xmlUnescape(m[1]);
+
+  return "";
+}
+
+function parseStruct(xml) {
+  const result = {};
+  const memberRegex =
+    /<member>\s*<name>([\s\S]*?)<\/name>\s*<value>([\s\S]*?)<\/value>\s*<\/member>/g;
+  let m;
+  while ((m = memberRegex.exec(xml)) !== null) {
+    result[m[1]] = parseValue(`<value>${m[2]}</value>`);
+  }
+  return result;
+}
+
+function parseArray(xml) {
+  const dataMatch = xml.match(/<data>([\s\S]*?)<\/data>/);
+  if (!dataMatch) return [];
+  const values = [];
+  const valueRegex = /<value>([\s\S]*?)<\/value>/g;
+  let m;
+  while ((m = valueRegex.exec(dataMatch[1])) !== null) {
+    values.push(parseValue(`<value>${m[1]}</value>`));
+  }
+  return values;
+}
+
+function parseXmlRpc(body) {
+  const methodMatch = body.match(/<methodName>([\s\S]*?)<\/methodName>/);
+  if (!methodMatch) throw new Error("No methodName found");
+  const method = methodMatch[1].trim();
+
+  const params = [];
+  const paramRegex = /<param>\s*<value>([\s\S]*?)<\/value>\s*<\/param>/g;
+  let m;
+  while ((m = paramRegex.exec(body)) !== null) {
+    params.push(parseValue(`<value>${m[1]}</value>`));
+  }
+
+  return { method, params };
+}
+
+function serializeValue(val) {
+  if (val === null || val === undefined) return "<value><nil/></value>";
+  if (typeof val === "boolean")
+    return `<value><boolean>${val ? 1 : 0}</boolean></value>`;
+  if (typeof val === "number") {
+    if (Number.isInteger(val)) return `<value><int>${val}</int></value>`;
+    return `<value><double>${val}</double></value>`;
+  }
+  if (typeof val === "string")
+    return `<value><string>${xmlEscape(val)}</string></value>`;
+  if (val instanceof Date) {
+    const iso = val.toISOString().replace(/[-:]/g, "").replace(/\.\d+Z$/, "Z");
+    return `<value><dateTime.iso8601>${iso}</dateTime.iso8601></value>`;
+  }
+  if (Buffer.isBuffer(val))
+    return `<value><base64>${val.toString("base64")}</base64></value>`;
+  if (Array.isArray(val)) {
+    const items = val.map(serializeValue).join("");
+    return `<value><array><data>${items}</data></array></value>`;
+  }
+  if (typeof val === "object") {
+    const members = Object.entries(val)
+      .map(
+        ([k, v]) =>
+          `<member><name>${xmlEscape(k)}</name>${serializeValue(v)}</member>`,
+      )
+      .join("");
+    return `<value><struct>${members}</struct></value>`;
+  }
+  return `<value><string>${xmlEscape(String(val))}</string></value>`;
+}
+
+function serializeMethodResponse(result) {
+  return `<?xml version="1.0"?><methodResponse><params><param>${serializeValue(result)}</param></params></methodResponse>`;
+}
+
+function serializeFault(faultCode, faultString) {
+  return `<?xml version="1.0"?><methodResponse><fault><value><struct><member><name>faultCode</name><value><int>${faultCode}</int></value></member><member><name>faultString</name><value><string>${xmlEscape(faultString)}</string></value></member></struct></value></fault></methodResponse>`;
+}
+
+// --- Helpers ---
+
 function getOctokit() {
   return new Octokit({ auth: GITHUB_TOKEN });
 }
@@ -22,17 +145,6 @@ function getOctokit() {
 function repoParams() {
   const [owner, repo] = GITHUB_REPO.split("/");
   return { owner, repo };
-}
-
-function parseXmlRpc(body) {
-  return new Promise((resolve, reject) => {
-    const deserializer = new Deserializer("utf8");
-    const stream = Readable.from([body]);
-    deserializer.deserializeMethodCall(stream, (err, method, params) => {
-      if (err) reject(err);
-      else resolve({ method, params });
-    });
-  });
 }
 
 function authenticate(username, password) {
@@ -157,22 +269,24 @@ async function getRecentPosts(blogId, numberOfPosts) {
     path: POSTS_DIR,
   });
 
+  const count = Math.min(numberOfPosts || 10, 10);
   const mdFiles = data
     .filter((f) => f.name.endsWith(".md") && f.name !== "index.md")
     .sort((a, b) => b.name.localeCompare(a.name))
-    .slice(0, numberOfPosts || 20);
+    .slice(0, count);
 
-  const posts = [];
-  for (const file of mdFiles) {
-    const { data: fileData } = await octokit.repos.getContent({
-      owner,
-      repo,
-      path: file.path,
-    });
-    const content = Buffer.from(fileData.content, "base64").toString("utf8");
-    const postId = file.name.replace(/\.md$/, "");
-    posts.push(postStructFromFile(postId, content));
-  }
+  const posts = await Promise.all(
+    mdFiles.map(async (file) => {
+      const { data: fileData } = await octokit.repos.getContent({
+        owner,
+        repo,
+        path: file.path,
+      });
+      const content = Buffer.from(fileData.content, "base64").toString("utf8");
+      const postId = file.name.replace(/\.md$/, "");
+      return postStructFromFile(postId, content);
+    }),
+  );
   return posts;
 }
 
@@ -359,35 +473,32 @@ export const handler = async (event) => {
   }
 
   try {
-    const { method, params } = await parseXmlRpc(event.body);
+    const body = event.isBase64Encoded
+      ? Buffer.from(event.body, "base64").toString("utf8")
+      : event.body;
+
+    const { method, params } = parseXmlRpc(body);
+    console.log("XML-RPC method:", method);
     const result = await handleMethod(method, params);
-    const xml = serializer.serializeMethodResponse(result);
+    const xml = serializeMethodResponse(result);
     return {
       statusCode: 200,
       headers: { "Content-Type": "text/xml" },
       body: xml,
     };
   } catch (err) {
+    console.error("XML-RPC error:", err);
     if (err.faultCode !== undefined) {
-      const xml = serializer.serializeFault({
-        faultCode: err.faultCode,
-        faultString: err.faultString || "Unknown error",
-      });
       return {
         statusCode: 200,
         headers: { "Content-Type": "text/xml" },
-        body: xml,
+        body: serializeFault(err.faultCode, err.faultString || "Unknown error"),
       };
     }
-    console.error("XML-RPC error:", err);
-    const xml = serializer.serializeFault({
-      faultCode: -32603,
-      faultString: err.message || "Internal error",
-    });
     return {
       statusCode: 200,
       headers: { "Content-Type": "text/xml" },
-      body: xml,
+      body: serializeFault(-32603, err.message || "Internal error"),
     };
   }
 };
