@@ -1,5 +1,5 @@
 // IndieAuth token verification for Micropub endpoints
-// Verifies Bearer tokens against tokens.indieauth.com
+// Verifies Bearer tokens against self-hosted /token endpoint
 
 import { SITE_URL } from "./github.js";
 
@@ -8,7 +8,7 @@ export async function verifyToken(authHeader) {
     return null;
   }
   const token = authHeader.replace("Bearer ", "");
-  const res = await fetch("https://tokens.indieauth.com/token", {
+  const res = await fetch(`${SITE_URL}/token`, {
     headers: {
       Authorization: `Bearer ${token}`,
       Accept: "application/json",
