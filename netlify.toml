@@ -4,3 +4,8 @@
 
 [build.environment]
   NODE_VERSION = "20"
+
+[[redirects]]
+  from = "/xmlrpc"
+  to = "/.netlify/functions/xmlrpc"
+  status = 200
