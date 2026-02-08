@@ -1,48 +1,13 @@
-// Zero-dependency MetaWeblog XML-RPC endpoint for Netlify Functions
-// Uses only Node.js built-ins (fetch, Buffer) — no npm packages
+// MetaWeblog XML-RPC endpoint for Netlify Functions (MarsEdit)
 
-const SITE_URL = process.env.SITE_URL || "https://zastrow.co";
-const GITHUB_TOKEN = process.env.GITHUB_TOKEN;
-const GITHUB_REPO = process.env.GITHUB_REPO;
+import {
+  ghGet, ghPut, slugify, formatDate, buildPermalink,
+  generatePreview, dumpYaml, buildMarkdownFile,
+  SITE_URL, POSTS_DIR, UPLOADS_DIR,
+} from "./lib/github.js";
+
 const XMLRPC_USERNAME = process.env.XMLRPC_USERNAME;
 const XMLRPC_PASSWORD = process.env.XMLRPC_PASSWORD;
-const POSTS_DIR = "src/content/posts";
-const UPLOADS_DIR = "src/public/uploads";
-const GITHUB_API = "https://api.github.com";
-
-// --- GitHub API via fetch ---
-
-async function ghGet(path) {
-  const res = await fetch(`${GITHUB_API}/repos/${GITHUB_REPO}/contents/${path}`, {
-    headers: {
-      Authorization: `Bearer ${GITHUB_TOKEN}`,
-      Accept: "application/vnd.github.v3+json",
-      "User-Agent": "zastrow-xmlrpc",
-    },
-  });
-  if (!res.ok) throw new Error(`GitHub GET ${path}: ${res.status}`);
-  return res.json();
-}
-
-async function ghPut(path, message, content, sha) {
-  const body = { message, content };
-  if (sha) body.sha = sha;
-  const res = await fetch(`${GITHUB_API}/repos/${GITHUB_REPO}/contents/${path}`, {
-    method: "PUT",
-    headers: {
-      Authorization: `Bearer ${GITHUB_TOKEN}`,
-      Accept: "application/vnd.github.v3+json",
-      "Content-Type": "application/json",
-      "User-Agent": "zastrow-xmlrpc",
-    },
-    body: JSON.stringify(body),
-  });
-  if (!res.ok) {
-    const err = await res.text();
-    throw new Error(`GitHub PUT ${path}: ${res.status} ${err}`);
-  }
-  return res.json();
-}
 
 // --- XML-RPC parser/serializer ---
 
@@ -140,57 +105,6 @@ function xmlFault(code, msg) {
 
 function authenticate(u, p) {
   return u === XMLRPC_USERNAME && p === XMLRPC_PASSWORD;
-}
-
-function slugify(text) {
-  return text.toLowerCase().replace(/[^\w\s-]/g, "").replace(/\s+/g, "-").replace(/-+/g, "-").replace(/^-|-$/g, "").substring(0, 80);
-}
-
-function formatDate(d) {
-  return d instanceof Date ? d.toISOString() : new Date().toISOString();
-}
-
-function buildPermalink(date, title, slug) {
-  const d = date instanceof Date ? date : new Date(date);
-  const s = slug || slugify(title || "post");
-  return `/posts/${d.getFullYear()}/${String(d.getMonth() + 1).padStart(2, "0")}/${String(d.getDate()).padStart(2, "0")}/${s}/`;
-}
-
-function generatePreview(content) {
-  const plain = content.replace(/^#+\s.*/gm, "").replace(/!\[.*?\]\(.*?\)/g, "").replace(/\[([^\]]+)\]\(.*?\)/g, "$1").replace(/[*_~`]/g, "").trim();
-  return plain.length <= 200 ? plain : plain.substring(0, 200).replace(/\s\S*$/, "");
-}
-
-function dumpYaml(obj) {
-  const lines = [];
-  for (const [key, value] of Object.entries(obj)) {
-    if (value === "") {
-      lines.push(`${key}: ""`);
-    } else if (Array.isArray(value)) {
-      lines.push(`${key}:`);
-      value.forEach((v) => lines.push(`  - ${v}`));
-    } else if (typeof value === "boolean") {
-      lines.push(`${key}: ${value}`);
-    } else {
-      lines.push(`${key}: ${JSON.stringify(String(value))}`);
-    }
-  }
-  return lines.join("\n") + "\n";
-}
-
-function buildMarkdownFile(struct, publish) {
-  const date = struct.dateCreated ? formatDate(struct.dateCreated) : new Date().toISOString();
-  const title = struct.title || "";
-  const content = struct.description || "";
-  const preview = struct.mt_excerpt || struct.wp_excerpt || generatePreview(content);
-  const fm = { title, date, updated: "" };
-  if (preview) fm.preview = preview;
-  if (struct.mt_keywords) {
-    const tags = struct.mt_keywords.split(",").map((t) => t.trim()).filter(Boolean);
-    if (tags.length) fm.tags = tags;
-  }
-  if (!publish || struct.post_status === "draft") fm.draft = true;
-  return `---\n${dumpYaml(fm)}---\n${content}\n`;
 }
 
 function parsePost(postId, raw) {

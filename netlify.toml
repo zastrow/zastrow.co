@@ -15,3 +15,13 @@
   from = "/xmlrpc.php"
   to = "/.netlify/functions/xmlrpc"
   status = 200
+
+[[redirects]]
+  from = "/micropub"
+  to = "/.netlify/functions/micropub"
+  status = 200
+
+[[redirects]]
+  from = "/micropub-media"
+  to = "/.netlify/functions/micropub-media"
+  status = 200
