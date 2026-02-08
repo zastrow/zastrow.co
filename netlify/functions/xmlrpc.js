@@ -157,22 +157,24 @@ async function getRecentPosts(blogId, numberOfPosts) {
     path: POSTS_DIR,
   });
 
+  const count = Math.min(numberOfPosts || 10, 10);
   const mdFiles = data
     .filter((f) => f.name.endsWith(".md") && f.name !== "index.md")
     .sort((a, b) => b.name.localeCompare(a.name))
-    .slice(0, numberOfPosts || 20);
+    .slice(0, count);
 
-  const posts = [];
-  for (const file of mdFiles) {
-    const { data: fileData } = await octokit.repos.getContent({
-      owner,
-      repo,
-      path: file.path,
-    });
-    const content = Buffer.from(fileData.content, "base64").toString("utf8");
-    const postId = file.name.replace(/\.md$/, "");
-    posts.push(postStructFromFile(postId, content));
-  }
+  const posts = await Promise.all(
+    mdFiles.map(async (file) => {
+      const { data: fileData } = await octokit.repos.getContent({
+        owner,
+        repo,
+        path: file.path,
+      });
+      const content = Buffer.from(fileData.content, "base64").toString("utf8");
+      const postId = file.name.replace(/\.md$/, "");
+      return postStructFromFile(postId, content);
+    }),
+  );
   return posts;
 }
 
@@ -359,7 +361,12 @@ export const handler = async (event) => {
   }
 
   try {
-    const { method, params } = await parseXmlRpc(event.body);
+    const body = event.isBase64Encoded
+      ? Buffer.from(event.body, "base64").toString("utf8")
+      : event.body;
+
+    const { method, params } = await parseXmlRpc(body);
+    console.log("XML-RPC method:", method);
     const result = await handleMethod(method, params);
     const xml = serializer.serializeMethodResponse(result);
     return {
@@ -368,6 +375,7 @@ export const handler = async (event) => {
       body: xml,
     };
   } catch (err) {
+    console.error("XML-RPC error:", err);
     if (err.faultCode !== undefined) {
       const xml = serializer.serializeFault({
         faultCode: err.faultCode,
@@ -379,7 +387,6 @@ export const handler = async (event) => {
         body: xml,
       };
     }
-    console.error("XML-RPC error:", err);
     const xml = serializer.serializeFault({
       faultCode: -32603,
       faultString: err.message || "Internal error",
