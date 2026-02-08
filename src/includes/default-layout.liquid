@@ -20,7 +20,7 @@
 		{% endblock %}
 		<meta property="og:url" content="{{ site_url }}">
 		{% render 'head/preload' %}
-		{% render 'head/me' %}
+		{% render 'head/me', site_url: site_url %}
 		{% render 'head/feeds' %}
 		<link rel="stylesheet" href="/style.css">
 	</head>
