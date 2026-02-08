@@ -1,0 +1,15 @@
+---
+permalink: /rsd.xml
+eleventyExcludeFromCollections: true
+---
+<?xml version="1.0" encoding="UTF-8"?>
+<rsd version="1.0" xmlns="http://archipelago.phrasewise.com/rsd">
+  <service>
+    <engineName>Eleventy</engineName>
+    <engineLink>https://www.11ty.dev</engineLink>
+    <homePageLink>{{ site_url }}</homePageLink>
+    <apis>
+      <api name="MetaWeblog" preferred="true" apiLink="{{ site_url }}/xmlrpc" blogID="1" />
+    </apis>
+  </service>
+</rsd>
