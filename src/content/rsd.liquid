@@ -9,7 +9,9 @@ eleventyExcludeFromCollections: true
     <engineLink>https://www.11ty.dev</engineLink>
     <homePageLink>{{ site_url }}</homePageLink>
     <apis>
-      <api name="MetaWeblog" preferred="true" apiLink="{{ site_url }}/xmlrpc" blogID="1" />
+      <api name="WordPress" preferred="true" apiLink="{{ site_url }}/xmlrpc" blogID="1" />
+      <api name="MetaWeblog" preferred="false" apiLink="{{ site_url }}/xmlrpc" blogID="1" />
+      <api name="Blogger" preferred="false" apiLink="{{ site_url }}/xmlrpc" blogID="1" />
     </apis>
   </service>
 </rsd>
