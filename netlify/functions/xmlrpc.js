@@ -271,7 +271,7 @@ async function editPost(postId, struct, publish) {
   const existing = await ghGet(`${POSTS_DIR}/${postId}.md`);
   const existingContent = Buffer.from(existing.content, "base64").toString("utf8");
   const { fm: existingFm } = parseFrontmatter(existingContent);
-  if (!struct.custom_fields) struct.custom_fields = [];
+  if (!Array.isArray(struct.custom_fields)) struct.custom_fields = [];
   const cfKeys = new Set(struct.custom_fields.map((cf) => cf.key));
   for (const [key, value] of Object.entries(existingFm)) {
     if (!POST_STANDARD_KEYS.has(key) && !cfKeys.has(key)) {
@@ -333,7 +333,7 @@ async function editPage(pageId, struct, publish) {
   const existing = await ghGet(`${PAGES_DIR}/${pageId}.md`);
   const existingContent = Buffer.from(existing.content, "base64").toString("utf8");
   const { fm: existingFm } = parseFrontmatter(existingContent);
-  if (!struct.custom_fields) struct.custom_fields = [];
+  if (!Array.isArray(struct.custom_fields)) struct.custom_fields = [];
   const cfKeys = new Set(struct.custom_fields.map((cf) => cf.key));
   for (const [key, value] of Object.entries(existingFm)) {
     if (!PAGE_STANDARD_KEYS.has(key) && !cfKeys.has(key)) {
