@@ -144,6 +144,30 @@ function parsePost(postId, raw) {
   };
 }
 
+// WordPress wp.getPosts format (different field names from MetaWeblog)
+function parsePostWp(postId, raw) {
+  const { fm, body } = parseFrontmatter(raw);
+  const postDate = fm.date ? new Date(fm.date) : new Date();
+  const slug = postId.replace(/^\d{4}-\d{2}-\d{2}-/, "");
+  return {
+    post_id: postId,
+    post_title: fm.title || "",
+    post_content: body,
+    post_date: postDate,
+    post_date_gmt: postDate,
+    post_modified: postDate,
+    post_modified_gmt: postDate,
+    post_status: fm.draft === "true" ? "draft" : "publish",
+    post_type: "post",
+    post_name: slug,
+    post_author: "1",
+    post_excerpt: fm.preview || "",
+    link: `${SITE_URL}${buildPermalink(postDate, fm.title, slug)}`,
+    terms: [],
+    custom_fields: buildCustomFields(fm, POST_STANDARD_KEYS),
+  };
+}
+
 function parsePage(pageId, raw) {
   const { fm, body } = parseFrontmatter(raw);
   const pageDate = fm.date ? new Date(fm.date) : new Date();
@@ -358,13 +382,25 @@ async function dispatch(method, params) {
     case "wp.getPosts": {
       const [, u, p, filter] = params;
       if (!authenticate(u, p)) throw { faultCode: 403, faultString: "Authentication failed" };
-      const count = filter && filter.number ? filter.number : undefined;
-      return getRecentPosts("1", count);
+      const count = filter && filter.number ? filter.number : 100;
+      const listing = await ghGet(POSTS_DIR);
+      const files = listing
+        .filter((f) => f.name.endsWith(".md") && f.name !== "index.md")
+        .sort((a, b) => b.name.localeCompare(a.name))
+        .slice(0, count);
+      return Promise.all(
+        files.map(async (f) => {
+          const data = await ghGet(f.path);
+          const content = Buffer.from(data.content, "base64").toString("utf8");
+          return parsePostWp(f.name.replace(/\.md$/, ""), content);
+        }),
+      );
     }
     case "wp.getPost": {
       const [, pid, u, p] = params;
       if (!authenticate(u, p)) throw { faultCode: 403, faultString: "Authentication failed" };
-      return getPost(pid);
+      const data = await ghGet(`${POSTS_DIR}/${pid}.md`);
+      return parsePostWp(pid, Buffer.from(data.content, "base64").toString("utf8"));
     }
     case "wp.getPages": {
       const [, u, p, n] = params;
