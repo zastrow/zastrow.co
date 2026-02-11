@@ -1,9 +1,5 @@
 ---
-title: Uses
-permalink: /uses/index.html
-date: 2024-01-22T03:34:42.174Z
-updated: 2025-10-16T13:37:00.000-04:00
-display_update: true
+title: "Uses"
 ---
 ## Hardware
 
@@ -21,7 +17,7 @@ There is so much software I want to list, because I use a lot of it. I should st
 
 **Writing Apps:** [iA Writer](https://ia.net/writer), [Ulysses](https://ulysses.app/), [Drafts](https://getdrafts.com/), Notes.app, [Obsidian](https://obsidian.md/).
 
-**Dev Tools:** [Cursor](https://cursor.com/), [iTerm](https://iterm2.com/), [OpenAI Codex](https://openai.com/codex/), [Claude Code](https://docs.claude.com/en/api/agent-sdk/overview), [DevUtils](https://devutils.com/), [SnippetsLab](https://www.renfei.org/snippets-lab/), [Gitfox](https://www.gitfox.app/), [TablePlus](https://tableplus.com/), [Expressions](https://www.apptorium.com/expressions).
+**Dev Tools:** [Zed](https://zed.dev/), [iTerm](https://iterm2.com/), [OpenAI Codex](https://openai.com/codex/), [Claude Code](https://docs.claude.com/en/api/agent-sdk/overview), [DevUtils](https://devutils.com/), [SnippetsLab](https://www.renfei.org/snippets-lab/), [Gitfox](https://www.gitfox.app/), [TablePlus](https://tableplus.com/), [Expressions](https://www.apptorium.com/expressions).
 
 **Browsers:** The more the merrier! I use [Finicky](https://github.com/johnste/finicky) to manage it all. [Orion](https://kagi.com/orion/), [Safari](https://www.apple.com/safari/), [Google Chrome](https://www.google.com/chrome/index.html), [Firefox](https://www.mozilla.org/en-US/firefox/new/), [Microsoft Edge](https://microsoft.com/edge), [Arc](https://arc.net/), [Safari Technology Preview](https://developer.apple.com/safari/technology-preview/), [Google Chrome Canary](https://www.google.com/chrome/canary/), [Firefox Developer Edition](https://www.mozilla.org/en-US/firefox/developer/), [Firefox Nightly](https://www.mozilla.org/en-US/firefox/channel/desktop/#nightly), [Chromium](https://www.chromium.org/getting-involved/download-chromium/)
 
