@@ -1,7 +1,7 @@
 ---
 title: "Uses"
+updated: "2026-02-11T17:29:35-05:00"
 permalink: "/uses/index.html"
-updated: "2025-10-16T13:37:00.000-04:00"
 display_update: true
 ---
 ## Hardware
