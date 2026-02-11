@@ -22,6 +22,10 @@ function xmlUnescape(str) {
 
 function parseValue(xml) {
   let m;
+  // Check container types first — structs/arrays contain nested <string>/<int>
+  // tags that would falsely match if checked before containers
+  if (xml.match(/<struct>/)) return parseStruct(xml);
+  if (xml.match(/<array>/)) return parseArray(xml);
   m = xml.match(/<string>([\s\S]*?)<\/string>/);
   if (m) return xmlUnescape(m[1]);
   m = xml.match(/<int>([\s\S]*?)<\/int>/) || xml.match(/<i4>([\s\S]*?)<\/i4>/);
@@ -35,8 +39,6 @@ function parseValue(xml) {
   m = xml.match(/<base64>([\s\S]*?)<\/base64>/);
   if (m) return Buffer.from(m[1], "base64");
   if (xml.match(/<nil\s*\/>/)) return null;
-  if (xml.match(/<struct>/)) return parseStruct(xml);
-  if (xml.match(/<array>/)) return parseArray(xml);
   m = xml.match(/<value>([\s\S]*?)<\/value>/);
   if (m && !m[1].match(/^\s*</)) return xmlUnescape(m[1]);
   return "";
