@@ -84,7 +84,9 @@ function sv(val) {
   }
   if (typeof val === "string") return `<value><string>${xmlEscape(val)}</string></value>`;
   if (val instanceof Date) {
-    return `<value><dateTime.iso8601>${val.toISOString().replace(/[-:]/g, "").replace(/\.\d+Z$/, "Z")}</dateTime.iso8601></value>`;
+    const iso = val.toISOString();
+    const dt = iso.slice(0, 4) + iso.slice(5, 7) + iso.slice(8, 10) + "T" + iso.slice(11, 19);
+    return `<value><dateTime.iso8601>${dt}</dateTime.iso8601></value>`;
   }
   if (Buffer.isBuffer(val)) return `<value><base64>${val.toString("base64")}</base64></value>`;
   if (Array.isArray(val)) return `<value><array><data>${val.map(sv).join("")}</data></array></value>`;
