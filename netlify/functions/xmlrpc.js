@@ -317,6 +317,17 @@ async function dispatch(method, params) {
       if (!authenticate(u, p)) throw { faultCode: 403, faultString: "Authentication failed" };
       return [{ isAdmin: true, isPrimary: true, url: SITE_URL, blogid: "1", blogName: "Philip Zastrow", xmlrpc: `${SITE_URL}/xmlrpc` }];
     }
+    case "wp.getPosts": {
+      const [, u, p, filter] = params;
+      if (!authenticate(u, p)) throw { faultCode: 403, faultString: "Authentication failed" };
+      const count = filter && filter.number ? filter.number : undefined;
+      return getRecentPosts("1", count);
+    }
+    case "wp.getPost": {
+      const [, pid, u, p] = params;
+      if (!authenticate(u, p)) throw { faultCode: 403, faultString: "Authentication failed" };
+      return getPost(pid);
+    }
     case "wp.getPages": {
       const [, u, p, n] = params;
       if (!authenticate(u, p)) throw { faultCode: 403, faultString: "Authentication failed" };
@@ -365,6 +376,8 @@ async function dispatch(method, params) {
         "metaWeblog.newMediaObject",
         "wp.getUsersBlogs",
         "wp.getOptions",
+        "wp.getPosts",
+        "wp.getPost",
         "wp.getPages",
         "wp.getPage",
         "wp.newPage",
