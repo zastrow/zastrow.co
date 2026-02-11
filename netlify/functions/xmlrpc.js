@@ -148,7 +148,31 @@ function parsePost(postId, raw) {
   };
 }
 
-// WordPress wp.getPosts format (different field names from MetaWeblog)
+// WordPress wp.getPosts/getPost format for pages
+function parsePageWp(pageId, raw) {
+  const { fm, body } = parseFrontmatter(raw);
+  const pageDate = fm.date ? new Date(fm.date) : new Date();
+  const link = fm.permalink ? `${SITE_URL}${fm.permalink.replace(/index\.html$/, "")}` : `${SITE_URL}/${pageId}/`;
+  return {
+    post_id: pageId,
+    post_title: fm.title || "",
+    post_content: body,
+    post_date: pageDate,
+    post_date_gmt: pageDate,
+    post_modified: pageDate,
+    post_modified_gmt: pageDate,
+    post_status: fm.draft === "true" ? "draft" : "publish",
+    post_type: "page",
+    post_name: pageId,
+    post_author: "1",
+    post_excerpt: "",
+    link,
+    terms: [],
+    custom_fields: buildCustomFields(fm, PAGE_STANDARD_KEYS),
+  };
+}
+
+// WordPress wp.getPosts/getPost format (different field names from MetaWeblog)
 function parsePostWp(postId, raw) {
   const { fm, body } = parseFrontmatter(raw);
   const postDate = fm.date ? new Date(fm.date) : new Date();
@@ -327,7 +351,12 @@ async function dispatch(method, params) {
     case "metaWeblog.getPost": {
       const [pid, u, p] = params;
       if (!authenticate(u, p)) throw { faultCode: 403, faultString: "Authentication failed" };
-      return getPost(pid);
+      try {
+        return await getPost(pid);
+      } catch {
+        const data = await ghGet(`${PAGES_DIR}/${pid}.md`);
+        return parsePage(pid, Buffer.from(data.content, "base64").toString("utf8"));
+      }
     }
     case "metaWeblog.newPost": {
       const [bid, u, p, s, pub] = params;
@@ -337,7 +366,12 @@ async function dispatch(method, params) {
     case "metaWeblog.editPost": {
       const [pid, u, p, s, pub] = params;
       if (!authenticate(u, p)) throw { faultCode: 403, faultString: "Authentication failed" };
-      return editPost(pid, s, pub);
+      try {
+        await ghGet(`${POSTS_DIR}/${pid}.md`);
+        return await editPost(pid, s, pub);
+      } catch {
+        return await editPage(pid, s, pub);
+      }
     }
     case "blogger.deletePost": {
       const [, pid, u, p] = params;
@@ -412,27 +446,7 @@ async function dispatch(method, params) {
           files.map(async (f) => {
             const data = await ghGet(f.path);
             const content = Buffer.from(data.content, "base64").toString("utf8");
-            const { fm, body } = parseFrontmatter(content);
-            const pageDate = fm.date ? new Date(fm.date) : new Date();
-            const pageId = f.name.replace(/\.md$/, "");
-            const link = fm.permalink ? `${SITE_URL}${fm.permalink.replace(/index\.html$/, "")}` : `${SITE_URL}/${pageId}/`;
-            return {
-              post_id: pageId,
-              post_title: fm.title || "",
-              post_content: body,
-              post_date: pageDate,
-              post_date_gmt: pageDate,
-              post_modified: pageDate,
-              post_modified_gmt: pageDate,
-              post_status: fm.draft === "true" ? "draft" : "publish",
-              post_type: "page",
-              post_name: pageId,
-              post_author: "1",
-              post_excerpt: "",
-              link,
-              terms: [],
-              custom_fields: buildCustomFields(fm, PAGE_STANDARD_KEYS),
-            };
+            return parsePageWp(f.name.replace(/\.md$/, ""), content);
           }),
         );
       }
@@ -452,8 +466,13 @@ async function dispatch(method, params) {
     case "wp.getPost": {
       const [, pid, u, p] = params;
       if (!authenticate(u, p)) throw { faultCode: 403, faultString: "Authentication failed" };
-      const data = await ghGet(`${POSTS_DIR}/${pid}.md`);
-      return parsePostWp(pid, Buffer.from(data.content, "base64").toString("utf8"));
+      try {
+        const data = await ghGet(`${POSTS_DIR}/${pid}.md`);
+        return parsePostWp(pid, Buffer.from(data.content, "base64").toString("utf8"));
+      } catch {
+        const data = await ghGet(`${PAGES_DIR}/${pid}.md`);
+        return parsePageWp(pid, Buffer.from(data.content, "base64").toString("utf8"));
+      }
     }
     case "wp.getPageList": {
       const [, u, p] = params;
