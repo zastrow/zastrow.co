@@ -22,10 +22,12 @@ function xmlUnescape(str) {
 
 function parseValue(xml) {
   let m;
-  // Check container types first — structs/arrays contain nested <string>/<int>
-  // tags that would falsely match if checked before containers
-  if (xml.match(/<struct>/)) return parseStruct(xml);
-  if (xml.match(/<array>/)) return parseArray(xml);
+  // Determine the first child type tag to dispatch correctly —
+  // checking xml.match(/<struct>/) would match nested structs inside arrays
+  const typeMatch = xml.match(/<value[^>]*>\s*<(\w+)/);
+  const firstType = typeMatch ? typeMatch[1] : "";
+  if (firstType === "struct") return parseStruct(xml);
+  if (firstType === "array") return parseArray(xml);
   m = xml.match(/<string>([\s\S]*?)<\/string>/);
   if (m) return xmlUnescape(m[1]);
   m = xml.match(/<int>([\s\S]*?)<\/int>/) || xml.match(/<i4>([\s\S]*?)<\/i4>/);
@@ -44,26 +46,56 @@ function parseValue(xml) {
   return "";
 }
 
+// Extract top-level XML chunks by tag, respecting nesting depth
+function extractTopLevel(xml, tag) {
+  const open = `<${tag}`;
+  const close = `</${tag}>`;
+  const chunks = [];
+  let i = 0;
+  while (i < xml.length) {
+    const start = xml.indexOf(open, i);
+    if (start === -1) break;
+    let depth = 1;
+    let j = start + open.length;
+    while (j < xml.length) {
+      const nextOpen = xml.indexOf(open, j);
+      const nextClose = xml.indexOf(close, j);
+      if (nextClose === -1) { j = xml.length; break; }
+      if (nextOpen !== -1 && nextOpen < nextClose) {
+        depth++;
+        j = nextOpen + open.length;
+      } else {
+        depth--;
+        if (depth === 0) {
+          chunks.push(xml.slice(start, nextClose + close.length));
+          i = nextClose + close.length;
+          break;
+        }
+        j = nextClose + close.length;
+      }
+    }
+    if (depth > 0) break;
+  }
+  return chunks;
+}
+
 function parseStruct(xml) {
   const result = {};
-  const re = /<member>\s*<name>([\s\S]*?)<\/name>\s*<value>([\s\S]*?)<\/value>\s*<\/member>/g;
-  let m;
-  while ((m = re.exec(xml)) !== null) {
-    result[m[1]] = parseValue(`<value>${m[2]}</value>`);
+  for (const memberXml of extractTopLevel(xml, "member")) {
+    const nameMatch = memberXml.match(/<name>([\s\S]*?)<\/name>/);
+    if (!nameMatch) continue;
+    const valChunks = extractTopLevel(memberXml, "value");
+    if (valChunks.length) {
+      result[nameMatch[1]] = parseValue(valChunks[0]);
+    }
   }
   return result;
 }
 
 function parseArray(xml) {
-  const dataMatch = xml.match(/<data>([\s\S]*?)<\/data>/);
+  const dataMatch = xml.match(/<data>([\s\S]*)<\/data>/);
   if (!dataMatch) return [];
-  const values = [];
-  const re = /<value>([\s\S]*?)<\/value>/g;
-  let m;
-  while ((m = re.exec(dataMatch[1])) !== null) {
-    values.push(parseValue(`<value>${m[1]}</value>`));
-  }
-  return values;
+  return extractTopLevel(dataMatch[1], "value").map((v) => parseValue(v));
 }
 
 function parseXmlRpc(body) {
