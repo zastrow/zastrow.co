@@ -397,6 +397,41 @@ async function dispatch(method, params) {
       const [, u, p, filter] = params;
       if (!authenticate(u, p)) throw { faultCode: 403, faultString: "Authentication failed" };
       const count = filter && filter.number ? filter.number : 100;
+      const postType = filter && filter.post_type ? filter.post_type : "post";
+      if (postType === "page") {
+        const listing = await ghGet(PAGES_DIR);
+        const files = listing
+          .filter((f) => f.name.endsWith(".md"))
+          .sort((a, b) => a.name.localeCompare(b.name))
+          .slice(0, count);
+        return Promise.all(
+          files.map(async (f) => {
+            const data = await ghGet(f.path);
+            const content = Buffer.from(data.content, "base64").toString("utf8");
+            const { fm, body } = parseFrontmatter(content);
+            const pageDate = fm.date ? new Date(fm.date) : new Date();
+            const pageId = f.name.replace(/\.md$/, "");
+            const link = fm.permalink ? `${SITE_URL}${fm.permalink.replace(/index\.html$/, "")}` : `${SITE_URL}/${pageId}/`;
+            return {
+              post_id: pageId,
+              post_title: fm.title || "",
+              post_content: body,
+              post_date: pageDate,
+              post_date_gmt: pageDate,
+              post_modified: pageDate,
+              post_modified_gmt: pageDate,
+              post_status: fm.draft === "true" ? "draft" : "publish",
+              post_type: "page",
+              post_name: pageId,
+              post_author: "1",
+              post_excerpt: "",
+              link,
+              terms: [],
+              custom_fields: buildCustomFields(fm, PAGE_STANDARD_KEYS),
+            };
+          }),
+        );
+      }
       const listing = await ghGet(POSTS_DIR);
       const files = listing
         .filter((f) => f.name.endsWith(".md") && f.name !== "index.md")
