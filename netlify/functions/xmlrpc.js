@@ -335,6 +335,21 @@ async function dispatch(method, params) {
       if (!authenticate(u, p)) throw { faultCode: 403, faultString: "Authentication failed" };
       return [];
     }
+    case "wp.getAuthors": {
+      const [, u, p] = params;
+      if (!authenticate(u, p)) throw { faultCode: 403, faultString: "Authentication failed" };
+      return [{ user_id: "1", user_login: XMLRPC_USERNAME, display_name: "Philip Zastrow" }];
+    }
+    case "wp.getCommentCount": {
+      const [, u, p] = params;
+      if (!authenticate(u, p)) throw { faultCode: 403, faultString: "Authentication failed" };
+      return { approved: 0, awaiting_moderation: 0, spam: 0, total_comments: 0 };
+    }
+    case "wp.getPostFormats": {
+      const [, u, p] = params;
+      if (!authenticate(u, p)) throw { faultCode: 403, faultString: "Authentication failed" };
+      return { standard: "Standard" };
+    }
     case "wp.getUsersBlogs": {
       const [u, p] = params;
       if (!authenticate(u, p)) throw { faultCode: 403, faultString: "Authentication failed" };
@@ -403,6 +418,9 @@ async function dispatch(method, params) {
         "mt.supportedTextFilters",
         "wp.getUsersBlogs",
         "wp.getTags",
+        "wp.getAuthors",
+        "wp.getCommentCount",
+        "wp.getPostFormats",
         "wp.getOptions",
         "wp.getPosts",
         "wp.getPost",
@@ -414,6 +432,11 @@ async function dispatch(method, params) {
       ];
     }
     default:
+      // Gracefully handle unknown methods from known APIs (MarsEdit probes many)
+      console.log("XML-RPC unhandled method:", method);
+      if (method.startsWith("wp.") || method.startsWith("mt.") || method.startsWith("blogger.") || method.startsWith("metaWeblog.")) {
+        return [];
+      }
       throw { faultCode: -32601, faultString: `Method not found: ${method}` };
   }
 }
