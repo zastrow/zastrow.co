@@ -171,14 +171,28 @@ function parsePostWp(postId, raw) {
 function parsePage(pageId, raw) {
   const { fm, body } = parseFrontmatter(raw);
   const pageDate = fm.date ? new Date(fm.date) : new Date();
+  const link = fm.permalink ? `${SITE_URL}${fm.permalink.replace(/index\.html$/, "")}` : `${SITE_URL}/${pageId}/`;
   return {
     page_id: pageId,
     title: fm.title || "",
     description: body,
     dateCreated: pageDate,
-    link: fm.permalink ? `${SITE_URL}${fm.permalink.replace(/index\.html$/, "")}` : `${SITE_URL}/${pageId}/`,
+    date_created_gmt: pageDate,
+    link,
+    permaLink: link,
     wp_slug: pageId,
+    wp_author_id: "1",
+    wp_author_display_name: "Philip Zastrow",
+    wp_page_parent_id: 0,
+    wp_page_parent_title: "",
+    wp_page_order: 0,
+    wp_page_template: "default",
     page_status: fm.draft === "true" ? "draft" : "publish",
+    userid: "1",
+    excerpt: "",
+    text_more: "",
+    mt_allow_comments: 0,
+    mt_allow_pings: 0,
     custom_fields: buildCustomFields(fm, PAGE_STANDARD_KEYS),
   };
 }
