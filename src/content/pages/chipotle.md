@@ -1,6 +1,6 @@
 ---
-layout: page
 title: Chipotle
+permalink: /chipotle/index.html
 ---
 
 Hi friend! Here is my order:
@@ -10,7 +10,7 @@ Hi friend! Here is my order:
 - No Beans
 - Fajita Veggies
 - Fresh Tomato Salsa
-- Roasted Chili-Corn Salsa 
+- Roasted Chili-Corn Salsa
 - Tomatillo-Green Chili Salsa
 - Guacamole
 - If you are up for it, ask for extra cilantro on top. If not, lettuce works.

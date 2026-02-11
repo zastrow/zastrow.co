@@ -1,5 +1,4 @@
 ---
-layout: page
 title: Accessibility Statement
 display_update: false
 permalink: /accessibility/index.html

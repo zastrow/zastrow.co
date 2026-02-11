@@ -5,6 +5,7 @@ export const SITE_URL = process.env.SITE_URL || "https://zastrow.co";
 export const GITHUB_TOKEN = process.env.GITHUB_TOKEN;
 export const GITHUB_REPO = process.env.GITHUB_REPO;
 export const POSTS_DIR = "src/content/posts";
+export const PAGES_DIR = "src/content/pages";
 export const UPLOADS_DIR = "src/public/uploads";
 const GITHUB_API = "https://api.github.com";
 
@@ -80,6 +81,21 @@ export function dumpYaml(obj) {
   return lines.join("\n") + "\n";
 }
 
+// Standard post keys that map to XML-RPC fields (hidden from custom_fields)
+export const POST_STANDARD_KEYS = new Set(["title", "date", "preview", "tags", "draft", "layout"]);
+// Standard page keys (hidden from custom_fields)
+export const PAGE_STANDARD_KEYS = new Set(["title", "date", "draft", "layout"]);
+
+function applyCustomFields(fm, customFields, standardKeys) {
+  if (!Array.isArray(customFields)) return;
+  for (const cf of customFields) {
+    if (!cf.key || standardKeys.has(cf.key)) continue;
+    if (cf.value === "true") fm[cf.key] = true;
+    else if (cf.value === "false") fm[cf.key] = false;
+    else fm[cf.key] = cf.value;
+  }
+}
+
 export function buildMarkdownFile(struct, publish) {
   const date = struct.dateCreated ? formatDate(struct.dateCreated) : new Date().toISOString();
   const title = struct.title || "";
@@ -92,5 +108,15 @@ export function buildMarkdownFile(struct, publish) {
     if (tags.length) fm.tags = tags;
   }
   if (!publish || struct.post_status === "draft") fm.draft = true;
+  applyCustomFields(fm, struct.custom_fields, POST_STANDARD_KEYS);
+  return `---\n${dumpYaml(fm)}---\n${content}\n`;
+}
+
+export function buildPageFile(struct, publish) {
+  const title = struct.title || "";
+  const content = struct.description || "";
+  const fm = { title };
+  if (!publish || struct.page_status === "draft" || struct.post_status === "draft") fm.draft = true;
+  applyCustomFields(fm, struct.custom_fields, PAGE_STANDARD_KEYS);
   return `---\n${dumpYaml(fm)}---\n${content}\n`;
 }

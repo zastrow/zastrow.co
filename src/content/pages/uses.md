@@ -4,7 +4,6 @@ permalink: /uses/index.html
 date: 2024-01-22T03:34:42.174Z
 updated: 2025-10-16T13:37:00.000-04:00
 display_update: true
-layout: page
 ---
 ## Hardware
 

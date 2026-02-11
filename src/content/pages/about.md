@@ -4,7 +4,6 @@ permalink: /about/index.html
 date: 2024-01-23T03:11:05.353Z
 updated: ""
 display_update: false
-layout: page
 ---
 ## Philip
 

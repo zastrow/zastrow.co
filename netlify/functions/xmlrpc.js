@@ -2,8 +2,9 @@
 
 import {
   ghGet, ghPut, slugify, formatDate, buildPermalink,
-  generatePreview, dumpYaml, buildMarkdownFile,
-  SITE_URL, POSTS_DIR, UPLOADS_DIR,
+  generatePreview, dumpYaml, buildMarkdownFile, buildPageFile,
+  SITE_URL, POSTS_DIR, PAGES_DIR, UPLOADS_DIR,
+  POST_STANDARD_KEYS, PAGE_STANDARD_KEYS,
 } from "./lib/github.js";
 
 const XMLRPC_USERNAME = process.env.XMLRPC_USERNAME;
@@ -107,15 +108,27 @@ function authenticate(u, p) {
   return u === XMLRPC_USERNAME && p === XMLRPC_PASSWORD;
 }
 
-function parsePost(postId, raw) {
+function parseFrontmatter(raw) {
   const match = raw.match(/^---\n([\s\S]*?)\n---\n([\s\S]*)$/);
-  if (!match) return { postid: postId, title: postId, description: raw, dateCreated: new Date(), link: "" };
+  if (!match) return { fm: {}, body: raw };
   const fm = {};
   match[1].split("\n").forEach((line) => {
     const idx = line.indexOf(":");
     if (idx > 0) fm[line.slice(0, idx).trim()] = line.slice(idx + 1).trim().replace(/^["']|["']$/g, "");
   });
-  const body = match[2].trim();
+  return { fm, body: match[2].trim() };
+}
+
+function buildCustomFields(fm, standardKeys) {
+  let id = 1;
+  return Object.entries(fm)
+    .filter(([key]) => !standardKeys.has(key))
+    .map(([key, value]) => ({ id: String(id++), key, value: String(value) }));
+}
+
+function parsePost(postId, raw) {
+  const { fm, body } = parseFrontmatter(raw);
+  if (!fm.title && !body) return { postid: postId, title: postId, description: raw, dateCreated: new Date(), link: "" };
   const postDate = fm.date ? new Date(fm.date) : new Date();
   const slug = postId.replace(/^\d{4}-\d{2}-\d{2}-/, "");
   return {
@@ -127,6 +140,22 @@ function parsePost(postId, raw) {
     mt_excerpt: fm.preview || "",
     mt_keywords: "",
     post_status: fm.draft === "true" ? "draft" : "publish",
+    custom_fields: buildCustomFields(fm, POST_STANDARD_KEYS),
+  };
+}
+
+function parsePage(pageId, raw) {
+  const { fm, body } = parseFrontmatter(raw);
+  const pageDate = fm.date ? new Date(fm.date) : new Date();
+  return {
+    page_id: pageId,
+    title: fm.title || "",
+    description: body,
+    dateCreated: pageDate,
+    link: fm.permalink ? `${SITE_URL}${fm.permalink.replace(/index\.html$/, "")}` : `${SITE_URL}/${pageId}/`,
+    wp_slug: pageId,
+    page_status: fm.draft === "true" ? "draft" : "publish",
+    custom_fields: buildCustomFields(fm, PAGE_STANDARD_KEYS),
   };
 }
 
@@ -145,7 +174,7 @@ async function getRecentPosts(blogId, count) {
   const files = listing
     .filter((f) => f.name.endsWith(".md") && f.name !== "index.md")
     .sort((a, b) => b.name.localeCompare(a.name))
-    .slice(0, Math.min(count || 10, 10));
+    .slice(0, count || 100);
   return Promise.all(
     files.map(async (f) => {
       const data = await ghGet(f.path);
@@ -194,6 +223,49 @@ async function newMediaObject(blogId, struct) {
   const content = Buffer.isBuffer(struct.bits) ? struct.bits.toString("base64") : Buffer.from(struct.bits).toString("base64");
   await ghPut(`${UPLOADS_DIR}/${yyyy}/${mm}/${safeName}`, `Upload media: ${safeName} (via XML-RPC)`, content);
   return { url: `${SITE_URL}/uploads/${yyyy}/${mm}/${safeName}` };
+}
+
+// --- Page methods ---
+
+async function getPages(blogId, count) {
+  const listing = await ghGet(PAGES_DIR);
+  const files = listing
+    .filter((f) => f.name.endsWith(".md"))
+    .sort((a, b) => a.name.localeCompare(b.name))
+    .slice(0, count || 50);
+  return Promise.all(
+    files.map(async (f) => {
+      const data = await ghGet(f.path);
+      const content = Buffer.from(data.content, "base64").toString("utf8");
+      return parsePage(f.name.replace(/\.md$/, ""), content);
+    }),
+  );
+}
+
+async function getPage(pageId) {
+  const data = await ghGet(`${PAGES_DIR}/${pageId}.md`);
+  return parsePage(pageId, Buffer.from(data.content, "base64").toString("utf8"));
+}
+
+async function newPage(blogId, struct, publish) {
+  const slug = struct.wp_slug || slugify(struct.title || `page-${Date.now()}`);
+  const fileContent = buildPageFile(struct, publish);
+  await ghPut(`${PAGES_DIR}/${slug}.md`, `New page: ${struct.title || slug} (via XML-RPC)`, Buffer.from(fileContent).toString("base64"));
+  return slug;
+}
+
+async function editPage(pageId, struct, publish) {
+  const existing = await ghGet(`${PAGES_DIR}/${pageId}.md`);
+  const fileContent = buildPageFile(struct, publish);
+  await ghPut(`${PAGES_DIR}/${pageId}.md`, `Update page: ${struct.title || pageId} (via XML-RPC)`, Buffer.from(fileContent).toString("base64"), existing.sha);
+  return true;
+}
+
+async function deletePage(pageId) {
+  const page = await getPage(pageId);
+  page.page_status = "draft";
+  await editPage(pageId, { ...page, description: page.description, custom_fields: page.custom_fields }, false);
+  return true;
 }
 
 // --- Method dispatch ---
@@ -245,6 +317,31 @@ async function dispatch(method, params) {
       if (!authenticate(u, p)) throw { faultCode: 403, faultString: "Authentication failed" };
       return [{ isAdmin: true, isPrimary: true, url: SITE_URL, blogid: "1", blogName: "Philip Zastrow", xmlrpc: `${SITE_URL}/xmlrpc` }];
     }
+    case "wp.getPages": {
+      const [, u, p, n] = params;
+      if (!authenticate(u, p)) throw { faultCode: 403, faultString: "Authentication failed" };
+      return getPages("1", n);
+    }
+    case "wp.getPage": {
+      const [, pid, u, p] = params;
+      if (!authenticate(u, p)) throw { faultCode: 403, faultString: "Authentication failed" };
+      return getPage(pid);
+    }
+    case "wp.newPage": {
+      const [, u, p, s, pub] = params;
+      if (!authenticate(u, p)) throw { faultCode: 403, faultString: "Authentication failed" };
+      return newPage("1", s, pub);
+    }
+    case "wp.editPage": {
+      const [, pid, u, p, s, pub] = params;
+      if (!authenticate(u, p)) throw { faultCode: 403, faultString: "Authentication failed" };
+      return editPage(pid, s, pub);
+    }
+    case "wp.deletePage": {
+      const [, pid, u, p] = params;
+      if (!authenticate(u, p)) throw { faultCode: 403, faultString: "Authentication failed" };
+      return deletePage(pid);
+    }
     case "wp.getOptions": {
       const [, u, p] = params;
       if (!authenticate(u, p)) throw { faultCode: 403, faultString: "Authentication failed" };
@@ -268,6 +365,11 @@ async function dispatch(method, params) {
         "metaWeblog.newMediaObject",
         "wp.getUsersBlogs",
         "wp.getOptions",
+        "wp.getPages",
+        "wp.getPage",
+        "wp.newPage",
+        "wp.editPage",
+        "wp.deletePage",
       ];
     }
     default:

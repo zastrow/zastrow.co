@@ -1,6 +1,6 @@
 ---
-layout: page
 title: The Shift
+permalink: /the-shift/index.html
 ---
 
 The Shift is a project started by my cohorts at [Sparkbox](https://seesparkbox.com/foundry/introducing_the_shift). The idea is that each month a topic is selected and published on [Twitter](https://twitter.com/startYourShift) and via an [email newsletter](http://seesparkbox.us1.list-manage.com/subscribe?u=c2fcafb7ccc2db34e99075bb1&id=bb05c6c1af). The goal is to encourage a wide conversation on topics pertinent to the web industry. Then, at the end of the month, each contributor publishes their response to the topic, then shares it on Twitter using the [#startYourShift](https://twitter.com/hashtag/startYourShift?src=hash) hashtag to group the conversation together.
