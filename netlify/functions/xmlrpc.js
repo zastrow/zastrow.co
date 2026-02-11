@@ -463,8 +463,31 @@ async function dispatch(method, params) {
         }),
       );
     }
+    case "wp.editPost": {
+      const [, u, p, pid, content] = params;
+      if (!authenticate(u, p)) throw { faultCode: 403, faultString: "Authentication failed" };
+      const struct = {
+        title: content.post_title || "",
+        description: content.post_content || "",
+        mt_excerpt: content.post_excerpt || "",
+        post_status: content.post_status,
+        custom_fields: content.custom_fields,
+        dateCreated: content.post_date,
+        mt_keywords: content.terms_names?.post_tag?.join(", ") || "",
+      };
+      if (content.post_type === "page") {
+        struct.page_status = content.post_status;
+        return editPage(pid, struct, content.post_status === "publish");
+      }
+      try {
+        await ghGet(`${POSTS_DIR}/${pid}.md`);
+        return editPost(pid, struct, content.post_status === "publish");
+      } catch {
+        return editPage(pid, struct, content.post_status === "publish");
+      }
+    }
     case "wp.getPost": {
-      const [, pid, u, p] = params;
+      const [, u, p, pid] = params;
       if (!authenticate(u, p)) throw { faultCode: 403, faultString: "Authentication failed" };
       try {
         const data = await ghGet(`${POSTS_DIR}/${pid}.md`);
@@ -563,6 +586,7 @@ async function dispatch(method, params) {
         "wp.getOptions",
         "wp.getPosts",
         "wp.getPost",
+        "wp.editPost",
         "wp.getPages",
         "wp.getPageList",
         "wp.getPageStatusList",
