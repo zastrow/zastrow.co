@@ -279,6 +279,7 @@ async function editPost(postId, struct, publish) {
     }
   }
   const fileContent = buildMarkdownFile(struct, publish);
+  if (fileContent === existingContent) return true;
   await ghPut(`${POSTS_DIR}/${postId}.md`, `Update post: ${struct.title || postId} (via XML-RPC)`, Buffer.from(fileContent).toString("base64"), existing.sha);
   return true;
 }
@@ -341,6 +342,7 @@ async function editPage(pageId, struct, publish) {
     }
   }
   const fileContent = buildPageFile(struct, publish);
+  if (fileContent === existingContent) return true;
   await ghPut(`${PAGES_DIR}/${pageId}.md`, `Update page: ${struct.title || pageId} (via XML-RPC)`, Buffer.from(fileContent).toString("base64"), existing.sha);
   return true;
 }
