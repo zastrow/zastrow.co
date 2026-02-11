@@ -312,6 +312,29 @@ async function dispatch(method, params) {
       if (!authenticate(u, p)) throw { faultCode: 403, faultString: "Authentication failed" };
       return newMediaObject(bid, s);
     }
+    case "mt.getCategoryList": {
+      const [, u, p] = params;
+      if (!authenticate(u, p)) throw { faultCode: 403, faultString: "Authentication failed" };
+      return [];
+    }
+    case "mt.getPostCategories": {
+      const [, u, p] = params;
+      if (!authenticate(u, p)) throw { faultCode: 403, faultString: "Authentication failed" };
+      return [];
+    }
+    case "mt.setPostCategories": {
+      const [, u, p] = params;
+      if (!authenticate(u, p)) throw { faultCode: 403, faultString: "Authentication failed" };
+      return true;
+    }
+    case "mt.supportedTextFilters": {
+      return [{ key: "0", label: "None" }];
+    }
+    case "wp.getTags": {
+      const [, u, p] = params;
+      if (!authenticate(u, p)) throw { faultCode: 403, faultString: "Authentication failed" };
+      return [];
+    }
     case "wp.getUsersBlogs": {
       const [u, p] = params;
       if (!authenticate(u, p)) throw { faultCode: 403, faultString: "Authentication failed" };
@@ -374,7 +397,12 @@ async function dispatch(method, params) {
         "metaWeblog.getRecentPosts",
         "metaWeblog.getCategories",
         "metaWeblog.newMediaObject",
+        "mt.getCategoryList",
+        "mt.getPostCategories",
+        "mt.setPostCategories",
+        "mt.supportedTextFilters",
         "wp.getUsersBlogs",
+        "wp.getTags",
         "wp.getOptions",
         "wp.getPosts",
         "wp.getPost",
