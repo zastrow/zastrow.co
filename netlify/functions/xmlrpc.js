@@ -269,6 +269,15 @@ async function newPost(blogId, struct, publish) {
 
 async function editPost(postId, struct, publish) {
   const existing = await ghGet(`${POSTS_DIR}/${postId}.md`);
+  const existingContent = Buffer.from(existing.content, "base64").toString("utf8");
+  const { fm: existingFm } = parseFrontmatter(existingContent);
+  if (!struct.custom_fields) struct.custom_fields = [];
+  const cfKeys = new Set(struct.custom_fields.map((cf) => cf.key));
+  for (const [key, value] of Object.entries(existingFm)) {
+    if (!POST_STANDARD_KEYS.has(key) && !cfKeys.has(key)) {
+      struct.custom_fields.push({ key, value: String(value) });
+    }
+  }
   const fileContent = buildMarkdownFile(struct, publish);
   await ghPut(`${POSTS_DIR}/${postId}.md`, `Update post: ${struct.title || postId} (via XML-RPC)`, Buffer.from(fileContent).toString("base64"), existing.sha);
   return true;
@@ -322,6 +331,15 @@ async function newPage(blogId, struct, publish) {
 
 async function editPage(pageId, struct, publish) {
   const existing = await ghGet(`${PAGES_DIR}/${pageId}.md`);
+  const existingContent = Buffer.from(existing.content, "base64").toString("utf8");
+  const { fm: existingFm } = parseFrontmatter(existingContent);
+  if (!struct.custom_fields) struct.custom_fields = [];
+  const cfKeys = new Set(struct.custom_fields.map((cf) => cf.key));
+  for (const [key, value] of Object.entries(existingFm)) {
+    if (!PAGE_STANDARD_KEYS.has(key) && !cfKeys.has(key)) {
+      struct.custom_fields.push({ key, value: String(value) });
+    }
+  }
   const fileContent = buildPageFile(struct, publish);
   await ghPut(`${PAGES_DIR}/${pageId}.md`, `Update page: ${struct.title || pageId} (via XML-RPC)`, Buffer.from(fileContent).toString("base64"), existing.sha);
   return true;
