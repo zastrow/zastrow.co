@@ -451,6 +451,37 @@ async function dispatch(method, params) {
       const data = await ghGet(`${POSTS_DIR}/${pid}.md`);
       return parsePostWp(pid, Buffer.from(data.content, "base64").toString("utf8"));
     }
+    case "wp.getPageList": {
+      const [, u, p] = params;
+      if (!authenticate(u, p)) throw { faultCode: 403, faultString: "Authentication failed" };
+      const listing = await ghGet(PAGES_DIR);
+      const files = listing.filter((f) => f.name.endsWith(".md"));
+      return Promise.all(
+        files.map(async (f) => {
+          const data = await ghGet(f.path);
+          const content = Buffer.from(data.content, "base64").toString("utf8");
+          const { fm } = parseFrontmatter(content);
+          const pageDate = fm.date ? new Date(fm.date) : new Date();
+          return {
+            page_id: f.name.replace(/\.md$/, ""),
+            page_title: fm.title || f.name.replace(/\.md$/, ""),
+            page_parent_id: 0,
+            dateCreated: pageDate,
+            date_created_gmt: pageDate,
+          };
+        }),
+      );
+    }
+    case "wp.getPageStatusList": {
+      const [, u, p] = params;
+      if (!authenticate(u, p)) throw { faultCode: 403, faultString: "Authentication failed" };
+      return { draft: "Draft", publish: "Published" };
+    }
+    case "wp.getPageTemplates": {
+      const [, u, p] = params;
+      if (!authenticate(u, p)) throw { faultCode: 403, faultString: "Authentication failed" };
+      return { Default: "default" };
+    }
     case "wp.getPages": {
       const [, u, p, n] = params;
       if (!authenticate(u, p)) throw { faultCode: 403, faultString: "Authentication failed" };
@@ -510,6 +541,9 @@ async function dispatch(method, params) {
         "wp.getPosts",
         "wp.getPost",
         "wp.getPages",
+        "wp.getPageList",
+        "wp.getPageStatusList",
+        "wp.getPageTemplates",
         "wp.getPage",
         "wp.newPage",
         "wp.editPage",
