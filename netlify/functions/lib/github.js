@@ -13,14 +13,22 @@ const GITHUB_API = "https://api.github.com";
 // --- GitHub API via fetch ---
 
 export async function ghGet(path) {
-  const res = await fetch(`${GITHUB_API}/repos/${GITHUB_REPO}/contents/${path}`, {
-    headers: {
-      Authorization: `Bearer ${GITHUB_TOKEN}`,
-      Accept: "application/vnd.github.v3+json",
-      "User-Agent": "zastrow-netlify",
-    },
-  });
-  if (!res.ok) throw new Error(`GitHub GET ${path}: ${res.status}`);
+  const headers = {
+    Authorization: `Bearer ${GITHUB_TOKEN}`,
+    Accept: "application/vnd.github.v3+json",
+    "User-Agent": "zastrow-netlify",
+  };
+  let res = await fetch(`${GITHUB_API}/repos/${GITHUB_REPO}/contents/${path}`, { headers });
+  // Retry once on 403 (secondary rate limit) after a short delay
+  if (res.status === 403) {
+    const retryAfter = parseInt(res.headers.get("retry-after") || "2", 10);
+    await new Promise((r) => setTimeout(r, retryAfter * 1000));
+    res = await fetch(`${GITHUB_API}/repos/${GITHUB_REPO}/contents/${path}`, { headers });
+  }
+  if (!res.ok) {
+    const body = await res.text();
+    throw new Error(`GitHub GET ${path}: ${res.status} ${body}`);
+  }
   return res.json();
 }
 
