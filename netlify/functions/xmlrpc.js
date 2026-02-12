@@ -138,6 +138,21 @@ function xmlFault(code, msg) {
   return `<?xml version="1.0"?><methodResponse><fault><value><struct><member><name>faultCode</name><value><int>${code}</int></value></member><member><name>faultString</name><value><string>${xmlEscape(msg)}</string></value></member></struct></value></fault></methodResponse>`;
 }
 
+// --- Concurrency limiter for GitHub API calls ---
+
+async function mapWithConcurrency(items, fn, concurrency = 5) {
+  const results = new Array(items.length);
+  let index = 0;
+  const workers = Array.from({ length: Math.min(concurrency, items.length) }, async () => {
+    while (index < items.length) {
+      const i = index++;
+      results[i] = await fn(items[i]);
+    }
+  });
+  await Promise.all(workers);
+  return results;
+}
+
 // --- Helpers ---
 
 function authenticate(u, p) {
@@ -295,14 +310,12 @@ async function getRecentPosts(blogId, count) {
   const files = listing
     .filter((f) => f.name.endsWith(".md") && f.name !== "index.md")
     .sort((a, b) => b.name.localeCompare(a.name))
-    .slice(0, count || 100);
-  return Promise.all(
-    files.map(async (f) => {
-      const data = await ghGet(f.path);
-      const content = Buffer.from(data.content, "base64").toString("utf8");
-      return parsePost(f.name.replace(/\.md$/, ""), content);
-    }),
-  );
+    .slice(0, count || 25);
+  return mapWithConcurrency(files, async (f) => {
+    const data = await ghGet(f.path);
+    const content = Buffer.from(data.content, "base64").toString("utf8");
+    return parsePost(f.name.replace(/\.md$/, ""), content);
+  });
 }
 
 async function getPost(postId) {
@@ -363,14 +376,12 @@ async function getPages(blogId, count) {
   const files = listing
     .filter((f) => f.name.endsWith(".md"))
     .sort((a, b) => a.name.localeCompare(b.name))
-    .slice(0, count || 50);
-  return Promise.all(
-    files.map(async (f) => {
-      const data = await ghGet(f.path);
-      const content = Buffer.from(data.content, "base64").toString("utf8");
-      return parsePage(f.name.replace(/\.md$/, ""), content);
-    }),
-  );
+    .slice(0, count || 25);
+  return mapWithConcurrency(files, async (f) => {
+    const data = await ghGet(f.path);
+    const content = Buffer.from(data.content, "base64").toString("utf8");
+    return parsePage(f.name.replace(/\.md$/, ""), content);
+  });
 }
 
 async function getPage(pageId) {
@@ -554,7 +565,7 @@ async function dispatch(method, params) {
     case "wp.getPosts": {
       const [, u, p, filter] = params;
       if (!authenticate(u, p)) throw { faultCode: 403, faultString: "Authentication failed" };
-      const count = filter && filter.number ? filter.number : 100;
+      const count = filter && filter.number ? filter.number : 25;
       const postType = filter && filter.post_type ? filter.post_type : "post";
       if (postType === "page") {
         const listing = await ghGet(PAGES_DIR);
@@ -562,13 +573,11 @@ async function dispatch(method, params) {
           .filter((f) => f.name.endsWith(".md"))
           .sort((a, b) => a.name.localeCompare(b.name))
           .slice(0, count);
-        return Promise.all(
-          files.map(async (f) => {
-            const data = await ghGet(f.path);
-            const content = Buffer.from(data.content, "base64").toString("utf8");
-            return parsePageWp(f.name.replace(/\.md$/, ""), content);
-          }),
-        );
+        return mapWithConcurrency(files, async (f) => {
+          const data = await ghGet(f.path);
+          const content = Buffer.from(data.content, "base64").toString("utf8");
+          return parsePageWp(f.name.replace(/\.md$/, ""), content);
+        });
       }
       if (postType === "book") {
         const listing = await ghGet(BOOKS_DIR);
@@ -576,26 +585,22 @@ async function dispatch(method, params) {
           .filter((f) => f.name.endsWith(".md"))
           .sort((a, b) => b.name.localeCompare(a.name))
           .slice(0, count);
-        return Promise.all(
-          files.map(async (f) => {
-            const data = await ghGet(f.path);
-            const content = Buffer.from(data.content, "base64").toString("utf8");
-            return parseBookWp(f.name.replace(/\.md$/, ""), content);
-          }),
-        );
+        return mapWithConcurrency(files, async (f) => {
+          const data = await ghGet(f.path);
+          const content = Buffer.from(data.content, "base64").toString("utf8");
+          return parseBookWp(f.name.replace(/\.md$/, ""), content);
+        });
       }
       const listing = await ghGet(POSTS_DIR);
       const files = listing
         .filter((f) => f.name.endsWith(".md") && f.name !== "index.md")
         .sort((a, b) => b.name.localeCompare(a.name))
         .slice(0, count);
-      return Promise.all(
-        files.map(async (f) => {
-          const data = await ghGet(f.path);
-          const content = Buffer.from(data.content, "base64").toString("utf8");
-          return parsePostWp(f.name.replace(/\.md$/, ""), content);
-        }),
-      );
+      return mapWithConcurrency(files, async (f) => {
+        const data = await ghGet(f.path);
+        const content = Buffer.from(data.content, "base64").toString("utf8");
+        return parsePostWp(f.name.replace(/\.md$/, ""), content);
+      });
     }
     case "wp.editPost": {
       const [, u, p, pid, content] = params;
@@ -652,21 +657,19 @@ async function dispatch(method, params) {
       if (!authenticate(u, p)) throw { faultCode: 403, faultString: "Authentication failed" };
       const listing = await ghGet(PAGES_DIR);
       const files = listing.filter((f) => f.name.endsWith(".md"));
-      return Promise.all(
-        files.map(async (f) => {
-          const data = await ghGet(f.path);
-          const content = Buffer.from(data.content, "base64").toString("utf8");
-          const { fm } = parseFrontmatter(content);
-          const pageDate = fm.date ? new Date(fm.date) : new Date();
-          return {
-            page_id: f.name.replace(/\.md$/, ""),
-            page_title: fm.title || f.name.replace(/\.md$/, ""),
-            page_parent_id: 0,
-            dateCreated: pageDate,
-            date_created_gmt: pageDate,
-          };
-        }),
-      );
+      return mapWithConcurrency(files, async (f) => {
+        const data = await ghGet(f.path);
+        const content = Buffer.from(data.content, "base64").toString("utf8");
+        const { fm } = parseFrontmatter(content);
+        const pageDate = fm.date ? new Date(fm.date) : new Date();
+        return {
+          page_id: f.name.replace(/\.md$/, ""),
+          page_title: fm.title || f.name.replace(/\.md$/, ""),
+          page_parent_id: 0,
+          dateCreated: pageDate,
+          date_created_gmt: pageDate,
+        };
+      });
     }
     case "wp.getPageStatusList": {
       const [, u, p] = params;
