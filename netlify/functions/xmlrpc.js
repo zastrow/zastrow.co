@@ -2,9 +2,9 @@
 
 import {
   ghGet, ghPut, slugify, formatDate, buildPermalink,
-  generatePreview, dumpYaml, buildMarkdownFile, buildPageFile,
-  SITE_URL, POSTS_DIR, PAGES_DIR, UPLOADS_DIR,
-  POST_STANDARD_KEYS, PAGE_STANDARD_KEYS,
+  generatePreview, dumpYaml, buildMarkdownFile, buildPageFile, buildBookFile,
+  SITE_URL, POSTS_DIR, PAGES_DIR, BOOKS_DIR, UPLOADS_DIR,
+  POST_STANDARD_KEYS, PAGE_STANDARD_KEYS, BOOK_STANDARD_KEYS,
 } from "./lib/github.js";
 
 const XMLRPC_USERNAME = process.env.XMLRPC_USERNAME;
@@ -228,6 +228,29 @@ function parsePostWp(postId, raw) {
   };
 }
 
+function parseBookWp(bookId, raw) {
+  const { fm, body } = parseFrontmatter(raw);
+  const bookDate = fm.date ? new Date(fm.date) : new Date();
+  const link = fm.permalink ? `${SITE_URL}${fm.permalink}` : `${SITE_URL}/books/${bookId}/`;
+  return {
+    post_id: bookId,
+    post_title: fm.title || "",
+    post_content: body,
+    post_date: bookDate,
+    post_date_gmt: bookDate,
+    post_modified: bookDate,
+    post_modified_gmt: bookDate,
+    post_status: fm.draft === "true" ? "draft" : "publish",
+    post_type: "book",
+    post_name: bookId,
+    post_author: "1",
+    post_excerpt: "",
+    link,
+    terms: [],
+    custom_fields: buildCustomFields(fm, BOOK_STANDARD_KEYS),
+  };
+}
+
 function parsePage(pageId, raw) {
   const { fm, body } = parseFrontmatter(raw);
   const pageDate = fm.date ? new Date(fm.date) : new Date();
@@ -386,6 +409,42 @@ async function deletePage(pageId) {
   return true;
 }
 
+// --- Book methods ---
+
+async function newBook(blogId, struct, publish) {
+  const date = struct.dateCreated instanceof Date ? struct.dateCreated : new Date();
+  const yyyy = date.getFullYear();
+  const mm = String(date.getMonth() + 1).padStart(2, "0");
+  const dd = String(date.getDate()).padStart(2, "0");
+  const slug = slugify(struct.title || `book-${Date.now()}`);
+  const bookId = `${yyyy}-${mm}-${dd}-${slug}`;
+  struct._fileId = bookId;
+  const fileContent = buildBookFile(struct, publish);
+  await ghPut(`${BOOKS_DIR}/${bookId}.md`, `New book: ${struct.title || bookId} (via XML-RPC)`, Buffer.from(fileContent).toString("base64"));
+  return bookId;
+}
+
+async function editBook(bookId, struct, publish) {
+  const existing = await ghGet(`${BOOKS_DIR}/${bookId}.md`);
+  const existingContent = Buffer.from(existing.content, "base64").toString("utf8");
+  const { fm: existingFm } = parseFrontmatter(existingContent);
+  if (existingFm.author && !struct.author) struct.author = existingFm.author;
+  if (existingFm.isbn && !struct.isbn) struct.isbn = existingFm.isbn;
+  if (existingFm.rating && !struct.rating) struct.rating = existingFm.rating;
+  struct._fileId = bookId;
+  if (!Array.isArray(struct.custom_fields)) struct.custom_fields = [];
+  const cfKeys = new Set(struct.custom_fields.map((cf) => cf.key));
+  for (const [key, value] of Object.entries(existingFm)) {
+    if (!BOOK_STANDARD_KEYS.has(key) && !cfKeys.has(key)) {
+      struct.custom_fields.push({ key, value: String(value) });
+    }
+  }
+  const fileContent = buildBookFile(struct, publish);
+  if (fileContent === existingContent) return true;
+  await ghPut(`${BOOKS_DIR}/${bookId}.md`, `Update book: ${struct.title || bookId} (via XML-RPC)`, Buffer.from(fileContent).toString("base64"), existing.sha);
+  return true;
+}
+
 // --- Method dispatch ---
 
 async function dispatch(method, params) {
@@ -478,6 +537,15 @@ async function dispatch(method, params) {
       if (!authenticate(u, p)) throw { faultCode: 403, faultString: "Authentication failed" };
       return { standard: "Standard" };
     }
+    case "wp.getPostTypes": {
+      const [, u, p] = params;
+      if (!authenticate(u, p)) throw { faultCode: 403, faultString: "Authentication failed" };
+      return {
+        post: { name: "post", label: "Posts", hierarchical: false, public: true, show_ui: true, supports: ["title", "editor", "custom-fields"] },
+        page: { name: "page", label: "Pages", hierarchical: true, public: true, show_ui: true, supports: ["title", "editor", "custom-fields"] },
+        book: { name: "book", label: "Books", hierarchical: false, public: true, show_ui: true, supports: ["title", "editor", "custom-fields"] },
+      };
+    }
     case "wp.getUsersBlogs": {
       const [u, p] = params;
       if (!authenticate(u, p)) throw { faultCode: 403, faultString: "Authentication failed" };
@@ -499,6 +567,20 @@ async function dispatch(method, params) {
             const data = await ghGet(f.path);
             const content = Buffer.from(data.content, "base64").toString("utf8");
             return parsePageWp(f.name.replace(/\.md$/, ""), content);
+          }),
+        );
+      }
+      if (postType === "book") {
+        const listing = await ghGet(BOOKS_DIR);
+        const files = listing
+          .filter((f) => f.name.endsWith(".md"))
+          .sort((a, b) => b.name.localeCompare(a.name))
+          .slice(0, count);
+        return Promise.all(
+          files.map(async (f) => {
+            const data = await ghGet(f.path);
+            const content = Buffer.from(data.content, "base64").toString("utf8");
+            return parseBookWp(f.name.replace(/\.md$/, ""), content);
           }),
         );
       }
@@ -531,6 +613,17 @@ async function dispatch(method, params) {
         struct.page_status = content.post_status;
         return editPage(pid, struct, content.post_status === "publish");
       }
+      if (content.post_type === "book") {
+        // Extract book-specific fields from custom_fields
+        if (Array.isArray(content.custom_fields)) {
+          for (const cf of content.custom_fields) {
+            if (cf.key === "author") struct.author = cf.value;
+            if (cf.key === "isbn") struct.isbn = cf.value;
+            if (cf.key === "rating") struct.rating = cf.value;
+          }
+        }
+        return editBook(pid, struct, content.post_status === "publish");
+      }
       try {
         await ghGet(`${POSTS_DIR}/${pid}.md`);
         return editPost(pid, struct, content.post_status === "publish");
@@ -545,8 +638,13 @@ async function dispatch(method, params) {
         const data = await ghGet(`${POSTS_DIR}/${pid}.md`);
         return parsePostWp(pid, Buffer.from(data.content, "base64").toString("utf8"));
       } catch {
-        const data = await ghGet(`${PAGES_DIR}/${pid}.md`);
-        return parsePageWp(pid, Buffer.from(data.content, "base64").toString("utf8"));
+        try {
+          const data = await ghGet(`${PAGES_DIR}/${pid}.md`);
+          return parsePageWp(pid, Buffer.from(data.content, "base64").toString("utf8"));
+        } catch {
+          const data = await ghGet(`${BOOKS_DIR}/${pid}.md`);
+          return parseBookWp(pid, Buffer.from(data.content, "base64").toString("utf8"));
+        }
       }
     }
     case "wp.getPageList": {
@@ -635,6 +733,7 @@ async function dispatch(method, params) {
         "wp.getAuthors",
         "wp.getCommentCount",
         "wp.getPostFormats",
+        "wp.getPostTypes",
         "wp.getOptions",
         "wp.getPosts",
         "wp.getPost",

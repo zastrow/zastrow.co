@@ -6,6 +6,7 @@ export const GITHUB_TOKEN = process.env.GITHUB_TOKEN;
 export const GITHUB_REPO = process.env.GITHUB_REPO;
 export const POSTS_DIR = "src/content/posts";
 export const PAGES_DIR = "src/content/pages";
+export const BOOKS_DIR = "src/content/books";
 export const UPLOADS_DIR = "src/public/uploads";
 const GITHUB_API = "https://api.github.com";
 
@@ -85,8 +86,10 @@ export function dumpYaml(obj) {
 export const POST_STANDARD_KEYS = new Set(["title", "date", "preview", "tags", "draft", "layout"]);
 // Standard page keys (hidden from custom_fields)
 export const PAGE_STANDARD_KEYS = new Set(["title", "date", "draft", "layout"]);
+// Standard book keys (hidden from custom_fields)
+export const BOOK_STANDARD_KEYS = new Set(["title", "date", "draft", "layout", "author", "isbn", "rating"]);
 
-function applyCustomFields(fm, customFields, standardKeys) {
+export function applyCustomFields(fm, customFields, standardKeys) {
   if (!Array.isArray(customFields)) return;
   for (const cf of customFields) {
     if (!cf.key || standardKeys.has(cf.key)) continue;
@@ -109,6 +112,21 @@ export function buildMarkdownFile(struct, publish) {
   }
   if (!publish || struct.post_status === "draft") fm.draft = true;
   applyCustomFields(fm, struct.custom_fields, POST_STANDARD_KEYS);
+  return `---\n${dumpYaml(fm)}---\n${content}\n`;
+}
+
+export function buildBookFile(struct, publish) {
+  const title = struct.title || "";
+  const content = struct.description || "";
+  const date = struct.dateCreated ? formatDate(struct.dateCreated) : new Date().toISOString().slice(0, 10);
+  const fm = { layout: "book", title };
+  if (struct.author) fm.author = struct.author;
+  if (struct.isbn) fm.isbn = struct.isbn;
+  fm.date = date;
+  if (struct.rating) fm.rating = parseInt(struct.rating, 10) || 0;
+  if (!publish || struct.post_status === "draft") fm.draft = true;
+  applyCustomFields(fm, struct.custom_fields, BOOK_STANDARD_KEYS);
+  if (!fm.permalink) fm.permalink = `/books/${struct._fileId || slugify(title)}/`;
   return `---\n${dumpYaml(fm)}---\n${content}\n`;
 }
 
