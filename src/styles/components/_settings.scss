@@ -21,6 +21,20 @@
 		list-style: '';
 		grid-template-columns: 1fr 1fr 1fr;
 		gap: var(--size-1);
+		position: relative;
+
+		&::before {
+			content: '';
+			position: absolute;
+			width: 2em;
+			height: 2em;
+			border-radius: var(--radius-round);
+			background-color: var(--color-text);
+			top: var(--size-1);
+			left: var(--size-1);
+			transform: translateX(calc(var(--active-index, 0) * (2em + var(--size-1))));
+			transition: transform 200ms ease-in-out;
+		}
 	}
 
 	&__item {
@@ -34,6 +48,8 @@
 		align-items: center;
 		justify-content: center;
 		border-radius: var(--radius-round);
+		position: relative;
+		z-index: 1;
 
 		&:not(#{&}--active):hover {
 			background-color: var(--grey-invert-1);
@@ -41,7 +57,6 @@
 
 		&--active {
 			color: var(--color-surface);
-			background-color: var(--color-text);
 		}
 	}
 
