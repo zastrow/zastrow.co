@@ -4,3 +4,5 @@ dist/
 .cache
 .claude/
 .env
+
+.DS_Store
