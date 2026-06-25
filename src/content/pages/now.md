@@ -11,4 +11,4 @@ What is really cool is I get to show off my work directly to customers and see t
 
 Now that I am back from the conference, it is time to focus on getting those features to public release state.
 
-On top of that, I am hoping to get my first \[Cereal Syndicate](https://cerealsyndicate.co) product in a limited beta release. I’ve been so busy with Box Out, my side project has not had the level of attention I wanted, but a good milestone is forthcoming.
+On top of that, I am hoping to get my first [Cereal Syndicate](https://cerealsyndicate.co) product in a limited beta release. I’ve been so busy with Box Out, my side project has not had the level of attention I wanted, but a good milestone is forthcoming.
